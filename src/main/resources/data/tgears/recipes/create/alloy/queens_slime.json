@@ -1,0 +1,23 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/cobalt"
+    },
+    {
+      "tag": "forge:ingots/gold"
+    },
+    {
+      "amount": 250,
+      "fluid": "tconstruct:magma",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "item": "tconstruct:queens_slime_ingot"
+    }
+  ]
+}

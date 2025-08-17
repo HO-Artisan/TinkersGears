@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:copper_valve_handle"
+  },
+  "result": {
+    "amount": 270,
+    "tag": "forge:molten_copper"
+  },
+  "temperature": 605,
+  "time": 54
+}

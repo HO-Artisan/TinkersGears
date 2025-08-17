@@ -1,0 +1,66 @@
+{
+  "type": "forge:conditional",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:raw_materials/silver"
+    }
+  ],
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "mantle:tag_filled",
+          "tag": "forge:ingots/lead"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:melting",
+        "byproducts": [
+          {
+            "amount": 30,
+            "rate": "metal",
+            "tag": "forge:molten_lead"
+          }
+        ],
+        "ingredient": {
+          "item": "create:crushed_raw_silver"
+        },
+        "rate": "metal",
+        "result": {
+          "amount": 150,
+          "tag": "forge:molten_silver"
+        },
+        "temperature": 790,
+        "time": 90
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:melting",
+        "byproducts": [
+          {
+            "amount": 30,
+            "rate": "metal",
+            "tag": "forge:molten_gold"
+          }
+        ],
+        "ingredient": {
+          "item": "create:crushed_raw_silver"
+        },
+        "rate": "metal",
+        "result": {
+          "amount": 150,
+          "tag": "forge:molten_silver"
+        },
+        "temperature": 790,
+        "time": 90
+      }
+    }
+  ]
+}

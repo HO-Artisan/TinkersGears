@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:fluid_pipe"
+  },
+  "result": {
+    "amount": 30,
+    "tag": "forge:molten_copper"
+  },
+  "temperature": 605,
+  "time": 18
+}

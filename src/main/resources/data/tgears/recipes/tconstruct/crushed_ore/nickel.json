@@ -1,0 +1,66 @@
+{
+  "type": "forge:conditional",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:raw_materials/nickel"
+    }
+  ],
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "mantle:tag_filled",
+          "tag": "forge:ingots/platinum"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:melting",
+        "byproducts": [
+          {
+            "amount": 30,
+            "rate": "metal",
+            "tag": "forge:molten_platinum"
+          }
+        ],
+        "ingredient": {
+          "item": "create:crushed_raw_nickel"
+        },
+        "rate": "metal",
+        "result": {
+          "amount": 150,
+          "tag": "forge:molten_nickel"
+        },
+        "temperature": 950,
+        "time": 97
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:melting",
+        "byproducts": [
+          {
+            "amount": 30,
+            "rate": "metal",
+            "tag": "forge:molten_iron"
+          }
+        ],
+        "ingredient": {
+          "item": "create:crushed_raw_nickel"
+        },
+        "rate": "metal",
+        "result": {
+          "amount": 150,
+          "tag": "forge:molten_nickel"
+        },
+        "temperature": 950,
+        "time": 97
+      }
+    }
+  ]
+}

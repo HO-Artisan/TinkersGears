@@ -1,0 +1,26 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 30,
+      "rate": "metal",
+      "tag": "forge:molten_iron"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:raw_materials/aluminum"
+    }
+  ],
+  "ingredient": {
+    "item": "create:crushed_raw_aluminum"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 150,
+    "tag": "forge:molten_aluminum"
+  },
+  "temperature": 425,
+  "time": 47
+}

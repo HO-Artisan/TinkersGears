@@ -1,0 +1,23 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/iron"
+    },
+    {
+      "amount": 250,
+      "fluid": "tconstruct:seared_stone",
+      "nbt": {}
+    },
+    {
+      "item": "tconstruct:sky_slime_ball"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "item": "tconstruct:slimesteel_ingot"
+    }
+  ]
+}

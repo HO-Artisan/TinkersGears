@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    },
+    {
+      "amount": 250,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    },
+    {
+      "tag": "forge:dyes/cyan"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "item": "tconstruct:sky_slime_ball"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 30,
+      "rate": "metal",
+      "tag": "forge:molten_gold"
+    }
+  ],
+  "ingredient": {
+    "item": "create:crushed_raw_copper"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 150,
+    "tag": "forge:molten_copper"
+  },
+  "temperature": 500,
+  "time": 50
+}

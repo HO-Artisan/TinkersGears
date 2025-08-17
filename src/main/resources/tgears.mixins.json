@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "priority": 1100,
+  "package": "ho.artisan.tgears.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "refmap": "tgears.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "superheated",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/copper"
+    },
+    {
+      "tag": "forge:ingots/copper"
+    },
+    {
+      "tag": "forge:ingots/cobalt"
+    },
+    {
+      "tag": "forge:gems/quartz"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "item": "tconstruct:hepatizon_ingot"
+    }
+  ]
+}

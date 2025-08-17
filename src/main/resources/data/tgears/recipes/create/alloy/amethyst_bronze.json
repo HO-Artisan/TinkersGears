@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/copper"
+    },
+    {
+      "tag": "forge:gems/amethyst"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "tconstruct:amethyst_bronze_ingot"
+    }
+  ]
+}

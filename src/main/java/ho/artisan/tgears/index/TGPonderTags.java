@@ -1,0 +1,22 @@
+package ho.artisan.tgears.index;
+
+import ho.artisan.tgears.TinkersGears;
+import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
+import net.minecraft.resources.ResourceLocation;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+
+public class TGPonderTags {
+    public static final ResourceLocation SMELTERY = new ResourceLocation(TinkersGears.MOD_ID, "smeltery");
+
+    public static void register(PonderTagRegistrationHelper<ResourceLocation> helper) {
+        helper.registerTag(SMELTERY)
+                .addToIndex()
+                .item(TinkerSmeltery.smelteryController.asItem(), true, false)
+                .title("Smeltery")
+                .description("Tinker's components used to smelting and casting")
+                .register();
+
+        helper.addToTag(SMELTERY)
+                .add(TinkerSmeltery.searedMelter.getId());
+    }
+}

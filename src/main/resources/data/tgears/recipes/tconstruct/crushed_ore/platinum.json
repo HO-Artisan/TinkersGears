@@ -1,0 +1,26 @@
+{
+  "type": "tconstruct:melting",
+  "byproducts": [
+    {
+      "amount": 30,
+      "rate": "metal",
+      "tag": "forge:molten_gold"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:raw_materials/platinum"
+    }
+  ],
+  "ingredient": {
+    "item": "create:crushed_raw_platinum"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 150,
+    "tag": "forge:molten_platinum"
+  },
+  "temperature": 970,
+  "time": 65
+}

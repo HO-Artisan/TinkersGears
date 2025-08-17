@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:crafter_slot_cover"
+  },
+  "result": {
+    "amount": 30,
+    "tag": "forge:molten_brass"
+  },
+  "temperature": 605,
+  "time": 18
+}

@@ -1,0 +1,24 @@
+modLoader="javafml" #mandatory
+loaderVersion="[47,)" #mandatory
+license="MIT"
+[[mods]] #mandatory
+modId="tgears" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Tinker's Gears" #mandatory
+#logoFile="banner.png" #optional
+authors="Chemiofitor"
+description='''
+
+'''
+[[dependencies.tgears]]
+modId="forge" #mandatory
+mandatory=true
+versionRange="[47,)" #mandatory
+ordering="NONE"
+side="BOTH"
+[[dependencies.tgears]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"

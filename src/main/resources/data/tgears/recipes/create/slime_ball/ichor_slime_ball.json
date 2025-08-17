@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    },
+    {
+      "amount": 25,
+      "fluid": "tconstruct:blazing_blood",
+      "nbt": {}
+    },
+    {
+      "tag": "forge:dyes/orange"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "item": "tconstruct:ichor_slime_ball"
+    }
+  ]
+}

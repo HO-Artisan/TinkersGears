@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    },
+    {
+      "amount": 25,
+      "fluid": "tconstruct:molten_ender",
+      "nbt": {}
+    },
+    {
+      "tag": "forge:dyes/purple"
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "item": "tconstruct:ender_slime_ball"
+    }
+  ]
+}

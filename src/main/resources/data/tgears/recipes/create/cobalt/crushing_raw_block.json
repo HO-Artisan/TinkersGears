@@ -1,0 +1,20 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/raw_cobalt"
+    }
+  ],
+  "processingTime": 400,
+  "results": [
+    {
+      "count": 9,
+      "item": "tgears:crushed_raw_cobalt"
+    },
+    {
+      "chance": 0.75,
+      "count": 9,
+      "item": "create:experience_nugget"
+    }
+  ]
+}
