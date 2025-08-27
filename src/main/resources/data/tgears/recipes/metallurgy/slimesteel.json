@@ -1,0 +1,30 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "createmetallurgy"
+    }
+  ],
+  "type": "createmetallurgy:alloying",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 90,
+      "fluidTag": "forge:molten_iron"
+    },
+    {
+      "amount": 250,
+      "fluid": "tconstruct:sky_slime"
+    },
+    {
+      "amount": 250,
+      "fluid": "tconstruct:seared_stone"
+    }
+  ],
+  "results": [
+    {
+      "amount": 180,
+      "fluid": "tconstruct:molten_rose_gold"
+    }
+  ]
+}

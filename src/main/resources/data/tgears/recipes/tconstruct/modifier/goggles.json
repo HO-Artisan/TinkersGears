@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "create:goggles"
+    }
+  ],
+  "level": 1,
+  "result": "tgears:goggles",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "item": "tconstruct:plate_helmet"
+  }
+}

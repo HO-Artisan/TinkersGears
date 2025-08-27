@@ -1,5 +1,8 @@
 package ho.artisan.tgears.ponder.scene;
 
+import com.simibubi.create.AllItems;
+import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
+import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
 import net.createmod.catnip.math.Pointing;
 import net.createmod.ponder.api.PonderPalette;
@@ -28,6 +31,8 @@ import slimeknights.tconstruct.smeltery.block.entity.component.TankBlockEntity;
 import slimeknights.tconstruct.smeltery.block.entity.controller.MelterBlockEntity;
 
 public class MelterScene {
+    private MelterScene() {}
+
     public static void basic(SceneBuilder builder, SceneBuildingUtil util) {
         CreateSceneBuilder scene = new CreateSceneBuilder(builder);
         scene.title("basic_melter", "Building the basic smeltery");
@@ -121,6 +126,65 @@ public class MelterScene {
         scene.markAsFinished();
     }
 
+    public static void burner(SceneBuilder builder, SceneBuildingUtil util) {
+        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        scene.title("basic_melter_burner", "Use the Blaze Burner to heat");
+        scene.configureBasePlate(0, 0, 5);
+        scene.world().showSection(util.select().everywhere(), Direction.UP);
+
+        BlockPos melter = util.grid().at(2, 2, 2);
+        Selection selection = util.select().fromTo(melter.below(), melter);
+
+        scene.idle(15);
+        scene.overlay().showOutline(PonderPalette.GREEN, selection, selection, 40);
+        scene.idle(5);
+        scene.overlay().showText(25)
+                .text("This is also a correct structure")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.GREEN)
+                .pointAt(util.vector().blockSurface(melter, Direction.WEST));
+        scene.idle(35);
+
+        scene.overlay().showText(25)
+                .text("Provide 400°C temperature and half the rate when extinguished")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.MEDIUM)
+                .pointAt(util.vector().blockSurface(melter.below(), Direction.WEST));
+        scene.idle(45);
+
+        scene.overlay().showControls(util.vector().blockSurface(melter.below(), Direction.NORTH), Pointing.RIGHT, 15).rightClick()
+                .withItem(new ItemStack(Items.OAK_PLANKS));
+        scene.idle(7);
+        scene.world().modifyBlock(melter.below(), s -> s.setValue(BlazeBurnerBlock.HEAT_LEVEL, BlazeBurnerBlock.HeatLevel.KINDLED), false);
+        scene.idle(20);
+
+        scene.overlay().showText(25)
+                .text("Provide 800°C temperature and normal rate when kindled")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.MEDIUM)
+                .pointAt(util.vector().blockSurface(melter.below(), Direction.WEST));
+        scene.idle(45);
+
+        scene.overlay().showControls(util.vector().blockSurface(melter.below(), Direction.NORTH), Pointing.RIGHT, 15).rightClick()
+                .withItem(AllItems.BLAZE_CAKE.asStack());
+        scene.idle(7);
+        scene.world().modifyBlock(melter.below(), s -> s.setValue(BlazeBurnerBlock.HEAT_LEVEL, BlazeBurnerBlock.HeatLevel.SEETHING), false);
+        scene.idle(20);
+
+        scene.overlay().showText(25)
+                .text("Provide 1600°C temperature and double the rate when seething")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.MEDIUM)
+                .pointAt(util.vector().blockSurface(melter.below(), Direction.WEST));
+        scene.idle(60);
+
+        scene.markAsFinished();
+    }
+
     public static void casting(SceneBuilder builder, SceneBuildingUtil util) {
         CreateSceneBuilder scene = new CreateSceneBuilder(builder);
         scene.title("basic_melter_casting", "Melting and Casting");
@@ -195,15 +259,24 @@ public class MelterScene {
             });
             scene.idle(5);
         }
+        scene.idle(10);
         scene.world().modifyBlockEntity(table.above(), FaucetBlockEntity.class, f -> {
             f.onActivationPacket(new FluidStack(TinkerFluids.moltenGold.get(), 0), false);
         });
-        scene.idle(30);
+        scene.idle(45);
+        scene.world().modifyBlockEntity(table, CastingBlockEntity.Table.class, t -> {
+            t.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
+                handler.getStackInSlot(0).setCount(0);
+            });
+        });
+
+        scene.idle(60);
+        scene.markAsFinished();
     }
 
     public static void pipe(SceneBuilder builder, SceneBuildingUtil util) {
         CreateSceneBuilder scene = new CreateSceneBuilder(builder);
-        scene.title("basic_melter_pipe", "Using fluid pipes in the smeltery");
+        scene.title("basic_melter_pipe", "Using fluid pipes while casting");
         scene.configureBasePlate(0, 0, 5);
         scene.world().showSection(util.select().layer(0), Direction.UP);
 
@@ -254,9 +327,12 @@ public class MelterScene {
         scene.idle(5);
         scene.overlay().showControls(cog.west().getCenter(), Pointing.DOWN, 20).rightClick();
         scene.idle(7);
+
         scene.world().setKineticSpeed(util.select().everywhere(), 32);
+        scene.world().modifyKineticSpeed(util.select().position(cog.below()), s -> s * -1);
         scene.effects().rotationDirectionIndicator(cog.west());
-        scene.idle(5);
+
+        scene.idle(25);
         scene.overlay().showText(25)
                 .text("The pipe will transport the fluid to the casting container")
                 .placeNearTarget()
@@ -307,6 +383,80 @@ public class MelterScene {
         scene.world().hideSection(util.select().position(pipe.east(1)), Direction.WEST);
         scene.idle(5);
         scene.world().hideSection(util.select().position(pipe.east(2)), Direction.WEST);
-        scene.idle(30);
+
+        scene.idle(60);
+        scene.markAsFinished();
+    }
+
+
+    public static void spout(SceneBuilder builder, SceneBuildingUtil util) {
+        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        scene.title("basic_melter_spout", "Using spout while casting");
+        scene.configureBasePlate(0, 0, 5);
+        scene.world().showSection(util.select().layer(0), Direction.UP);
+
+        BlockPos table = util.grid().at(2, 1, 1);
+        BlockPos spout = util.grid().at(2, 3, 1);
+        BlockPos melter = util.grid().at(2, 2, 3);
+        BlockPos godHand =  util.grid().at(1, 2, 2);
+
+        Selection cog = util.select().fromTo(1, 3, 1, 1, 3, 2);
+
+        scene.idle(5);
+        scene.world().showSection(util.select().position(melter.below()), Direction.NORTH);
+        scene.idle(5);
+        scene.world().showSection(util.select().position(melter), Direction.NORTH);
+        scene.idle(5);
+        scene.world().showSection(util.select().position(table), Direction.UP);
+        scene.idle(15);
+
+        scene.overlay().showText(25)
+                .text("The table is actually a fluid container")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.MEDIUM)
+                .pointAt(util.vector().blockSurface(table, Direction.UP));
+        scene.idle(35);
+
+        scene.world().showSection(util.select().position(melter.above()), Direction.UP);
+        scene.idle(5);
+        scene.world().showSection(util.select().position(spout.south()), Direction.UP);
+        scene.idle(5);
+        scene.world().showSection(util.select().position(spout), Direction.UP);
+        scene.idle(5);
+
+        scene.overlay().showText(25)
+                .text("So spout can be used to cast")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.MEDIUM)
+                .pointAt(util.vector().blockSurface(spout, Direction.UP));
+        scene.idle(35);
+
+        scene.world().showSection(cog, Direction.UP);
+        scene.idle(5);
+        scene.overlay().showControls(godHand.getCenter(), Pointing.LEFT, 20).rightClick();
+        scene.idle(7);
+        scene.world().setKineticSpeed(util.select().everywhere(), 32);
+        scene.world().modifyKineticSpeed(util.select().position(spout.south()),f -> f * -1);
+        scene.effects().rotationDirectionIndicator(godHand);
+        scene.idle(35);
+
+        for (int i = 0; i < 5; i++) {
+            scene.world().modifyBlockEntity(melter, MelterBlockEntity.class, m -> {
+                m.getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(handler -> {
+                    handler.drain(new FluidStack(TinkerFluids.moltenIron.get(), 200), IFluidHandler.FluidAction.EXECUTE);
+                });
+            });
+            scene.world().modifyBlockEntity(spout, SpoutBlockEntity.class, s -> {
+                s.getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(handler -> {
+                    handler.fill(new FluidStack(TinkerFluids.moltenIron.get(), 200), IFluidHandler.FluidAction.EXECUTE);
+                });
+            });
+            scene.idle(5);
+        }
+
+        scene.idle(60);
+        scene.markAsFinished();
     }
 }

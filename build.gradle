@@ -11,8 +11,6 @@ base {
     version = "${mod_version}-for-create-${create_version}"
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
 idea {
     module {
         downloadJavadoc = true
@@ -84,7 +82,7 @@ legacyForge {
 repositories {
     maven { url = "https://maven.createmod.net" } // Ponder, Flywheel
     maven { url = "https://maven.tterrag.com" } // Registrate
-    maven { url = "https://maven.blamejared.com" } // JE
+    maven { url = "https://maven.blamejared.com" } // JEI
     maven { url = "https://www.cursemaven.com" }
     maven { url = "https://api.modrinth.com/maven" }
     maven { url =  'https://dvs1.progwml6.com/files/maven' }
@@ -106,9 +104,14 @@ dependencies {
     modCompileOnly("mezz.jei:jei-${jei_minecraft_version}-forge-api:${jei_version}")
     modImplementation("mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}")
 
-    compileOnly 'org.projectlombok:lombok:1.18.28'
-    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    modImplementation("maven.modrinth:create-metallurgy:${metallurgy_version}")
+    modRuntimeOnly("maven.modrinth:createaddition:${createaddition_version}")
+    modRuntimeOnly("maven.modrinth:create-alloyed:${alloyed_version}")
 
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    compileOnly 'org.jetbrains:annotations:26.0.2'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.jetbrains:annotations:26.0.2'
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 }
 
@@ -141,13 +144,6 @@ jar {
                 'MixinConfigs': 'tgears.mixins.json'
         ])
     }
-}
-
-publishMods {
-    file = reobfJar.archiveFile
-    version = mod_version
-    type = STABLE
-    displayName = "CEI ${mod_version} for Create ${minecraft_version}-${create_version}"
 }
 
 tasks.withType(JavaCompile).configureEach {

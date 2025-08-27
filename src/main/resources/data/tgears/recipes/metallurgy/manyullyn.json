@@ -1,0 +1,27 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "createmetallurgy"
+    }
+  ],
+  "type": "createmetallurgy:alloying",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 270,
+      "fluidTag": "forge:molten_cobalt"
+    },
+    {
+      "amount": 90,
+      "fluid": "tconstruct:molten_debris",
+      "nbt": "{}"
+    }
+  ],
+  "results": [
+    {
+      "amount": 180,
+      "fluid": "tconstruct:molten_manyullyn"
+    }
+  ]
+}

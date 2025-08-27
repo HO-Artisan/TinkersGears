@@ -11,14 +11,26 @@ description='''
 
 '''
 [[dependencies.tgears]]
-modId="forge" #mandatory
+modId="forge"
 mandatory=true
-versionRange="[47,)" #mandatory
+versionRange="[47,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.tgears]]
 modId="minecraft"
 mandatory=true
 versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.tgears]]
+modId="create"
+mandatory=true
+versionRange="[6.0.6,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.tgears]]
+modId="tconstruct"
+mandatory=true
+versionRange="[3.10.1.0,)"
 ordering="NONE"
 side="BOTH"

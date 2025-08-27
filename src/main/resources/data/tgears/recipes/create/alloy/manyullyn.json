@@ -1,4 +1,13 @@
 {
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:mod_loaded",
+        "modid": "createaddition"
+      }
+    }
+  ],
   "type": "create:mixing",
   "heatRequirement": "superheated",
   "ingredients": [

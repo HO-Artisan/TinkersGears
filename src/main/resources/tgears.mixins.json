@@ -5,9 +5,13 @@
   "compatibilityLevel": "JAVA_16",
   "refmap": "tgears.refmap.json",
   "mixins": [
+    "AlloyerMixin",
+    "CastingContainerMixin",
+    "MelterMixin",
+    "PolishingRecipeMixin",
+    "TankMixin"
   ],
   "client": [
-
   ],
   "injectors": {
     "defaultRequire": 1

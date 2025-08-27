@@ -1,0 +1,31 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "createmetallurgy"
+    }
+  ],
+  "type": "createmetallurgy:alloying",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 90,
+      "fluidTag": "forge:molten_cobalt"
+    },
+    {
+      "amount": 90,
+      "fluidTag": "forge:molten_gold"
+    },
+    {
+      "amount": 250,
+      "fluid": "tconstruct:magma",
+      "nbt": "{}"
+    }
+  ],
+  "results": [
+    {
+      "amount": 180,
+      "fluid": "tconstruct:molten_queens_slime"
+    }
+  ]
+}

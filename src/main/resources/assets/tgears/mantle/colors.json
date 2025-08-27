@@ -1,6 +1,11 @@
 {
   "modifier.tgears": {
-    "topnotch": "#b3c9ba"
+    "topnotch": "#b3c9ba",
+    "tapering": "#e0e0e0",
+    "polished": "#b4bdc1",
+    "crushing": "#bfbeae",
+    "goggles": "#ffeb94",
+    "extendo": "#ffeb94"
   },
   "material.tgears": {
     "andesite_alloy": "#b3c9ba"

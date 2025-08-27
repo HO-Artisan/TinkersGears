@@ -13,6 +13,7 @@ public class TGPonderPlugin implements PonderPlugin {
     public String getModId() {
         return TinkersGears.MOD_ID;
     }
+
     @Override
     public void registerScenes(PonderSceneRegistrationHelper<ResourceLocation> helper) {
         TGPonderScenes.register(helper);

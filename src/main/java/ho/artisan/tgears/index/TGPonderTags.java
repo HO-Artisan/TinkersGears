@@ -7,6 +7,7 @@ import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 public class TGPonderTags {
     public static final ResourceLocation SMELTERY = new ResourceLocation(TinkersGears.MOD_ID, "smeltery");
+    public static final ResourceLocation COMPAT = new ResourceLocation(TinkersGears.MOD_ID, "compat");
 
     public static void register(PonderTagRegistrationHelper<ResourceLocation> helper) {
         helper.registerTag(SMELTERY)
@@ -16,7 +17,16 @@ public class TGPonderTags {
                 .description("Tinker's components used to smelting and casting")
                 .register();
 
+        helper.registerTag(COMPAT)
+                .addToIndex()
+                .item(TGItems.CRUSHED_RAW_COBALT.asItem(), true, false)
+                .title("Compat")
+                .description("Tinker's Gears from the Create")
+                .register();
+
         helper.addToTag(SMELTERY)
-                .add(TinkerSmeltery.searedMelter.getId());
+                .add(TinkerSmeltery.searedMelter.getId())
+                .add(TinkerSmeltery.smelteryController.getId())
+                .add(TinkerSmeltery.searedTable.getId());
     }
 }

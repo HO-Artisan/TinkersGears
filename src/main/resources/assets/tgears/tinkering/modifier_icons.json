@@ -1,3 +1,8 @@
 {
-  "tgears:topnotch": "create:item/andesite_alloy"
+  "tgears:topnotch": "create:item/andesite_alloy",
+  "tgears:tapering": "minecraft:item/iron_sword",
+  "tgears:polished": "create:item/sand_paper",
+  "tgears:crushing": "create:item/crushed_raw_iron",
+  "tgears:goggles": "create:item/goggles",
+  "tgears:extendo": "create:item/brass_hand"
 }

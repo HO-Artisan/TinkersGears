@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "create:crushing_wheel"
+    },
+    {
+      "item": "create:crushing_wheel"
+    },
+    {
+      "tag": "forge:ingots"
+    },
+    {
+      "item": "create:cogwheel"
+    },
+    {
+      "item": "create:large_cogwheel"
+    }
+  ],
+  "level": 1,
+  "result": "tgears:crushing",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "item": "tconstruct:pickaxe"
+  }
+}
