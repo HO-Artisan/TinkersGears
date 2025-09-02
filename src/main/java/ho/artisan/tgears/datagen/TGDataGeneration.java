@@ -2,7 +2,10 @@ package ho.artisan.tgears.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.register.TGearMaterialTraitsDataProvider;
+import ho.artisan.tgears.register.TGearMaterialDataProvider;
 import ho.artisan.tgears.ponder.TGPonderPlugin;
+import ho.artisan.tgears.register.TGearMaterialStatsProvider;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,7 +26,13 @@ public class TGDataGeneration {
             provideTGLang(langConsumer);
             providerModifierLang(langConsumer);
         });
+
+        TGearMaterialDataProvider materialProvider = new TGearMaterialDataProvider(event.getGenerator().getPackOutput());
+        event.getGenerator().addProvider(event.includeServer(), materialProvider);
+        event.getGenerator().addProvider(event.includeServer(), new TGearMaterialTraitsDataProvider(event.getGenerator().getPackOutput(), materialProvider));
+        event.getGenerator().addProvider(event.includeServer(), new TGearMaterialStatsProvider(event.getGenerator().getPackOutput(), materialProvider));
     }
+
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {
         PonderIndex.addPlugin(new TGPonderPlugin());
