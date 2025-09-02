@@ -2,10 +2,10 @@ package ho.artisan.tgears.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.register.TGearMaterialTraitsDataProvider;
-import ho.artisan.tgears.register.TGearMaterialDataProvider;
+import ho.artisan.tgears.common.register.TGearMaterialTraitsDataProvider;
+import ho.artisan.tgears.common.register.TGearMaterialDataProvider;
 import ho.artisan.tgears.ponder.TGPonderPlugin;
-import ho.artisan.tgears.register.TGearMaterialStatsProvider;
+import ho.artisan.tgears.common.register.TGearMaterialStatsProvider;
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

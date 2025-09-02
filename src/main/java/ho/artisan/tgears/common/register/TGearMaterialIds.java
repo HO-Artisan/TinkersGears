@@ -1,4 +1,4 @@
-package ho.artisan.tgears.register;
+package ho.artisan.tgears.common.register;
 
 import ho.artisan.tgears.TinkersGears;
 import lombok.AccessLevel;

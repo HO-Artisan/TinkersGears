@@ -1,4 +1,4 @@
-package ho.artisan.tgears.register;
+package ho.artisan.tgears.common.register;
 
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.tools.data.material.MaterialDataProvider;
