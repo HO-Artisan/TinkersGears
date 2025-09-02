@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "amount": 250,
+      "tag": "forge:chocolate"
+    },
+    {
+      "amount": 250,
+      "tag": "tconstruct:blazing_blood"
+    }
+  ],
+  "result": {
+    "amount": 500,
+    "fluid": "tgears:blazing_chocolate"
+  },
+  "temperature": 1000
+}

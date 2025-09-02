@@ -38,11 +38,11 @@ public class PolishingRecipeMixin {
                 if (sandPaperStack.is(TGItemTags.GRIT_SANDPAPER)) {
                     tool.addModifier(TGModifiers.Ids.TAPERING, 1);
                 }
-                tool.setDamage((int) (tool.getDamage() + tool.getStats().getInt(ToolStats.DURABILITY) * TinkersGearsConfig.POLISHING_DAMAGE.get()));
             }
 
             CreatePolishedModifier polished = TGModifiers.POLISHED.get();
             polished.refreshShield(tool, tool.getModifier(TGModifiers.Ids.POLISHED));
+            tool.setDamage((int) (tool.getDamage() + tool.getStats().getInt(ToolStats.DURABILITY) * TinkersGearsConfig.POLISHING_DAMAGE.get()));
 
             cir.setReturnValue(tool.copyStack(toPolish));
         }

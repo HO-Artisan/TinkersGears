@@ -23,15 +23,15 @@ public class TinkersGearsConfig {
         ForgeConfigSpec.Builder common = new ForgeConfigSpec.Builder();
 
         // Common
-
-        common.comment("The Blaze Burner Factors (temperature: factor * 800, rate: factor * 10)");
+        common.comment("The Blaze Burner Factors");
+        common.comment("- temperature = 800 * factor");
+        common.comment("- rate = 10 * factor");
         EXTINGUISHED_FACTOR = common.comment("Factor when the burner is extinguished")
                 .define("extinguished_factor", 0.5F);
         KINDLED_FACTOR = common.comment("Factor when the burner is kindled")
                 .define("kindled_factor", 1F);
         SEETHING_FACTOR = common.comment("Factor when the burner is seething")
                 .define("seething_factor", 2F);
-
 
         common.comment("The Polishing Percentages");
         POLISHING_DAMAGE = common.comment("The damage to item when polishing")

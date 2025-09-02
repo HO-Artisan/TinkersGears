@@ -1,0 +1,15 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "createaddition"
+    }
+  ],
+  "type":"createaddition:liquid_burning",
+  "input": {
+    "fluid": "tgears:blazing_chocolate",
+    "amount": 1000
+  },
+  "burnTime": 12800,
+  "superheated": true
+}

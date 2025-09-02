@@ -34,7 +34,7 @@ public class BurnerModule extends SolidFuelModule {
     @Override
     public int findFuel(boolean consume) {
         if (isBurner()) {
-            return (int) (getBurningFactor() * 800);
+            return (int) ((800 * getBurningFactor()));
         } else {
             return super.findFuel(consume);
         }
@@ -43,7 +43,7 @@ public class BurnerModule extends SolidFuelModule {
     @Override
     public int getTemperature() {
         if (isBurner()) {
-            return (int) (getBurningFactor() * 800);
+            return (int) ((800 * getBurningFactor()));
         } else {
             return super.getTemperature();
         }
@@ -52,7 +52,7 @@ public class BurnerModule extends SolidFuelModule {
     @Override
     public int getRate() {
         if (isBurner()) {
-            return (int) (getBurningFactor() * 10);
+            return (int) ((getBurningFactor() * 10));
         } else {
             return super.getRate();
         }

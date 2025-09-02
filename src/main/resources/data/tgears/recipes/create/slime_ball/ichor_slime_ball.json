@@ -5,7 +5,7 @@
       "item": "create:dough"
     },
     {
-      "amount": 25,
+      "amount": 20,
       "fluid": "tconstruct:blazing_blood",
       "nbt": {}
     },

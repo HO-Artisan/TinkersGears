@@ -1,13 +1,18 @@
 package ho.artisan.tgears.index;
 
+import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.common.item.CompatItem;
 import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
 import it.unimi.dsi.fastutil.objects.ReferenceLinkedOpenHashSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -63,6 +68,11 @@ public class TGCreativeModeTabs {
 
         private static void outputAll(CreativeModeTab.Output output, List<Item> items) {
             for (Item item : items) {
+                if (item instanceof CompatItem compatItem)
+                    if (!compatItem.shouldLoad())
+                        continue;
+                if (item instanceof SequencedAssemblyItem)
+                    continue;
                 output.accept(item);
             }
         }

@@ -45,14 +45,6 @@ public class CastingScene {
         scene.idle(5);
         scene.world().showSection(selection2, Direction.UP);
 
-        scene.idle(15);
-        scene.overlay().showText(25)
-                .text("The fan must stick to the container")
-                .placeNearTarget()
-                .attachKeyFrame()
-                .colored(PonderPalette.GREEN)
-                .pointAt(util.vector().topOf(table));
-
         scene.idle(35);
         scene.overlay().showText(25)
                 .text("Acceleration is related to rotational speed of the fan")

@@ -41,6 +41,7 @@ public class TinkersGears {
         TGBlocks.register();
         TGBlockEntityTypes.register();
         TGItems.register();
+        TGFluids.register();
 
         TGModifiers.register(bus);
 

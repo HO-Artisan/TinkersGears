@@ -19,8 +19,7 @@ public class TGPonderScenes {
                 .addStoryBoard("basic_melter_spout", MelterScene::spout, TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.smelteryController.getId())
                 .addStoryBoard("smeltery", SmelteryScene::basic, TGPonderTags.SMELTERY)
-                .addStoryBoard("smeltery_mini", SmelteryScene::mini,  TGPonderTags.SMELTERY)
-                .addStoryBoard("smeltery_transfer", SmelteryScene::transfer, TGPonderTags.SMELTERY);
+                .addStoryBoard("smeltery_mini", SmelteryScene::mini,  TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.searedTable.getId())
                 .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
     }

@@ -37,6 +37,7 @@ public class CreateExtendoModifier extends NoLevelsModifier implements Equipment
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         if (context.getEntity() instanceof Player player) {
             player.getAttributes().addTransientAttributeModifiers(MEMOIZED.get());
+            player.getPersistentData().putBoolean(EXTENDO_MARKER, true);
         }
     }
 
@@ -44,6 +45,7 @@ public class CreateExtendoModifier extends NoLevelsModifier implements Equipment
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         if (context.getEntity() instanceof Player player) {
             player.getAttributes().removeAttributeModifiers(MEMOIZED.get());
+            player.getPersistentData().remove(EXTENDO_MARKER);
         }
     }
 }

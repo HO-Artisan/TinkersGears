@@ -1,0 +1,53 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tgears:whisk_cast_with_part"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "tgears:whisk_cast_with_sturdy_whisk"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tgears:whisk_cast_to_sturdy_whisk"
+        },
+        {
+          "amount": 750,
+          "fluidTag": "tconstruct:molten_obsidian",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tgears:whisk_cast_to_sturdy_whisk"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tgears:whisk_cast_to_sturdy_whisk"
+        },
+        {
+          "amount": 180,
+          "fluidTag": "forge:molten_tungsten",
+          "nbt": {}
+        }
+      ],
+      "results": [
+        {
+          "item": "tgears:whisk_cast_to_sturdy_whisk"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tgears:whisk_cast_to_sturdy_whisk"
+  }
+}

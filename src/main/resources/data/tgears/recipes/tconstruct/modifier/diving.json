@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:modifier",
+  "inputs": [
+    {
+      "item": "create:andesite_alloy"
+    },
+    {
+      "item": "create:andesite_alloy"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    }
+  ],
+  "level": 1,
+  "result": "tgears:diving_weights",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": {
+    "item": "tconstruct:plate_boots"
+  }
+}

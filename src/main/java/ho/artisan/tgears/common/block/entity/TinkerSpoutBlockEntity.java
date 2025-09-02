@@ -1,0 +1,46 @@
+package ho.artisan.tgears.common.block.entity;
+
+import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
+import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
+import ho.artisan.tgears.common.block.entity.module.SpoutModule;
+import lombok.Getter;
+import lombok.Setter;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+
+import static ho.artisan.tgears.common.block.TinkerSpoutBlock.POWERED;
+
+public class TinkerSpoutBlockEntity extends SpoutBlockEntity {
+    @Setter
+    @Getter
+    private boolean isOn;
+
+    public TinkerSpoutBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+        super(type, pos, state);
+        isOn = false;
+    }
+
+    public SmartFluidTankBehaviour getTank() {
+        return ((SpoutModule) this).tgears$getTank();
+    }
+
+    @Override
+    public void tick() {
+        isOn = getBlockState().getValue(POWERED);
+        super.tick();
+    }
+
+    @Override
+    protected void write(CompoundTag compound, boolean clientPacket) {
+        super.write(compound, clientPacket);
+        compound.putBoolean("IsOn", isOn);
+    }
+
+    @Override
+    protected void read(CompoundTag compound, boolean clientPacket) {
+        super.read(compound, clientPacket);
+        isOn = compound.getBoolean("IsOn");
+    }
+}
