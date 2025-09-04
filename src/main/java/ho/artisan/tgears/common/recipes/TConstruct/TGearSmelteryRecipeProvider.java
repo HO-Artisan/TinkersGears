@@ -1,6 +1,7 @@
-package ho.artisan.tgears.common.recipes.smeltery;
+package ho.artisan.tgears.common.recipes.TConstruct;
 
 import com.simibubi.create.AllItems;
+import fr.lucreeper74.createmetallurgy.registries.CMItems;
 import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.common.recipes.TGearBaseRecipeProvider;
 import net.minecraft.data.PackOutput;
@@ -11,7 +12,12 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import  net.minecraftforge.common.crafting.ConditionalRecipe;
+import net.minecraftforge.common.crafting.conditions.TrueCondition;
+import net.minecraftforge.fluids.FluidStack;
 import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
 import slimeknights.mantle.registration.object.FluidObject;
 import slimeknights.tconstruct.common.registration.GeodeItemObject;
@@ -77,27 +83,57 @@ public class TGearSmelteryRecipeProvider extends TGearBaseRecipeProvider impleme
         String folder = "smeltery/casting/";
         //cast
         ItemCastingRecipeBuilder.tableRecipe(TGItems.HAND_CAST_WITH_BRASS_HAND)
-                .setFluidAndTime(TinkerFluids.moltenBrass, FluidValues.INGOT * 3)
-                .setCast(TGItems.HAND_CAST_WITH_PART, true)
+                .setFluidAndTime(TinkerFluids.moltenBrass, FluidValues.INGOT * 4)
+                .setCast(TGItems.HAND_CAST_WITH_PART, false)
                 .setCoolingTime(82)
                 .save(consumer, location(folder + "brass_hand_1"));
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.HAND_CAST_WITH_BRASS_HAND)
-                .setFluidAndTime(TinkerFluids.moltenBrass, FluidValues.INGOT)
+        ItemCastingRecipeBuilder.tableRecipe(TGItems.HAND_CAST)
+                .setFluidAndTime(TinkerFluids.moltenGold, FluidValues.INGOT)
                 .setCast(AllItems.BRASS_HAND, true)
-                .setCoolingTime(82)
+                .setCoolingTime(57)
                 .save(consumer, location(folder + "brass_hand_2"));
 
+
         ItemCastingRecipeBuilder.tableRecipe(TGItems.PROPELLER_CAST_WITH_PROPELLER_)
-                .setFluidAndTime(TinkerFluids.moltenIron, FluidValues.INGOT * 3)
-                .setCast(TGItems.PROPELLER_CAST_WITH_PART, true)
+                .setFluidAndTime(TinkerFluids.moltenIron, FluidValues.INGOT * 4)
+                .setCast(TGItems.PROPELLER_CAST_WITH_PART, false)
                 .setCoolingTime(82)
                 .save(consumer, location(folder + "propeller_1"));
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.PROPELLER_CAST_WITH_PROPELLER_)
-                .setFluidAndTime(TinkerFluids.moltenIron, FluidValues.INGOT)
+        ItemCastingRecipeBuilder.tableRecipe(TGItems.PROPELLER_CAST)
+                .setFluidAndTime(TinkerFluids.moltenGold, FluidValues.INGOT)
                 .setCast(AllItems.PROPELLER, true)
-                .setCoolingTime(82)
+                .setCoolingTime(57)
                 .save(consumer, location(folder + "propeller_2"));
 
+
+        ItemCastingRecipeBuilder.tableRecipe(TGItems.WHISK_CAST_WITH_WHISK)
+                .setFluidAndTime(TinkerFluids.moltenIron, FluidValues.INGOT * 5)
+                .setCast(TGItems.WHISK_CAST_WITH_PART, false)
+                .setCoolingTime(82)
+                .save(consumer, location(folder + "whisk_1"));
+        ItemCastingRecipeBuilder.tableRecipe(TGItems.WHISK_CAST)
+                .setFluidAndTime(TinkerFluids.moltenGold, FluidValues.INGOT)
+                .setCast(AllItems.WHISK, true)
+                .setCoolingTime(82)
+                .save(consumer, location(folder + "whisk_2"));
+        Consumer<Consumer<FinishedRecipe>> defaultWhiskRecipe = c ->
+                ItemCastingRecipeBuilder.tableRecipe(TGItems.WHISK_CAST)
+                        .setFluidAndTime(TinkerFluids.moltenGold, FluidValues.INGOT)
+                        .setCast(CMItems.STURDY_WHISK, true)
+                        .setCoolingTime(82)
+                        .save(c);
+        ConditionalRecipe.builder()
+                .addCondition(new ModLoadedCondition("createmetallurgy"))
+                .addRecipe(defaultWhiskRecipe)
+                .generateAdvancement()
+                .build(consumer, location(folder + "whisk_3"));
+
+
+        ItemCastingRecipeBuilder.tableRecipe(AllItems.BLAZE_CAKE)
+                .setFluidAndTime(new FluidStack(Fluids.LAVA, FluidValues.BRICK))
+                .setCast(AllItems.BLAZE_CAKE_BASE, true)
+                .setCoolingTime(82)
+                .save(consumer, location(folder + "blaze_cake"));
     }
 
     private void addMeltingRecipes(Consumer<FinishedRecipe> consumer) {

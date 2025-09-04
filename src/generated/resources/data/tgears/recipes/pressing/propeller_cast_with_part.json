@@ -1,0 +1,16 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "tgears:propeller_cast_with_propeller"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:propeller_cast_with_part"
+    },
+    {
+      "item": "create:propeller"
+    }
+  ]
+}

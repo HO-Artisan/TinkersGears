@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "create:blaze_cake_base"
+  },
+  "cast_consumed": true,
+  "cooling_time": 82,
+  "fluid": {
+    "amount": 250,
+    "fluid": "minecraft:lava"
+  },
+  "result": "create:blaze_cake"
+}

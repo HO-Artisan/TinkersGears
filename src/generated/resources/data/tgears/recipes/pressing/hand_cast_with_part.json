@@ -1,0 +1,16 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "tgears:hand_cast_with_brass_hand"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:hand_cast_with_part"
+    },
+    {
+      "item": "create:brass_hand"
+    }
+  ]
+}

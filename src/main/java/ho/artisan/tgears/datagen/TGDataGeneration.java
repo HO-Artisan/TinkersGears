@@ -2,6 +2,12 @@ package ho.artisan.tgears.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.common.recipes.Create.TGearCompactingRecipe;
+import ho.artisan.tgears.common.recipes.Create.TGearFillingRecipe;
+import ho.artisan.tgears.common.recipes.Create.TGearMixingRecipe;
+import ho.artisan.tgears.common.recipes.Create.TGearPressingRecipe;
+import ho.artisan.tgears.common.recipes.TConstruct.TGearMaterialRecipeProvider;
+import ho.artisan.tgears.common.recipes.TConstruct.TGearSmelteryRecipeProvider;
 import ho.artisan.tgears.common.register.TGearMaterialTraitsDataProvider;
 import ho.artisan.tgears.common.register.TGearMaterialDataProvider;
 import ho.artisan.tgears.ponder.TGPonderPlugin;
@@ -30,8 +36,18 @@ public class TGDataGeneration {
 
         TGearMaterialDataProvider materialProvider = new TGearMaterialDataProvider(event.getGenerator().getPackOutput());
         event.getGenerator().addProvider(event.includeServer(), materialProvider);
+
+        //TConstruct
         event.getGenerator().addProvider(event.includeServer(), new TGearMaterialTraitsDataProvider(event.getGenerator().getPackOutput(), materialProvider));
         event.getGenerator().addProvider(event.includeServer(), new TGearMaterialStatsProvider(event.getGenerator().getPackOutput(), materialProvider));
+        event.getGenerator().addProvider(event.includeServer(), new TGearSmelteryRecipeProvider(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearMaterialRecipeProvider(event.getGenerator().getPackOutput()));
+
+        //Create
+        event.getGenerator().addProvider(event.includeServer(), new TGearPressingRecipe(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearCompactingRecipe(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearFillingRecipe(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearMixingRecipe(event.getGenerator().getPackOutput()));
     }
 
 
