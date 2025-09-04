@@ -28,20 +28,20 @@ public final class TGearPressingRecipe extends PressingRecipeGen {
     GeneratedRecipe
 
             HAND_CAST_WITH_PART = create("hand_cast_with_part", b -> b.require(Ingredient.of(TGItems.HAND_CAST_WITH_BRASS_HAND))
-            .output(TGItems.HAND_CAST_WITH_PART)
+            .output(TGItems.HAND_CAST)
             .output(AllItems.BRASS_HAND)),
 
             PROPELLER_CAST_WITH_PART = create("propeller_cast_with_part", b -> b.require(Ingredient.of(TGItems.PROPELLER_CAST_WITH_PROPELLER_))
-            .output(TGItems.PROPELLER_CAST_WITH_PART)
+            .output(TGItems.PROPELLER_CAST)
             .output(AllItems.PROPELLER)),
 
             WHISK_CAST_WITH_PART = create("whisk_cast_with_part", b -> b.require(Ingredient.of(TGItems.WHISK_CAST_WITH_WHISK))
-            .output(TGItems.WHISK_CAST_WITH_PART)
+            .output(TGItems.WHISK_CAST)
             .output(AllItems.WHISK)),
 
             WHISK_CAST_WITH_STURDY_WHISK = create("whisk_cast_with_sturdy_whisk", b -> b.require(Ingredient.of(TGItems.WHISK_CAST_WITH_STURDY_WHISK))
             .whenModLoaded("createmetallurgy")
-            .output(TGItems.WHISK_CAST_WITH_PART)
+            .output(TGItems.WHISK_CAST)
             .output(CMItems.STURDY_WHISK));
 
 
