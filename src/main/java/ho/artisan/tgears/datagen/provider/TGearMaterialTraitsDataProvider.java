@@ -1,6 +1,7 @@
-package ho.artisan.tgears.common.register;
+package ho.artisan.tgears.datagen.provider;
 
 import ho.artisan.tgears.index.TGModifiers;
+import ho.artisan.tgears.index.TGearMaterialIds;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.tools.data.material.MaterialTraitsDataProvider;

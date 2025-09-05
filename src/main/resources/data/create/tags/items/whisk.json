@@ -1,6 +1,5 @@
 {
   "values": [
-    "create:whisk",
-    "createmetallurgy:sturdy_whisk"
+    "create:whisk"
   ]
 }

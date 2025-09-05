@@ -42,6 +42,32 @@ public class TGItems {
                     .lang("Hand Gold Cast with Brass Hand")
                     .register();
 
+    public static final ItemEntry<LeftoverFoodItem> CHOCOLATE_HAND = REGISTRATE.item("chocolate_hand", (properties) -> new LeftoverFoodItem(properties, AllItems.ANDESITE_ALLOY))
+            .properties(p -> p.food(new FoodProperties.Builder().nutrition(12)
+                    .saturationMod(0.4F)
+                    .alwaysEat()
+                    .build()))
+            .lang("Chocolate Hand")
+            .register();
+
+    public static final ItemEntry<BlazingLeftoverFoodItem> BLAZING_CHOCOLATE_HAND = REGISTRATE.item("blazing_chocolate_hand", (properties) -> new BlazingLeftoverFoodItem(properties, AllItems.ANDESITE_ALLOY))
+            .properties(p -> p.food(new FoodProperties.Builder().nutrition(16)
+                    .saturationMod(0.6F)
+                    .alwaysEat()
+                    .build()))
+            .lang("Blazing Chocolate Hand")
+            .register();
+
+    public static final ItemEntry<HandCastItem> HAND_CAST_WITH_CHOCOLATE_HAND =
+            REGISTRATE.item("hand_cast_with_chocolate_hand", (properties) -> new HandCastItem(CHOCOLATE_HAND, properties))
+                    .lang("Hand Gold Cast with Chocolate Hand")
+                    .register();
+
+    public static final ItemEntry<HandCastItem> HAND_CAST_WITH_BLAZING_CHOCOLATE_HAND =
+            REGISTRATE.item("hand_cast_with_blazing_chocolate_hand", (properties) -> new HandCastItem(BLAZING_CHOCOLATE_HAND, properties))
+                    .lang("Hand Gold Cast with Blazing Chocolate Hand")
+                    .register();
+
     public static final ItemEntry<Item> PROPELLER_CAST =
             REGISTRATE.item("propeller_cast", Item::new)
                     .lang("Propeller Gold Cast")
@@ -85,7 +111,7 @@ public class TGItems {
     public static final ItemEntry<BlazingFoodItem> BAR_OF_BLAZING_CHOCOLATE = REGISTRATE.item("bar_of_blazing_chocolate", BlazingFoodItem::new)
             .properties(p -> p.food(new FoodProperties.Builder().nutrition(8)
                     .saturationMod(0.4F)
-                    .effect(() -> new MobEffectInstance(MobEffects.HEAL, 120), 0.5f)
+                    .effect(() -> new MobEffectInstance(MobEffects.HEAL, 60), 0.5f)
                     .build()))
             .lang("Bar of Blazing Chocolate")
             .register();
