@@ -4,8 +4,8 @@ import ho.artisan.tgears.index.TGMaterialIds;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.tools.data.material.MaterialDataProvider;
 
-public class TGearMaterialDataProvider extends MaterialDataProvider {
-  public TGearMaterialDataProvider(PackOutput packOutput) {
+public class TGMaterialDataProvider extends MaterialDataProvider {
+  public TGMaterialDataProvider(PackOutput packOutput) {
     super(packOutput);
   }
 

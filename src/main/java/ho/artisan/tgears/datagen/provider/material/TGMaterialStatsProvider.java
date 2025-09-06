@@ -8,8 +8,8 @@ import slimeknights.tconstruct.tools.stats.*;
 
 import static net.minecraft.world.item.Tiers.IRON;
 
-public class TGearMaterialStatsProvider extends MaterialStatsDataProvider {
-    public TGearMaterialStatsProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
+public class TGMaterialStatsProvider extends MaterialStatsDataProvider {
+    public TGMaterialStatsProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
         super(packOutput, materials);
     }
 

@@ -19,9 +19,9 @@ import slimeknights.tconstruct.library.recipe.FluidValues;
  * @see MixingRecipeGen
  */
 @SuppressWarnings("unused")
-public final class TGearMixingRecipe extends MixingRecipeGen {
+public final class TGMixingRecipe extends MixingRecipeGen {
 
-    public TGearMixingRecipe(PackOutput output) {
+    public TGMixingRecipe(PackOutput output) {
         super(output, TinkersGears.MOD_ID);
     }
 

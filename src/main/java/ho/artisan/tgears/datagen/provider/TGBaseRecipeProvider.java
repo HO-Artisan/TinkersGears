@@ -12,8 +12,8 @@ import java.util.function.Consumer;
 /**
  * Shared logic for each module's recipe provider
  */
-public abstract class TGearBaseRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper {
-    public TGearBaseRecipeProvider(PackOutput generator) {
+public abstract class TGBaseRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper {
+    public TGBaseRecipeProvider(PackOutput generator) {
         super(generator);
         //TConstruct.sealTinkersClass(this, "BaseRecipeProvider", "BaseRecipeProvider is trivial to recreate and directly extending can lead to addon recipes polluting our namespace.");
     }

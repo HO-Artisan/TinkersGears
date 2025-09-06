@@ -15,9 +15,9 @@ import net.minecraft.world.item.crafting.Ingredient;
  * @see PressingRecipeGen
  */
 @SuppressWarnings("unused")
-public final class TGearPressingRecipe extends PressingRecipeGen {
+public final class TGPressingRecipe extends PressingRecipeGen {
 
-    public TGearPressingRecipe(PackOutput output) {
+    public TGPressingRecipe(PackOutput output) {
         super(output, TinkersGears.MOD_ID);
     }
 

@@ -3,7 +3,7 @@ package ho.artisan.tgears.datagen.provider.tconstruct;
 import com.simibubi.create.AllItems;
 import fr.lucreeper74.createmetallurgy.registries.CMItems;
 import ho.artisan.tgears.index.TGItems;
-import ho.artisan.tgears.datagen.provider.TGearBaseRecipeProvider;
+import ho.artisan.tgears.datagen.provider.TGBaseRecipeProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -30,9 +30,9 @@ import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.function.Consumer;
 
-public class TGearSmelteryRecipeProvider extends TGearBaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
+public class TGSmelteryRecipeProvider extends TGBaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
 
-    public TGearSmelteryRecipeProvider(PackOutput packOutput) {
+    public TGSmelteryRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }
 

@@ -1,6 +1,6 @@
 package ho.artisan.tgears.datagen.provider.tconstruct;
 
-import ho.artisan.tgears.datagen.provider.TGearBaseRecipeProvider;
+import ho.artisan.tgears.datagen.provider.TGBaseRecipeProvider;
 import ho.artisan.tgears.index.TGMaterialIds;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -14,8 +14,8 @@ import java.util.function.Consumer;
 
 import static slimeknights.mantle.Mantle.COMMON;
 
-public class TGearMaterialRecipeProvider extends TGearBaseRecipeProvider implements IMaterialRecipeHelper {
-    public TGearMaterialRecipeProvider(PackOutput packOutput) {
+public class TGMaterialRecipeProvider extends TGBaseRecipeProvider implements IMaterialRecipeHelper {
+    public TGMaterialRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }
 

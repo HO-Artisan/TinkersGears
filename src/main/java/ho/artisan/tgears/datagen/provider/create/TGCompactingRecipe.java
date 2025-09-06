@@ -15,9 +15,9 @@ import slimeknights.tconstruct.library.recipe.FluidValues;
  * @see CompactingRecipeGen
  */
 @SuppressWarnings("unused")
-public final class TGearCompactingRecipe extends CompactingRecipeGen {
+public final class TGCompactingRecipe extends CompactingRecipeGen {
 
-    public TGearCompactingRecipe(PackOutput output) {
+    public TGCompactingRecipe(PackOutput output) {
         super(output, TinkersGears.MOD_ID);
     }
 

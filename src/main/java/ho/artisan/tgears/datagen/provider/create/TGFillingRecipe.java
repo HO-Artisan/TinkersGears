@@ -15,9 +15,9 @@ import slimeknights.tconstruct.library.recipe.FluidValues;
  * @see FillingRecipeGen
  */
 @SuppressWarnings("unused")
-public final class TGearFillingRecipe extends FillingRecipeGen {
+public final class TGFillingRecipe extends FillingRecipeGen {
 
-    public TGearFillingRecipe(PackOutput output) {
+    public TGFillingRecipe(PackOutput output) {
         super(output, TinkersGears.MOD_ID);
     }
 
