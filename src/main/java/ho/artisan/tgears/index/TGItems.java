@@ -28,7 +28,6 @@ public final class TGItems {
 
     public static final ItemEntry<Item> CRUSHED_RAW_COBALT =
             REGISTRATE.item("crushed_raw_cobalt", Item::new)
-                    .tag(TGItemTags.COBALT_INGOTS)
                     .register();
 
     public static final ItemEntry<Item> HAND_CAST =
