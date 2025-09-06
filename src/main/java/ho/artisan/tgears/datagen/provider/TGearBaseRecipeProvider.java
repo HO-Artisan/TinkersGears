@@ -1,4 +1,4 @@
-package ho.artisan.tgears.common.recipes;
+package ho.artisan.tgears.datagen.provider;
 
 import ho.artisan.tgears.TinkersGears;
 import net.minecraft.data.PackOutput;
@@ -17,6 +17,7 @@ public abstract class TGearBaseRecipeProvider extends RecipeProvider implements 
         super(generator);
         //TConstruct.sealTinkersClass(this, "BaseRecipeProvider", "BaseRecipeProvider is trivial to recreate and directly extending can lead to addon recipes polluting our namespace.");
     }
+
     @Override
     public abstract String getName();
 

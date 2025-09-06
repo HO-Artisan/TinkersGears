@@ -12,7 +12,10 @@ import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
-public class TGBlocks {
+public final class TGBlocks {
+
+    private TGBlocks() {}
+
     static {
         REGISTRATE.setCreativeTab(TGCreativeModeTabs.MAIN_TAB);
     }

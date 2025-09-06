@@ -1,8 +1,6 @@
-package ho.artisan.tgears.common.recipes.Create;
+package ho.artisan.tgears.datagen.provider.create;
 
 import com.simibubi.create.AllItems;
-import com.simibubi.create.AllTags;
-import com.simibubi.create.Create;
 import com.simibubi.create.api.data.recipe.PressingRecipeGen;
 import com.simibubi.create.foundation.data.recipe.Mods;
 import fr.lucreeper74.createmetallurgy.registries.CMItems;
@@ -10,9 +8,7 @@ import fr.lucreeper74.createmetallurgy.registries.CMItems;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.index.TGItems;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 
 /**
  * Create's own Data Generation for Pressing recipes

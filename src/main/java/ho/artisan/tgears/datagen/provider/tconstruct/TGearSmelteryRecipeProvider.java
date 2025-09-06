@@ -1,9 +1,9 @@
-package ho.artisan.tgears.common.recipes.TConstruct;
+package ho.artisan.tgears.datagen.provider.tconstruct;
 
 import com.simibubi.create.AllItems;
 import fr.lucreeper74.createmetallurgy.registries.CMItems;
 import ho.artisan.tgears.index.TGItems;
-import ho.artisan.tgears.common.recipes.TGearBaseRecipeProvider;
+import ho.artisan.tgears.datagen.provider.TGearBaseRecipeProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -16,7 +16,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import  net.minecraftforge.common.crafting.ConditionalRecipe;
-import net.minecraftforge.common.crafting.conditions.TrueCondition;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
 import slimeknights.mantle.registration.object.FluidObject;

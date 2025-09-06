@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material_fluid",
   "fluid": {
-    "amount": 90,
+    "amount": 30,
     "tag": "forge:molten_iron"
   },
   "input": "tconstruct:rock#andesite",

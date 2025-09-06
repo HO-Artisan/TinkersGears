@@ -1,26 +1,13 @@
-package ho.artisan.tgears.common.recipes.Create;
+package ho.artisan.tgears.datagen.provider.create;
 
-import com.simibubi.create.AllFluids;
-import com.simibubi.create.AllItems;
-import com.simibubi.create.AllTags;
-import com.simibubi.create.AllTags.AllFluidTags;
-import com.simibubi.create.Create;
 import com.simibubi.create.api.data.recipe.FillingRecipeGen;
-import com.simibubi.create.api.data.recipe.SequencedAssemblyRecipeGen;
-import com.simibubi.create.content.fluids.potion.PotionFluidHandler;
-import com.simibubi.create.foundation.data.recipe.Mods;
 
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.index.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.material.Fluids;
 
-import net.minecraftforge.common.Tags;
-import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 
 /**

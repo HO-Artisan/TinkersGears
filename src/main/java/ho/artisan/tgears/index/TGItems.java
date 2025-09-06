@@ -15,7 +15,10 @@ import net.minecraft.world.item.Item;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
-public class TGItems {
+public final class TGItems {
+
+    private TGItems() {}
+
     static {
         REGISTRATE.setCreativeTab(TGCreativeModeTabs.MAIN_TAB);
         REGISTRATE.setTooltipModifierFactory(item ->

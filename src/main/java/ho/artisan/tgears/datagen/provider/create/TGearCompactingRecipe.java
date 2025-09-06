@@ -1,22 +1,13 @@
-package ho.artisan.tgears.common.recipes.Create;
+package ho.artisan.tgears.datagen.provider.create;
 
-import com.simibubi.create.AllFluids;
-import com.simibubi.create.AllItems;
-import com.simibubi.create.AllTags.AllFluidTags;
-import com.simibubi.create.Create;
 import com.simibubi.create.api.data.recipe.CompactingRecipeGen;
-
-import com.simibubi.create.api.data.recipe.SequencedAssemblyRecipeGen;
 
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.index.TGFluids;
 import ho.artisan.tgears.index.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Fluids;
 
-import net.minecraftforge.common.Tags;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 
 /**

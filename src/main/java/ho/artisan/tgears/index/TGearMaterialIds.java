@@ -1,11 +1,9 @@
-package ho.artisan.tgears.common.register;
+package ho.artisan.tgears.index;
 
 import ho.artisan.tgears.TinkersGears;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
-
-import static slimeknights.tconstruct.library.materials.definition.MaterialVariantId.create;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class TGearMaterialIds {
