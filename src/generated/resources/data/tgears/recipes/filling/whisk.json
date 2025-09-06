@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "tgears:whisk_cast_with_part"
+    },
+    {
+      "amount": 450,
+      "fluidTag": "forge:molten_iron"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:whisk_cast_with_whisk"
+    }
+  ]
+}

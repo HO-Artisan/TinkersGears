@@ -1,0 +1,18 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "amount": 250,
+      "fluid": "tgears:blazing_chocolate",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:bar_of_blazing_chocolate"
+    }
+  ]
+}

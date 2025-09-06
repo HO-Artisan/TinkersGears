@@ -18,7 +18,10 @@ import java.util.function.Supplier;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
-public class TGFluids {
+public final class TGFluids {
+
+    private TGFluids() {}
+
     public static final FluidEntry<ForgeFlowingFluid.Flowing> BLAZING_CHOCOLATE =
             REGISTRATE.standardFluid("blazing_chocolate",
                             SolidRenderedPlaceableFluidType.create(0xA06000,

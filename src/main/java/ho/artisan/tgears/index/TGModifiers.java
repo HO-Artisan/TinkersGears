@@ -7,8 +7,11 @@ import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
-public class TGModifiers {
-    public static class Ids {
+public final class TGModifiers {
+
+    private TGModifiers() {}
+
+    public static final class Ids {
         public static final ModifierId TOPNOTCH = id("topnotch");
 
         public static final ModifierId TAPERING = id("tapering");

@@ -2,10 +2,18 @@ package ho.artisan.tgears.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.datagen.provider.TGearMaterialTraitsDataProvider;
-import ho.artisan.tgears.datagen.provider.TGearMaterialDataProvider;
+
+import ho.artisan.tgears.datagen.provider.create.TGearCompactingRecipe;
+import ho.artisan.tgears.datagen.provider.create.TGearFillingRecipe;
+import ho.artisan.tgears.datagen.provider.create.TGearMixingRecipe;
+import ho.artisan.tgears.datagen.provider.create.TGearPressingRecipe;
+import ho.artisan.tgears.datagen.provider.tconstruct.TGearMaterialRecipeProvider;
+import ho.artisan.tgears.datagen.provider.tconstruct.TGearSmelteryRecipeProvider;
+import ho.artisan.tgears.datagen.provider.material.TGearMaterialTraitsDataProvider;
+import ho.artisan.tgears.datagen.provider.material.TGearMaterialDataProvider;
 import ho.artisan.tgears.ponder.TGPonderPlugin;
-import ho.artisan.tgears.datagen.provider.TGearMaterialStatsProvider;
+import ho.artisan.tgears.datagen.provider.material.TGearMaterialStatsProvider;
+
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -30,10 +38,21 @@ public class TGDataGeneration {
 
         TGearMaterialDataProvider materialProvider = new TGearMaterialDataProvider(event.getGenerator().getPackOutput());
         event.getGenerator().addProvider(event.includeServer(), materialProvider);
+
+        // TConstruct
         event.getGenerator().addProvider(event.includeServer(), new TGearMaterialTraitsDataProvider(event.getGenerator().getPackOutput(), materialProvider));
         event.getGenerator().addProvider(event.includeServer(), new TGearMaterialStatsProvider(event.getGenerator().getPackOutput(), materialProvider));
-    }
+        event.getGenerator().addProvider(event.includeServer(), new TGearSmelteryRecipeProvider(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearMaterialRecipeProvider(event.getGenerator().getPackOutput()));
 
+        // Create
+        event.getGenerator().addProvider(event.includeServer(), new TGearPressingRecipe(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearCompactingRecipe(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearFillingRecipe(event.getGenerator().getPackOutput()));
+        event.getGenerator().addProvider(event.includeServer(), new TGearMixingRecipe(event.getGenerator().getPackOutput()));
+
+        // Tinker's Gears
+    }
 
     private static void providePonderLang(BiConsumer<String, String> consumer) {
         PonderIndex.addPlugin(new TGPonderPlugin());
