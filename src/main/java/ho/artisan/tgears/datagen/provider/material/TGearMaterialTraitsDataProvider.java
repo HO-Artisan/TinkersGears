@@ -1,6 +1,6 @@
 package ho.artisan.tgears.datagen.provider.material;
 
-import ho.artisan.tgears.index.TGearMaterialIds;
+import ho.artisan.tgears.index.TGMaterialIds;
 import ho.artisan.tgears.index.TGModifiers;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
@@ -19,7 +19,7 @@ public class TGearMaterialTraitsDataProvider extends MaterialTraitsDataProvider 
     @Override
     protected void addMaterialTraits() {
 
-        addDefaultTraits(TGearMaterialIds.AndesiteAlloy, TGModifiers.Ids.TOPNOTCH);
+        addDefaultTraits(TGMaterialIds.ANDESITE_ALLOY, TGModifiers.Ids.TOPNOTCH);
 
     }
 }

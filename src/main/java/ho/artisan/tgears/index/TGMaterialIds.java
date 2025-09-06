@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class TGearMaterialIds {
-  public static final MaterialId AndesiteAlloy = id("andesite_alloy");
+public final class TGMaterialIds {
+  public static final MaterialId ANDESITE_ALLOY = id("andesite_alloy");
 
   /**
    * Creates a new material ID

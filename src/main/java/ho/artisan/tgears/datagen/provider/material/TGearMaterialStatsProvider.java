@@ -1,6 +1,6 @@
 package ho.artisan.tgears.datagen.provider.material;
 
-import ho.artisan.tgears.index.TGearMaterialIds;
+import ho.artisan.tgears.index.TGMaterialIds;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.tools.data.material.MaterialStatsDataProvider;
@@ -15,7 +15,7 @@ public class TGearMaterialStatsProvider extends MaterialStatsDataProvider {
 
     @Override
     protected void addMaterialStats() {
-        addMaterialStats(TGearMaterialIds.AndesiteAlloy,
+        addMaterialStats(TGMaterialIds.ANDESITE_ALLOY,
                 new HeadMaterialStats(220, 5.5F, IRON, 1.5F),
                 new LimbMaterialStats(220, -0.2F, 0.1F, 0.0F),
                 new GripMaterialStats(0.1F, 0.0F, 1.5F),

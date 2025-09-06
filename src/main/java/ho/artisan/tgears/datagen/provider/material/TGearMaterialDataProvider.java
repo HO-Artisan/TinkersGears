@@ -1,6 +1,6 @@
 package ho.artisan.tgears.datagen.provider.material;
 
-import ho.artisan.tgears.index.TGearMaterialIds;
+import ho.artisan.tgears.index.TGMaterialIds;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.tools.data.material.MaterialDataProvider;
 
@@ -17,7 +17,7 @@ public class TGearMaterialDataProvider extends MaterialDataProvider {
   @Override
   protected void addMaterials() {
     // tier 1
-    addMaterial(TGearMaterialIds.AndesiteAlloy,  2, ORDER_GENERAL, true);
+    addMaterial(TGMaterialIds.ANDESITE_ALLOY,  2, ORDER_GENERAL, true);
 
   }
 }

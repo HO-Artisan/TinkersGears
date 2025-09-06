@@ -1,7 +1,7 @@
 package ho.artisan.tgears.datagen.provider.tconstruct;
 
 import ho.artisan.tgears.datagen.provider.TGearBaseRecipeProvider;
-import ho.artisan.tgears.index.TGearMaterialIds;
+import ho.artisan.tgears.index.TGMaterialIds;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -31,12 +31,12 @@ public class TGearMaterialRecipeProvider extends TGearBaseRecipeProvider impleme
 
     private void addMaterialItems(Consumer<FinishedRecipe> consumer) {
         String folder = "tools/materials/";
-        materialRecipe(consumer, TGearMaterialIds.AndesiteAlloy,   Ingredient.of(getItemTag(COMMON, "ingots/andesite_alloy")),   1, 1, folder + "alloy/andesite_alloy/ingot");
-        materialRecipe(consumer, TGearMaterialIds.AndesiteAlloy,   Ingredient.of(getItemTag(COMMON, "storage_blocks/andesite_alloy")),   9, 1, folder + "alloy/andesite_alloy/block");
+        materialRecipe(consumer, TGMaterialIds.ANDESITE_ALLOY, Ingredient.of(getItemTag(COMMON, "ingots/andesite_alloy")),   1, 1, folder + "alloy/andesite_alloy/ingot");
+        materialRecipe(consumer, TGMaterialIds.ANDESITE_ALLOY, Ingredient.of(getItemTag(COMMON, "storage_blocks/andesite_alloy")),   9, 1, folder + "alloy/andesite_alloy/block");
     }
 
     private void addMaterialSmeltery(Consumer<FinishedRecipe> consumer) {
         String folder = "tools/materials/";
-        materialComposite(consumer, MaterialIds.andesite, TGearMaterialIds.AndesiteAlloy, TinkerFluids.moltenIron, FluidValues.NUGGET * 3, folder + "alloy/andesite_alloy/");
+        materialComposite(consumer, MaterialIds.andesite, TGMaterialIds.ANDESITE_ALLOY, TinkerFluids.moltenIron, FluidValues.NUGGET * 3, folder + "alloy/andesite_alloy/");
     }
 }
