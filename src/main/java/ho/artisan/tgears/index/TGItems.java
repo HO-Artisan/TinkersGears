@@ -28,6 +28,7 @@ public final class TGItems {
 
     public static final ItemEntry<Item> CRUSHED_RAW_COBALT =
             REGISTRATE.item("crushed_raw_cobalt", Item::new)
+                    .tag(TGItemTags.CRUSHED_RAW_MATERIALS)
                     .register();
 
     public static final ItemEntry<Item> HAND_CAST =
@@ -116,6 +117,7 @@ public final class TGItems {
                     .saturationMod(0.4F)
                     .effect(() -> new MobEffectInstance(MobEffects.HEAL, 60), 0.5f)
                     .build()))
+            .tag(TGItemTags.BLAZING_FOOD)
             .lang("Bar of Blazing Chocolate")
             .register();
 
