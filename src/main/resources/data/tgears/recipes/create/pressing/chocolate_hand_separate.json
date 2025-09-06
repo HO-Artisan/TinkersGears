@@ -1,0 +1,16 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "tgears:hand_cast_with_chocolate_hand"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:hand_cast"
+    },
+    {
+      "item": "tgears:chocolate_hand"
+    }
+  ]
+}

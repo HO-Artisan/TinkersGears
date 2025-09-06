@@ -1,8 +1,8 @@
 {
   "values": [
     "tconstruct:seared_table",
-    "tconstruct:seared_casting_basin",
-    "tconstruct:scorched_casting_table",
-    "tconstruct:scorched_casting_basin"
+    "tconstruct:seared_basin",
+    "tconstruct:scorched_table",
+    "tconstruct:scorched_basin"
   ]
 }

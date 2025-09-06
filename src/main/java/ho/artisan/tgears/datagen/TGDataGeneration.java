@@ -2,6 +2,7 @@ package ho.artisan.tgears.datagen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
+
 import ho.artisan.tgears.datagen.provider.create.TGearCompactingRecipe;
 import ho.artisan.tgears.datagen.provider.create.TGearFillingRecipe;
 import ho.artisan.tgears.datagen.provider.create.TGearMixingRecipe;
@@ -12,6 +13,7 @@ import ho.artisan.tgears.datagen.provider.material.TGearMaterialTraitsDataProvid
 import ho.artisan.tgears.datagen.provider.material.TGearMaterialDataProvider;
 import ho.artisan.tgears.ponder.TGPonderPlugin;
 import ho.artisan.tgears.datagen.provider.material.TGearMaterialStatsProvider;
+
 import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -61,6 +63,17 @@ public class TGDataGeneration {
         consumer.accept("item.tgears.hand_cast_with_brass_hand.tooltip.summary", "Contain a _Brass Hand_.");
         consumer.accept("item.tgears.hand_cast_with_brass_hand.tooltip.condition1", "Right click");
         consumer.accept("item.tgears.hand_cast_with_brass_hand.tooltip.behaviour1", "_Separate_ the _hand_ from the _cast_.");
+
+        consumer.accept("item.tgears.hand_cast_with_chocolate_hand.tooltip.summary", "Contain a _Chocolate Hand_.");
+        consumer.accept("item.tgears.hand_cast_with_chocolate_hand.tooltip.condition1", "Right click");
+        consumer.accept("item.tgears.hand_cast_with_chocolate_hand.tooltip.behaviour1", "_Separate_ the _hand_ from the _cast_.");
+
+        consumer.accept("item.tgears.hand_cast_with_blazing_chocolate_hand.tooltip.summary", "Contain a _Blazing Chocolate Hand_.");
+        consumer.accept("item.tgears.hand_cast_with_blazing_chocolate_hand.tooltip.condition1", "Right click");
+        consumer.accept("item.tgears.hand_cast_with_blazing_chocolate_hand.tooltip.behaviour1", "_Separate_ the _hand_ from the _cast_.");
+
+        consumer.accept("item.tgears.chocolate_hand.tooltip.summary", "Be careful not to eat Andesite Alloy!");
+        consumer.accept("item.tgears.blazing_chocolate_hand.tooltip.summary", "Be careful not to eat Andesite Alloy!");
 
         consumer.accept("item.tgears.propeller_cast_with_propeller.tooltip.summary", "Contain a _Propeller_.");
         consumer.accept("item.tgears.propeller_cast_with_propeller.tooltip.condition1", "Right click");
