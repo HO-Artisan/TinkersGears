@@ -5,7 +5,7 @@ import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
-public class TGPonderTags {
+public final class TGPonderTags {
     public static final ResourceLocation SMELTERY = new ResourceLocation(TinkersGears.MOD_ID, "smeltery");
     public static final ResourceLocation COMPAT = new ResourceLocation(TinkersGears.MOD_ID, "compat");
 

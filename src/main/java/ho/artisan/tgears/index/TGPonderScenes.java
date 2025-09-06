@@ -7,7 +7,7 @@ import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
-public class TGPonderScenes {
+public final class TGPonderScenes {
     private TGPonderScenes() {}
 
     public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper) {

@@ -23,7 +23,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class TGCreativeModeTabs {
+public final class TGCreativeModeTabs {
+
+    private TGCreativeModeTabs() {}
+
     private static final DeferredRegister<CreativeModeTab> TAB_REGISTER = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TinkersGears.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> MAIN_TAB = TAB_REGISTER.register("main",

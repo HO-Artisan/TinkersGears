@@ -1,5 +1,13 @@
 {
   "values": [
-    "create:whisk"
+    "create:whisk",
+    {
+      "id": "createmetallurgy:sturdy_whisk",
+      "required": false,
+      "condition": {
+        "type": "minecraft:loaded",
+        "namespace": "createmetallurgy"
+      }
+    }
   ]
 }
