@@ -1,5 +1,12 @@
 {
   "values": [
-    "createaddition:diamond_grit_sandpaper"
-  ]
+    {
+      "id": "createaddition:diamond_grit_sandpaper",
+      "required": false
+    }
+  ],
+  "condition": {
+    "type": "minecraft:loaded",
+    "namespace": "createaddition"
+  }
 }
