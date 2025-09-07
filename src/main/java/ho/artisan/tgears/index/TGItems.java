@@ -5,6 +5,7 @@ import com.simibubi.create.content.equipment.goggles.GogglesItem;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.simibubi.create.foundation.item.ItemDescription;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.common.item.*;
 import ho.artisan.tgears.util.TinkerGogglesUtil;
 import net.createmod.catnip.lang.FontHelper;
@@ -123,5 +124,7 @@ public final class TGItems {
 
     public static void register() {
         GogglesItem.addIsWearingPredicate(TinkerGogglesUtil::isWearingGoggles);
+
+        TinkersGears.LOGGER.info("Items initialized");
     }
 }

@@ -15,6 +15,6 @@ public final class TGPartialModels {
     }
 
     public static void init() {
-        // init static fields
+        TinkersGears.LOGGER.info("Partial models initialized");
     }
 }

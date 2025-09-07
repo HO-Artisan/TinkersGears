@@ -1,6 +1,7 @@
 package ho.artisan.tgears.index;
 
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
+import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.client.renderer.TinkerSpoutRenderer;
 import ho.artisan.tgears.common.block.entity.TinkerSpoutBlockEntity;
 
@@ -17,6 +18,6 @@ public final class TGBlockEntityTypes {
             .register();
 
     public static void register() {
-
+        TinkersGears.LOGGER.info("BlockEntityTypes initialized");
     }
 }

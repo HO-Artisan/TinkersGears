@@ -1,5 +1,6 @@
 package ho.artisan.tgears.index;
 
+import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.ponder.scene.CastingScene;
 import ho.artisan.tgears.ponder.scene.MelterScene;
 import ho.artisan.tgears.ponder.scene.SmelteryScene;
@@ -22,5 +23,7 @@ public final class TGPonderScenes {
                 .addStoryBoard("smeltery_mini", SmelteryScene::mini,  TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.searedTable.getId())
                 .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
+
+        TinkersGears.LOGGER.info("Ponder scenes initialized");
     }
 }

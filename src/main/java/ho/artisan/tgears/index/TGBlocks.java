@@ -5,6 +5,7 @@ import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.common.block.TinkerSpoutBlock;
 import net.minecraft.client.renderer.RenderType;
 
@@ -30,6 +31,6 @@ public final class TGBlocks {
             .register();
 
     public static void register() {
-
+        TinkersGears.LOGGER.info("Blocks initialized");
     }
 }

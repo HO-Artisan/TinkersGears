@@ -28,5 +28,7 @@ public final class TGPonderTags {
                 .add(TinkerSmeltery.searedMelter.getId())
                 .add(TinkerSmeltery.smelteryController.getId())
                 .add(TinkerSmeltery.searedTable.getId());
+
+        TinkersGears.LOGGER.info("Ponder tags initialized");
     }
 }

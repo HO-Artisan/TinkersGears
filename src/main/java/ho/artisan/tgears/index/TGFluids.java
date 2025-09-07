@@ -4,6 +4,7 @@ import com.simibubi.create.AllFluids;
 import com.simibubi.create.infrastructure.config.AllConfigs;
 import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
+import ho.artisan.tgears.TinkersGears;
 import net.createmod.catnip.theme.Color;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -39,7 +40,7 @@ public final class TGFluids {
                     .register();
 
     public static void register() {
-
+        TinkersGears.LOGGER.info("Fluids initialized");
     }
 
     private static class SolidRenderedPlaceableFluidType extends AllFluids.TintedFluidType {
