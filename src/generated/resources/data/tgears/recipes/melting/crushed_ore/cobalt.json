@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tgears:crushed_raw_cobalt"
+  },
+  "result": {
+    "amount": 150,
+    "fluid": "tconstruct:molten_cobalt"
+  },
+  "temperature": 950,
+  "time": 57
+}

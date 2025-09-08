@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "tgears:propeller_cast_with_part"
+  },
+  "cast_consumed": true,
+  "cooling_time": 82,
+  "fluid": {
+    "amount": 360,
+    "tag": "forge:molten_iron"
+  },
+  "result": "tgears:propeller_cast_with_propeller"
+}

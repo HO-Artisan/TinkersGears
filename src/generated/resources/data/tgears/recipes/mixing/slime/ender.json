@@ -1,0 +1,22 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    },
+    {
+      "tag": "forge:dyes/black"
+    },
+    {
+      "amount": 25,
+      "fluid": "tconstruct:molten_ender",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "count": 2,
+      "item": "tconstruct:ender_slime_ball"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import com.google.common.cache.CacheBuilder;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.content.kinetics.crusher.CrushingRecipe;
 import ho.artisan.tgears.common.block.entity.module.CrushingModule;
-import ho.artisan.tgears.index.TGItemTags;
+import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -66,13 +66,13 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
 
     private ItemStack crushingItem(ItemStack stack, Level world) {
         // skip blacklisted entries
-        if (stack.is(TGItemTags.CRUSHING_BLACKLIST)) {
+        if (stack.is(TGTagKeys.Items.CRUSHING_BLACKLIST)) {
             return stack;
         }
         CrushingRecipe recipe = findCachedRecipe(stack, world);
         if (recipe != null) {
             inventory.setStackInSlot(0, stack);
-            ItemStack output = recipe.assemble(new RecipeWrapper(inventory), world.registryAccess());
+            ItemStack output = recipe.assemble(new RecipeWrapper(inventory), world.registryAccess()).copy();
             if (stack.getCount() > 1) {
                 // recipe output is a copy, safe to modify
                 output.setCount(output.getCount() * stack.getCount());

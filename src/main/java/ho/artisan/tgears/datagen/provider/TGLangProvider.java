@@ -1,14 +1,18 @@
 package ho.artisan.tgears.datagen.provider;
 
 import ho.artisan.tgears.TinkersGears;
-import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.LanguageProvider;
+import ho.artisan.tgears.ponder.TGPonderPlugin;
+import net.createmod.ponder.foundation.PonderIndex;
 
 import java.util.function.BiConsumer;
 
-public class TGLangProvider extends LanguageProvider {
-    public TGLangProvider(PackOutput output) {
-        super(output, TinkersGears.MOD_ID, "en_us");
+public class TGLangProvider {
+
+    public void addTranslations(BiConsumer<String, String> consumer) {
+        providePonderLang(consumer);
+        providerTooltipsLang(consumer);
+        provideTGLang(consumer);
+        providerModifierLang(consumer);
     }
 
     private void providerModifierLang(BiConsumer<String, String> consumer) {
@@ -99,16 +103,8 @@ public class TGLangProvider extends LanguageProvider {
         consumer.accept("item.create.sand_paper.tooltip.condition2", "When Polishing Tinker's Tools");
     }
 
-    @Override
-    public String getName() {
-        return "Tinkers Gears Lang Provider";
-    }
-
-    @Override
-    protected void addTranslations() {
-        BiConsumer<String, String> consumer = this::add;
-        providerTooltipsLang(consumer);
-        provideTGLang(consumer);
-        providerModifierLang(consumer);
+    private void providePonderLang(BiConsumer<String, String> consumer) {
+        PonderIndex.addPlugin(new TGPonderPlugin());
+        PonderIndex.getLangAccess().provideLang(TinkersGears.MOD_ID, consumer);
     }
 }

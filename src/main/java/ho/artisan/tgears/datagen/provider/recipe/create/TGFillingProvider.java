@@ -1,0 +1,78 @@
+package ho.artisan.tgears.datagen.provider.recipe.create;
+
+import com.simibubi.create.api.data.recipe.FillingRecipeGen;
+
+import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.index.TGItems;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.FluidTags;
+
+import net.minecraft.world.item.ItemStack;
+import slimeknights.tconstruct.library.recipe.FluidValues;
+
+public final class TGFillingProvider extends FillingRecipeGen {
+
+    public TGFillingProvider(PackOutput output) {
+        super(output, TinkersGears.MOD_ID);
+        createRecipes();
+    }
+
+    private void createRecipes() {
+        handRecipe(
+                "brass",
+                "molten_brass",
+                FluidValues.INGOT * 4,
+                new ItemStack(TGItems.HAND_CAST_WITH_BRASS_HAND)
+        );
+
+        handRecipe(
+                "blazing_chocolate",
+                "blazing_chocolate",
+                FluidValues.BOTTLE * 2,
+                new ItemStack(TGItems.HAND_CAST_WITH_BLAZING_CHOCOLATE_HAND)
+        );
+
+        handRecipe(
+                "chocolate",
+                "chocolate",
+                FluidValues.BOTTLE * 2,
+                new ItemStack(TGItems.HAND_CAST_WITH_CHOCOLATE_HAND)
+        );
+
+        propellerRecipe(
+                "iron",
+                "molten_iron",
+                FluidValues.INGOT * 4,
+                new ItemStack(TGItems.PROPELLER_CAST_WITH_PROPELLER)
+        );
+
+        whiskRecipe(
+                "iron",
+                "molten_iron",
+                FluidValues.INGOT * 5,
+                new ItemStack(TGItems.WHISK_CAST_WITH_WHISK)
+        );
+    }
+
+    private void handRecipe(String id, String fluid, int amount, ItemStack output) {
+        create("hand/" + id, b -> b.require(
+                        FluidTags.create(new ResourceLocation("forge", fluid)), amount)
+                .require(TGItems.HAND_CAST_WITH_PART)
+                .output(output));
+    }
+
+    private void propellerRecipe(String id, String fluid, int amount, ItemStack output) {
+        create("propeller/" + id, b -> b.require(
+                        FluidTags.create(new ResourceLocation("forge", fluid)), amount)
+                .require(TGItems.PROPELLER_CAST_WITH_PART)
+                .output(output));
+    }
+
+    private void whiskRecipe(String id, String fluid, int amount, ItemStack output) {
+        create("whisk/" + id, b -> b.require(
+                        FluidTags.create(new ResourceLocation("forge", fluid)), amount)
+                .require(TGItems.WHISK_CAST_WITH_PART)
+                .output(output));
+    }
+}

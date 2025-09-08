@@ -20,12 +20,16 @@ import java.util.function.Supplier;
 
 public class CreateExtendoModifier extends NoLevelsModifier implements EquipmentChangeModifierHook {
     public static final String EXTENDO_MARKER = "createExtendo";
-    public static final AttributeModifier MODIFIER =
-            new AttributeModifier(UUID.fromString("505501b0-7368-498e-89c3-1723ef0f73e6"), "Tinker Range modifier", 3,
-                    AttributeModifier.Operation.ADDITION);
+    public static final AttributeModifier MODIFIER = new AttributeModifier(
+            UUID.fromString("505501b0-7368-498e-89c3-1723ef0f73e6"), "Tinker Range modifier", 3,
+            AttributeModifier.Operation.ADDITION
+    );
+
     private static final Supplier<Multimap<Attribute, AttributeModifier>> MEMOIZED = Suppliers.memoize(() ->
             // Holding an ExtendoGrip
             ImmutableMultimap.of(ForgeMod.BLOCK_REACH.get(), MODIFIER));
+
+
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {

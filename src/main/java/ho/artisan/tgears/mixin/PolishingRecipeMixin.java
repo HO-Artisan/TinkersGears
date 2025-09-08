@@ -3,8 +3,8 @@ package ho.artisan.tgears.mixin;
 import com.simibubi.create.content.equipment.sandPaper.SandPaperPolishingRecipe;
 import ho.artisan.tgears.TinkersGearsConfig;
 import ho.artisan.tgears.common.modifier.CreatePolishedModifier;
-import ho.artisan.tgears.index.TGItemTags;
 import ho.artisan.tgears.index.TGModifiers;
+import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -35,7 +35,7 @@ public class PolishingRecipeMixin {
             if (modifier.getLevel() < 1) {
                 tool.addModifier(TGModifiers.Ids.POLISHED, 1);
                 tool.addModifier(TGModifiers.Ids.TAPERING, 1);
-                if (sandPaperStack.is(TGItemTags.GRIT_SANDPAPER)) {
+                if (sandPaperStack.is(TGTagKeys.Items.GRIT_SANDPAPER)) {
                     tool.addModifier(TGModifiers.Ids.TAPERING, 1);
                 }
             }

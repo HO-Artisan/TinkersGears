@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "tgears:whisk_cast_with_part"
+  },
+  "cast_consumed": true,
+  "cooling_time": 82,
+  "fluid": {
+    "amount": 450,
+    "tag": "forge:molten_iron"
+  },
+  "result": "tgears:whisk_cast_with_whisk"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "tgears:whisk_cast_with_sturdy_whisk"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:whisk_cast"
+    },
+    {
+      "item": "createmetallurgy:sturdy_whisk"
+    }
+  ]
+}

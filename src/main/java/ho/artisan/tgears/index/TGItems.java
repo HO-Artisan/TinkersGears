@@ -1,6 +1,7 @@
 package ho.artisan.tgears.index;
 
 import com.simibubi.create.AllItems;
+import com.simibubi.create.AllTags;
 import com.simibubi.create.content.equipment.goggles.GogglesItem;
 import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.simibubi.create.foundation.item.ItemDescription;
@@ -29,7 +30,7 @@ public final class TGItems {
 
     public static final ItemEntry<Item> CRUSHED_RAW_COBALT =
             REGISTRATE.item("crushed_raw_cobalt", Item::new)
-                    .tag(TGItemTags.CRUSHED_RAW_MATERIALS)
+                    .tag(AllTags.AllItemTags.CRUSHED_RAW_MATERIALS.tag)
                     .register();
 
     public static final ItemEntry<Item> HAND_CAST =
@@ -83,7 +84,7 @@ public final class TGItems {
                     .lang("Propeller Gold Cast with Part")
                     .register();
 
-    public static final ItemEntry<PropellerCastItem> PROPELLER_CAST_WITH_PROPELLER_=
+    public static final ItemEntry<PropellerCastItem> PROPELLER_CAST_WITH_PROPELLER =
             REGISTRATE.item("propeller_cast_with_propeller", (properties) -> new PropellerCastItem(AllItems.PROPELLER, properties))
                     .lang("Propeller Gold Cast with Propeller")
                     .register();
@@ -118,7 +119,7 @@ public final class TGItems {
                     .saturationMod(0.4F)
                     .effect(() -> new MobEffectInstance(MobEffects.HEAL, 60), 0.5f)
                     .build()))
-            .tag(TGItemTags.BLAZING_FOOD)
+            .tag(AllTags.AllItemTags.BLAZE_BURNER_FUEL_SPECIAL.tag)
             .lang("Bar of Blazing Chocolate")
             .register();
 

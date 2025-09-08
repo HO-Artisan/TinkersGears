@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "tgears:hand_cast_with_part"
+    },
+    {
+      "amount": 500,
+      "fluidTag": "forge:chocolate"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:hand_cast_with_chocolate_hand"
+    }
+  ]
+}

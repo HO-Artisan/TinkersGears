@@ -7,7 +7,6 @@ import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.common.block.TinkerSpoutBlock;
-import net.minecraft.client.renderer.RenderType;
 
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
@@ -25,7 +24,6 @@ public final class TGBlocks {
             .initialProperties(SharedProperties::copperMetal)
             .transform(pickaxeOnly())
             .blockstate((ctx, prov) -> BlockStateGen.simpleBlock(ctx, prov, AssetLookup.forPowered(ctx, prov)))
-            .addLayer(() -> RenderType::cutoutMipped)
             .item(AssemblyOperatorBlockItem::new)
             .transform(customItemModel())
             .register();

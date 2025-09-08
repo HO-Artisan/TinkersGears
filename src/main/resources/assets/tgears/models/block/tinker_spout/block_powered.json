@@ -2,5 +2,6 @@
   "parent": "tgears:block/tinker_spout/block",
   "textures": {
     "0": "tgears:block/spout_on"
-  }
+  },
+  "render_type": "minecraft:cutout"
 }
