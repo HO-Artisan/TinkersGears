@@ -13,6 +13,12 @@ public class TinkersGearsConfig {
     public static final ForgeConfigSpec.ConfigValue<Float> POLISHING_DAMAGE;
     public static final ForgeConfigSpec.ConfigValue<Float> POLISHING_SHIELD;
 
+    // Adrenaline
+    public static final ForgeConfigSpec.ConfigValue<Float> ADRENALINE_CHANCE;
+    public static final ForgeConfigSpec.ConfigValue<Integer> ADRENALINE_MAX_LEVEL;
+    public static final ForgeConfigSpec.ConfigValue<Float> ADRENALINE_MULTIPLIER_PER_LEVEL;
+
+    public static final ForgeConfigSpec.ConfigValue<Boolean> ADRENALINE_DAMAGE_FLAG;
     // Goggles
     public static final ForgeConfigSpec.ConfigValue<Boolean> IS_GOGGLES_ENABLED;
 
@@ -38,6 +44,16 @@ public class TinkersGearsConfig {
                 .define("polishing_damage", 0.1F);
         POLISHING_SHIELD = common.comment("The shield provided when polishing")
                 .define("polishing_shield", 0.1F);
+
+        common.comment("The Adrenaline Settings");
+        ADRENALINE_CHANCE = common.comment("The chance to get adrenaline when being attacked")
+                .define("adrenaline_chance", 0.5F);
+        ADRENALINE_MAX_LEVEL = common.comment("The max level of adrenaline")
+                .define("adrenaline_max_level", 5);
+        ADRENALINE_MULTIPLIER_PER_LEVEL = common.comment("The multiplier per level of adrenaline")
+                .define("adrenaline_multiplier_per_level", 0.05f);
+        ADRENALINE_DAMAGE_FLAG = common.comment("Enable the damage bonus when adrenaline is active")
+                .define("adrenaline_damage_flag", false);
 
         // Client
         IS_GOGGLES_ENABLED = client.comment("Enable the goggles when looking at TConstruct blocks")

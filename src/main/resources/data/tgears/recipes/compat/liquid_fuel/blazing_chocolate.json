@@ -1,0 +1,12 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "createliquidfuel"
+    }
+  ],
+  "fluid": "tgears:blazing_chocolate",
+  "burnTime": 128,
+  "superHeat": true,
+  "amountConsumedPerTick" : 10
+}

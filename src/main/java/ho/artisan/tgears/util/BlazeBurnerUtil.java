@@ -7,7 +7,10 @@ import slimeknights.tconstruct.smeltery.block.entity.module.SolidFuelModule;
 
 import java.util.List;
 
-public class BlazeBurnerUtil {
+public final class BlazeBurnerUtil {
+
+    private BlazeBurnerUtil() {}
+
     public static float getFactor(BlazeBurnerBlock.HeatLevel level) {
         return switch (level) {
             case NONE -> 0F;

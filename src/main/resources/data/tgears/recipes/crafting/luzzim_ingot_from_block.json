@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tgears:luzzium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "tgears:luzzium_ingot"
+  }
+}

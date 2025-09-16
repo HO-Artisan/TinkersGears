@@ -11,6 +11,7 @@ import net.createmod.catnip.render.CachedBuffers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.fluids.FluidStack;
@@ -20,8 +21,11 @@ public class TinkerSpoutRenderer extends SafeBlockEntityRenderer<TinkerSpoutBloc
     public TinkerSpoutRenderer(BlockEntityRendererProvider.Context context) {
     }
 
-    static final PartialModel[] BITS =
-            { TGPartialModels.SPOUT_TOP, TGPartialModels.SPOUT_MIDDLE, TGPartialModels.SPOUT_BOTTOM };
+    static final PartialModel[] BITS = {
+            TGPartialModels.SPOUT_TOP,
+            TGPartialModels.SPOUT_MIDDLE,
+            TGPartialModels.SPOUT_BOTTOM,
+    };
 
     @Override
     protected void renderSafe(TinkerSpoutBlockEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
@@ -84,5 +88,13 @@ public class TinkerSpoutRenderer extends SafeBlockEntityRenderer<TinkerSpoutBloc
         }
         ms.popPose();
 
+        ms.pushPose();
+        for (Direction attachment : be.getAttachments()) {
+            PartialModel model = be.isOn() ? TGPartialModels.SPOUT_CONNECTION_ON : TGPartialModels.SPOUT_CONNECTION;
+            CachedBuffers.partialFacing(model, be.getBlockState(), attachment)
+                    .light(light)
+                    .renderInto(ms, buffer.getBuffer(RenderType.solid()));
+        }
+        ms.popPose();
     }
 }

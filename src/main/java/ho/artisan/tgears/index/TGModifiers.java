@@ -12,7 +12,9 @@ public final class TGModifiers {
     private TGModifiers() {}
 
     public static final class Ids {
+        public static final ModifierId ADRENALINE = id("adrenaline");
         public static final ModifierId TOPNOTCH = id("topnotch");
+        public static final ModifierId LIGHTWEIGHT = id("lightweight");
 
         public static final ModifierId TAPERING = id("tapering");
         public static final ModifierId POLISHED = id("polished");
@@ -21,6 +23,8 @@ public final class TGModifiers {
         public static final ModifierId CRUSHING = id("crushing");
         public static final ModifierId EXTENDO = id("extendo");
         public static final ModifierId DIVING = id("diving_weights");
+
+        public static final ModifierId STRESS_DRIVEN = id("stress_driven");
 
         private static ModifierId id(String id) {
             return ModifierId.tryBuild(TinkersGears.MOD_ID, id);
@@ -32,6 +36,8 @@ public final class TGModifiers {
     public static final StaticModifier<CreatePolishedModifier> POLISHED = MODIFIERS.register("polished", CreatePolishedModifier::new);
     public static final StaticModifier<CreateCrushingModifier> CRUSHING =  MODIFIERS.register("crushing", CreateCrushingModifier::new);
     public static final StaticModifier<CreateExtendoModifier> EXTENDO = MODIFIERS.register("extendo", CreateExtendoModifier::new);
+
+    public static final StaticModifier<AdrenalineModifier> ADRENALINE = MODIFIERS.register("adrenaline", AdrenalineModifier::new);
 
     public static void register(IEventBus bus) {
         MODIFIERS.register(bus);

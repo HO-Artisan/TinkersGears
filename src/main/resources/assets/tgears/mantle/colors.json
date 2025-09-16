@@ -6,9 +6,12 @@
     "crushing": "#bfbeae",
     "goggles": "#ffeb94",
     "extendo": "#ffeb94",
-    "diving_weights": "#b3c9ba"
+    "diving_weights": "#b3c9ba",
+    "adrenaline": "#88efe7",
+    "lightweight": "#88efe7"
   },
   "material.tgears": {
-    "andesite_alloy": "#b3c9ba"
+    "andesite_alloy": "#b3c9ba",
+    "luzzium": "#88efe7"
   }
 }

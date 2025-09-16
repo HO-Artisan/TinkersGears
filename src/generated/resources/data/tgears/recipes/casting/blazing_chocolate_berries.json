@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "item": "minecraft:sweet_berries"
+  },
+  "cast_consumed": true,
+  "cooling_time": 57,
+  "fluid": {
+    "amount": 250,
+    "tag": "forge:blazing_chocolate"
+  },
+  "result": "tgears:blazing_chocolate_glazed_berries"
+}

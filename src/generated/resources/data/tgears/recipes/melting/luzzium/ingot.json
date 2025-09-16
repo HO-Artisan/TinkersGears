@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "tgears:luzzium_ingot"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "tgears:molten_luzzium"
+  },
+  "temperature": 690,
+  "time": 57
+}

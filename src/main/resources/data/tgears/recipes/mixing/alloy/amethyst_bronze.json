@@ -1,5 +1,5 @@
 {
-  "type": "create:mixing",
+  "type": "create:D",
   "conditions": [
     {
       "type": "forge:not",

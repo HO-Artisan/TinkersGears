@@ -22,7 +22,9 @@ public class BlazingLeftoverFoodItem extends Item {
                 player.drop(new ItemStack(leftoverItem), false);
             }
         }
-        livingEntity.setSecondsOnFire(3);
+        if (!livingEntity.fireImmune()) {
+            livingEntity.setSecondsOnFire(3);
+        }
         return super.finishUsingItem(stack, level, livingEntity);
     }
 }

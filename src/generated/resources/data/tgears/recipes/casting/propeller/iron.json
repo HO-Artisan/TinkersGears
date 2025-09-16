@@ -7,7 +7,7 @@
   "cooling_time": 82,
   "fluid": {
     "amount": 360,
-    "tag": "forge:molten_iron"
+    "fluid": "tconstruct:molten_iron"
   },
   "result": "tgears:propeller_cast_with_propeller"
 }

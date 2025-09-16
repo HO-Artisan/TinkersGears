@@ -123,6 +123,25 @@ public final class TGItems {
             .lang("Bar of Blazing Chocolate")
             .register();
 
+    public static final ItemEntry<BlazingFoodItem> BLAZING_CHOCOLATE_BERRIES = REGISTRATE.item("blazing_chocolate_glazed_berries", BlazingFoodItem::new)
+            .properties(p -> p.food(new FoodProperties.Builder().nutrition(8)
+                    .saturationMod(0.8F)
+                    .effect(() -> new MobEffectInstance(MobEffects.HEAL, 60), 0.5f)
+                    .build()))
+            .register();
+
+    public static final ItemEntry<Item> LUZZIUM_INGOT =
+            REGISTRATE.item("luzzium_ingot", Item::new)
+                    .tag(TGTagKeys.Items.INGOTS)
+                    .tag(TGTagKeys.Items.LUZZIUM_INGOT)
+                    .register();
+
+    public static final ItemEntry<Item> LUZZIUM_NUGGET =
+            REGISTRATE.item("luzzium_nugget", Item::new)
+                    .tag(TGTagKeys.Items.NUGGETS)
+                    .tag(TGTagKeys.Items.LUZZIUM_NUGGET)
+                    .register();
+
     public static void register() {
         GogglesItem.addIsWearingPredicate(TinkerGogglesUtil::isWearingGoggles);
 

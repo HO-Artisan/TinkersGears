@@ -1,0 +1,16 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tgears:lightweight"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tgears:adrenaline"
+      }
+    ]
+  }
+}

@@ -32,7 +32,7 @@ public final class TGMixingProvider extends MixingRecipeGen {
 
         create("slime/ender", b -> b.require(AllItems.DOUGH)
                 .require(TinkerFluids.moltenEnder.get(), 25)
-                .require(Tags.Items.DYES_BLACK)
+                .require(Tags.Items.DYES_PURPLE)
                 .output(TinkerCommons.slimeball.get(SlimeType.ENDER), 2)
         );
 

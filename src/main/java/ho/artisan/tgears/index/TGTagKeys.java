@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Fluid;
 
 public final class TGTagKeys {
@@ -19,8 +20,18 @@ public final class TGTagKeys {
         public static final TagKey<Item> GRIT_SANDPAPER = tgearsTag("grit_sandpaper");
         public static final TagKey<Item> CRUSHING_BLACKLIST = tgearsTag("crushing_blacklist");
 
+        public static final TagKey<Item> INGOTS = forgeTag("ingots");
+        public static final TagKey<Item> LUZZIUM_INGOT = forgeTag("ingots/luzzium");
+
+        public static final TagKey<Item> NUGGETS = forgeTag("nuggets");
+        public static final TagKey<Item> LUZZIUM_NUGGET = forgeTag("nuggets/luzzium");
+
         private static TagKey<Item> tgearsTag(final String name) {
             return ItemTags.create(TinkersGears.asResource(name));
+        }
+
+        private static TagKey<Item> forgeTag(final String name) {
+            return ItemTags.create(new ResourceLocation("forge", name));
         }
     }
 
@@ -28,7 +39,15 @@ public final class TGTagKeys {
 
         private Blocks() {}
 
+        public static final TagKey<Block> SPOUT_ATTACHMENTS = tgearsTag("spout_attachments");
 
+        private static TagKey<Block> tgearsTag(final String name) {
+            return TagKey.create(Registries.BLOCK, TinkersGears.asResource(name));
+        }
+
+        private static TagKey<Block> ticTag(final String name) {
+            return TagKey.create(Registries.BLOCK, new ResourceLocation("tconstruct", name));
+        }
     }
 
     public static final class Fluids {
@@ -36,6 +55,11 @@ public final class TGTagKeys {
         private Fluids() {}
 
         public static final TagKey<Fluid> BLAZING_CHOCOLATE = forgeTag("blazing_chocolate");
+        public static final TagKey<Fluid> CHOCOLATE = forgeTag("chocolate");
+        public static final TagKey<Fluid> HONEY = forgeTag("honey");
+
+        public static final TagKey<Fluid> MOLTEN_BRASS = forgeTag("molten_brass");
+        public static final TagKey<Fluid> MOLTEN_LUZZIUM = forgeTag("molten_luzzium");
 
         private static TagKey<Fluid> forgeTag(final String name) {
             return TagKey.create(Registries.FLUID, new ResourceLocation("forge", name));

@@ -5,5 +5,7 @@
   "tgears:crushing": "create:item/crushed_raw_iron",
   "tgears:goggles": "create:item/goggles",
   "tgears:extendo": "create:item/brass_hand",
-  "tgears:diving_weights": "create:item/copper_diving_boots"
+  "tgears:diving_weights": "create:item/copper_diving_boots",
+  "tgears:adrenaline": "tgears:item/luzzium_nugget",
+  "tgears:lightweight": "tgears:item/luzzium_ingot"
 }

@@ -2,6 +2,8 @@ package ho.artisan.tgears.datagen.provider.recipe.tconstruct;
 
 import com.simibubi.create.AllItems;
 import ho.artisan.tgears.datagen.provider.recipe.TGBaseRecipeProvider;
+import ho.artisan.tgears.index.TGBlocks;
+import ho.artisan.tgears.index.TGFluids;
 import ho.artisan.tgears.index.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -29,7 +31,30 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        crushedOreRecipes(consumer);
+        this.crushedOreRecipes(consumer);
+        this.luzziumRecipes(consumer);
+    }
+
+    private void luzziumRecipes(Consumer<FinishedRecipe> consumer) {
+        String folder = "melting/luzzium/";
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(TGBlocks.LUZZIUM_BLOCK.get()),
+                TGFluids.MOLTEN_LUZZIUM.getSource(),
+                FluidValues.METAL_BLOCK
+        ).save(consumer, location(folder + "block"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(TGItems.LUZZIUM_INGOT.get()),
+                TGFluids.MOLTEN_LUZZIUM.getSource(),
+                FluidValues.INGOT
+        ).save(consumer, location(folder + "ingot"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(TGItems.LUZZIUM_NUGGET.get()),
+                TGFluids.MOLTEN_LUZZIUM.getSource(),
+                FluidValues.NUGGET
+        ).save(consumer, location(folder + "nugget"));
     }
 
     private void crushedOreRecipes(Consumer<FinishedRecipe> consumer) {
@@ -48,7 +73,7 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
                 500,
                 50,
                 TinkerFluids.moltenGold.get(),
-                30
+                10
         ).save(consumer, location(folder + "copper"));
 
         crushedOreRecipeBuilder(

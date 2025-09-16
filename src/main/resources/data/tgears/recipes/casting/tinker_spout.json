@@ -6,7 +6,7 @@
   "cast_consumed": true,
   "cooling_time": 57,
   "fluid": {
-    "amount": 360,
+    "amount": 1000,
     "tag": "tconstruct:seared_stone"
   },
   "result": "tgears:tinker_spout"

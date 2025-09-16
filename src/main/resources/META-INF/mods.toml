@@ -4,8 +4,8 @@ license="MIT"
 [[mods]] #mandatory
 modId="tgears" #mandatory
 version="${file.jarVersion}" #mandatory
-displayName="Tinker's Gears" #mandatory
-#logoFile="banner.png" #optional
+displayName="Tinkers' Gears" #mandatory
+logoFile="icon.png"
 authors="Chemiofitor"
 description='''
 
@@ -26,7 +26,7 @@ side="BOTH"
 modId="create"
 mandatory=true
 versionRange="[6.0.6,)"
-ordering="NONE"
+ordering="AFTER"
 side="BOTH"
 [[dependencies.tgears]]
 modId="tconstruct"

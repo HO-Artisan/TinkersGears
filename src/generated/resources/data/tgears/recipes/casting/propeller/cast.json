@@ -7,7 +7,7 @@
   "cooling_time": 57,
   "fluid": {
     "amount": 90,
-    "tag": "forge:molten_gold"
+    "fluid": "tconstruct:molten_gold"
   },
   "result": "tgears:propeller_cast_with_propeller"
 }

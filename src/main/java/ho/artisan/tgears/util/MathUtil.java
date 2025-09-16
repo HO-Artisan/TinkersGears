@@ -1,6 +1,9 @@
 package ho.artisan.tgears.util;
 
-public class MathUtil {
+public final class MathUtil {
+
+    private MathUtil() {}
+
     public static int findN(int x) {
         if (x < 1) {
             return -1;

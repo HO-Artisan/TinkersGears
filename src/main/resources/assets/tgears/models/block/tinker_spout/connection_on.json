@@ -1,0 +1,6 @@
+{
+  "parent": "tgears:block/tinker_spout/connection",
+  "textures": {
+    "3": "tgears:block/spout_connect_on"
+  }
+}

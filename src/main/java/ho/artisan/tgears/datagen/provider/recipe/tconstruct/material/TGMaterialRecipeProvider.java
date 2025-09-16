@@ -1,6 +1,8 @@
 package ho.artisan.tgears.datagen.provider.recipe.tconstruct.material;
 
+import com.simibubi.create.AllItems;
 import ho.artisan.tgears.datagen.provider.recipe.TGBaseRecipeProvider;
+import ho.artisan.tgears.index.TGFluids;
 import ho.artisan.tgears.index.TGMaterials;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -12,6 +14,7 @@ import slimeknights.tconstruct.tools.data.material.MaterialIds;
 
 import java.util.function.Consumer;
 
+import static ho.artisan.tgears.util.RegistryUtil.transform;
 import static slimeknights.mantle.Mantle.COMMON;
 
 public final class TGMaterialRecipeProvider extends TGBaseRecipeProvider implements IMaterialRecipeHelper {
@@ -30,8 +33,13 @@ public final class TGMaterialRecipeProvider extends TGBaseRecipeProvider impleme
 
     private void addMaterials(Consumer<FinishedRecipe> consumer) {
         String folder = "tinker/materials/";
-        materialRecipe(consumer, TGMaterials.Ids.ANDESITE_ALLOY, Ingredient.of(getItemTag(COMMON, "ingots/andesite_alloy")), 1, 1, folder + "andesite_alloy/ingot");
+
+        materialRecipe(consumer, TGMaterials.Ids.ANDESITE_ALLOY, Ingredient.of(AllItems.ANDESITE_ALLOY), 1, 1, folder + "andesite_alloy/ingot");
         materialRecipe(consumer, TGMaterials.Ids.ANDESITE_ALLOY, Ingredient.of(getItemTag(COMMON, "storage_blocks/andesite_alloy")), 9, 1, folder + "andesite_alloy/block");
+
+        metalMaterialRecipe(consumer, TGMaterials.Ids.LUZZIUM, folder, "luzzium", true);
+
+        materialMeltingCasting(consumer, TGMaterials.Ids.LUZZIUM, transform(TGFluids.MOLTEN_LUZZIUM), 90, "");
 
         materialComposite(consumer, MaterialIds.andesite, TGMaterials.Ids.ANDESITE_ALLOY, TinkerFluids.moltenIron, FluidValues.NUGGET, folder);
     }

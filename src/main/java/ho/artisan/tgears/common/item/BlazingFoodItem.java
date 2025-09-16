@@ -12,7 +12,9 @@ public class BlazingFoodItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
-        livingEntity.setSecondsOnFire(3);
+        if (!livingEntity.fireImmune()) {
+            livingEntity.setSecondsOnFire(3);
+        }
         return super.finishUsingItem(stack, level, livingEntity);
     }
 }

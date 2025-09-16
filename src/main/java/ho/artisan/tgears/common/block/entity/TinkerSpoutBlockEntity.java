@@ -3,12 +3,17 @@ package ho.artisan.tgears.common.block.entity;
 import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import ho.artisan.tgears.common.block.entity.module.SpoutModule;
+import ho.artisan.tgears.index.TGTagKeys;
 import lombok.Getter;
 import lombok.Setter;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static ho.artisan.tgears.common.block.TinkerSpoutBlock.POWERED;
 
@@ -24,6 +29,18 @@ public class TinkerSpoutBlockEntity extends SpoutBlockEntity {
 
     public SmartFluidTankBehaviour getTank() {
         return ((SpoutModule) this).tgears$getTank();
+    }
+
+    public Set<Direction> getAttachments() {
+        Set<Direction> attachments = new HashSet<>();
+        for (Direction direction : Direction.values()) {
+            if (direction.getAxis() != Direction.Axis.Y) {
+                if (level.getBlockState(getBlockPos().relative(direction)).is(TGTagKeys.Blocks.SPOUT_ATTACHMENTS)) {
+                    attachments.add(direction.getOpposite());
+                }
+            }
+        }
+        return attachments;
     }
 
     @Override

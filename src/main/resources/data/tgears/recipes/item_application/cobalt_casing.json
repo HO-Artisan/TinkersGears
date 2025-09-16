@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "tconstruct:seared_stone"
+    },
+    {
+      "tag": "forge:ingots/cobalt"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:cobalt_casing"
+    }
+  ]
+}

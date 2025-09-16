@@ -1,14 +1,14 @@
 package ho.artisan.tgears.datagen.provider.recipe.create;
 
 import com.simibubi.create.api.data.recipe.FillingRecipeGen;
-
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.index.TGItems;
+import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
-
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 
 public final class TGFillingProvider extends FillingRecipeGen {
@@ -19,6 +19,10 @@ public final class TGFillingProvider extends FillingRecipeGen {
     }
 
     private void createRecipes() {
+        create("blazing_chocolate_glazed_berries", b -> b.require(TGTagKeys.Fluids.BLAZING_CHOCOLATE, FluidValues.BOTTLE)
+                .require(Items.SWEET_BERRIES)
+                .output(TGItems.BLAZING_CHOCOLATE_BERRIES));
+
         handRecipe(
                 "brass",
                 "molten_brass",

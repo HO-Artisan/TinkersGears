@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/luzzium"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/luzzium"
+  },
+  "material": "tgears:luzzium",
+  "needed": 1,
+  "value": 1
+}

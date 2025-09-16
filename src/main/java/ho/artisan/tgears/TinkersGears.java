@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(TinkersGears.MOD_ID)
 public class TinkersGears {
     public static final String MOD_ID = "tgears";
-    public static final String NAME = "Tinker's Gears";
+    public static final String NAME = "Tinkers' Gears";
     public static final Logger LOGGER = LogManager.getLogger(NAME);
 
     public static boolean METALLURGY_LOADED = false;

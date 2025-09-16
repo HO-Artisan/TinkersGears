@@ -9,11 +9,13 @@ import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
+import static net.minecraft.tags.BlockTags.BUTTONS;
 
 public final class TGTags {
 
@@ -38,6 +40,10 @@ public final class TGTags {
 
         prov.tag(TinkerTags.Blocks.FUEL_TANKS)
                 .add(AllBlocks.BLAZE_BURNER.get());
+
+        prov.tag(TGTagKeys.Blocks.SPOUT_ATTACHMENTS)
+                .add(Blocks.LEVER)
+                .addTag(BUTTONS);
     }
 
     private static void genItemTags(RegistrateItemTagsProvider provIn) {
@@ -62,6 +68,12 @@ public final class TGTags {
                 .add(
                         TGFluids.BLAZING_CHOCOLATE.getSource(),
                         TGFluids.BLAZING_CHOCOLATE.get()
+                );
+
+        prov.tag(TGTagKeys.Fluids.MOLTEN_LUZZIUM)
+                .add(
+                        TGFluids.MOLTEN_LUZZIUM.getSource(),
+                        TGFluids.MOLTEN_LUZZIUM.get()
                 );
     }
 }

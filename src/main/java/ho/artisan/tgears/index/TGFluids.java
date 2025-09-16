@@ -14,6 +14,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import org.joml.Vector3f;
+import slimeknights.tconstruct.fluids.block.BurningLiquidBlock;
 
 import java.util.function.Supplier;
 
@@ -36,6 +37,21 @@ public final class TGFluids {
                             .explosionResistance(100f))
                     .block()
                     .properties(p -> p.mapColor(MapColor.TERRACOTTA_YELLOW))
+                    .build()
+                    .register();
+
+    public static final FluidEntry<ForgeFlowingFluid.Flowing> MOLTEN_LUZZIUM =
+            REGISTRATE.standardFluid("molten_luzzium")
+                    .lang("Molten Luzzium")
+                    .properties(b -> b.viscosity(10000)
+                            .density(2000).temperature(990).lightLevel(15))
+                    .fluidProperties(p -> p.levelDecreasePerBlock(2)
+                            .tickRate(10)
+                            .slopeFindDistance(3)
+                            .explosionResistance(100f))
+                    .block((block, properties) ->
+                            new BurningLiquidBlock(TGFluids.MOLTEN_LUZZIUM, properties, 10, 2f))
+                    .properties(p -> p.mapColor(MapColor.COLOR_CYAN))
                     .build()
                     .register();
 

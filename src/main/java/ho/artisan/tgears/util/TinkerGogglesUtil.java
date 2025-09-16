@@ -16,7 +16,9 @@ import java.util.List;
 
 import static net.minecraft.ChatFormatting.GRAY;
 
-public class TinkerGogglesUtil {
+public final class TinkerGogglesUtil {
+
+    private TinkerGogglesUtil() {}
 
     public static boolean isWearingGoggles(Player player) {
         ItemStack head = player.getItemBySlot(EquipmentSlot.HEAD);
