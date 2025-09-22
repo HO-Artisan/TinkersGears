@@ -10,6 +10,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,16 +43,22 @@ public class TinkersGears {
         TGBlockEntityTypes.register();
         TGItems.register();
         TGFluids.register();
+        TGRecipeTypes.register();
 
         TGModifiers.register(bus);
 
         bus.addListener(TinkersGearsClient::clientInit);
 
+        bus.addListener(TinkersGears::onRegister);
+
         bus.register(this);
     }
 
-
     public static ResourceLocation asResource(String path) {
         return new ResourceLocation(TinkersGears.MOD_ID, path);
+    }
+
+    public static void onRegister(final RegisterEvent event) {
+        TGArmInteractionPointTypes.init();
     }
 }

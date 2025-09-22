@@ -6,7 +6,7 @@
     "0": "tgears:block/spout",
     "3": "tgears:block/spout_nozzle",
     "4": "tgears:block/encased_pipe",
-    "particle": "tgears:block/copper_underside"
+    "particle": "tgears:block/tinker_underside"
   },
   "elements": [
     {

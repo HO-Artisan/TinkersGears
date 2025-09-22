@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:material_melting",
-  "input": "tgears:luzzium",
-  "result": {
-    "amount": 90,
-    "fluid": "tgears:molten_luzzium"
-  },
-  "temperature": 690
-}

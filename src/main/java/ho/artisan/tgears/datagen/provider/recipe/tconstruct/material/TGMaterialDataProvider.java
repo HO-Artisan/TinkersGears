@@ -22,6 +22,6 @@ public final class TGMaterialDataProvider extends MaterialDataProvider {
 
 
         // tier 4
-        addMaterial(TGMaterials.Ids.LUZZIUM, 4, ORDER_GENERAL, false);
+        //addMaterial(TGMaterials.Ids.LUZZIUM, 4, ORDER_GENERAL, false);
     }
 }

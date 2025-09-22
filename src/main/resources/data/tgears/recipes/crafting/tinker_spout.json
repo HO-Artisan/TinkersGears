@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "tconstruct:seared_tanks"
+    },
+    "B": {
+      "item": "tgears:cobalt_casing"
+    },
+    "A": {
+      "item": "tconstruct:seared_faucet"
+    }
+  },
+  "pattern": [
+    " C ",
+    " B ",
+    " A "
+  ],
+  "result": {
+    "item": "tgears:tinker_spout"
+  },
+  "show_notification": true
+}

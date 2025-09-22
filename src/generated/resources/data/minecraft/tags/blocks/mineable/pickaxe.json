@@ -2,6 +2,8 @@
   "values": [
     "tgears:tinker_spout",
     "tgears:cobalt_casing",
-    "tgears:luzzium_block"
+    "tgears:tinker_drill",
+    "tgears:tinker_silktouch_drill",
+    "tgears:tinker_fan"
   ]
 }

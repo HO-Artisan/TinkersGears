@@ -14,6 +14,13 @@ public final class TGPartialModels {
             SPOUT_CONNECTION = block("tinker_spout/connection"),
             SPOUT_CONNECTION_ON = block("tinker_spout/connection_on");
 
+    public static final PartialModel
+            DRILL_HEAD = block("tinker_drill/head"),
+            SILKTOUCH_DRILL_HEAD = block("tinker_silktouch_drill/head");
+
+    public static final PartialModel
+            COBALT_FAN = block("tinker_fan/propeller");
+
     private static PartialModel block(String path) {
         return PartialModel.of(TinkersGears.asResource("block/" + path));
     }

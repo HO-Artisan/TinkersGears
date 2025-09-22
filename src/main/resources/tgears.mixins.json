@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_16",
   "refmap": "tgears.refmap.json",
   "mixins": [
+    "AbstractCastingBlockMixin",
     "AirCurrentMixin",
     "AlloyerMixin",
     "CastingContainerMixin",

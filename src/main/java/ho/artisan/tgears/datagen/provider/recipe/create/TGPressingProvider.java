@@ -46,18 +46,26 @@ public final class TGPressingProvider extends PressingRecipeGen {
         );
 
         separatingRecipe(
+                "propeller/cobalt",
+                TGItems.PROPELLER_CAST_WITH_COBALT_PROPELLER,
+                TGItems.PROPELLER_CAST,
+                TGItems.COBALT_PROPELLER
+        );
+
+        separatingRecipe(
                 "whisk/iron",
                 TGItems.WHISK_CAST_WITH_WHISK,
                 TGItems.WHISK_CAST,
                 AllItems.WHISK
         );
 
-        separatingRecipe(
-                "whisk/sturdy",
-                TGItems.WHISK_CAST_WITH_STURDY_WHISK,
-                TGItems.WHISK_CAST,
-                CMItems.STURDY_WHISK
-        );
+        if (TinkersGears.METALLURGY_LOADED)
+            separatingRecipe(
+                    "whisk/sturdy",
+                    TGItems.WHISK_CAST_WITH_STURDY_WHISK,
+                    TGItems.WHISK_CAST,
+                    CMItems.STURDY_WHISK
+            );
     }
 
     private void separatingRecipe(String id, ItemLike castWithItem, ItemLike cast, ItemLike item) {

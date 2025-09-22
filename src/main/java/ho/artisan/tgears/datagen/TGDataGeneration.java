@@ -46,7 +46,7 @@ public class TGDataGeneration {
         generator.addProvider(event.includeServer(), new TGFillingProvider(generator.getPackOutput()));
         generator.addProvider(event.includeServer(), new TGMixingProvider(generator.getPackOutput()));
         generator.addProvider(event.includeServer(), new TGCrushingProvider(generator.getPackOutput()));
-        generator.addProvider(event.includeServer(), new TGItemApplicationProvider(generator.getPackOutput()));
+        generator.addProvider(event.includeServer(), new TGDeployingProvider(generator.getPackOutput()));
 
         addExtraRegistrateData();
     }

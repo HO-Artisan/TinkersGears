@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "create:shaft"
+    },
+    "B": {
+      "item": "tgears:cobalt_casing"
+    },
+    "A": {
+      "item": "tgears:cobalt_propeller"
+    }
+  },
+  "pattern": [
+    " C ",
+    " B ",
+    " A "
+  ],
+  "result": {
+    "item": "tgears:tinker_fan"
+  },
+  "show_notification": true
+}

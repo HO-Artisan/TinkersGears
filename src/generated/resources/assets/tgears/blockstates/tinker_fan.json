@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "tgears:block/tinker_fan/block",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "tgears:block/tinker_fan/block",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tgears:block/tinker_fan/block",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "tgears:block/tinker_fan/block",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "tgears:block/tinker_fan/block"
+    },
+    "facing=west": {
+      "model": "tgears:block/tinker_fan/block",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -44,26 +44,27 @@ public class TGLangProvider {
         consumer.accept("modifier.tgears.diving_weights.flavor", "Dive with ease!");
         consumer.accept("modifier.tgears.diving_weights.description", "Wielder descends more quickly in liquids. Grants the ability to walk and jump underwater. Wielder also is no longer affected by Mechanical Belts.");
 
-        consumer.accept("modifier.tgears.adrenaline", "Adrenaline");
-        consumer.accept("modifier.tgears.adrenaline.flavor", "Speed up!");
-        consumer.accept("modifier.tgears.adrenaline.description", "Upon taking damage, briefly increase movement speed and attack speed.");
+        //consumer.accept("modifier.tgears.adrenaline", "Adrenaline");
+        //consumer.accept("modifier.tgears.adrenaline.flavor", "Speed up!");
+        //consumer.accept("modifier.tgears.adrenaline.description", "Upon taking damage, briefly increase movement speed and attack speed.");
 
-        consumer.accept("modifier.tgears.lightweight", "Lightweight");
-        consumer.accept("modifier.tgears.lightweight.flavor", "Like a Shardblade!");
-        consumer.accept("modifier.tgears.lightweight.description", "Tool is incredibly light for its size, allowing you to attack, mine, and launch projectiles faster");
+        //consumer.accept("modifier.tgears.lightweight", "Lightweight");
+        //consumer.accept("modifier.tgears.lightweight.flavor", "Like a Shardblade!");
+        //consumer.accept("modifier.tgears.lightweight.description", "Tool is incredibly light for its size, allowing you to attack, mine, and launch projectiles faster");
 
     }
 
     private void provideTGLang(BiConsumer<String, String> consumer) {
         consumer.accept("itemGroup.tgears.main", "Tinker's Gears");
+        consumer.accept("gui.tgears.integrated_smeltery", "Integrated Smeltery");
 
         consumer.accept("material.tgears.andesite_alloy", "Andesite Alloy");
         consumer.accept("material.tgears.andesite_alloy.flavor", "Sturdier Rocks");
         consumer.accept("material.tgears.andesite_alloy.encyclopedia", "It is durable!");
 
-        consumer.accept("material.tgears.luzzium", "Luzzium");
-        consumer.accept("material.tgears.luzzium.flavor", "Lightning Fast");
-        consumer.accept("material.tgears.luzzium.encyclopedia", "Lightweight beyond imagination!");
+        //consumer.accept("material.tgears.luzzium", "Luzzium");
+        //consumer.accept("material.tgears.luzzium.flavor", "Lightning Fast");
+        //consumer.accept("material.tgears.luzzium.encyclopedia", "Lightweight beyond imagination!");
 
         consumer.accept("create.generic.unit.percent", "%");
         consumer.accept("create.generic.unit.temperature", "°C");
@@ -98,6 +99,10 @@ public class TGLangProvider {
         consumer.accept("item.tgears.propeller_cast_with_propeller.tooltip.summary", "Contain a _Propeller_.");
         consumer.accept("item.tgears.propeller_cast_with_propeller.tooltip.condition1", "Right click");
         consumer.accept("item.tgears.propeller_cast_with_propeller.tooltip.behaviour1", "_Separate_ the _propeller_ from the _cast_.");
+
+        consumer.accept("item.tgears.propeller_cast_with_cobalt_propeller.tooltip.summary", "Contain a _Cobalt Propeller_.");
+        consumer.accept("item.tgears.propeller_cast_with_cobalt_propeller.tooltip.condition1", "Right click");
+        consumer.accept("item.tgears.propeller_cast_with_cobalt_propeller.tooltip.behaviour1", "_Separate_ the _propeller_ from the _cast_.");
 
         consumer.accept("item.tgears.whisk_cast_with_whisk.tooltip.summary", "Contain a _Whisk_.");
         consumer.accept("item.tgears.whisk_cast_with_whisk.tooltip.condition1", "Right click");

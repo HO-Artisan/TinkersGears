@@ -1,0 +1,7 @@
+{
+	"parent": "tgears:block/tinker_drill/head",
+	"textures": {
+		"2": "tgears:block/rose_gold_drill",
+		"particle": "tgears:block/rose_gold_drill"
+	}
+}

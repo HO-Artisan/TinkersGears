@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "create:andesite_alloy"
+    },
+    "B": {
+      "item": "tgears:cobalt_casing"
+    },
+    "A": {
+      "tag": "forge:ingots/cobalt"
+    }
+  },
+  "pattern": [
+    " C ",
+    "CAC",
+    " B "
+  ],
+  "result": {
+    "item": "tgears:tinker_drill"
+  },
+  "show_notification": true
+}

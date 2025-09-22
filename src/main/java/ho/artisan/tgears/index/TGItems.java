@@ -33,6 +33,11 @@ public final class TGItems {
                     .tag(AllTags.AllItemTags.CRUSHED_RAW_MATERIALS.tag)
                     .register();
 
+    public static final ItemEntry<Item> COBALT_SHEET =
+            REGISTRATE.item("cobalt_sheet", Item::new)
+                    .tag(TGTagKeys.Items.COBALT_SHEET)
+                    .register();
+
     public static final ItemEntry<Item> HAND_CAST =
             REGISTRATE.item("hand_cast", Item::new)
                     .lang("Hand Gold Cast")
@@ -89,6 +94,15 @@ public final class TGItems {
                     .lang("Propeller Gold Cast with Propeller")
                     .register();
 
+    public static final ItemEntry<Item> COBALT_PROPELLER =
+            REGISTRATE.item("cobalt_propeller", Item::new)
+                    .register();
+
+    public static final ItemEntry<PropellerCastItem> PROPELLER_CAST_WITH_COBALT_PROPELLER =
+            REGISTRATE.item("propeller_cast_with_cobalt_propeller", (properties) -> new PropellerCastItem(COBALT_PROPELLER, properties))
+                    .lang("Propeller Gold Cast with Cobalt Propeller")
+                    .register();
+
     public static final ItemEntry<Item> WHISK_CAST =
             REGISTRATE.item("whisk_cast", Item::new)
                     .lang("Whisk Gold Cast")
@@ -130,6 +144,7 @@ public final class TGItems {
                     .build()))
             .register();
 
+    /*
     public static final ItemEntry<Item> LUZZIUM_INGOT =
             REGISTRATE.item("luzzium_ingot", Item::new)
                     .tag(TGTagKeys.Items.INGOTS)
@@ -141,6 +156,8 @@ public final class TGItems {
                     .tag(TGTagKeys.Items.NUGGETS)
                     .tag(TGTagKeys.Items.LUZZIUM_NUGGET)
                     .register();
+     */
+
 
     public static void register() {
         GogglesItem.addIsWearingPredicate(TinkerGogglesUtil::isWearingGoggles);

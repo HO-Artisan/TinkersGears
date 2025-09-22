@@ -1,8 +1,8 @@
 {
-  "type": "tconstruct:melting",
+  "type": "tconstruct:ore_melting",
   "byproducts": [
     {
-      "amount": 30,
+      "amount": 120,
       "rate": "metal",
       "tag": "forge:molten_iron"
     }
@@ -18,7 +18,7 @@
   },
   "rate": "metal",
   "result": {
-    "amount": 150,
+    "amount": 120,
     "tag": "forge:molten_aluminum"
   },
   "temperature": 425,

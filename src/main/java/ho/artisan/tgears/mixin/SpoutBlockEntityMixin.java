@@ -1,6 +1,7 @@
 package ho.artisan.tgears.mixin;
 
 import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
+import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import ho.artisan.tgears.common.block.entity.TinkerSpoutBlockEntity;
 import ho.artisan.tgears.common.block.entity.module.SpoutModule;
@@ -20,7 +21,6 @@ public abstract class SpoutBlockEntityMixin implements SpoutModule {
         return tank;
     }
 
-
     @Redirect(
             remap = false,
             method = "tick",
@@ -31,9 +31,22 @@ public abstract class SpoutBlockEntityMixin implements SpoutModule {
     )
     public boolean tickMixin(FluidStack instance) {
         SpoutBlockEntity spout = (SpoutBlockEntity) (Object) this;
-        if (spout instanceof TinkerSpoutBlockEntity tinkerSpout) {
+        if (spout instanceof TinkerSpoutBlockEntity tinkerSpout)
             return !instance.isEmpty() && tinkerSpout.isOn();
-        }
         return !instance.isEmpty();
+    }
+
+    @Redirect(
+            remap = false,
+            method = "addBehaviours",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lcom/simibubi/create/foundation/blockEntity/behaviour/fluid/SmartFluidTankBehaviour;single(Lcom/simibubi/create/foundation/blockEntity/SmartBlockEntity;I)Lcom/simibubi/create/foundation/blockEntity/behaviour/fluid/SmartFluidTankBehaviour;")
+    )
+    public SmartFluidTankBehaviour capacityMixin(SmartBlockEntity be, int capacity) {
+        SpoutBlockEntity spout = (SpoutBlockEntity) (Object) this;
+        if (spout instanceof TinkerSpoutBlockEntity)
+            return SmartFluidTankBehaviour.single(spout, 4000);
+        return SmartFluidTankBehaviour.single(spout, 1000);
     }
 }

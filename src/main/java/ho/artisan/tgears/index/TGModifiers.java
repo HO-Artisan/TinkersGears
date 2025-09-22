@@ -37,7 +37,7 @@ public final class TGModifiers {
     public static final StaticModifier<CreateCrushingModifier> CRUSHING =  MODIFIERS.register("crushing", CreateCrushingModifier::new);
     public static final StaticModifier<CreateExtendoModifier> EXTENDO = MODIFIERS.register("extendo", CreateExtendoModifier::new);
 
-    public static final StaticModifier<AdrenalineModifier> ADRENALINE = MODIFIERS.register("adrenaline", AdrenalineModifier::new);
+    //public static final StaticModifier<AdrenalineModifier> ADRENALINE = MODIFIERS.register("adrenaline", AdrenalineModifier::new);
 
     public static void register(IEventBus bus) {
         MODIFIERS.register(bus);

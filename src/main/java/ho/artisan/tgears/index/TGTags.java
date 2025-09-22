@@ -38,6 +38,14 @@ public final class TGTags {
                         TinkerSmeltery.scorchedTable.get()
                 );
 
+        prov.tag(TGTagKeys.Blocks.TINKER_ASSEMBLY_OPERATOR)
+                .add(
+                        TinkerSmeltery.searedBasin.get(),
+                        TinkerSmeltery.searedTable.get(),
+                        TinkerSmeltery.scorchedBasin.get(),
+                        TinkerSmeltery.scorchedTable.get()
+                );
+
         prov.tag(TinkerTags.Blocks.FUEL_TANKS)
                 .add(AllBlocks.BLAZE_BURNER.get());
 
@@ -70,10 +78,13 @@ public final class TGTags {
                         TGFluids.BLAZING_CHOCOLATE.get()
                 );
 
+        /*
         prov.tag(TGTagKeys.Fluids.MOLTEN_LUZZIUM)
                 .add(
                         TGFluids.MOLTEN_LUZZIUM.getSource(),
                         TGFluids.MOLTEN_LUZZIUM.get()
                 );
+
+         */
     }
 }

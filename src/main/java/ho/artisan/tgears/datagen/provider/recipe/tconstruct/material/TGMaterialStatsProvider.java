@@ -2,12 +2,11 @@ package ho.artisan.tgears.datagen.provider.recipe.tconstruct.material;
 
 import ho.artisan.tgears.index.TGMaterials;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.tools.data.material.MaterialStatsDataProvider;
 import slimeknights.tconstruct.tools.stats.*;
 
-import static net.minecraft.world.item.Tiers.*;
+import static net.minecraft.world.item.Tiers.IRON;
 
 public final class TGMaterialStatsProvider extends MaterialStatsDataProvider {
     public TGMaterialStatsProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
@@ -24,6 +23,7 @@ public final class TGMaterialStatsProvider extends MaterialStatsDataProvider {
                 StatlessMaterialStats.BINDING
         );
 
+        /*
         PlatingMaterialStats.Builder platingMaterialStats = PlatingMaterialStats.builder()
                 .armor(2F, 7F, 5F, 2F).toughness(1.25F).durabilityFactor(35);
 
@@ -40,6 +40,7 @@ public final class TGMaterialStatsProvider extends MaterialStatsDataProvider {
                 StatlessMaterialStats.BINDING,
                 StatlessMaterialStats.MAILLE
         );
+         */
     }
 
     @Override

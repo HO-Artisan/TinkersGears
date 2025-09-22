@@ -5,7 +5,7 @@
   "textures": {
     "0": "tgears:block/spout",
     "3": "tgears:block/encased_pipe",
-    "particle": "tgears:block/copper_underside"
+    "particle": "tgears:block/tinker_underside"
   },
   "render_type": "minecraft:cutout",
   "elements": [

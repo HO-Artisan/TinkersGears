@@ -2,6 +2,7 @@ package ho.artisan.tgears.datagen.provider.recipe.create;
 
 import com.simibubi.create.api.data.recipe.FillingRecipeGen;
 import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.index.TGBlocks;
 import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.data.PackOutput;
@@ -9,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 
 public final class TGFillingProvider extends FillingRecipeGen {
@@ -22,6 +24,10 @@ public final class TGFillingProvider extends FillingRecipeGen {
         create("blazing_chocolate_glazed_berries", b -> b.require(TGTagKeys.Fluids.BLAZING_CHOCOLATE, FluidValues.BOTTLE)
                 .require(Items.SWEET_BERRIES)
                 .output(TGItems.BLAZING_CHOCOLATE_BERRIES));
+
+        create("silktouch_drill", b -> b.require(TinkerFluids.moltenRoseGold.getTag(), FluidValues.INGOT * 4)
+                .require(TGBlocks.TINKER_DRILL)
+                .output(TGBlocks.TINKER_SILKTOUCH_DRILL));
 
         handRecipe(
                 "brass",
@@ -49,6 +55,13 @@ public final class TGFillingProvider extends FillingRecipeGen {
                 "molten_iron",
                 FluidValues.INGOT * 4,
                 new ItemStack(TGItems.PROPELLER_CAST_WITH_PROPELLER)
+        );
+
+        propellerRecipe(
+                "cobalt",
+                "molten_cobalt",
+                FluidValues.INGOT * 4,
+                new ItemStack(TGItems.PROPELLER_CAST_WITH_COBALT_PROPELLER)
         );
 
         whiskRecipe(

@@ -1,8 +1,9 @@
 package ho.artisan.tgears.index;
 
 import ho.artisan.tgears.TinkersGears;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -26,6 +27,14 @@ public final class TGTagKeys {
         public static final TagKey<Item> NUGGETS = forgeTag("nuggets");
         public static final TagKey<Item> LUZZIUM_NUGGET = forgeTag("nuggets/luzzium");
 
+        public static final TagKey<Item> DRILL = tgearsTag("drill");
+
+        public static final TagKey<Item> COBALT_SHEET = forgeTag("cobalt_sheet");
+
+        private static TagKey<Item> createTag(final String name) {
+            return ItemTags.create(new ResourceLocation("create", name));
+        }
+
         private static TagKey<Item> tgearsTag(final String name) {
             return ItemTags.create(TinkersGears.asResource(name));
         }
@@ -41,12 +50,20 @@ public final class TGTagKeys {
 
         public static final TagKey<Block> SPOUT_ATTACHMENTS = tgearsTag("spout_attachments");
 
-        private static TagKey<Block> tgearsTag(final String name) {
-            return TagKey.create(Registries.BLOCK, TinkersGears.asResource(name));
+        public static final TagKey<Block> DRILL = tgearsTag("drill");
+
+        public static final TagKey<Block> TINKER_ASSEMBLY_OPERATOR = tgearsTag("tinker_assembly_operator");
+
+        private static TagKey<Block> createTag(final String name) {
+            return BlockTags.create(new ResourceLocation("create", name));
         }
 
-        private static TagKey<Block> ticTag(final String name) {
-            return TagKey.create(Registries.BLOCK, new ResourceLocation("tconstruct", name));
+        private static TagKey<Block> tgearsTag(final String name) {
+            return BlockTags.create(TinkersGears.asResource(name));
+        }
+
+        private static TagKey<Block> tconstructTag(final String name) {
+            return BlockTags.create(new ResourceLocation("tconstruct", name));
         }
     }
 
@@ -62,7 +79,7 @@ public final class TGTagKeys {
         public static final TagKey<Fluid> MOLTEN_LUZZIUM = forgeTag("molten_luzzium");
 
         private static TagKey<Fluid> forgeTag(final String name) {
-            return TagKey.create(Registries.FLUID, new ResourceLocation("forge", name));
+            return FluidTags.create(new ResourceLocation("forge", name));
         }
     }
 }

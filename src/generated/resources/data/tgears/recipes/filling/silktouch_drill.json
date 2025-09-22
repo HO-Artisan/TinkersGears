@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "tgears:tinker_drill"
+    },
+    {
+      "amount": 360,
+      "fluidTag": "forge:molten_rose_gold"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:tinker_silktouch_drill"
+    }
+  ]
+}

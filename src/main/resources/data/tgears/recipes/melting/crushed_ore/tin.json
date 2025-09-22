@@ -15,10 +15,10 @@
         }
       ],
       "recipe": {
-        "type": "tconstruct:melting",
+        "type": "tconstruct:ore_melting",
         "byproducts": [
           {
-            "amount": 30,
+            "amount": 120,
             "rate": "metal",
             "tag": "forge:molten_nickel"
           }
@@ -28,7 +28,7 @@
         },
         "rate": "metal",
         "result": {
-          "amount": 150,
+          "amount": 120,
           "tag": "forge:molten_tin"
         },
         "temperature": 225,
@@ -42,10 +42,10 @@
         }
       ],
       "recipe": {
-        "type": "tconstruct:melting",
+        "type": "tconstruct:ore_melting",
         "byproducts": [
           {
-            "amount": 30,
+            "amount": 120,
             "rate": "metal",
             "tag": "forge:molten_copper"
           }
@@ -55,7 +55,7 @@
         },
         "rate": "metal",
         "result": {
-          "amount": 150,
+          "amount": 120,
           "tag": "forge:molten_tin"
         },
         "temperature": 225,
