@@ -8,14 +8,13 @@ import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.common.block.TinkerDrillBlock;
-import ho.artisan.tgears.common.block.TinkerFanBlock;
-import ho.artisan.tgears.common.block.TinkerSilkDrillBlock;
-import ho.artisan.tgears.common.block.TinkerSpoutBlock;
+import ho.artisan.tgears.common.block.*;
 import ho.artisan.tgears.common.block.entity.behaviour.TinkerDrillMovementBehaviour;
+import ho.artisan.tgears.common.block.entity.behaviour.TinkerSilkDrillMovementBehaviour;
 import ho.artisan.tgears.common.item.TinkerAssemblyOperatorBlockItem;
+import ho.artisan.tgears.datagen.data.TGBlockStateGen;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
-import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
@@ -42,12 +41,19 @@ public final class TGBlocks {
     public static final BlockEntry<CasingBlock> COBALT_CASING = REGISTRATE.block("cobalt_casing", CasingBlock::new)
             .initialProperties(SharedProperties::stone)
             .transform(pickaxeOnly())
-            .properties(p -> p.mapColor(MapColor.COLOR_BLACK))
             .transform(BuilderTransformers.casing(() -> TGSpriteShifts.COBALT_CASING))
+            .properties(p -> p.mapColor(MapColor.COLOR_BLACK).sound(SoundType.NETHERITE_BLOCK))
+            .register();
+
+    public static final BlockEntry<CasingBlock> TINKER_CASING = REGISTRATE.block("tinker_casing", CasingBlock::new)
+            .initialProperties(SharedProperties::stone)
+            .transform(pickaxeOnly())
+            .transform(BuilderTransformers.casing(() -> TGSpriteShifts.TINKER_CASING))
+            .properties(p -> p.mapColor(MapColor.COLOR_BLACK).sound(SoundType.NETHERITE_BLOCK))
             .register();
 
     public static final BlockEntry<TinkerDrillBlock> TINKER_DRILL = REGISTRATE.block("tinker_drill", TinkerDrillBlock::new)
-            .initialProperties(TinkerSmeltery.searedStone::get)
+            .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
             .transform(axeOrPickaxe())
             .lang("Tinker Mechanical Drill")
@@ -67,7 +73,7 @@ public final class TGBlocks {
             .lang("Tinker Mechanical Drill (Silk Touch)")
             .blockstate(BlockStateGen.directionalBlockProvider(true))
             .tag(TGTagKeys.Blocks.DRILL)
-            .onRegister(movementBehaviour(new TinkerDrillMovementBehaviour(TGPartialModels.SILKTOUCH_DRILL_HEAD)))
+            .onRegister(movementBehaviour(new TinkerSilkDrillMovementBehaviour(TGPartialModels.SILKTOUCH_DRILL_HEAD)))
             .item()
             .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
             .tag(TGTagKeys.Items.DRILL)
@@ -80,6 +86,15 @@ public final class TGBlocks {
             .blockstate(BlockStateGen.directionalBlockProvider(true))
             .transform(axeOrPickaxe())
             .lang("Tinker Encased Fan")
+            .item()
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<TinkerDismantlerBlock> TINKER_DISMANTLER = REGISTRATE.block("tinker_dismantler", TinkerDismantlerBlock::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.mapColor(MapColor.PODZOL))
+            .blockstate((ctx, prov) -> TGBlockStateGen.horizontalDismantler(ctx, prov, TGBlockStateGen.dismantlerModelFunc(ctx, prov)))
+            .transform(pickaxeOnly())
             .item()
             .transform(customItemModel())
             .register();

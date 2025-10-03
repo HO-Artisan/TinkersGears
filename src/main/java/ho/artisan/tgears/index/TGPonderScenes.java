@@ -4,6 +4,7 @@ import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.ponder.scene.CastingScene;
 import ho.artisan.tgears.ponder.scene.MelterScene;
 import ho.artisan.tgears.ponder.scene.SmelteryScene;
+import ho.artisan.tgears.ponder.scene.TinkerMachineScene;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
@@ -24,6 +25,10 @@ public final class TGPonderScenes {
                 .addStoryBoard("smeltery_transfer", SmelteryScene::transfer, TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.searedTable.getId())
                 .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
+        helper.forComponents(TGBlocks.TINKER_FAN.getId())
+                .addStoryBoard("tinker_fan", TinkerMachineScene::fan, TGPonderTags.SMELTERY);
+        helper.forComponents(TGBlocks.TINKER_SPOUT.getId())
+                .addStoryBoard("tinker_spout", TinkerMachineScene::spout, TGPonderTags.SMELTERY);
 
         TinkersGears.LOGGER.info("Ponder scenes initialized");
     }

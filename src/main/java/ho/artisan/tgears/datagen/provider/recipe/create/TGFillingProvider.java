@@ -1,5 +1,7 @@
 package ho.artisan.tgears.datagen.provider.recipe.create;
 
+import com.mrh0.createaddition.CreateAddition;
+import com.mrh0.createaddition.index.CAItems;
 import com.simibubi.create.api.data.recipe.FillingRecipeGen;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.index.TGBlocks;
@@ -10,8 +12,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
 import slimeknights.tconstruct.fluids.TinkerFluids;
+import slimeknights.tconstruct.gadgets.TinkerGadgets;
 import slimeknights.tconstruct.library.recipe.FluidValues;
+import slimeknights.tconstruct.shared.block.SlimeType;
+import slimeknights.tconstruct.world.block.FoliageType;
 
 public final class TGFillingProvider extends FillingRecipeGen {
 
@@ -28,6 +35,11 @@ public final class TGFillingProvider extends FillingRecipeGen {
         create("silktouch_drill", b -> b.require(TinkerFluids.moltenRoseGold.getTag(), FluidValues.INGOT * 4)
                 .require(TGBlocks.TINKER_DRILL)
                 .output(TGBlocks.TINKER_SILKTOUCH_DRILL));
+
+        cakeRecipe("earth", TinkerFluids.slime.get(SlimeType.EARTH), new ItemStack(TinkerGadgets.cake.get(FoliageType.EARTH)));
+        cakeRecipe("sky", TinkerFluids.slime.get(SlimeType.SKY), new ItemStack(TinkerGadgets.cake.get(FoliageType.SKY)));
+        cakeRecipe("ender", TinkerFluids.slime.get(SlimeType.ENDER), new ItemStack(TinkerGadgets.cake.get(FoliageType.ENDER)));
+        cakeRecipe("ichor", TinkerFluids.ichor.get(), new ItemStack(TinkerGadgets.cake.get(FoliageType.ICHOR)));
 
         handRecipe(
                 "brass",
@@ -70,6 +82,12 @@ public final class TGFillingProvider extends FillingRecipeGen {
                 FluidValues.INGOT * 5,
                 new ItemStack(TGItems.WHISK_CAST_WITH_WHISK)
         );
+    }
+
+    private void cakeRecipe(String id, Fluid fluid, ItemStack output) {
+        create("cake/" + id, b -> b.require(fluid, 1000)
+                .require(CAItems.CAKE_BASE)
+                .output(output).withCondition(new ModLoadedCondition(CreateAddition.MODID)));
     }
 
     private void handRecipe(String id, String fluid, int amount, ItemStack output) {

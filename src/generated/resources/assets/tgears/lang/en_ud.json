@@ -1,6 +1,8 @@
 {
   "block.tgears.blazing_chocolate": "ǝʇɐןoɔoɥƆ buızɐןᗺ",
   "block.tgears.cobalt_casing": "buısɐƆ ʇןɐqoƆ",
+  "block.tgears.tinker_casing": "buısɐƆ ɹǝʞuı⟘",
+  "block.tgears.tinker_dismantler": "ɹǝןʇuɐɯsıᗡ ɹǝʞuı⟘",
   "block.tgears.tinker_drill": "ןןıɹᗡ ןɐɔıuɐɥɔǝW ɹǝʞuı⟘",
   "block.tgears.tinker_fan": "uɐℲ pǝsɐɔuƎ ɹǝʞuı⟘",
   "block.tgears.tinker_silktouch_drill": ")ɥɔno⟘ ʞןıS( ןןıɹᗡ ןɐɔıuɐɥɔǝW ɹǝʞuı⟘",
@@ -31,6 +33,7 @@
   "item.tgears.cobalt_propeller": "ɹǝןןǝdoɹԀ ʇןɐqoƆ",
   "item.tgears.cobalt_sheet": "ʇǝǝɥS ʇןɐqoƆ",
   "item.tgears.crushed_raw_cobalt": "ʇןɐqoƆ ʍɐᴚ pǝɥsnɹƆ",
+  "item.tgears.crushed_scorchia": "ɐıɥɔɹoɔS pǝɥsnɹƆ",
   "item.tgears.hand_cast": "ʇsɐƆ pןo⅁ puɐH",
   "item.tgears.hand_cast_with_blazing_chocolate_hand": "puɐH ǝʇɐןoɔoɥƆ buızɐןᗺ ɥʇıʍ ʇsɐƆ pןo⅁ puɐH",
   "item.tgears.hand_cast_with_blazing_chocolate_hand.tooltip.behaviour1": "˙‾ʇsɐɔ‾ ǝɥʇ ɯoɹɟ ‾puɐɥ‾ ǝɥʇ ‾ǝʇɐɹɐdǝS‾",
@@ -128,5 +131,10 @@
   "tgears.ponder.tag.compat": "ʇɐdɯoƆ",
   "tgears.ponder.tag.compat.description": "ǝʇɐǝɹƆ ǝɥʇ ɯoɹɟ sɹɐǝ⅁ s,ɹǝʞuı⟘",
   "tgears.ponder.tag.smeltery": "ʎɹǝʇןǝɯS",
-  "tgears.ponder.tag.smeltery.description": "buıʇsɐɔ puɐ buıʇןǝɯs oʇ pǝsn sʇuǝuodɯoɔ s,ɹǝʞuı⟘"
+  "tgears.ponder.tag.smeltery.description": "buıʇsɐɔ puɐ buıʇןǝɯs oʇ pǝsn sʇuǝuodɯoɔ s,ɹǝʞuı⟘",
+  "tgears.ponder.tinker_fan.header": "ssǝɹʇs ǝʌɐ oʇ suɐɟ ɹǝʞuıʇ ǝs∩",
+  "tgears.ponder.tinker_fan.text_1": "ɹǝʇʇɐן ǝɥʇ ɟo ʇɐɥʇ ɟןɐɥ ʎןuo sı uoıʇdɯnsuoɔ ssǝɹʇs ɹıǝɥʇ ǝןıɥʍ 'uoıʇɔunɟ ǝɯɐs ǝɥʇ ǝʌɐɥ suɐɟ ʎɹɐuıpɹo puɐ suɐɟ ɹǝʞuı⟘",
+  "tgears.ponder.tinker_spout.header": "sןɐubıs ɥʇıʍ sʇnods ɹǝʞuıʇ ǝs∩",
+  "tgears.ponder.tinker_spout.text_1": "ןɐubıs ʎq pǝןןoɹʇuoɔ ǝq uɐɔ sʇnods ɹǝʞuı⟘",
+  "tgears.ponder.tinker_spout.text_2": "buıʞɹoʍ sdoʇs ʇı 'pǝʇɐʌıʇɔɐ uǝɥM"
 }

@@ -2,6 +2,7 @@ package ho.artisan.tgears.datagen.provider.recipe.create;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.CrushingRecipeGen;
+import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.index.TGItems;
 import net.minecraft.core.registries.Registries;
@@ -20,6 +21,11 @@ public class TGCrushingProvider extends CrushingRecipeGen {
 
     private void createRecipes() {
         oreCrushingRecipe("cobalt", TinkerWorld.cobaltOre, TGItems.CRUSHED_RAW_COBALT, Items.NETHERRACK);
+
+        create("scorchia", b -> b.require(AllPaletteStoneTypes.SCORCHIA.baseBlock.get())
+                .duration(100)
+                .output(TGItems.CRUSHED_SCORCHIA)
+        );
     }
 
     protected void oreCrushingRecipe(String id, ItemLike ore, ItemLike crushedOre, ItemLike rock) {

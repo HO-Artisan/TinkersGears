@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.gadgets.TinkerGadgets;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
@@ -57,6 +58,10 @@ public final class TGTags {
     private static void genItemTags(RegistrateItemTagsProvider provIn) {
         var prov = new TagGen.CreateTagsProvider<>(provIn, Item::builtInRegistryHolder);
 
+        prov.tag(AllTags.AllItemTags.BLAZE_BURNER_FUEL_SPECIAL.tag)
+                .add(
+                        TinkerGadgets.magmaCake.asItem()
+                );
 
         prov.tag(TinkerTags.Items.GOLD_CASTS)
                 .add(

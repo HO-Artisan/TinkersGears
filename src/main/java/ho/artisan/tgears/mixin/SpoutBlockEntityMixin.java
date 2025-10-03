@@ -31,8 +31,8 @@ public abstract class SpoutBlockEntityMixin implements SpoutModule {
     )
     public boolean tickMixin(FluidStack instance) {
         SpoutBlockEntity spout = (SpoutBlockEntity) (Object) this;
-        if (spout instanceof TinkerSpoutBlockEntity tinkerSpout)
-            return !instance.isEmpty() && tinkerSpout.isOn();
+        if (spout instanceof TinkerSpoutBlockEntity)
+            return !instance.isEmpty() && ((TinkerSpoutBlockEntity) spout).isOn();
         return !instance.isEmpty();
     }
 

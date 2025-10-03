@@ -7,6 +7,7 @@ import com.simibubi.create.foundation.virtualWorld.VirtualRenderWorld;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import ho.artisan.tgears.common.block.AbstractTinkerDrillBlock;
 import ho.artisan.tgears.common.block.entity.TinkerDrillBlockEntity;
+import ho.artisan.tgears.index.TGPartialModels;
 import net.createmod.catnip.animation.AnimationTickHolder;
 import net.createmod.catnip.math.AngleHelper;
 import net.createmod.catnip.math.VecHelper;
@@ -25,6 +26,14 @@ public class TinkerDrillRenderer extends KineticBlockEntityRenderer<TinkerDrillB
     public TinkerDrillRenderer(BlockEntityRendererProvider.Context context, PartialModel model) {
         super(context);
         this.model = model;
+    }
+
+    public static TinkerDrillRenderer common(BlockEntityRendererProvider.Context context) {
+        return new TinkerDrillRenderer(context, TGPartialModels.DRILL_HEAD);
+    }
+
+    public static TinkerDrillRenderer silkTouch(BlockEntityRendererProvider.Context context) {
+        return new TinkerDrillRenderer(context, TGPartialModels.SILKTOUCH_DRILL_HEAD);
     }
 
     @Override

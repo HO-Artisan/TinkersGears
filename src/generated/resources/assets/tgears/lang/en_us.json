@@ -1,6 +1,8 @@
 {
   "block.tgears.blazing_chocolate": "Blazing Chocolate",
   "block.tgears.cobalt_casing": "Cobalt Casing",
+  "block.tgears.tinker_casing": "Tinker Casing",
+  "block.tgears.tinker_dismantler": "Tinker Dismantler",
   "block.tgears.tinker_drill": "Tinker Mechanical Drill",
   "block.tgears.tinker_fan": "Tinker Encased Fan",
   "block.tgears.tinker_silktouch_drill": "Tinker Mechanical Drill (Silk Touch)",
@@ -31,6 +33,7 @@
   "item.tgears.cobalt_propeller": "Cobalt Propeller",
   "item.tgears.cobalt_sheet": "Cobalt Sheet",
   "item.tgears.crushed_raw_cobalt": "Crushed Raw Cobalt",
+  "item.tgears.crushed_scorchia": "Crushed Scorchia",
   "item.tgears.hand_cast": "Hand Gold Cast",
   "item.tgears.hand_cast_with_blazing_chocolate_hand": "Hand Gold Cast with Blazing Chocolate Hand",
   "item.tgears.hand_cast_with_blazing_chocolate_hand.tooltip.behaviour1": "_Separate_ the _hand_ from the _cast_.",
@@ -128,5 +131,10 @@
   "tgears.ponder.tag.compat": "Compat",
   "tgears.ponder.tag.compat.description": "Tinker's Gears from the Create",
   "tgears.ponder.tag.smeltery": "Smeltery",
-  "tgears.ponder.tag.smeltery.description": "Tinker's components used to smelting and casting"
+  "tgears.ponder.tag.smeltery.description": "Tinker's components used to smelting and casting",
+  "tgears.ponder.tinker_fan.header": "Use tinker fans to ave stress",
+  "tgears.ponder.tinker_fan.text_1": "Tinker fans and ordinary fans have the same function, while their stress consumption is only half that of the latter",
+  "tgears.ponder.tinker_spout.header": "Use tinker spouts with signals",
+  "tgears.ponder.tinker_spout.text_1": "Tinker spouts can be controlled by signal",
+  "tgears.ponder.tinker_spout.text_2": "When activated, it stops working"
 }

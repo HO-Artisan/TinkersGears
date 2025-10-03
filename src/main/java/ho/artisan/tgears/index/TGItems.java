@@ -144,6 +144,10 @@ public final class TGItems {
                     .build()))
             .register();
 
+    public static final ItemEntry<Item> CRUSHED_SCORCHIA = REGISTRATE.item("crushed_scorchia", Item::new)
+            .tag(AllTags.AllItemTags.CRUSHED_RAW_MATERIALS.tag)
+            .register();
+
     /*
     public static final ItemEntry<Item> LUZZIUM_INGOT =
             REGISTRATE.item("luzzium_ingot", Item::new)

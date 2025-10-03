@@ -4,6 +4,7 @@ import com.simibubi.create.api.registry.CreateBuiltInRegistries;
 import com.simibubi.create.content.kinetics.mechanicalArm.ArmInteractionPoint;
 import com.simibubi.create.content.kinetics.mechanicalArm.ArmInteractionPointType;
 import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.common.block.entity.TinkerDismantlerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.Level;
@@ -13,6 +14,7 @@ import slimeknights.tconstruct.smeltery.block.entity.CastingBlockEntity;
 public class TGArmInteractionPointTypes {
     static {
         register("casting_container", new CastingContainerType());
+        register("tinker_dismantler", new TinkerDismantlerType());
     }
 
     private static <T extends ArmInteractionPointType> void register(String name, T type) {
@@ -25,6 +27,18 @@ public class TGArmInteractionPointTypes {
         @Override
         public boolean canCreatePoint(Level level, BlockPos pos, BlockState state) {
             return level.getBlockEntity(pos) instanceof CastingBlockEntity;
+        }
+
+        @Override
+        public ArmInteractionPoint createPoint(Level level, BlockPos pos, BlockState state) {
+            return new ArmInteractionPoint(this, level, pos, state);
+        }
+    }
+
+    public static class TinkerDismantlerType extends ArmInteractionPointType {
+        @Override
+        public boolean canCreatePoint(Level level, BlockPos pos, BlockState state) {
+            return level.getBlockEntity(pos) instanceof TinkerDismantlerBlockEntity;
         }
 
         @Override

@@ -1,0 +1,14 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create:scorchia"
+    }
+  ],
+  "processingTime": 100,
+  "results": [
+    {
+      "item": "tgears:crushed_scorchia"
+    }
+  ]
+}

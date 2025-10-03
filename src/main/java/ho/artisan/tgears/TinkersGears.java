@@ -9,6 +9,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 import org.apache.logging.log4j.LogManager;
@@ -27,7 +28,6 @@ public class TinkersGears {
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
     public TinkersGears() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, TinkersGearsConfig.CLIENT_SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TinkersGearsConfig.COMMON_SPEC);
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -43,11 +43,12 @@ public class TinkersGears {
         TGBlockEntityTypes.register();
         TGItems.register();
         TGFluids.register();
-        TGRecipeTypes.register();
+        TGRecipeTypes.register(bus);
 
         TGModifiers.register(bus);
 
         bus.addListener(TinkersGearsClient::clientInit);
+        bus.addListener(TinkersGears::init);
 
         bus.addListener(TinkersGears::onRegister);
 
@@ -60,5 +61,9 @@ public class TinkersGears {
 
     public static void onRegister(final RegisterEvent event) {
         TGArmInteractionPointTypes.init();
+    }
+
+    public static void init(final FMLCommonSetupEvent event) {
+        TGFluids.registerFluidInteractions();
     }
 }

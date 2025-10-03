@@ -17,6 +17,8 @@ import net.createmod.catnip.math.VecHelper;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -25,6 +27,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 
+import static ho.artisan.tgears.common.block.entity.TinkerDrillBlockEntity.breakBlock;
+
 public class TinkerDrillMovementBehaviour extends BlockBreakingMovementBehaviour {
     private final PartialModel model;
 
@@ -32,11 +36,21 @@ public class TinkerDrillMovementBehaviour extends BlockBreakingMovementBehaviour
         this.model = model;
     }
 
+    public ItemStack createTool() {
+        return new ItemStack(Items.DIAMOND_PICKAXE);
+    }
+
     @Override
     public boolean isActive(MovementContext context) {
         return super.isActive(context)
                 && !VecHelper.isVecPointingTowards(context.relativeMotion, context.state.getValue(AbstractTinkerDrillBlock.FACING)
                 .getOpposite());
+    }
+
+    @Override
+    protected void destroyBlock(MovementContext context, BlockPos breakingPos) {
+        Level level = context.world;
+        breakBlock(level, breakingPos, this::createTool);
     }
 
     @Override

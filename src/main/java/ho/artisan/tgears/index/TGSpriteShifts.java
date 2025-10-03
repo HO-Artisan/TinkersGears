@@ -10,6 +10,7 @@ public final class TGSpriteShifts {
     private TGSpriteShifts() {}
 
     public static final CTSpriteShiftEntry COBALT_CASING = omni("cobalt_casing");
+    public static final CTSpriteShiftEntry TINKER_CASING = omni("tinker_casing");
 
     private static CTSpriteShiftEntry omni(String name) {
         return getCT(AllCTTypes.OMNIDIRECTIONAL, name);

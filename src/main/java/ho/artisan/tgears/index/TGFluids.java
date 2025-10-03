@@ -1,6 +1,7 @@
 package ho.artisan.tgears.index;
 
 import com.simibubi.create.AllFluids;
+import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import com.simibubi.create.infrastructure.config.AllConfigs;
 import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.FluidEntry;
@@ -9,8 +10,11 @@ import net.createmod.catnip.theme.Color;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.fluids.FluidInteractionRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import org.joml.Vector3f;
@@ -59,6 +63,21 @@ public final class TGFluids {
 
     public static void register() {
         TinkersGears.LOGGER.info("Fluids initialized");
+    }
+
+    public static void registerFluidInteractions() {
+        FluidInteractionRegistry.addInteraction(ForgeMod.LAVA_TYPE.get(), new FluidInteractionRegistry.InteractionInformation(
+                BLAZING_CHOCOLATE.get().getFluidType(),
+                fluidState -> {
+                    if (fluidState.isSource()) {
+                        return Blocks.OBSIDIAN.defaultBlockState();
+                    } else {
+                        return AllPaletteStoneTypes.SCORCHIA.getBaseBlock()
+                                .get()
+                                .defaultBlockState();
+                    }
+                }
+        ));
     }
 
     private static class SolidRenderedPlaceableFluidType extends AllFluids.TintedFluidType {

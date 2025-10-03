@@ -1,0 +1,14 @@
+{
+  "type": "tgears:dismantling",
+  "tool": {
+    "item": "tconstruct:battlesign"
+  },
+  "parts": [
+    {
+      "item": "tconstruct:large_plate"
+    },
+    {
+      "item": "tconstruct:tool_handle"
+    }
+  ]
+}

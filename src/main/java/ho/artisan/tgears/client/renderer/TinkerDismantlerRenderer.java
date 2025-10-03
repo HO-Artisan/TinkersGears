@@ -1,0 +1,48 @@
+package ho.artisan.tgears.client.renderer;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
+import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
+import ho.artisan.tgears.common.block.entity.TinkerDismantlerBlockEntity;
+import ho.artisan.tgears.common.block.entity.module.TinkerItemStackModule;
+import net.createmod.catnip.math.AngleHelper;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.resources.model.BakedModel;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.ItemDisplayContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+
+public class TinkerDismantlerRenderer extends SafeBlockEntityRenderer<TinkerDismantlerBlockEntity> {
+    public TinkerDismantlerRenderer(BlockEntityRendererProvider.Context context) {}
+
+    @Override
+    protected void renderSafe(TinkerDismantlerBlockEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
+        TinkerItemStackModule module = be.getTinkerBreakingBehaviour().getModule();
+        Direction direction = be.getDirection();
+
+        float yRot = AngleHelper.horizontalAngle(direction) + 180;
+
+        ms.pushPose();
+        ms.translate(0.5F, 0.5F, 0.5F);
+        ms.scale(0.5F, 0.5F, 0.5F);
+        ms.mulPose(Axis.YP.rotationDegrees(yRot));
+        renderItem(module.getTinkerableStack(), ms, buffer, light, overlay, be.getLevel());
+        ms.popPose();
+
+        //ms.pushPose();
+        //for (int i = 0; i < module.getOutputSlots(); i++) {
+        //
+        //}
+        //ms.popPose();
+    }
+
+    public void renderItem(ItemStack itemStack, PoseStack ms, MultiBufferSource buffer, int light, int overlay, Level level) {
+        ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+        BakedModel bakedModel = itemRenderer.getModel(itemStack, level, null, 0);
+        itemRenderer.render(itemStack, ItemDisplayContext.FIXED, false, ms, buffer, light, overlay, bakedModel);
+    }
+}

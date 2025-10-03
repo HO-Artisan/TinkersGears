@@ -8,9 +8,12 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+
+import java.util.function.Supplier;
 
 public class TinkerDrillBlockEntity extends DrillBlockEntity {
 
@@ -36,24 +39,28 @@ public class TinkerDrillBlockEntity extends DrillBlockEntity {
         return capacity;
     }
 
+    public static void breakBlock(Level level, BlockPos pos, Supplier<ItemStack> tool) {
+        Vec3 vec = VecHelper.offsetRandomly(VecHelper.getCenterOf(pos), level.random, .125f);
+        BlockHelper.destroyBlockAs(level, pos, null, tool.get(), 1f, (stack) -> {
+            if (stack.isEmpty())
+                return;
+            if (!level.getGameRules()
+                    .getBoolean(GameRules.RULE_DOBLOCKDROPS))
+                return;
+            if (level.restoringBlockSnapshots)
+                return;
+
+            ItemEntity itementity = new ItemEntity(level, vec.x, vec.y, vec.z, stack);
+            itementity.setDefaultPickUpDelay();
+            itementity.setDeltaMovement(Vec3.ZERO);
+            level.addFreshEntity(itementity);
+        });
+    }
+
     @Override
     public void onBlockBroken(BlockState stateToBreak) {
         if (!optimiseCobbleGen(stateToBreak)) {
-            Vec3 vec = VecHelper.offsetRandomly(VecHelper.getCenterOf(breakingPos), level.random, .125f);
-            BlockHelper.destroyBlockAs(level, breakingPos, null, createTool(), 1f, (stack) -> {
-                if (stack.isEmpty())
-                    return;
-                if (!level.getGameRules()
-                        .getBoolean(GameRules.RULE_DOBLOCKDROPS))
-                    return;
-                if (level.restoringBlockSnapshots)
-                    return;
-
-                ItemEntity itementity = new ItemEntity(level, vec.x, vec.y, vec.z, stack);
-                itementity.setDefaultPickUpDelay();
-                itementity.setDeltaMovement(Vec3.ZERO);
-                level.addFreshEntity(itementity);
-            });
+            breakBlock(level, breakingPos, this::createTool);
         }
     }
 }

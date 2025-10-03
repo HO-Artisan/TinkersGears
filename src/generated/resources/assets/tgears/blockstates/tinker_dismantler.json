@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "clamped=false,facing=east": {
+      "model": "tgears:block/tinker_dismantler/block",
+      "y": 90
+    },
+    "clamped=false,facing=north": {
+      "model": "tgears:block/tinker_dismantler/block"
+    },
+    "clamped=false,facing=south": {
+      "model": "tgears:block/tinker_dismantler/block",
+      "y": 180
+    },
+    "clamped=false,facing=west": {
+      "model": "tgears:block/tinker_dismantler/block",
+      "y": 270
+    },
+    "clamped=true,facing=east": {
+      "model": "tgears:block/tinker_dismantler/block_clamped",
+      "y": 90
+    },
+    "clamped=true,facing=north": {
+      "model": "tgears:block/tinker_dismantler/block_clamped"
+    },
+    "clamped=true,facing=south": {
+      "model": "tgears:block/tinker_dismantler/block_clamped",
+      "y": 180
+    },
+    "clamped=true,facing=west": {
+      "model": "tgears:block/tinker_dismantler/block_clamped",
+      "y": 270
+    }
+  }
+}

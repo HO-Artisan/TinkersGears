@@ -1,4 +1,9 @@
 {
+  "tgears.ponder.tinker_spout.text_2": "当激活时，它会停止工作",
+  "tgears.ponder.tinker_spout.text_1": "工匠注液器受红石信号控制",
+  "tgears.ponder.tinker_spout.header": "使用红石信号控制工匠注液器",
+  "tgears.ponder.tinker_fan.text_1": "工匠鼓风机和普通鼓风机功能功能相同，应力消耗仅为后者一半",
+  "tgears.ponder.tinker_fan.header": "使用工匠鼓风机以节省应力",
   "tgears.ponder.tag.smeltery.description": "工匠最爱的冶炼组件",
   "tgears.ponder.tag.smeltery": "熔炼术",
   "tgears.ponder.tag.compat.description": "何谓匠械？",
@@ -97,6 +102,7 @@
   "item.tgears.hand_cast_with_blazing_chocolate_hand.tooltip.behaviour1": "分离_巧克力手_与_铸模_。",
   "item.tgears.hand_cast_with_blazing_chocolate_hand": "手部零件金质铸模（烈焰巧克力手）",
   "item.tgears.hand_cast": "手部零件金质铸模",
+  "item.tgears.crushed_scorchia": "粉碎焦黑熔渣",
   "item.tgears.crushed_raw_cobalt": "粉碎钴矿石",
   "item.tgears.cobalt_sheet": "钴板",
   "item.tgears.cobalt_propeller": "钴扇叶",
@@ -111,6 +117,7 @@
   "item.tgears.bar_of_blazing_chocolate": "烈焰巧克力棒",
   "item.create.sand_paper.tooltip.condition2": "当打磨匠魂工具时",
   "item.create.sand_paper.tooltip.behaviour2": "让工具获得_抛光_和_尖刃_。",
+  "gui.tgears.integrated_smeltery": "集成冶炼炉",
   "fluid.tgears.blazing_chocolate": "烈焰巧克力",
   "create.tooltip.gears.tinker_stats.fluid": "流体：",
   "create.tooltip.gears.tinker_stats": "工匠装置状态：",
@@ -126,7 +133,8 @@
   "block.tgears.tinker_silktouch_drill": "工匠动力钻头（精准采集）",
   "block.tgears.tinker_fan": "工匠鼓风机",
   "block.tgears.tinker_drill": "工匠动力钻头",
+  "block.tgears.tinker_dismantler": "工匠拆解台",
+  "block.tgears.tinker_casing": "工匠机壳",
   "block.tgears.cobalt_casing": "钴机壳",
-  "block.tgears.blazing_chocolate": "烈焰巧克力",
-  "gui.tgears.integrated_smeltery": "Integrated Smeltery"
+  "block.tgears.blazing_chocolate": "烈焰巧克力"
 }

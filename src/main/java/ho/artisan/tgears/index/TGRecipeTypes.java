@@ -4,6 +4,8 @@ import com.simibubi.create.Create;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
+import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.common.recipe.serializer.DismantlingRecipeSerializer;
 import net.createmod.catnip.lang.Lang;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -22,9 +24,8 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 public enum TGRecipeTypes implements IRecipeTypeInfo {
-
+    DISMANTLING(DismantlingRecipeSerializer::new),
     ;
-    public static void register() {}
 
     private final ResourceLocation id;
     private final RegistryObject<RecipeSerializer<?>> serializerObject;
@@ -57,9 +58,9 @@ public enum TGRecipeTypes implements IRecipeTypeInfo {
         this(() -> new ProcessingRecipeSerializer<>(processingFactory));
     }
 
-    public static void register(IEventBus modEventBus) {
-        TGRecipeTypes.Registers.SERIALIZER_REGISTER.register(modEventBus);
-        TGRecipeTypes.Registers.TYPE_REGISTER.register(modEventBus);
+    public static void register(IEventBus bus) {
+        TGRecipeTypes.Registers.SERIALIZER_REGISTER.register(bus);
+        TGRecipeTypes.Registers.TYPE_REGISTER.register(bus);
     }
 
     @Override
@@ -85,7 +86,7 @@ public enum TGRecipeTypes implements IRecipeTypeInfo {
     }
 
     private static class Registers {
-        private static final DeferredRegister<RecipeSerializer<?>> SERIALIZER_REGISTER = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Create.ID);
-        private static final DeferredRegister<RecipeType<?>> TYPE_REGISTER = DeferredRegister.create(Registries.RECIPE_TYPE, Create.ID);
+        private static final DeferredRegister<RecipeSerializer<?>> SERIALIZER_REGISTER = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, TinkersGears.MOD_ID);
+        private static final DeferredRegister<RecipeType<?>> TYPE_REGISTER = DeferredRegister.create(Registries.RECIPE_TYPE, TinkersGears.MOD_ID);
     }
 }

@@ -18,7 +18,6 @@ import slimeknights.tconstruct.smeltery.block.AbstractCastingBlock;
 public class AbstractCastingBlockMixin {
 
     @Inject(
-            remap = false,
             method = "use",
             at = @At("HEAD"),
             cancellable = true
