@@ -40,6 +40,8 @@ public class TinkerDismantlerBlock extends HorizontalDirectionalBlock implements
             return InteractionResult.PASS;
 
         ItemStack heldItem = player.getMainHandItem();
+        if (heldItem.isEmpty())
+            return InteractionResult.PASS;
         TinkerDismantlerBlockEntity blockEntity = getBlockEntity(level, pos);
         if (blockEntity.isEmpty() && !blockEntity.isLocked()) {
             blockEntity.setTinkerable(heldItem.split(1));

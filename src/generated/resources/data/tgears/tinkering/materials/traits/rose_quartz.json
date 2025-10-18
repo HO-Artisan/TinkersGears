@@ -1,0 +1,10 @@
+{
+  "perStat": {
+    "tconstruct:melee_harvest": [
+      {
+        "level": 1,
+        "name": "tgears:sharpness"
+      }
+    ]
+  }
+}

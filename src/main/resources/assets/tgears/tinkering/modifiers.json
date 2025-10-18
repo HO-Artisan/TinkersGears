@@ -5,5 +5,7 @@
   "tgears:crushing": "tconstruct:normal",
   "tgears:goggles": "tconstruct:normal",
   "tgears:extendo": "tconstruct:normal",
-  "tgears:diving_weights": "tconstruct:normal"
+  "tgears:diving_weights": "tconstruct:normal",
+  "tgears:cardboard": "tconstruct:normal",
+  "tgears:sharpness": "tconstruct:normal"
 }

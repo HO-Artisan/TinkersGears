@@ -29,7 +29,8 @@ public final class TGTagKeys {
 
         public static final TagKey<Item> DRILL = tgearsTag("drill");
 
-        public static final TagKey<Item> COBALT_SHEET = forgeTag("cobalt_sheet");
+        public static final TagKey<Item> PLATES = forgeTag("plates");
+        public static final TagKey<Item> COBALT_SHEET = forgeTag("plates/cobalt");
 
         private static TagKey<Item> createTag(final String name) {
             return ItemTags.create(new ResourceLocation("create", name));

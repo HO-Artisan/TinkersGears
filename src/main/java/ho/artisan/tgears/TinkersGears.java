@@ -29,6 +29,7 @@ public class TinkersGears {
 
     public TinkersGears() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, TinkersGearsConfig.COMMON_SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, TinkersGearsConfig.CLIENT_SPEC);
 
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 

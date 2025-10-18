@@ -1,0 +1,23 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "tgears:crushed_scorchia"
+    },
+    {
+      "amount": 10,
+      "fluid": "tconstruct:liquid_soul",
+      "nbt": {}
+    },
+    {
+      "amount": 10,
+      "fluid": "tconstruct:magma",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "tconstruct:scorched_brick"
+    }
+  ]
+}

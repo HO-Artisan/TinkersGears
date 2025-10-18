@@ -35,6 +35,7 @@ public final class TGItems {
 
     public static final ItemEntry<Item> COBALT_SHEET =
             REGISTRATE.item("cobalt_sheet", Item::new)
+                    .tag(TGTagKeys.Items.PLATES)
                     .tag(TGTagKeys.Items.COBALT_SHEET)
                     .register();
 
@@ -131,7 +132,7 @@ public final class TGItems {
     public static final ItemEntry<BlazingFoodItem> BAR_OF_BLAZING_CHOCOLATE = REGISTRATE.item("bar_of_blazing_chocolate", BlazingFoodItem::new)
             .properties(p -> p.food(new FoodProperties.Builder().nutrition(8)
                     .saturationMod(0.4F)
-                    .effect(() -> new MobEffectInstance(MobEffects.HEAL, 60), 0.5f)
+                    .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 60), 0.5f)
                     .build()))
             .tag(AllTags.AllItemTags.BLAZE_BURNER_FUEL_SPECIAL.tag)
             .lang("Bar of Blazing Chocolate")
@@ -140,7 +141,7 @@ public final class TGItems {
     public static final ItemEntry<BlazingFoodItem> BLAZING_CHOCOLATE_BERRIES = REGISTRATE.item("blazing_chocolate_glazed_berries", BlazingFoodItem::new)
             .properties(p -> p.food(new FoodProperties.Builder().nutrition(8)
                     .saturationMod(0.8F)
-                    .effect(() -> new MobEffectInstance(MobEffects.HEAL, 60), 0.5f)
+                    .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 60), 0.5f)
                     .build()))
             .register();
 

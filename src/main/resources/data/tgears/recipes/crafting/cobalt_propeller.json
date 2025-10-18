@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "forge:plates/cobalt"
+    },
+    "C": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "pattern": [
+    " B ",
+    "BCB",
+    " B "
+  ],
+  "result": {
+    "item": "tgears:cobalt_propeller"
+  },
+  "show_notification": true
+}

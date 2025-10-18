@@ -73,7 +73,8 @@ public class TinkerDismantlingBehaviour extends BlockEntityBehaviour {
     }
 
     public boolean isEmpty() {
-        return module.getStackInSlot(0).isEmpty();
+        boolean empty = module.getStackInSlot(0).isEmpty();
+        return empty;
     }
 
 

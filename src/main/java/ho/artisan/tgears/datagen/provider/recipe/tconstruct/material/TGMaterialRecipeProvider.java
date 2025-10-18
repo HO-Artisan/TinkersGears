@@ -1,5 +1,6 @@
 package ho.artisan.tgears.datagen.provider.recipe.tconstruct.material;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import ho.artisan.tgears.datagen.provider.recipe.TGBaseRecipeProvider;
 import ho.artisan.tgears.index.TGMaterials;
@@ -32,6 +33,12 @@ public final class TGMaterialRecipeProvider extends TGBaseRecipeProvider impleme
         materialRecipe(consumer, TGMaterials.Ids.ANDESITE_ALLOY, Ingredient.of(AllItems.ANDESITE_ALLOY), 1, 1, folder + "andesite_alloy/ingot");
         materialRecipe(consumer, TGMaterials.Ids.ANDESITE_ALLOY, Ingredient.of(getItemTag(COMMON, "storage_blocks/andesite_alloy")), 9, 1, folder + "andesite_alloy/block");
 
+
+        materialRecipe(consumer, TGMaterials.Ids.CARDBOARD, Ingredient.of(AllItems.CARDBOARD), 1, 1, folder + "cardboard/item");
+        materialRecipe(consumer, TGMaterials.Ids.CARDBOARD, Ingredient.of(AllBlocks.CARDBOARD_BLOCK), 4, 1, folder + "cardboard/block");
+
+        materialRecipe(consumer, TGMaterials.Ids.ROSE_QUARTZ, Ingredient.of(AllItems.ROSE_QUARTZ), 1, 1, folder + "rose_quartz/gem");
+        materialRecipe(consumer, TGMaterials.Ids.ROSE_QUARTZ, Ingredient.of(AllItems.POLISHED_ROSE_QUARTZ), 1, 1, folder + "rose_quartz/polished_gem");
         /*
         metalMaterialRecipe(consumer, TGMaterials.Ids.LUZZIUM, folder, "luzzium", true);
 

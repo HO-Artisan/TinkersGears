@@ -10,6 +10,8 @@ public final class TGMaterials {
 
     public static final class Ids {
         public static final MaterialId ANDESITE_ALLOY = id("andesite_alloy");
+        public static final MaterialId CARDBOARD = id("cardboard");
+        public static final MaterialId ROSE_QUARTZ = id("rose_quartz");
         public static final MaterialId LUZZIUM = id("luzzium");
 
         private static MaterialId id(String name) {

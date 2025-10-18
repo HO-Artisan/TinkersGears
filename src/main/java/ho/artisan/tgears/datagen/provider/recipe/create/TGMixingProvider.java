@@ -8,14 +8,12 @@ import ho.artisan.tgears.index.TGFluids;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.Tags;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.block.SlimeType;
-import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 public final class TGMixingProvider extends MixingRecipeGen {
 
@@ -46,13 +44,6 @@ public final class TGMixingProvider extends MixingRecipeGen {
                 .require(Fluids.WATER, 250)
                 .require(Tags.Items.DYES_CYAN)
                 .output(TinkerCommons.slimeball.get(SlimeType.SKY), 2)
-        );
-
-        create("grout", b -> b.require(Fluids.WATER, 250)
-                .require(Items.GRAVEL)
-                .require(Items.SAND)
-                .require(Items.SAND)
-                .output(TinkerSmeltery.grout, 2)
         );
     }
 }

@@ -6,7 +6,9 @@ import com.simibubi.create.content.contraptions.render.ActorVisual;
 import com.simibubi.create.content.contraptions.render.ContraptionMatrices;
 import com.simibubi.create.content.kinetics.base.BlockBreakingMovementBehaviour;
 import com.simibubi.create.foundation.damageTypes.CreateDamageSources;
+import com.simibubi.create.foundation.utility.BlockHelper;
 import com.simibubi.create.foundation.virtualWorld.VirtualRenderWorld;
+import com.simibubi.create.infrastructure.config.AllConfigs;
 import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
@@ -17,6 +19,7 @@ import net.createmod.catnip.math.VecHelper;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -24,10 +27,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.items.ItemHandlerHelper;
 
 import javax.annotation.Nullable;
-
-import static ho.artisan.tgears.common.block.entity.TinkerDrillBlockEntity.breakBlock;
+import java.util.function.Supplier;
 
 public class TinkerDrillMovementBehaviour extends BlockBreakingMovementBehaviour {
     private final PartialModel model;
@@ -50,7 +53,28 @@ public class TinkerDrillMovementBehaviour extends BlockBreakingMovementBehaviour
     @Override
     protected void destroyBlock(MovementContext context, BlockPos breakingPos) {
         Level level = context.world;
-        breakBlock(level, breakingPos, this::createTool);
+        breakBlock(context, level, breakingPos, this::createTool);
+    }
+
+    private void breakBlock(MovementContext context, Level level, BlockPos pos, Supplier<ItemStack> tool) {
+        BlockHelper.destroyBlockAs(level, pos, null, tool.get(), 1f, (stack) -> {
+            ItemStack remainder;
+            if (AllConfigs.server().kinetics.moveItemsToStorage.get())
+                remainder = ItemHandlerHelper.insertItem(context.contraption.getStorage().getAllItems(), stack, false);
+            else
+                remainder = stack;
+            if (remainder.isEmpty())
+                return;
+            // Actors might void items if their positions is undefined
+            Vec3 vec = context.position;
+            if (vec == null)
+                return;
+
+            ItemEntity itemEntity = new ItemEntity(context.world, vec.x, vec.y, vec.z, remainder);
+            itemEntity.setDeltaMovement(context.motion.add(0, 0.5f, 0)
+                    .scale(context.world.random.nextFloat() * .3f));
+            context.world.addFreshEntity(itemEntity);
+        });
     }
 
     @Override

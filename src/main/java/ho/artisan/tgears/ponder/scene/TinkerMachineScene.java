@@ -30,7 +30,7 @@ public class TinkerMachineScene {
         scene.idle(15);
         scene.world().showSection(fans, Direction.NORTH);
         scene.idle(10);
-        scene.world().setKineticSpeed(fans, 32f);
+        scene.world().setKineticSpeed(fans, -32f);
         scene.idle(10);
         scene.overlay().showOutline(PonderPalette.GREEN, fans, fans, 30);
         scene.idle(5);
@@ -104,6 +104,47 @@ public class TinkerMachineScene {
                 .pointAt(util.vector().blockSurface(spout_1, Direction.UP));
         scene.idle(45);
 
+        scene.markAsFinished();
+    }
+
+    public static void drill(SceneBuilder builder, SceneBuildingUtil util) {
+        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        scene.title("tinker_drill", "Use tinker drills to break blocks");
+        scene.configureBasePlate(0, 0, 5);
+        scene.scaleSceneView(0.9f);
+        scene.world().showSection(util.select().layer(0), Direction.UP);
+
+        BlockPos glass_0 = util.grid().at(1, 1, 2);
+        BlockPos glass_1 = util.grid().at(3, 1, 2);
+
+        BlockPos drill_0 = util.grid().at(1, 1, 3);
+        BlockPos drill_1 = util.grid().at(3, 1, 3);
+
+        scene.idle(10);
+        scene.world().showSection(util.select().fromTo(glass_0, glass_1), Direction.NORTH);
+        scene.idle(15);
+        scene.world().showSection(util.select().fromTo(drill_0, drill_1), Direction.NORTH);
+
+        scene.idle(15);
+        scene.overlay().showText(25)
+                .text("Tinker drills and ordinary drills have the same function, while their stress consumption is only half that of the latter")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.GREEN)
+                .pointAt(util.vector().blockSurface(drill_0, Direction.UP));
+        scene.idle(30);
+
+        scene.idle(15);
+        scene.overlay().showText(25)
+                .text("Tinker drills can be upgraded to drill with the Silk Touch")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.GREEN)
+                .pointAt(util.vector().blockSurface(drill_1, Direction.UP));
+        scene.idle(30);
+
+        scene.world().setKineticSpeed(util.select().fromTo(drill_0, drill_1), 16f);
+        scene.idle(45);
         scene.markAsFinished();
     }
 }

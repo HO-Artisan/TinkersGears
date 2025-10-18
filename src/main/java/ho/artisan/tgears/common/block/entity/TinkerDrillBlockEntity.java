@@ -39,7 +39,7 @@ public class TinkerDrillBlockEntity extends DrillBlockEntity {
         return capacity;
     }
 
-    public static void breakBlock(Level level, BlockPos pos, Supplier<ItemStack> tool) {
+    private void breakBlock(Level level, BlockPos pos, Supplier<ItemStack> tool) {
         Vec3 vec = VecHelper.offsetRandomly(VecHelper.getCenterOf(pos), level.random, .125f);
         BlockHelper.destroyBlockAs(level, pos, null, tool.get(), 1f, (stack) -> {
             if (stack.isEmpty())

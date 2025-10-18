@@ -5,5 +5,7 @@
   "tgears:crushing": "create:item/crushed_raw_iron",
   "tgears:goggles": "create:item/goggles",
   "tgears:extendo": "create:item/brass_hand",
-  "tgears:diving_weights": "create:item/copper_diving_boots"
+  "tgears:diving_weights": "create:item/copper_diving_boots",
+  "tgears:cardboard": "create:item/cardboard",
+  "tgears:sharpness": "create:item/rose_quartz"
 }

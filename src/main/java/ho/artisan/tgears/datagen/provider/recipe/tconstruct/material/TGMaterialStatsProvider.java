@@ -7,6 +7,7 @@ import slimeknights.tconstruct.tools.data.material.MaterialStatsDataProvider;
 import slimeknights.tconstruct.tools.stats.*;
 
 import static net.minecraft.world.item.Tiers.IRON;
+import static net.minecraft.world.item.Tiers.WOOD;
 
 public final class TGMaterialStatsProvider extends MaterialStatsDataProvider {
     public TGMaterialStatsProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
@@ -20,6 +21,18 @@ public final class TGMaterialStatsProvider extends MaterialStatsDataProvider {
                 new LimbMaterialStats(220, -0.2F, 0.1F, 0.0F),
                 new GripMaterialStats(0.1F, 0.0F, 1.5F),
                 new HandleMaterialStats(0.15F, 0F, 0F, -0.05F),
+                StatlessMaterialStats.BINDING
+        );
+
+        addMaterialStats(TGMaterials.Ids.CARDBOARD,
+                new HeadMaterialStats(100, 10.0F, WOOD, 0.0F),
+                new HandleMaterialStats(0.0F, 0.2F, 0.2F, -0.5F),
+                StatlessMaterialStats.BINDING
+        );
+
+        addMaterialStats(TGMaterials.Ids.ROSE_QUARTZ,
+                new HeadMaterialStats(165, 5.5F, IRON, 3.5F),
+                new HandleMaterialStats(-0.25F, 0.0F, 0.1F, 0.2F),
                 StatlessMaterialStats.BINDING
         );
 

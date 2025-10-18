@@ -6,6 +6,8 @@ import fr.lucreeper74.createmetallurgy.registries.CMItems;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.index.TGItems;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
@@ -66,6 +68,9 @@ public final class TGPressingProvider extends PressingRecipeGen {
                     TGItems.WHISK_CAST,
                     CMItems.STURDY_WHISK
             );
+
+        create("cobalt_sheet", b -> b.require(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/cobalt"))))
+                .output(TGItems.COBALT_SHEET));
     }
 
     private void separatingRecipe(String id, ItemLike castWithItem, ItemLike cast, ItemLike item) {

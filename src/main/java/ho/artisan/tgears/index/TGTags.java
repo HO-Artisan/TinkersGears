@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.gadgets.TinkerGadgets;
+import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
@@ -36,7 +37,9 @@ public final class TGTags {
                         TinkerSmeltery.searedBasin.get(),
                         TinkerSmeltery.searedTable.get(),
                         TinkerSmeltery.scorchedBasin.get(),
-                        TinkerSmeltery.scorchedTable.get()
+                        TinkerSmeltery.scorchedTable.get(),
+                        TinkerCommons.soulGlass.get(),
+                        TinkerCommons.soulGlassPane.get()
                 );
 
         prov.tag(TGTagKeys.Blocks.TINKER_ASSEMBLY_OPERATOR)

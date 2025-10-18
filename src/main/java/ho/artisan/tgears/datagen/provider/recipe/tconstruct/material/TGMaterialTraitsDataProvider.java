@@ -4,7 +4,11 @@ import ho.artisan.tgears.index.TGMaterials;
 import ho.artisan.tgears.index.TGModifiers;
 import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.material.MaterialTraitsDataProvider;
+
+import static slimeknights.tconstruct.library.materials.MaterialRegistry.MELEE_HARVEST;
 
 public final class TGMaterialTraitsDataProvider extends MaterialTraitsDataProvider {
     public TGMaterialTraitsDataProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
@@ -19,6 +23,14 @@ public final class TGMaterialTraitsDataProvider extends MaterialTraitsDataProvid
     @Override
     protected void addMaterialTraits() {
         addDefaultTraits(TGMaterials.Ids.ANDESITE_ALLOY, TGModifiers.Ids.TOPNOTCH);
+
+        addDefaultTraits(TGMaterials.Ids.CARDBOARD, TGModifiers.Ids.CARDBOARD, TinkerModifiers.knockback.getId());
+
+        addTraits(
+                TGMaterials.Ids.ROSE_QUARTZ,
+                MELEE_HARVEST,
+                new ModifierEntry(TGModifiers.Ids.SHARPNESS, 1)
+        );
 
         /*
         addDefaultTraits(TGMaterials.Ids.LUZZIUM, TGModifiers.Ids.LIGHTWEIGHT);

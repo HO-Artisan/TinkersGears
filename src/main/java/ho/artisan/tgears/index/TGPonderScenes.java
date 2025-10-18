@@ -26,9 +26,11 @@ public final class TGPonderScenes {
         helper.forComponents(TinkerSmeltery.searedTable.getId())
                 .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
         helper.forComponents(TGBlocks.TINKER_FAN.getId())
-                .addStoryBoard("tinker_fan", TinkerMachineScene::fan, TGPonderTags.SMELTERY);
+                .addStoryBoard("tinker_fan", TinkerMachineScene::fan, TGPonderTags.COMPAT);
         helper.forComponents(TGBlocks.TINKER_SPOUT.getId())
-                .addStoryBoard("tinker_spout", TinkerMachineScene::spout, TGPonderTags.SMELTERY);
+                .addStoryBoard("tinker_spout", TinkerMachineScene::spout, TGPonderTags.COMPAT);
+        helper.forComponents(TGBlocks.TINKER_DRILL.getId(), TGBlocks.TINKER_SILKTOUCH_DRILL.getId())
+                .addStoryBoard("tinker_drill", TinkerMachineScene::drill, TGPonderTags.COMPAT);
 
         TinkersGears.LOGGER.info("Ponder scenes initialized");
     }

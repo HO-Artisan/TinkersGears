@@ -44,6 +44,14 @@ public class TGLangProvider {
         consumer.accept("modifier.tgears.diving_weights.flavor", "Dive with ease!");
         consumer.accept("modifier.tgears.diving_weights.description", "Wielder descends more quickly in liquids. Grants the ability to walk and jump underwater. Wielder also is no longer affected by Mechanical Belts.");
 
+        consumer.accept("modifier.tgears.cardboard", "Cardboard");
+        consumer.accept("modifier.tgears.cardboard.flavor", "Harmless but \"Powerful\"!");
+        consumer.accept("modifier.tgears.cardboard.description", "No damage can be done, but there is a knockback bonus.");
+
+        consumer.accept("modifier.tgears.sharpness", "Rose Sharpness");
+        consumer.accept("modifier.tgears.sharpness.flavor", "More damage!");
+        consumer.accept("modifier.tgears.sharpness.description", "Increase damage dealt.");
+
         //consumer.accept("modifier.tgears.adrenaline", "Adrenaline");
         //consumer.accept("modifier.tgears.adrenaline.flavor", "Speed up!");
         //consumer.accept("modifier.tgears.adrenaline.description", "Upon taking damage, briefly increase movement speed and attack speed.");
@@ -61,6 +69,14 @@ public class TGLangProvider {
         consumer.accept("material.tgears.andesite_alloy", "Andesite Alloy");
         consumer.accept("material.tgears.andesite_alloy.flavor", "Sturdier Rocks");
         consumer.accept("material.tgears.andesite_alloy.encyclopedia", "It is durable!");
+
+        consumer.accept("material.tgears.cardboard", "Cardboard");
+        consumer.accept("material.tgears.cardboard.flavor", "Unadulterated Lightweight");
+        consumer.accept("material.tgears.cardboard.encyclopedia", "Harmless but ultra-light!");
+
+        consumer.accept("material.tgears.rose_quartz", "Rose Quartz");
+        consumer.accept("material.tgears.rose_quartz.flavor", "A Unique Crystal");
+        consumer.accept("material.tgears.rose_quartz.encyclopedia", "A unique crystal with a sharp quality.");
 
         //consumer.accept("material.tgears.luzzium", "Luzzium");
         //consumer.accept("material.tgears.luzzium.flavor", "Lightning Fast");

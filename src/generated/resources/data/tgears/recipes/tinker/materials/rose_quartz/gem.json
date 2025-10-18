@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "create:rose_quartz"
+  },
+  "material": "tgears:rose_quartz",
+  "needed": 1,
+  "value": 1
+}

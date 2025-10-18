@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tgears:cardboard"
+    },
+    {
+      "level": 1,
+      "name": "tconstruct:knockback"
+    }
+  ]
+}

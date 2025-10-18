@@ -1,6 +1,15 @@
 {
   "craftable": true,
   "hidden": false,
+  "redirect": [
+    {
+      "condition": {
+        "type": "forge:mod_loaded",
+        "modid": "tinkersinnovation"
+      },
+      "id": "tinkersinnovation:andesite_alloy"
+    }
+  ],
   "sortOrder": 0,
   "tier": 2
 }

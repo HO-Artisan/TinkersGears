@@ -22,22 +22,21 @@ public class TinkerDismantlerRenderer extends SafeBlockEntityRenderer<TinkerDism
     @Override
     protected void renderSafe(TinkerDismantlerBlockEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
         TinkerItemStackModule module = be.getTinkerBreakingBehaviour().getModule();
-        Direction direction = be.getDirection();
+        if (module == null) return;
 
+        ItemStack tinkerableStack = module.getTinkerableStack();
+        if (tinkerableStack.isEmpty()) return;
+
+        Direction direction = be.getDirection();
         float yRot = AngleHelper.horizontalAngle(direction) + 180;
 
+
         ms.pushPose();
-        ms.translate(0.5F, 0.5F, 0.5F);
+        ms.translate(0.5F, 0.7F, 0.5F);
         ms.scale(0.5F, 0.5F, 0.5F);
         ms.mulPose(Axis.YP.rotationDegrees(yRot));
         renderItem(module.getTinkerableStack(), ms, buffer, light, overlay, be.getLevel());
         ms.popPose();
-
-        //ms.pushPose();
-        //for (int i = 0; i < module.getOutputSlots(); i++) {
-        //
-        //}
-        //ms.popPose();
     }
 
     public void renderItem(ItemStack itemStack, PoseStack ms, MultiBufferSource buffer, int light, int overlay, Level level) {

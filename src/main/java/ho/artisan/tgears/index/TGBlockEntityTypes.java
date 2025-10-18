@@ -49,6 +49,7 @@ public final class TGBlockEntityTypes {
             .renderer(() -> TinkerDismantlerRenderer::new)
             .register();
 
+
     public static void register() {
         TinkersGears.LOGGER.info("BlockEntityTypes initialized");
     }
