@@ -13,6 +13,8 @@ public class TinkersGearsConfig {
     public static final ForgeConfigSpec.ConfigValue<Float> POLISHING_DAMAGE;
     public static final ForgeConfigSpec.ConfigValue<Float> POLISHING_SHIELD;
 
+    // Crushing
+    public static final ForgeConfigSpec.ConfigValue<Integer> CRUSHING_DAMAGE;
     // Goggles
     public static final ForgeConfigSpec.ConfigValue<Boolean> IS_GOGGLES_ENABLED;
 
@@ -37,6 +39,11 @@ public class TinkersGearsConfig {
                 .define("polishing_damage", 0.1F);
         POLISHING_SHIELD = common.comment("The shield provided when polishing")
                 .define("polishing_shield", 0.1F);
+        common.pop();
+
+        common.push("The Crushing");
+        CRUSHING_DAMAGE =  common.comment("The damage to tool with crushing modifier")
+                .define("crushing_damage", 5);
         common.pop();
 
         // Client

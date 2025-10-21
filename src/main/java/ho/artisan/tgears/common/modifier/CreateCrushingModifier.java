@@ -17,6 +17,7 @@ import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.ProcessLootModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
+import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import javax.annotation.Nullable;
@@ -92,7 +93,7 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
                 ItemStack smelted = crushingItem(stack, world);
                 if (stack != smelted) {
                     iterator.set(smelted);
-                    tool.setDamage(tool.getDamage() + 10);
+                    ToolDamageUtil.damage(tool, 1, null,  null);
                 }
             }
         }

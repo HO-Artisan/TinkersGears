@@ -1,16 +1,20 @@
 package ho.artisan.tgears.datagen.provider.recipe.tconstruct;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
+import com.simibubi.create.foundation.block.CopperBlockSet;
 import ho.artisan.tgears.datagen.provider.recipe.TGBaseRecipeProvider;
 import ho.artisan.tgears.index.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
+import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.recipe.melting.IMeltingContainer;
 import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 
@@ -31,6 +35,29 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         this.crushedOreRecipes(consumer);
         this.luzziumRecipes(consumer);
+        this.copperRecipes(consumer);
+    }
+
+    private void copperRecipes(Consumer<FinishedRecipe> consumer) {
+        copperRecipe(consumer, AllBlocks.COPPER_TILES, FluidValues.INGOT / 2);
+    }
+
+    private void copperRecipe(Consumer<FinishedRecipe> consumer, CopperBlockSet set, int amount) {
+        String folder = "melting/copper/";
+
+        for (WeatheringCopper.WeatherState value : WeatheringCopper.WeatherState.values()) {
+            for (CopperBlockSet.Variant<?> variant : CopperBlockSet.DEFAULT_VARIANTS) {
+                boolean[] bl = { true, false };
+                for (boolean waxed : bl) {
+                    String prefix = waxed ? "waxed_" : "";
+                    MeltingRecipeBuilder.melting(
+                            Ingredient.of(set.get(variant, value, waxed)),
+                            TinkerFluids.moltenCopper.get(),
+                            amount
+                    ).save(consumer, location(folder + prefix + set.getName() + "_" + value.name().toLowerCase() + variant.getSuffix()));
+                }
+            }
+        }
     }
 
     private void luzziumRecipes(Consumer<FinishedRecipe> consumer) {

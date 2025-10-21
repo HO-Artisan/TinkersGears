@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:waxed_exposed_copper_tile_slab"
+  },
+  "result": {
+    "amount": 45,
+    "fluid": "tconstruct:molten_copper"
+  },
+  "temperature": 500,
+  "time": 35
+}
