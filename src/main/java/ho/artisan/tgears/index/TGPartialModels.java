@@ -16,7 +16,8 @@ public final class TGPartialModels {
 
     public static final PartialModel
             DRILL_HEAD = block("tinker_drill/head"),
-            SILKTOUCH_DRILL_HEAD = block("tinker_silktouch_drill/head");
+            SILKTOUCH_DRILL_HEAD = block("tinker_silktouch_drill/head"),
+            FORTUNE_DRILL_HEAD = block("tinker_fortune_drill/head");
 
     public static final PartialModel
             COBALT_FAN = block("tinker_fan/propeller");

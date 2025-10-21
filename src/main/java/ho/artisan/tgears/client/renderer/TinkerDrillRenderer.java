@@ -36,6 +36,10 @@ public class TinkerDrillRenderer extends KineticBlockEntityRenderer<TinkerDrillB
         return new TinkerDrillRenderer(context, TGPartialModels.SILKTOUCH_DRILL_HEAD);
     }
 
+    public static TinkerDrillRenderer fortune(BlockEntityRendererProvider.Context context) {
+        return new TinkerDrillRenderer(context, TGPartialModels.FORTUNE_DRILL_HEAD);
+    }
+
     @Override
     protected SuperByteBuffer getRotatedModel(TinkerDrillBlockEntity be, BlockState state) {
         return CachedBuffers.partialFacing(model, state);

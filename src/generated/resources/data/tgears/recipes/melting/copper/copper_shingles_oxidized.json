@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:oxidized_copper_shingles"
+  },
+  "result": {
+    "amount": 40,
+    "fluid": "tconstruct:molten_copper"
+  },
+  "temperature": 500,
+  "time": 33
+}

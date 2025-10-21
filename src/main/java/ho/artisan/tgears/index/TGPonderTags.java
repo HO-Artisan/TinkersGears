@@ -29,6 +29,13 @@ public final class TGPonderTags {
                 .add(TinkerSmeltery.smelteryController.getId())
                 .add(TinkerSmeltery.searedTable.getId());
 
+
+        helper.addToTag(COMPAT)
+                .add(TGBlocks.TINKER_DRILL.getId())
+                .add(TGBlocks.TINKER_SILKTOUCH_DRILL.getId())
+                .add(TGBlocks.TINKER_SPOUT.getId())
+                .add(TGBlocks.TINKER_FAN.getId());
+
         TinkersGears.LOGGER.info("Ponder tags initialized");
     }
 }

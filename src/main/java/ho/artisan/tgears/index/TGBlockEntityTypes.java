@@ -43,6 +43,13 @@ public final class TGBlockEntityTypes {
             .renderer(() -> TinkerDrillRenderer::silkTouch)
             .register();
 
+    public static final BlockEntityEntry<TinkerFortuneDrillBlockEntity> FORTUNE_DRILL = REGISTRATE
+            .blockEntity("tinker_fortune_drill", TinkerFortuneDrillBlockEntity::new)
+            .visual(() -> TinkerDrillVisual.create(TGPartialModels.FORTUNE_DRILL_HEAD), false)
+            .validBlocks(TGBlocks.TINKER_FORTUNE_DRILL)
+            .renderer(() -> TinkerDrillRenderer::fortune)
+            .register();
+
     public static final BlockEntityEntry<TinkerDismantlerBlockEntity> BREAKER = REGISTRATE
             .blockEntity("tinker_breaker", TinkerDismantlerBlockEntity::new)
             .validBlocks(TGBlocks.TINKER_DISMANTLER)

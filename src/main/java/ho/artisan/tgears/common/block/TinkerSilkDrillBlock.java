@@ -11,7 +11,7 @@ public class TinkerSilkDrillBlock extends AbstractTinkerDrillBlock<TinkerSilkDri
 
     @Override
     public double getDamage(float speed) {
-        return super.getDamage(speed) / 2d;
+        return 1D;
     }
 
     @Override

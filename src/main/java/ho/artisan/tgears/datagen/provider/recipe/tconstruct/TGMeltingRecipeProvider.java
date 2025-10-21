@@ -14,7 +14,6 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
-import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.recipe.melting.IMeltingContainer;
 import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 
@@ -36,13 +35,29 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
         this.crushedOreRecipes(consumer);
         this.luzziumRecipes(consumer);
         this.copperRecipes(consumer);
+        this.ironRecipes(consumer);
+    }
+
+    private void ironRecipes(Consumer<FinishedRecipe> consumer) {
+        String folder = "melting/iron/";
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllBlocks.INDUSTRIAL_IRON_BLOCK),
+                TinkerFluids.moltenIron.get(),
+                40
+        ).save(consumer, location(folder + "industrial_iron_block"));
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllBlocks.WEATHERED_IRON_BLOCK),
+                TinkerFluids.moltenIron.get(),
+                40
+        ).save(consumer, location(folder + "weathered_iron_block"));
     }
 
     private void copperRecipes(Consumer<FinishedRecipe> consumer) {
-        copperRecipe(consumer, AllBlocks.COPPER_TILES, FluidValues.INGOT / 2);
+        copperRecipe(consumer, AllBlocks.COPPER_TILES);
+        copperRecipe(consumer, AllBlocks.COPPER_SHINGLES);
     }
 
-    private void copperRecipe(Consumer<FinishedRecipe> consumer, CopperBlockSet set, int amount) {
+    private void copperRecipe(Consumer<FinishedRecipe> consumer, CopperBlockSet set) {
         String folder = "melting/copper/";
 
         for (WeatheringCopper.WeatherState value : WeatheringCopper.WeatherState.values()) {
@@ -50,6 +65,7 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
                 boolean[] bl = { true, false };
                 for (boolean waxed : bl) {
                     String prefix = waxed ? "waxed_" : "";
+                    int amount = variant == CopperBlockSet.DEFAULT_VARIANTS[0] ? 40 : variant == CopperBlockSet.DEFAULT_VARIANTS[1] ? 20 : 30;
                     MeltingRecipeBuilder.melting(
                             Ingredient.of(set.get(variant, value, waxed)),
                             TinkerFluids.moltenCopper.get(),

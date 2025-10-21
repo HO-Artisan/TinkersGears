@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:waxed_weathered_copper_shingle_stairs"
+  },
+  "result": {
+    "amount": 30,
+    "fluid": "tconstruct:molten_copper"
+  },
+  "temperature": 500,
+  "time": 29
+}

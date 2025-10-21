@@ -8,6 +8,9 @@ import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.createmod.ponder.api.scene.Selection;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -141,9 +144,18 @@ public class TinkerMachineScene {
                 .attachKeyFrame()
                 .colored(PonderPalette.GREEN)
                 .pointAt(util.vector().blockSurface(drill_1, Direction.UP));
-        scene.idle(30);
+        scene.idle(40);
 
         scene.world().setKineticSpeed(util.select().fromTo(drill_0, drill_1), 16f);
+
+        for (int i = 0; i < 10; i++) {
+            scene.idle(10);
+            scene.world().incrementBlockBreakingProgress(glass_0);
+            scene.world().incrementBlockBreakingProgress(glass_1);
+        }
+
+        scene.world().createItemEntity(glass_1.getCenter(), Vec3.ZERO, new ItemStack(Items.GLASS));
+
         scene.idle(45);
         scene.markAsFinished();
     }

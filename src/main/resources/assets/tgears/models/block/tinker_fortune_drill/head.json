@@ -1,0 +1,8 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "tgears:block/tinker_drill/head",
+	"textures": {
+		"2": "create:block/experience_block",
+		"particle": "create:block/experience_block"
+	}
+}

@@ -10,6 +10,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.common.block.*;
 import ho.artisan.tgears.common.block.entity.behaviour.TinkerDrillMovementBehaviour;
+import ho.artisan.tgears.common.block.entity.behaviour.TinkerFortuneDrillMovementBehaviour;
 import ho.artisan.tgears.common.block.entity.behaviour.TinkerSilkDrillMovementBehaviour;
 import ho.artisan.tgears.common.item.TinkerAssemblyOperatorBlockItem;
 import ho.artisan.tgears.datagen.data.TGBlockStateGen;
@@ -74,6 +75,20 @@ public final class TGBlocks {
             .blockstate(BlockStateGen.directionalBlockProvider(true))
             .tag(TGTagKeys.Blocks.DRILL)
             .onRegister(movementBehaviour(new TinkerSilkDrillMovementBehaviour(TGPartialModels.SILKTOUCH_DRILL_HEAD)))
+            .item()
+            .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
+            .tag(TGTagKeys.Items.DRILL)
+            .transform(customItemModel())
+            .register();
+
+    public static final BlockEntry<TinkerFortuneDrillBlock> TINKER_FORTUNE_DRILL = REGISTRATE.block("tinker_fortune_drill", TinkerFortuneDrillBlock::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.mapColor(MapColor.PODZOL))
+            .transform(axeOrPickaxe())
+            .lang("Tinker Mechanical Drill (Fortune)")
+            .blockstate(BlockStateGen.directionalBlockProvider(true))
+            .tag(TGTagKeys.Blocks.DRILL)
+            .onRegister(movementBehaviour(new TinkerFortuneDrillMovementBehaviour(TGPartialModels.FORTUNE_DRILL_HEAD)))
             .item()
             .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
             .tag(TGTagKeys.Items.DRILL)

@@ -4,9 +4,9 @@
     "item": "create:exposed_copper_tile_stairs"
   },
   "result": {
-    "amount": 45,
+    "amount": 30,
     "fluid": "tconstruct:molten_copper"
   },
   "temperature": 500,
-  "time": 35
+  "time": 29
 }

@@ -4,9 +4,9 @@
     "item": "create:weathered_copper_tile_slab"
   },
   "result": {
-    "amount": 45,
+    "amount": 20,
     "fluid": "tconstruct:molten_copper"
   },
   "temperature": 500,
-  "time": 35
+  "time": 24
 }

@@ -25,6 +25,7 @@ public final class TGPonderScenes {
                 .addStoryBoard("smeltery_transfer", SmelteryScene::transfer, TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.searedTable.getId())
                 .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
+
         helper.forComponents(TGBlocks.TINKER_FAN.getId())
                 .addStoryBoard("tinker_fan", TinkerMachineScene::fan, TGPonderTags.COMPAT);
         helper.forComponents(TGBlocks.TINKER_SPOUT.getId())

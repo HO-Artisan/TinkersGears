@@ -1,0 +1,18 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "tgears:crushed_raw_cobalt"
+    }
+  ],
+  "results": [
+    {
+      "count": 9,
+      "item": "tconstruct:cobalt_nugget"
+    },
+    {
+      "chance": 0.25,
+      "item": "minecraft:netherite_scrap"
+    }
+  ]
+}
