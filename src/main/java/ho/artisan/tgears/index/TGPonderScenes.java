@@ -1,16 +1,14 @@
 package ho.artisan.tgears.index;
 
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.ponder.scene.CastingScene;
-import ho.artisan.tgears.ponder.scene.MelterScene;
-import ho.artisan.tgears.ponder.scene.SmelteryScene;
-import ho.artisan.tgears.ponder.scene.TinkerMachineScene;
+import ho.artisan.tgears.ponder.scene.*;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 public final class TGPonderScenes {
-    private TGPonderScenes() {}
+    private TGPonderScenes() {
+    }
 
     public static void register(PonderSceneRegistrationHelper<ResourceLocation> helper) {
         helper.forComponents(TinkerSmeltery.searedMelter.getId())
@@ -24,6 +22,8 @@ public final class TGPonderScenes {
                 .addStoryBoard("smeltery", SmelteryScene::basic, TGPonderTags.SMELTERY)
                 .addStoryBoard("smeltery_mini", SmelteryScene::mini, TGPonderTags.SMELTERY)
                 .addStoryBoard("smeltery_transfer", SmelteryScene::transfer, TGPonderTags.SMELTERY);
+        helper.forComponents(TinkerSmeltery.foundryController.getId())
+                .addStoryBoard("new/scorched", ScorchedPonder::newBasic, TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.searedTable.getId())
                 .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
 
