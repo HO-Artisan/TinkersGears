@@ -20,6 +20,7 @@ public final class TGTagKeys {
 
         public static final TagKey<Item> GRIT_SANDPAPER = tgearsTag("grit_sandpaper");
         public static final TagKey<Item> CRUSHING_BLACKLIST = tgearsTag("crushing_blacklist");
+        public static final TagKey<Item> CASTING_BLACKLIST = tgearsTag("casting_blacklist");
 
         public static final TagKey<Item> INGOTS = forgeTag("ingots");
         public static final TagKey<Item> LUZZIUM_INGOT = forgeTag("ingots/luzzium");

@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 import ho.artisan.tgears.common.block.entity.TinkerDismantlerBlockEntity;
-import ho.artisan.tgears.common.block.entity.module.TinkerItemStackModule;
+import ho.artisan.tgears.common.block.module.TinkerItemModule;
 import net.createmod.catnip.math.AngleHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -21,7 +21,7 @@ public class TinkerDismantlerRenderer extends SafeBlockEntityRenderer<TinkerDism
 
     @Override
     protected void renderSafe(TinkerDismantlerBlockEntity be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
-        TinkerItemStackModule module = be.getTinkerBreakingBehaviour().getModule();
+        TinkerItemModule module = be.getTinkerBreakingBehaviour().getModule();
         if (module == null) return;
 
         ItemStack tinkerableStack = module.getTinkerableStack();

@@ -1,7 +1,6 @@
 package ho.artisan.tgears.common.recipe;
 
 import ho.artisan.tgears.index.TGRecipeTypes;
-import lombok.Getter;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -18,25 +17,9 @@ import slimeknights.tconstruct.library.tools.part.IMaterialItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class DismantlingRecipe implements ICommonRecipe<ITinkerableContainer> {
-    private final ResourceLocation id;
-    @Getter
-    private final List<PartStack> parts;
-    @Getter
-    private final Ingredient ingredient;
-    @Getter
-    private final int primary;
-    @Getter
-    private final int time;
-
-    public DismantlingRecipe(ResourceLocation id, List<PartStack> parts, Ingredient ingredient, int primary,
-                             int time) {
-        this.id = id;
-        this.parts = parts;
-        this.ingredient = ingredient;
-        this.primary = primary;
-        this.time = time;
-    }
+public record DismantlingRecipe(
+        ResourceLocation id, List<PartStack> parts, Ingredient ingredient, int primary, int time
+) implements ICommonRecipe<ITinkerableContainer> {
 
     @Override
     public boolean matches(ITinkerableContainer container, Level level) {
@@ -96,5 +79,6 @@ public final class DismantlingRecipe implements ICommonRecipe<ITinkerableContain
         return TGRecipeTypes.DISMANTLING.getType();
     }
 
-    public record PartStack(ItemStack stack, float chance) { }
+    public record PartStack(ItemStack stack, float chance) {
+    }
 }

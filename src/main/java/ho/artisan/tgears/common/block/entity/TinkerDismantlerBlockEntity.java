@@ -2,8 +2,8 @@ package ho.artisan.tgears.common.block.entity;
 
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
-import ho.artisan.tgears.common.block.entity.behaviour.DirectionSavingBehaviour;
-import ho.artisan.tgears.common.block.entity.behaviour.TinkerDismantlingBehaviour;
+import ho.artisan.tgears.common.block.behaviour.DirectionSavingBehaviour;
+import ho.artisan.tgears.common.block.behaviour.TinkerDismantlingBehaviour;
 import lombok.Getter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

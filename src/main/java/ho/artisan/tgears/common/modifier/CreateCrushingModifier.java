@@ -4,7 +4,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.content.kinetics.crusher.CrushingRecipe;
-import ho.artisan.tgears.common.block.entity.module.CrushingModule;
+import ho.artisan.tgears.common.block.module.CrushingItemModule;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -32,7 +32,7 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
             .maximumSize(64)
             .build();
 
-    private final CrushingModule inventory = new CrushingModule();
+    private final CrushingItemModule inventory = new CrushingItemModule();
 
     public CreateCrushingModifier() {
         RecipeCacheInvalidator.addReloadListener(client -> {

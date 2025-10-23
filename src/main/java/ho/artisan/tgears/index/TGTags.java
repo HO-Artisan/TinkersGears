@@ -75,6 +75,12 @@ public final class TGTags {
 
         prov.tag(TGTagKeys.Items.GRIT_SANDPAPER)
                 .addOptional(new ResourceLocation("createaddition", "diamond_grit_sandpaper"));
+
+        prov.tag(TGTagKeys.Items.CASTING_BLACKLIST)
+                .add(
+                        AllBlocks.MECHANICAL_ARM.asItem(),
+                        TGBlocks.TINKER_SPOUT.asItem()
+                );
     }
 
     private static void genFluidTags(RegistrateTagsProvider.IntrinsicImpl<Fluid> provIn) {

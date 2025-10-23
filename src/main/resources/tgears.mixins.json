@@ -5,15 +5,19 @@
   "compatibilityLevel": "JAVA_16",
   "refmap": "tgears.refmap.json",
   "mixins": [
-    "AbstractCastingBlockMixin",
-    "AirCurrentMixin",
-    "AlloyerMixin",
-    "CastingContainerMixin",
-    "DivingBootsMixin",
-    "MelterMixin",
-    "PolishingRecipeMixin",
-    "SpoutBlockEntityMixin",
-    "TankMixin"
+    "burner.InjectBlazeBurnerBlockEntity",
+    "burner.ReplacementAlloyerModule",
+    "burner.ReplacementMelterModule",
+    "fan.InjectAirCurrent",
+    "fan.CastingContainerProcessing",
+    "CastingBlockInteractFix",
+    "SpoutBlockEntityTick",
+    "InjectDivingBoots",
+    "PolishingApplying",
+    "tooltip.AlloyerInfo",
+    "tooltip.CastingContainerInfo",
+    "tooltip.MelterInfo",
+    "tooltip.TankInfo"
   ],
   "client": [
   ],

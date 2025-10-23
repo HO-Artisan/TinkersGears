@@ -112,9 +112,9 @@ dependencies {
 
     modImplementation("maven.modrinth:create-metallurgy:${metallurgy_version}")
     modImplementation("maven.modrinth:createaddition:${createaddition_version}")
-    modImplementation("maven.modrinth:create-henry:${create_henry_version}")
-    //modRuntimeOnly("maven.modrinth:create-alloyed:${alloyed_version}")
 
+    //modRuntimeOnly("maven.modrinth:create-henry:${create_henry_version}")
+    //modRuntimeOnly("maven.modrinth:create-alloyed:${alloyed_version}")
     modRuntimeOnly("mekanism:Mekanism:${mekanism_version}")
 
     compileOnly 'org.projectlombok:lombok:1.18.28'

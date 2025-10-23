@@ -49,13 +49,13 @@ public class DismantlingRecipeSerializer implements RecipeSerializer<Dismantling
 
     @Override
     public void toNetwork(FriendlyByteBuf buf, DismantlingRecipe recipe) {
-        buf.writeVarInt(recipe.getParts().size());
-        recipe.getParts().forEach(part -> {
+        buf.writeVarInt(recipe.parts().size());
+        recipe.parts().forEach(part -> {
             buf.writeItem(part.stack());
             buf.writeFloat(part.chance());
         });
-        recipe.getIngredient().toNetwork(buf);
-        buf.writeVarInt(recipe.getPrimary());
-        buf.writeVarInt(recipe.getTime());
+        recipe.ingredient().toNetwork(buf);
+        buf.writeVarInt(recipe.primary());
+        buf.writeVarInt(recipe.time());
     }
 }

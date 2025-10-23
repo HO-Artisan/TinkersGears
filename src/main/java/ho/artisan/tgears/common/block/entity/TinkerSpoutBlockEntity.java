@@ -2,7 +2,7 @@ package ho.artisan.tgears.common.block.entity;
 
 import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
-import ho.artisan.tgears.common.block.entity.module.SpoutModule;
+import ho.artisan.tgears.api.block.entity.ITank;
 import ho.artisan.tgears.index.TGTagKeys;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,7 +28,7 @@ public class TinkerSpoutBlockEntity extends SpoutBlockEntity {
     }
 
     public SmartFluidTankBehaviour getTank() {
-        return ((SpoutModule) this).tgears$getTank();
+        return ((ITank) this).tgears$getTank();
     }
 
     public Set<Direction> getAttachments() {
