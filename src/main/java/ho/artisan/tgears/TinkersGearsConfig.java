@@ -15,6 +15,12 @@ public class TinkersGearsConfig {
 
     // Crushing
     public static final ForgeConfigSpec.ConfigValue<Integer> CRUSHING_DAMAGE;
+
+    //Tinker's Machines
+    public static final ForgeConfigSpec.ConfigValue<Float> FAN_RANGE;
+    public static final ForgeConfigSpec.ConfigValue<Float> DRILL_SPEED;
+    public static final ForgeConfigSpec.ConfigValue<Double> SILK_TOUCH_DRILL_DAMAGE;
+    public static final ForgeConfigSpec.ConfigValue<Integer> FORTUNE_DRILL_LEVEL;
     // Goggles
     public static final ForgeConfigSpec.ConfigValue<Boolean> IS_GOGGLES_ENABLED;
 
@@ -46,6 +52,16 @@ public class TinkersGearsConfig {
                 .define("crushing_damage", 5);
         common.pop();
 
+        common.push("The Tinker's Machines");
+        FAN_RANGE = common.comment("The ratio of the range to the normal fan")
+                .define("fan_range", 1.5F);
+        DRILL_SPEED = common.comment("The ratio of the speed to the normal drill")
+                .define("drill_speed", 2.0F);
+        SILK_TOUCH_DRILL_DAMAGE = common.comment("The damage to entity from the silk touch drill")
+                .define("silk_touch_drill_damage", 1.0D);
+        FORTUNE_DRILL_LEVEL = common.comment("The fortune level of the fortune drill")
+                .define("fortune_drill_level", 3);
+        common.pop();
         // Client
         client.push("The Client Settings");
         IS_GOGGLES_ENABLED = client.comment("Enable the goggles when looking at TConstruct blocks")

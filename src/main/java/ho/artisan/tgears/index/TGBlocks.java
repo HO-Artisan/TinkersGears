@@ -14,6 +14,7 @@ import ho.artisan.tgears.common.block.entity.behaviour.TinkerFortuneDrillMovemen
 import ho.artisan.tgears.common.block.entity.behaviour.TinkerSilkDrillMovementBehaviour;
 import ho.artisan.tgears.common.item.TinkerAssemblyOperatorBlockItem;
 import ho.artisan.tgears.datagen.data.TGBlockStateGen;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MapColor;
 
@@ -78,6 +79,7 @@ public final class TGBlocks {
             .item()
             .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
             .tag(TGTagKeys.Items.DRILL)
+            .properties(p -> p.rarity(Rarity.RARE))
             .transform(customItemModel())
             .register();
 
@@ -92,6 +94,7 @@ public final class TGBlocks {
             .item()
             .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
             .tag(TGTagKeys.Items.DRILL)
+            .properties(p -> p.rarity(Rarity.RARE))
             .transform(customItemModel())
             .register();
 

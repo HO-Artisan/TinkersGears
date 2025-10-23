@@ -2,6 +2,7 @@ package ho.artisan.tgears.common.block.entity;
 
 import com.simibubi.create.content.kinetics.drill.DrillBlockEntity;
 import com.simibubi.create.foundation.utility.BlockHelper;
+import ho.artisan.tgears.TinkersGearsConfig;
 import net.createmod.catnip.math.VecHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -62,5 +63,10 @@ public class TinkerDrillBlockEntity extends DrillBlockEntity {
         if (!optimiseCobbleGen(stateToBreak)) {
             breakBlock(level, breakingPos, this::createTool);
         }
+    }
+
+    @Override
+    protected float getBreakSpeed() {
+        return Math.abs(getSpeed() / 100f) * TinkersGearsConfig.DRILL_SPEED.get();
     }
 }

@@ -25,14 +25,14 @@ public final class TGMaterialStatsProvider extends MaterialStatsDataProvider {
         );
 
         addMaterialStats(TGMaterials.Ids.CARDBOARD,
-                new HeadMaterialStats(100, 10.0F, WOOD, 0.0F),
+                new HeadMaterialStats(100, 7.0F, WOOD, 0.0F),
                 new HandleMaterialStats(0.0F, 0.2F, 0.2F, -0.5F),
                 StatlessMaterialStats.BINDING
         );
 
         addMaterialStats(TGMaterials.Ids.ROSE_QUARTZ,
                 new HeadMaterialStats(165, 5.5F, IRON, 3.5F),
-                new HandleMaterialStats(-0.25F, 0.0F, 0.1F, 0.2F),
+                new HandleMaterialStats(-0.25F, 0.0F, 0.1F, -0.1F),
                 StatlessMaterialStats.BINDING
         );
 

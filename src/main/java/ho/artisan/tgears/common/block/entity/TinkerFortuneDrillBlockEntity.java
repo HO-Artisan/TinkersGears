@@ -1,5 +1,6 @@
 package ho.artisan.tgears.common.block.entity;
 
+import ho.artisan.tgears.TinkersGearsConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -14,7 +15,7 @@ public class TinkerFortuneDrillBlockEntity extends TinkerDrillBlockEntity {
     @Override
     public ItemStack createTool() {
         ItemStack tool = super.createTool();
-        tool.enchant(Enchantments.BLOCK_FORTUNE, 3);
+        tool.enchant(Enchantments.BLOCK_FORTUNE, TinkersGearsConfig.FORTUNE_DRILL_LEVEL.get());
         return tool;
     }
 }

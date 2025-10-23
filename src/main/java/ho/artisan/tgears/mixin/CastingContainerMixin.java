@@ -11,6 +11,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import slimeknights.tconstruct.library.recipe.casting.ICastingRecipe;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.smeltery.block.entity.CastingBlockEntity;
@@ -23,17 +24,36 @@ public class CastingContainerMixin implements IHaveGoggleInformation, CastingMod
     @Shadow(remap = false)
     private int timer;
 
+    @Unique
+    private int tgears$ticker;
+
     @Shadow(remap = false)
     private ICastingRecipe currentRecipe;
 
     @Override
     public void tgears$process(int times) {
-        timer += times;
+        if (timer > 0 && timer + times > 0)
+            timer += times;
     }
 
     @Override
     public boolean tgears$hasRecipe() {
         return currentRecipe != null;
+    }
+
+    @Override
+    public int tgears$getTimer() {
+        return timer;
+    }
+
+    @Override
+    public int tgears$getTicker() {
+        return tgears$ticker;
+    }
+
+    @Override
+    public void tgears$setTicker(int ticker) {
+        tgears$ticker = ticker;
     }
 
     @Override

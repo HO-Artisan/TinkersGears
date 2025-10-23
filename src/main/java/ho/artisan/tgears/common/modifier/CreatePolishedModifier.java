@@ -3,17 +3,21 @@ package ho.artisan.tgears.common.modifier;
 import ho.artisan.tgears.TinkersGearsConfig;
 import net.minecraft.network.chat.Component;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.DurabilityShieldModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
+import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import javax.annotation.Nullable;
 
-public class CreatePolishedModifier extends DurabilityShieldModifier {
+public class CreatePolishedModifier extends DurabilityShieldModifier
+        implements MeleeDamageModifierHook {
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_DAMAGE);
     }
 
     @Override
@@ -50,5 +54,12 @@ public class CreatePolishedModifier extends DurabilityShieldModifier {
 
     public void refreshShield(IToolStackView tool, ModifierEntry modifier) {
         setShield(tool, modifier, getShieldCapacity(tool, modifier));
+    }
+
+    @Override
+    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
+        if (getShield(tool) > 0)
+            return damage + 2.0F;
+        return damage;
     }
 }

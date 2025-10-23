@@ -1,5 +1,6 @@
 package ho.artisan.tgears.common.block;
 
+import ho.artisan.tgears.TinkersGearsConfig;
 import ho.artisan.tgears.common.block.entity.TinkerSilkDrillBlockEntity;
 import ho.artisan.tgears.index.TGBlockEntityTypes;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -11,7 +12,7 @@ public class TinkerSilkDrillBlock extends AbstractTinkerDrillBlock<TinkerSilkDri
 
     @Override
     public double getDamage(float speed) {
-        return 1D;
+        return TinkersGearsConfig.SILK_TOUCH_DRILL_DAMAGE.get();
     }
 
     @Override

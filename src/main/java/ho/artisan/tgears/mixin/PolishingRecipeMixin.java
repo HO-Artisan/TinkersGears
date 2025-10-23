@@ -4,7 +4,6 @@ import com.simibubi.create.content.equipment.sandPaper.SandPaperPolishingRecipe;
 import ho.artisan.tgears.TinkersGearsConfig;
 import ho.artisan.tgears.common.modifier.CreatePolishedModifier;
 import ho.artisan.tgears.index.TGModifiers;
-import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -31,13 +30,9 @@ public class PolishingRecipeMixin {
 
             ToolStack tool = ToolStack.from(toPolish.copy());
 
-            var modifier = tool.getModifier(TGModifiers.Ids.TAPERING);
+            var modifier = tool.getModifier(TGModifiers.Ids.POLISHED);
             if (modifier.getLevel() < 1) {
                 tool.addModifier(TGModifiers.Ids.POLISHED, 1);
-                tool.addModifier(TGModifiers.Ids.TAPERING, 1);
-                if (sandPaperStack.is(TGTagKeys.Items.GRIT_SANDPAPER)) {
-                    tool.addModifier(TGModifiers.Ids.TAPERING, 1);
-                }
             }
 
             CreatePolishedModifier polished = TGModifiers.POLISHED.get();
@@ -57,7 +52,7 @@ public class PolishingRecipeMixin {
     private static void canPolishMixin(Level world, ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         if (stack.getItem() instanceof IModifiable) {
             ToolStack tool = ToolStack.from(stack);
-            if (tool.getModifier(TGModifiers.Ids.TAPERING).getLevel() < 1) {
+            if (tool.getModifier(TGModifiers.Ids.POLISHED).getLevel() < 1) {
                 if (tool.hasTag(TinkerTags.Items.HELD)) {
                     cir.setReturnValue(true);
                 }

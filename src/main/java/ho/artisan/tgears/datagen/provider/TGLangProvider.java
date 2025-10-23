@@ -20,13 +20,9 @@ public class TGLangProvider {
         consumer.accept("modifier.tgears.topnotch.flavor", "Industrial standards!");
         consumer.accept("modifier.tgears.topnotch.description", "Improve many aspects of performance!");
 
-        consumer.accept("modifier.tgears.tapering", "Tapering");
-        consumer.accept("modifier.tgears.tapering.flavor", "Effortless and smooth!");
-        consumer.accept("modifier.tgears.tapering.description", "Increase attack damage!");
-
         consumer.accept("modifier.tgears.polished", "Polished");
         consumer.accept("modifier.tgears.polished.flavor", "Look brand new!");
-        consumer.accept("modifier.tgears.polished.description", "Increase durability!");
+        consumer.accept("modifier.tgears.polished.description", "Get a durability shield and damage bonus!");
 
         consumer.accept("modifier.tgears.crushing", "Crushing");
         consumer.accept("modifier.tgears.crushing.flavor", "Shrink mountains to pebbles");
@@ -49,8 +45,8 @@ public class TGLangProvider {
         consumer.accept("modifier.tgears.cardboard.description", "No damage can be done, but there is a knockback bonus.");
 
         consumer.accept("modifier.tgears.sharpness", "Rose Sharpness");
-        consumer.accept("modifier.tgears.sharpness.flavor", "More damage!");
-        consumer.accept("modifier.tgears.sharpness.description", "Increase damage dealt.");
+        consumer.accept("modifier.tgears.sharpness.flavor", "Very Sharp!");
+        consumer.accept("modifier.tgears.sharpness.description", "Tool is so much sharper, dealing more damage!");
 
         //consumer.accept("modifier.tgears.adrenaline", "Adrenaline");
         //consumer.accept("modifier.tgears.adrenaline.flavor", "Speed up!");

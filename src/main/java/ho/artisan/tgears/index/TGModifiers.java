@@ -17,7 +17,6 @@ public final class TGModifiers {
         public static final ModifierId LIGHTWEIGHT = id("lightweight");
         public static final ModifierId CARDBOARD = id("cardboard");
 
-        public static final ModifierId TAPERING = id("tapering");
         public static final ModifierId POLISHED = id("polished");
 
         public static final ModifierId GOGGLES = id("goggles");
