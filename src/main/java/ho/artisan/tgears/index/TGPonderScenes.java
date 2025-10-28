@@ -19,11 +19,11 @@ public final class TGPonderScenes {
                 .addStoryBoard("basic_melter_spout", MelterScene::spout, TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.smelteryController.getId())
                 .addStoryBoard("new/smeltery", SmelteryScene::newBasic, TGPonderTags.SMELTERY)
-                .addStoryBoard("smeltery", SmelteryScene::basic, TGPonderTags.SMELTERY)
+                //.addStoryBoard("smeltery", SmelteryScene::basic, TGPonderTags.SMELTERY)
                 .addStoryBoard("smeltery_mini", SmelteryScene::mini, TGPonderTags.SMELTERY)
                 .addStoryBoard("smeltery_transfer", SmelteryScene::transfer, TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.foundryController.getId())
-                .addStoryBoard("new/scorched", ScorchedPonder::newBasic, TGPonderTags.SMELTERY);
+                .addStoryBoard("new/scorched", ScorchedPonder::basic, TGPonderTags.SMELTERY);
         helper.forComponents(TinkerSmeltery.searedTable.getId())
                 .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
 
@@ -33,6 +33,8 @@ public final class TGPonderScenes {
                 .addStoryBoard("tinker_spout", TinkerMachineScene::spout, TGPonderTags.COMPAT);
         helper.forComponents(TGBlocks.TINKER_DRILL.getId(), TGBlocks.TINKER_SILKTOUCH_DRILL.getId())
                 .addStoryBoard("tinker_drill", TinkerMachineScene::drill, TGPonderTags.COMPAT);
+        helper.forComponents(TGBlocks.TINKER_FORTUNE_DRILL.getId())
+                .addStoryBoard("tinker_fortune_drill", TinkerMachineScene::fortuneDrill, TGPonderTags.COMPAT);
 
         TinkersGears.LOGGER.info("Ponder scenes initialized");
     }

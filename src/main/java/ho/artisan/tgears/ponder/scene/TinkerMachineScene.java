@@ -112,7 +112,7 @@ public class TinkerMachineScene {
 
     public static void drill(SceneBuilder builder, SceneBuildingUtil util) {
         CreateSceneBuilder scene = new CreateSceneBuilder(builder);
-        scene.title("tinker_drill", "Use tinker drills to break blocks");
+        scene.title("tinker_drill", "Use Tinker Drills to break blocks");
         scene.configureBasePlate(0, 0, 5);
         scene.scaleSceneView(0.9f);
         scene.world().showSection(util.select().layer(0), Direction.UP);
@@ -157,6 +157,43 @@ public class TinkerMachineScene {
         scene.world().createItemEntity(glass_1.getCenter(), Vec3.ZERO, new ItemStack(Items.GLASS));
 
         scene.idle(45);
+        scene.markAsFinished();
+    }
+
+    public static void fortuneDrill(SceneBuilder builder, SceneBuildingUtil util) {
+        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        scene.title("tinker_fortune_drill", "Use Fortune Tinker Drills to yield more drops");
+        scene.configureBasePlate(0, 0, 5);
+        scene.scaleSceneView(0.9f);
+        scene.world().showSection(util.select().layer(0), Direction.UP);
+
+        BlockPos ore = util.grid().at(2, 1, 2);
+        BlockPos drill = util.grid().at(2, 1, 3);
+
+        scene.idle(10);
+        scene.world().showSection(util.select().position(ore), Direction.NORTH);
+        scene.idle(15);
+        scene.world().showSection(util.select().position(drill), Direction.NORTH);
+
+        scene.idle(15);
+        scene.overlay().showText(25)
+                .text("Fortune Tinker Drills can break blocks with a chance to yield more drops, functioning just like the Fortune Enchantment")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.GREEN)
+                .pointAt(util.vector().blockSurface(drill, Direction.UP));
+        scene.idle(30);
+
+        scene.world().setKineticSpeed(util.select().position(drill), 16f);
+
+        for (int i = 0; i < 10; i++) {
+            scene.idle(10);
+            scene.world().incrementBlockBreakingProgress(ore);
+        }
+
+        scene.world().createItemEntity(ore.getCenter(), Vec3.ZERO, new ItemStack(Items.DIAMOND, 4));
+
+        scene.idle(20);
         scene.markAsFinished();
     }
 }

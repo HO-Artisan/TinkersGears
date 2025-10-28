@@ -3,6 +3,7 @@ package ho.artisan.tgears.datagen;
 import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.datagen.provider.TGLangProvider;
+import ho.artisan.tgears.datagen.provider.recipe.TGCraftingProvider;
 import ho.artisan.tgears.datagen.provider.recipe.create.*;
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGCastingRecipeProvider;
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGMeltingRecipeProvider;
@@ -12,9 +13,14 @@ import ho.artisan.tgears.datagen.provider.recipe.tconstruct.material.TGMaterialS
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.material.TGMaterialTraitsDataProvider;
 import ho.artisan.tgears.index.TGTags;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
@@ -23,30 +29,39 @@ public class TGDataGeneration {
 
     @SubscribeEvent
     public static void generate(GatherDataEvent event) {
-        DataGenerator generator =  event.getGenerator();
+        DataGenerator generator = event.getGenerator();
+        PackOutput output = generator.getPackOutput();
+
+        Consumer<Function<PackOutput, ? extends DataProvider>> add = (func) -> {
+            generator.addProvider(event.includeServer(), func.apply(output));
+        };
 
         REGISTRATE.addDataGenerator(ProviderType.LANG, provider -> {
             new TGLangProvider().addTranslations(provider::add);
         });
 
+        // Vanilla
+        add.accept(TGCraftingProvider::new);
+
         // TConstruct
-        TGMaterialDataProvider materialProvider = new TGMaterialDataProvider(generator.getPackOutput());
+        TGMaterialDataProvider materialProvider = new TGMaterialDataProvider(output);
         generator.addProvider(event.includeServer(), materialProvider);
 
-        generator.addProvider(event.includeServer(), new TGMaterialTraitsDataProvider(generator.getPackOutput(), materialProvider));
-        generator.addProvider(event.includeServer(), new TGMaterialStatsProvider(generator.getPackOutput(), materialProvider));
-        generator.addProvider(event.includeServer(), new TGMaterialRecipeProvider(generator.getPackOutput()));
+        generator.addProvider(event.includeServer(), new TGMaterialTraitsDataProvider(output, materialProvider));
+        generator.addProvider(event.includeServer(), new TGMaterialStatsProvider(output, materialProvider));
 
-        generator.addProvider(event.includeServer(), new TGCastingRecipeProvider(generator.getPackOutput()));
-        generator.addProvider(event.includeServer(), new TGMeltingRecipeProvider(generator.getPackOutput()));
+        add.accept(TGMaterialRecipeProvider::new);
+
+        add.accept(TGCastingRecipeProvider::new);
+        add.accept(TGMeltingRecipeProvider::new);
 
         // Create
-        generator.addProvider(event.includeServer(), new TGPressingProvider(generator.getPackOutput()));
-        generator.addProvider(event.includeServer(), new TGCompactingProvider(generator.getPackOutput()));
-        generator.addProvider(event.includeServer(), new TGFillingProvider(generator.getPackOutput()));
-        generator.addProvider(event.includeServer(), new TGMixingProvider(generator.getPackOutput()));
-        generator.addProvider(event.includeServer(), new TGCrushingProvider(generator.getPackOutput()));
-        generator.addProvider(event.includeServer(), new TGDeployingProvider(generator.getPackOutput()));
+        add.accept(TGPressingProvider::new);
+        add.accept(TGCompactingProvider::new);
+        add.accept(TGFillingProvider::new);
+        add.accept(TGMixingProvider::new);
+        add.accept(TGCrushingProvider::new);
+        add.accept(TGDeployingProvider::new);
 
         addExtraRegistrateData();
     }

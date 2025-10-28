@@ -15,7 +15,7 @@ public class ScorchedPonder {
     private ScorchedPonder() {
     }
 
-    public static void newBasic(SceneBuilder builder, SceneBuildingUtil util) {
+    public static void basic(SceneBuilder builder, SceneBuildingUtil util) {
         CreateSceneBuilder scene = new CreateSceneBuilder(builder);
         Object o = new Object();
 

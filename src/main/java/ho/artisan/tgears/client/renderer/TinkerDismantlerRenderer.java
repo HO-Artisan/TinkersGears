@@ -5,13 +5,11 @@ import com.mojang.math.Axis;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 import ho.artisan.tgears.common.block.entity.TinkerDismantlerBlockEntity;
 import ho.artisan.tgears.common.block.module.TinkerItemModule;
-import net.createmod.catnip.math.AngleHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.resources.model.BakedModel;
-import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -27,14 +25,10 @@ public class TinkerDismantlerRenderer extends SafeBlockEntityRenderer<TinkerDism
         ItemStack tinkerableStack = module.getTinkerableStack();
         if (tinkerableStack.isEmpty()) return;
 
-        Direction direction = be.getDirection();
-        float yRot = AngleHelper.horizontalAngle(direction) + 180;
-
-
         ms.pushPose();
-        ms.translate(0.5F, 0.7F, 0.5F);
-        ms.scale(0.5F, 0.5F, 0.5F);
-        ms.mulPose(Axis.YP.rotationDegrees(yRot));
+        ms.translate(0.875F, 1.25F, 0.875F);
+        ms.scale(0.75F, 0.75F, 0.75F);
+        ms.mulPose(Axis.YP.rotationDegrees(be.getDirection().toYRot() + 90F));
         renderItem(module.getTinkerableStack(), ms, buffer, light, overlay, be.getLevel());
         ms.popPose();
     }

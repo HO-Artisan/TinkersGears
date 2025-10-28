@@ -4,6 +4,7 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.content.kinetics.crusher.CrushingRecipe;
+import ho.artisan.tgears.TinkersGearsConfig;
 import ho.artisan.tgears.common.block.module.CrushingItemModule;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.item.Item;
@@ -21,8 +22,8 @@ import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
@@ -65,37 +66,39 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
         }
     }
 
-    private ItemStack crushingItem(ItemStack stack, Level world) {
-        // skip blacklisted entries
+    private List<ItemStack> crushingItem(ItemStack stack, Level world) {
         if (stack.is(TGTagKeys.Items.CRUSHING_BLACKLIST)) {
-            return stack;
+            return List.of(stack);
         }
         CrushingRecipe recipe = findCachedRecipe(stack, world);
         if (recipe != null) {
             inventory.setStackInSlot(0, stack);
-            ItemStack output = recipe.assemble(new RecipeWrapper(inventory), world.registryAccess()).copy();
-            if (stack.getCount() > 1) {
-                // recipe output is a copy, safe to modify
-                output.setCount(output.getCount() * stack.getCount());
-            }
-            return output;
+
+            List<ItemStack> list = recipe.rollResults();
+
+            list.removeIf(ItemStack::isEmpty);
+            list.forEach(item -> item.setCount(item.getCount() * stack.getCount()));
+
+            return list;
         }
-        return stack;
+        return List.of(stack);
     }
 
     @Override
     public void processLoot(IToolStackView tool, ModifierEntry modifier, List<ItemStack> generatedLoot, LootContext context) {
         Level world = context.getLevel();
         if (!generatedLoot.isEmpty()) {
-            ListIterator<ItemStack> iterator = generatedLoot.listIterator();
-            while (iterator.hasNext()) {
-                ItemStack stack = iterator.next();
-                ItemStack smelted = crushingItem(stack, world);
-                if (stack != smelted) {
-                    iterator.set(smelted);
-                    ToolDamageUtil.damage(tool, 1, null,  null);
-                }
+            ToolDamageUtil.damage(tool, TinkersGearsConfig.CRUSHING_DAMAGE.get() * generatedLoot.size(), null,  null);
+
+            List<ItemStack> crushedLoot = new ArrayList<>();
+
+            for (ItemStack originalStack : generatedLoot) {
+                List<ItemStack> crushed = crushingItem(originalStack.copy(), world);
+                crushedLoot.addAll(crushed);
             }
+
+            generatedLoot.clear();
+            generatedLoot.addAll(crushedLoot);
         }
     }
 }

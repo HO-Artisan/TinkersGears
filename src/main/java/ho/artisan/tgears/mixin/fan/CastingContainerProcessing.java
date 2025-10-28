@@ -38,12 +38,11 @@ public class CastingContainerProcessing implements IFanProcessingTarget {
                 if (n >= 7)
                     tgears$process(n - 6);
             } else if (segmentType == AllFanProcessingTypes.SPLASHING) {
-                // 32~63: process 1 more time
-                // 64~127: process 2 more time
-                // 128~255: process 3 more times
-                // 256: process 4 more times
-                if (n >= 5)
-                    tgears$process(n - 4);
+                // 64~127: process 1 more time
+                // 128~255: process 2 more times
+                // 256: process 3 more times
+                if (n >= 6)
+                    tgears$process(n - 5);
             } else if (segmentType == AllFanProcessingTypes.BLASTING) {
                 // > 32: stop process
                 if (n >= 5)
@@ -60,12 +59,15 @@ public class CastingContainerProcessing implements IFanProcessingTarget {
                 }
             } else if (FanProcessingType.parse("create_henry:freezing") != null) {
                 if (segmentType == FanProcessingType.parse("create_henry:freezing")) {
-                    // 32~63: process 2 more time
-                    // 64~127: process 4 more time
-                    // 128~255: process 6 more times
-                    // 256: process 8 more times
-                    if (n >= 5)
-                        tgears$process((n - 4) * 2);
+                    // 64~127: process 2 more time
+                    // 128~255: process 4 more times
+                    // 256: process 6 more times
+                    if (n >= 6)
+                        tgears$process((n - 5) * 2);
+                }
+            } else if (FanProcessingType.parse("create_henry:seething") != null) {
+                if (segmentType == FanProcessingType.parse("create_henry:seething")) {
+                    tgears$process(-1);
                 }
             }
         }
