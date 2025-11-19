@@ -1,12 +1,10 @@
 {
-  "default": [
-    {
-      "level": 1,
-      "name": "tgears:cardboard"
-    },
-    {
-      "level": 1,
-      "name": "tconstruct:knockback"
-    }
-  ]
+  "perStat": {
+    "tconstruct:melee_harvest": [
+      {
+        "level": 1,
+        "name": "tconstruct:knockback"
+      }
+    ]
+  }
 }

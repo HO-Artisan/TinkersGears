@@ -16,7 +16,9 @@ import ho.artisan.tgears.common.item.TinkerAssemblyOperatorBlockItem;
 import ho.artisan.tgears.datagen.data.TGBlockStateGen;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
@@ -26,10 +28,11 @@ import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
 public final class TGBlocks {
 
-    private TGBlocks() {}
-
     static {
         REGISTRATE.setCreativeTab(TGCreativeModeTabs.MAIN_TAB);
+    }
+
+    private TGBlocks() {
     }
 
     public static final BlockEntry<TinkerSpoutBlock> TINKER_SPOUT = REGISTRATE.block("tinker_spout", TinkerSpoutBlock::new)
@@ -39,21 +42,18 @@ public final class TGBlocks {
             .item(TinkerAssemblyOperatorBlockItem::new)
             .transform(customItemModel())
             .register();
-
     public static final BlockEntry<CasingBlock> COBALT_CASING = REGISTRATE.block("cobalt_casing", CasingBlock::new)
             .initialProperties(SharedProperties::stone)
             .transform(pickaxeOnly())
             .transform(BuilderTransformers.casing(() -> TGSpriteShifts.COBALT_CASING))
             .properties(p -> p.mapColor(MapColor.COLOR_BLACK).sound(SoundType.NETHERITE_BLOCK))
             .register();
-
     public static final BlockEntry<CasingBlock> TINKER_CASING = REGISTRATE.block("tinker_casing", CasingBlock::new)
             .initialProperties(SharedProperties::stone)
             .transform(pickaxeOnly())
             .transform(BuilderTransformers.casing(() -> TGSpriteShifts.TINKER_CASING))
             .properties(p -> p.mapColor(MapColor.COLOR_BLACK).sound(SoundType.NETHERITE_BLOCK))
             .register();
-
     public static final BlockEntry<TinkerDrillBlock> TINKER_DRILL = REGISTRATE.block("tinker_drill", TinkerDrillBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
@@ -67,7 +67,6 @@ public final class TGBlocks {
             .tag(TGTagKeys.Items.DRILL)
             .transform(customItemModel())
             .register();
-
     public static final BlockEntry<TinkerSilkDrillBlock> TINKER_SILKTOUCH_DRILL = REGISTRATE.block("tinker_silktouch_drill", TinkerSilkDrillBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
@@ -82,7 +81,6 @@ public final class TGBlocks {
             .properties(p -> p.rarity(Rarity.RARE))
             .transform(customItemModel())
             .register();
-
     public static final BlockEntry<TinkerFortuneDrillBlock> TINKER_FORTUNE_DRILL = REGISTRATE.block("tinker_fortune_drill", TinkerFortuneDrillBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
@@ -97,7 +95,6 @@ public final class TGBlocks {
             .properties(p -> p.rarity(Rarity.RARE))
             .transform(customItemModel())
             .register();
-
     public static final BlockEntry<TinkerFanBlock> TINKER_FAN = REGISTRATE.block("tinker_fan", TinkerFanBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
@@ -107,6 +104,53 @@ public final class TGBlocks {
             .item()
             .transform(customItemModel())
             .register();
+
+    public static final BlockEntry<TinkerCrushingWheelBlock> TINKER_CRUSHING_WHEEL =
+            REGISTRATE.block("tinker_crushing_wheel", TinkerCrushingWheelBlock::new)
+                    .properties(p -> p.mapColor(MapColor.METAL))
+                    .initialProperties(SharedProperties::stone)
+                    .properties(BlockBehaviour.Properties::noOcclusion)
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
+                    .item()
+                    .transform(customItemModel())
+                    .register();
+
+    public static final BlockEntry<TinkerSilkyCrushingWheelBlock> TINKER_SILKY_CRUSHING_WHEEL =
+            REGISTRATE.block("tinker_silktouch_crushing_wheel", TinkerSilkyCrushingWheelBlock::new)
+                    .properties(p -> p.mapColor(MapColor.METAL))
+                    .initialProperties(SharedProperties::stone)
+                    .properties(BlockBehaviour.Properties::noOcclusion)
+                    .transform(pickaxeOnly())
+                    .blockstate((c, p) -> BlockStateGen.axisBlock(c, p, s -> AssetLookup.partialBaseModel(c, p)))
+                    .lang("Tinker Crushing Wheel (Silk Touch)")
+                    .item()
+                    .transform(customItemModel())
+                    .register();
+
+    public static final BlockEntry<TinkerCrushingWheelControllerBlock> TINKER_CRUSHING_WHEEL_CONTROLLER =
+            REGISTRATE.block("tinker_crushing_wheel_controller", TinkerCrushingWheelControllerBlock::new)
+                    .properties(p -> p.mapColor(MapColor.STONE)
+                            .noOcclusion()
+                            .noLootTable()
+                            .air()
+                            .noCollission()
+                            .pushReaction(PushReaction.BLOCK))
+                    .blockstate((c, p) -> p.getVariantBuilder(c.get())
+                            .forAllStatesExcept(BlockStateGen.mapToAir(p), AbstractTinkerCrushingWheelControllerBlock.FACING))
+                    .register();
+
+    public static final BlockEntry<TinkerSilkyCrushingWheelControllerBlock> TINKER_SILKY_CRUSHING_WHEEL_CONTROLLER =
+            REGISTRATE.block("tinker_silky_crushing_wheel_controller", TinkerSilkyCrushingWheelControllerBlock::new)
+                    .properties(p -> p.mapColor(MapColor.STONE)
+                            .noOcclusion()
+                            .noLootTable()
+                            .air()
+                            .noCollission()
+                            .pushReaction(PushReaction.BLOCK))
+                    .blockstate((c, p) -> p.getVariantBuilder(c.get())
+                            .forAllStatesExcept(BlockStateGen.mapToAir(p), AbstractTinkerCrushingWheelControllerBlock.FACING))
+                    .register();
 
     public static final BlockEntry<TinkerDismantlerBlock> TINKER_DISMANTLER = REGISTRATE.block("tinker_dismantler", TinkerDismantlerBlock::new)
             .initialProperties(SharedProperties::stone)

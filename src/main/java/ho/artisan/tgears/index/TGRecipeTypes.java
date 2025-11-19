@@ -5,6 +5,7 @@ import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
 import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.common.recipe.SilkyCrushingRecipe;
 import ho.artisan.tgears.common.recipe.serializer.DismantlingRecipeSerializer;
 import net.createmod.catnip.lang.Lang;
 import net.minecraft.core.registries.Registries;
@@ -25,6 +26,7 @@ import java.util.function.Supplier;
 
 public enum TGRecipeTypes implements IRecipeTypeInfo {
     DISMANTLING(DismantlingRecipeSerializer::new),
+    SILKY_CRUSHING(SilkyCrushingRecipe::new),
     ;
 
     private final ResourceLocation id;

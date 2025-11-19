@@ -24,7 +24,11 @@ public final class TGMaterialTraitsDataProvider extends MaterialTraitsDataProvid
     protected void addMaterialTraits() {
         addDefaultTraits(TGMaterials.Ids.ANDESITE_ALLOY, TGModifiers.Ids.TOPNOTCH);
 
-        addDefaultTraits(TGMaterials.Ids.CARDBOARD, TGModifiers.Ids.CARDBOARD, TinkerModifiers.knockback.getId());
+        addTraits(
+                TGMaterials.Ids.CARDBOARD,
+                MELEE_HARVEST,
+                TinkerModifiers.knockback.getId()
+        );
 
         addTraits(
                 TGMaterials.Ids.ROSE_QUARTZ,

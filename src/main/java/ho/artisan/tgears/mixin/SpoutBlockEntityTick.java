@@ -3,23 +3,22 @@ package ho.artisan.tgears.mixin;
 import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
+import ho.artisan.tgears.common.block.accessor.TankAccessor;
 import ho.artisan.tgears.common.block.entity.TinkerSpoutBlockEntity;
-import ho.artisan.tgears.api.block.entity.ITank;
 import net.minecraftforge.fluids.FluidStack;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(SpoutBlockEntity.class)
-public abstract class SpoutBlockEntityTick implements ITank {
-    @Shadow(remap = false)
-    SmartFluidTankBehaviour tank;
-
+public abstract class SpoutBlockEntityTick implements TankAccessor {
     @Override
-    public SmartFluidTankBehaviour tgears$getTank() {
-        return tank;
-    }
+    @Accessor(
+            remap = false,
+            value = "tank"
+    )
+    public abstract SmartFluidTankBehaviour tgears$getTank();
 
     @Redirect(
             remap = false,

@@ -69,8 +69,13 @@ public final class TGPressingProvider extends PressingRecipeGen {
                     CMItems.STURDY_WHISK
             );
 
-        create("cobalt_sheet", b -> b.require(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/cobalt"))))
+        create("cobalt_sheet", b -> b
+                .require(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/cobalt"))))
                 .output(TGItems.COBALT_SHEET));
+
+        create("rose_gold_sheet", b -> b
+                .require(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/rose_gold"))))
+                .output(TGItems.ROSE_GOLD_SHEET));
     }
 
     private void separatingRecipe(String id, ItemLike castWithItem, ItemLike cast, ItemLike item) {

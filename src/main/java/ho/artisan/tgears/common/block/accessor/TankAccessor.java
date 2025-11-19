@@ -1,7 +1,7 @@
-package ho.artisan.tgears.api.block.entity;
+package ho.artisan.tgears.common.block.accessor;
 
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 
-public interface ITank {
+public interface TankAccessor {
     SmartFluidTankBehaviour tgears$getTank();
 }

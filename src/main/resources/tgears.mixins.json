@@ -1,28 +1,30 @@
 {
-  "required": true,
-  "priority": 1100,
-  "package": "ho.artisan.tgears.mixin",
-  "compatibilityLevel": "JAVA_16",
-  "refmap": "tgears.refmap.json",
-  "mixins": [
-    "burner.InjectBlazeBurnerBlockEntity",
-    "burner.ReplacementAlloyerModule",
-    "burner.ReplacementMelterModule",
-    "fan.InjectAirCurrent",
-    "fan.CastingContainerProcessing",
-    "CastingBlockInteractFix",
-    "SpoutBlockEntityTick",
-    "InjectDivingBoots",
-    "PolishingApplying",
-    "tooltip.AlloyerInfo",
-    "tooltip.CastingContainerInfo",
-    "tooltip.MelterInfo",
-    "tooltip.TankInfo"
-  ],
-  "client": [
-  ],
-  "injectors": {
-    "defaultRequire": 1
-  },
-  "minVersion": "0.8"
+	"required": true,
+	"priority": 1100,
+	"package": "ho.artisan.tgears.mixin",
+	"compatibilityLevel": "JAVA_16",
+	"refmap": "tgears.refmap.json",
+	"mixins": [
+		"CastingBlockInteractFix",
+		"InjectDivingBoots",
+		"PolishingApplying",
+		"SpoutBlockEntityTick",
+		"burner.InjectBlazeBurnerBlockEntity",
+		"burner.ReplacementAlloyerModule",
+		"burner.ReplacementMelterModule",
+		"crushing.BeltBlockFix",
+		"crushing.BeltInventoryFix",
+		"fan.CastingContainerProcessing",
+		"fan.InjectAirCurrent",
+		"tooltip.AlloyerInfo",
+		"tooltip.CastingContainerInfo",
+		"tooltip.MelterInfo",
+		"tooltip.TankInfo"
+	],
+	"client": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"minVersion": "0.8"
 }

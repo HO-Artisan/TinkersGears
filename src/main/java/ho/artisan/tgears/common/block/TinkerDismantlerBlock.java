@@ -1,5 +1,6 @@
 package ho.artisan.tgears.common.block;
 
+import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
 import ho.artisan.tgears.common.block.entity.TinkerDismantlerBlockEntity;
@@ -12,6 +13,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -20,6 +22,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 
@@ -29,6 +33,11 @@ public class TinkerDismantlerBlock extends HorizontalDirectionalBlock implements
     public TinkerDismantlerBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH).setValue(CLAMPED, false));
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+        return AllShapes.CASING_13PX.get(Direction.UP);
     }
 
     @Override
@@ -47,12 +56,12 @@ public class TinkerDismantlerBlock extends HorizontalDirectionalBlock implements
             blockEntity.setTinkerable(heldItem.split(1));
             return InteractionResult.SUCCESS;
         }
-        return InteractionResult.PASS;                                                                                                
+        return InteractionResult.PASS;
     }
 
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        for(Direction direction : context.getNearestLookingDirections()) {
+        for (Direction direction : context.getNearestLookingDirections()) {
             BlockState blockstate;
 
             if (direction.getAxis() == Direction.Axis.Y) {
@@ -94,6 +103,6 @@ public class TinkerDismantlerBlock extends HorizontalDirectionalBlock implements
 
     @Override
     public BlockEntityType<? extends TinkerDismantlerBlockEntity> getBlockEntityType() {
-        return TGBlockEntityTypes.BREAKER.get();
+        return TGBlockEntityTypes.DISMANTLER.get();
     }
 }

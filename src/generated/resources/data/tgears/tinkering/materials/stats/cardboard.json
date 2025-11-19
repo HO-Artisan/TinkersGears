@@ -12,6 +12,26 @@
       "melee_attack": 0.0,
       "mining_speed": 7.0,
       "mining_tier": "minecraft:wood"
+    },
+    "tconstruct:maille": {},
+    "tconstruct:plating_boots": {
+      "armor": 1.0,
+      "durability": 26
+    },
+    "tconstruct:plating_chestplate": {
+      "armor": 1.0,
+      "durability": 32
+    },
+    "tconstruct:plating_helmet": {
+      "armor": 1.0,
+      "durability": 22
+    },
+    "tconstruct:plating_leggings": {
+      "armor": 1.0,
+      "durability": 30
+    },
+    "tconstruct:plating_shield": {
+      "durability": 36
     }
   }
 }

@@ -1,5 +1,7 @@
 package ho.artisan.tgears.index;
 
+import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
+import com.simibubi.create.content.kinetics.base.SingleAxisRotatingVisual;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.client.renderer.TinkerDismantlerRenderer;
@@ -14,7 +16,9 @@ import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
 public final class TGBlockEntityTypes {
 
-    private TGBlockEntityTypes() {}
+    private TGBlockEntityTypes() {
+    }
+
 
     public static final BlockEntityEntry<TinkerSpoutBlockEntity> SPOUT = REGISTRATE
             .blockEntity("tinker_spout", TinkerSpoutBlockEntity::new)
@@ -50,10 +54,36 @@ public final class TGBlockEntityTypes {
             .renderer(() -> TinkerDrillRenderer::fortune)
             .register();
 
-    public static final BlockEntityEntry<TinkerDismantlerBlockEntity> BREAKER = REGISTRATE
-            .blockEntity("tinker_breaker", TinkerDismantlerBlockEntity::new)
+    public static final BlockEntityEntry<TinkerDismantlerBlockEntity> DISMANTLER = REGISTRATE
+            .blockEntity("tinker_dismantler", TinkerDismantlerBlockEntity::new)
             .validBlocks(TGBlocks.TINKER_DISMANTLER)
             .renderer(() -> TinkerDismantlerRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<TinkerCrushingWheelBlockEntity> TINKER_CRUSHING_WHEEL = REGISTRATE
+            .blockEntity("tinker_crushing_wheel", TinkerCrushingWheelBlockEntity::new)
+            .visual(() -> SingleAxisRotatingVisual.of(TGPartialModels.CRUSHING_WHEEL), false)
+            .validBlocks(TGBlocks.TINKER_CRUSHING_WHEEL)
+            .renderer(() -> KineticBlockEntityRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<TinkerCrushingWheelBlockEntity> TINKER_SILKY_CRUSHING_WHEEL = REGISTRATE
+            .blockEntity("tinker_silky_crushing_wheel", TinkerCrushingWheelBlockEntity::new)
+            .visual(() -> SingleAxisRotatingVisual.of(TGPartialModels.SILKY_CRUSHING_WHEEL), false)
+            .validBlocks(TGBlocks.TINKER_SILKY_CRUSHING_WHEEL)
+            .renderer(() -> KineticBlockEntityRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<TinkerCrushingWheelControllerBlockEntity> TINKER_CRUSHING_WHEEL_CONTROLLER = REGISTRATE
+            .blockEntity("tinker_crushing_wheel_controller", TinkerCrushingWheelControllerBlockEntity::new)
+            .validBlocks(TGBlocks.TINKER_CRUSHING_WHEEL_CONTROLLER)
+            // .renderer(() -> renderer)
+            .register();
+
+    public static final BlockEntityEntry<TinkerSilkyCrushingWheelControllerBlockEntity> TINKER_SILKY_CRUSHING_WHEEL_CONTROLLER = REGISTRATE
+            .blockEntity("tinker_silky_crushing_wheel_controller", TinkerSilkyCrushingWheelControllerBlockEntity::new)
+            .validBlocks(TGBlocks.TINKER_SILKY_CRUSHING_WHEEL_CONTROLLER)
+            // .renderer(() -> renderer)
             .register();
 
 

@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tgears:block/tinker_silktouch_crushing_wheel/block",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tgears:block/tinker_silktouch_crushing_wheel/block"
+    },
+    "axis=z": {
+      "model": "tgears:block/tinker_silktouch_crushing_wheel/block",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

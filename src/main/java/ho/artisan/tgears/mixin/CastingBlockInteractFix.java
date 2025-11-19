@@ -24,6 +24,6 @@ public class CastingBlockInteractFix {
     )
     private void useMixin(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult rayTraceResult, CallbackInfoReturnable<InteractionResult> cir) {
         if (player.getItemInHand(hand).is(TGTagKeys.Items.CASTING_BLACKLIST))
-            cir.setReturnValue(InteractionResult.PASS);
+            cir.setReturnValue(InteractionResult.SUCCESS);
     }
 }

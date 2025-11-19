@@ -1,0 +1,7 @@
+{
+	"parent": "tgears:block/tinker_silktouch_crushing_wheel/textures",
+	"loader": "forge:obj",
+	"render_type": "minecraft:cutout",
+	"flip_v": true,
+	"model": "create:models/block/crushing_wheel/crushing_wheel.obj"
+}

@@ -1,0 +1,12 @@
+{
+	"parent": "block/block",
+	"ambientocclusion": false,
+	"textures": {
+		"axis": "create:block/axis",
+		"axis_top": "create:block/axis_top",
+		"plates": "tgears:block/crushing_wheel_plates_silktouch",
+		"insert": "tgears:block/crushing_wheel_insert_silktouch",
+		"spruce_log_top": "tgears:block/rose_gold_drill",
+		"particle": "create:block/palettes/stone_types/cut/andesite_cut"
+	}
+}

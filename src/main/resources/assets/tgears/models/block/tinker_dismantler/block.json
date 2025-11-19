@@ -8,6 +8,7 @@
     "4": "tgears:block/tinker_depot",
     "particle": "tgears:block/tinker_casing"
   },
+  "render_type": "minecraft:cutout",
   "elements": [
     {
       "from": [0.95, 10, 0.95],

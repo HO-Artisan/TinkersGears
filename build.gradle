@@ -91,7 +91,7 @@ repositories {
     }
     maven { url = "https://modmaven.dev/" }
     maven { url = "https://api.modrinth.com/maven" }
-    maven { url =  'https://dvs1.progwml6.com/files/maven' }
+    maven { url = 'https://dvs1.progwml6.com/files/maven' }
 }
 
 dependencies {
@@ -115,7 +115,8 @@ dependencies {
 
     //modRuntimeOnly("maven.modrinth:create-henry:${create_henry_version}")
     //modRuntimeOnly("maven.modrinth:create-alloyed:${alloyed_version}")
-    modRuntimeOnly("mekanism:Mekanism:${mekanism_version}")
+    //modRuntimeOnly("mekanism:Mekanism:${mekanism_version}")
+    //modRuntimeOnly("maven.modrinth:moremcmeta-emissive:${mmet_version}")
 
     compileOnly 'org.projectlombok:lombok:1.18.28'
     compileOnly 'org.jetbrains:annotations:26.0.2'
@@ -150,7 +151,7 @@ jar {
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "chemiofitor",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'MixinConfigs': 'tgears.mixins.json'
+                'MixinConfigs'            : 'tgears.mixins.json'
         ])
     }
 }

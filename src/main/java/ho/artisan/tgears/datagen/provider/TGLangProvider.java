@@ -13,6 +13,11 @@ public class TGLangProvider {
         providerTooltipsLang(consumer);
         provideTGLang(consumer);
         providerModifierLang(consumer);
+        providerRecipeLang(consumer);
+    }
+
+    private void providerRecipeLang(BiConsumer<String, String> consumer) {
+        consumer.accept("recipe.tgears.silky_crushing", "Silky Crushing");
     }
 
     private void providerModifierLang(BiConsumer<String, String> consumer) {
@@ -128,6 +133,7 @@ public class TGLangProvider {
 
         consumer.accept("item.tgears.bar_of_blazing_chocolate.tooltip.summary", "_Superhigh Calorie_ food, which is the Blaze love best!");
 
+        consumer.accept("block.tgears.tinker_dismantler.tooltip.summary", "It can dismantle the tinker tool, but only mechanical arms can be used with it.");
 
         consumer.accept("item.create.sand_paper.tooltip.behaviour2", "Let the _tool_ get _polished_ and _sharpened_.");
         consumer.accept("item.create.sand_paper.tooltip.condition2", "When Polishing Tinker's Tools");

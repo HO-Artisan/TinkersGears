@@ -2,6 +2,7 @@ package ho.artisan.tgears.datagen.provider.recipe.tconstruct.material;
 
 import ho.artisan.tgears.index.TGMaterials;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.tools.data.material.MaterialStatsDataProvider;
 import slimeknights.tconstruct.tools.stats.*;
@@ -24,10 +25,19 @@ public final class TGMaterialStatsProvider extends MaterialStatsDataProvider {
                 StatlessMaterialStats.BINDING
         );
 
+        PlatingMaterialStats.Builder platingMaterialStats = PlatingMaterialStats.builder()
+                .armor(1F, 1F, 1F, 1F).durabilityFactor(2);
+
         addMaterialStats(TGMaterials.Ids.CARDBOARD,
                 new HeadMaterialStats(100, 7.0F, WOOD, 0.0F),
                 new HandleMaterialStats(0.0F, 0.2F, 0.2F, -0.5F),
-                StatlessMaterialStats.BINDING
+                platingMaterialStats.build(ArmorItem.Type.HELMET),
+                platingMaterialStats.build(ArmorItem.Type.CHESTPLATE),
+                platingMaterialStats.build(ArmorItem.Type.LEGGINGS),
+                platingMaterialStats.build(ArmorItem.Type.BOOTS),
+                platingMaterialStats.buildShield(),
+                StatlessMaterialStats.BINDING,
+                StatlessMaterialStats.MAILLE
         );
 
         addMaterialStats(TGMaterials.Ids.ROSE_QUARTZ,
