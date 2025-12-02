@@ -1,0 +1,26 @@
+{
+	"type": "create:mechanical_crafting",
+	"acceptMirrored": false,
+	"key": {
+		"A": {
+			"item": "tconstruct:seared_brick"
+		},
+		"P": {
+			"tag": "forge:ingots/cobalt"
+		},
+		"S": {
+			"item": "tgears:cobalt_casing"
+		}
+	},
+	"pattern": [
+		" AAA ",
+		"AAPAA",
+		"APSPA",
+		"AAPAA",
+		" AAA "
+	],
+	"result": {
+		"count": 2,
+		"item": "tgears:tinker_crushing_wheel"
+	}
+}

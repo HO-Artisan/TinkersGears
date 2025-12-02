@@ -1,0 +1,15 @@
+{
+	"type": "tgears:silky_crushing",
+	"ingredients": [
+		{
+			"item": "minecraft:white_wool"
+		}
+	],
+	"processingTime": 200,
+	"results": [
+		{
+			"item": "minecraft:string",
+			"count": 4
+		}
+	]
+}

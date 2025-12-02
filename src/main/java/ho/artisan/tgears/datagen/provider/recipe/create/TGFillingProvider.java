@@ -14,11 +14,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import plus.dragons.createenchantmentindustry.EnchantmentIndustry;
+import plus.dragons.createenchantmentindustry.entry.CeiFluids;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.gadgets.TinkerGadgets;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.world.block.FoliageType;
+
+import static ho.artisan.tgears.TinkersGears.ENCHANTMENT_LOADED;
 
 public final class TGFillingProvider extends FillingRecipeGen {
 
@@ -35,6 +39,22 @@ public final class TGFillingProvider extends FillingRecipeGen {
         create("silktouch_drill", b -> b.require(TinkerFluids.moltenRoseGold.getTag(), FluidValues.INGOT * 4)
                 .require(TGBlocks.TINKER_DRILL)
                 .output(TGBlocks.TINKER_SILKTOUCH_DRILL));
+
+        create("silktouch_crushing_wheel", b -> b.require(TinkerFluids.moltenRoseGold.getTag(), FluidValues.INGOT * 8)
+                .require(TGBlocks.TINKER_CRUSHING_WHEEL)
+                .output(TGBlocks.TINKER_SILKY_CRUSHING_WHEEL));
+        
+        if (ENCHANTMENT_LOADED) {
+            create("fortune_drill", b -> b.withCondition(new ModLoadedCondition(EnchantmentIndustry.ID))
+                    .require(CeiFluids.EXPERIENCE.getSource(), 40)
+                    .require(TGBlocks.TINKER_DRILL)
+                    .output(TGBlocks.TINKER_FORTUNE_DRILL));
+
+            create("fortune_crushing_wheel", b -> b.withCondition(new ModLoadedCondition(EnchantmentIndustry.ID))
+                    .require(CeiFluids.EXPERIENCE.getSource(), 80)
+                    .require(TGBlocks.TINKER_CRUSHING_WHEEL)
+                    .output(TGBlocks.TINKER_FORTUNE_CRUSHING_WHEEL));
+        }
 
         cakeRecipe("earth", TinkerFluids.slime.get(SlimeType.EARTH), new ItemStack(TinkerGadgets.cake.get(FoliageType.EARTH)));
         cakeRecipe("sky", TinkerFluids.slime.get(SlimeType.SKY), new ItemStack(TinkerGadgets.cake.get(FoliageType.SKY)));

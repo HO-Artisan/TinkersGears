@@ -3,9 +3,7 @@ package ho.artisan.tgears.common.block;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock;
 import com.simibubi.create.foundation.block.IBE;
-import com.tterrag.registrate.util.entry.BlockEntry;
 import ho.artisan.tgears.common.block.entity.TinkerCrushingWheelBlockEntity;
-import ho.artisan.tgears.index.TGBlocks;
 import net.createmod.catnip.data.Iterate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,7 +18,10 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.function.Supplier;
+
 import static ho.artisan.tgears.common.block.TinkerCrushingWheelControllerBlock.VALID;
+import static net.minecraft.world.level.block.DirectionalBlock.FACING;
 
 public abstract class AbstractTinkerCrushingWheelBlock<T extends TinkerCrushingWheelBlockEntity> extends RotatedPillarKineticBlock implements IBE<T> {
 
@@ -28,7 +29,9 @@ public abstract class AbstractTinkerCrushingWheelBlock<T extends TinkerCrushingW
         super(properties);
     }
 
-    public abstract BlockEntry<? extends AbstractTinkerCrushingWheelControllerBlock<?>> getControllerBlock();
+    public abstract Supplier<? extends AbstractTinkerCrushingWheelControllerBlock<?>> getControllerBlock();
+
+    public abstract Supplier<? extends AbstractTinkerCrushingWheelBlock<?>> getWheelBlock();
 
     @Override
     public Direction.Axis getRotationAxis(BlockState state) {
@@ -50,7 +53,7 @@ public abstract class AbstractTinkerCrushingWheelBlock<T extends TinkerCrushingW
         for (Direction d : Iterate.directions) {
             if (d.getAxis() == state.getValue(AXIS))
                 continue;
-            if (TGBlocks.TINKER_CRUSHING_WHEEL_CONTROLLER.has(worldIn.getBlockState(pos.relative(d))))
+            if (worldIn.getBlockState(pos.relative(d)).is(getControllerBlock().get()))
                 worldIn.removeBlock(pos.relative(d), isMoving);
         }
 
@@ -66,18 +69,16 @@ public abstract class AbstractTinkerCrushingWheelBlock<T extends TinkerCrushingW
         BlockPos controllerPos = pos.relative(side);
         BlockPos otherWheelPos = pos.relative(side, 2);
 
-        boolean controllerExists = TGBlocks.TINKER_CRUSHING_WHEEL_CONTROLLER.has(world.getBlockState(controllerPos));
-        boolean controllerIsValid = controllerExists && world.getBlockState(controllerPos)
-                .getValue(VALID);
-        Direction controllerOldDirection = controllerExists ? world.getBlockState(controllerPos)
-                .getValue(TinkerCrushingWheelControllerBlock.FACING) : null;
+        boolean controllerExists = world.getBlockState(controllerPos).is(getControllerBlock().get());
+        boolean controllerIsValid = controllerExists && world.getBlockState(controllerPos).getValue(VALID);
+        Direction controllerOldDirection = controllerExists ? world.getBlockState(controllerPos).getValue(FACING) : null;
 
         boolean controllerShouldExist = false;
         boolean controllerShouldBeValid = false;
         Direction controllerNewDirection = Direction.DOWN;
 
         BlockState otherState = world.getBlockState(otherWheelPos);
-        if (getControllerBlock().has(otherState)) {
+        if (otherState.is(getWheelBlock().get())) {
             controllerShouldExist = true;
 
             TinkerCrushingWheelBlockEntity be = getBlockEntity(world, pos);
@@ -112,17 +113,16 @@ public abstract class AbstractTinkerCrushingWheelBlock<T extends TinkerCrushingW
             if (!world.getBlockState(controllerPos)
                     .canBeReplaced())
                 return;
-            world.setBlockAndUpdate(controllerPos, TGBlocks.TINKER_CRUSHING_WHEEL_CONTROLLER.getDefaultState()
+            world.setBlockAndUpdate(controllerPos, getControllerBlock().get().defaultBlockState()
                     .setValue(VALID, controllerShouldBeValid)
-                    .setValue(TinkerCrushingWheelControllerBlock.FACING, controllerNewDirection));
+                    .setValue(FACING, controllerNewDirection));
         } else if (controllerIsValid != controllerShouldBeValid || controllerOldDirection != controllerNewDirection) {
             world.setBlockAndUpdate(controllerPos, world.getBlockState(controllerPos)
                     .setValue(VALID, controllerShouldBeValid)
-                    .setValue(TinkerCrushingWheelControllerBlock.FACING, controllerNewDirection));
+                    .setValue(FACING, controllerNewDirection));
         }
 
-        TGBlocks.TINKER_CRUSHING_WHEEL_CONTROLLER.get()
-                .updateSpeed(world.getBlockState(controllerPos), world, controllerPos);
+        getControllerBlock().get().updateSpeed(world.getBlockState(controllerPos), world, controllerPos);
 
     }
 
@@ -155,9 +155,9 @@ public abstract class AbstractTinkerCrushingWheelBlock<T extends TinkerCrushingW
             BlockPos neighbourPos = pos.relative(direction);
             BlockState neighbourState = worldIn.getBlockState(neighbourPos);
             Direction.Axis stateAxis = state.getValue(AXIS);
-            if (getControllerBlock().has(neighbourState) && direction.getAxis() != stateAxis)
+            if (neighbourState.is(getControllerBlock().get()) && direction.getAxis() != stateAxis)
                 return false;
-            if (!getControllerBlock().has(neighbourState))
+            if (!neighbourState.is(getWheelBlock().get()))
                 continue;
             if (neighbourState.getValue(AXIS) != stateAxis || stateAxis != direction.getAxis())
                 return false;

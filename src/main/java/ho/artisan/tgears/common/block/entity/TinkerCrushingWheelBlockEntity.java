@@ -16,7 +16,7 @@ public class TinkerCrushingWheelBlockEntity extends CrushingWheelBlockEntity {
     @Override
     public void fixControllers() {
         for (Direction d : Iterate.directions) {
-            AbstractTinkerCrushingWheelBlock<?> block = (AbstractTinkerCrushingWheelBlock<?>) getBlockState().getBlock();
+            var block = (AbstractTinkerCrushingWheelBlock<?>) getBlockState().getBlock();
             block.updateControllers(getBlockState(), getLevel(), getBlockPos(), d);
         }
     }

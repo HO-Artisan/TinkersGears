@@ -34,6 +34,8 @@ import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.function.Supplier;
+
 public abstract class AbstractTinkerCrushingWheelControllerBlock<T extends TinkerCrushingWheelControllerBlockEntity> extends DirectionalBlock implements IBE<T> {
 
     public AbstractTinkerCrushingWheelControllerBlock(Properties properties) {
@@ -41,6 +43,8 @@ public abstract class AbstractTinkerCrushingWheelControllerBlock<T extends Tinke
     }
 
     public static final BooleanProperty VALID = BooleanProperty.create("valid");
+
+    public abstract Supplier<? extends AbstractTinkerCrushingWheelBlock<?>> getWheelBlock();
 
     @Override
     public boolean canBeReplaced(BlockState state, BlockPlaceContext useContext) {
@@ -137,7 +141,7 @@ public abstract class AbstractTinkerCrushingWheelControllerBlock<T extends Tinke
 
             for (Direction d : Iterate.directions) {
                 BlockState neighbour = world.getBlockState(pos.relative(d));
-                if (!neighbour.is(this))
+                if (!neighbour.is(getWheelBlock().get()))
                     continue;
                 if (neighbour.getValue(BlockStateProperties.AXIS) == d.getAxis())
                     continue;

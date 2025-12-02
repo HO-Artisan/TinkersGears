@@ -7,6 +7,7 @@ import ho.artisan.tgears.datagen.provider.recipe.TGCraftingProvider;
 import ho.artisan.tgears.datagen.provider.recipe.create.*;
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGCastingRecipeProvider;
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGMeltingRecipeProvider;
+import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGToolDefinitionDataProvider;
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.material.TGMaterialDataProvider;
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.material.TGMaterialRecipeProvider;
 import ho.artisan.tgears.datagen.provider.recipe.tconstruct.material.TGMaterialStatsProvider;
@@ -54,6 +55,8 @@ public class TGDataGeneration {
 
         add.accept(TGCastingRecipeProvider::new);
         add.accept(TGMeltingRecipeProvider::new);
+
+        add.accept(TGToolDefinitionDataProvider::new);
 
         // Create
         add.accept(TGPressingProvider::new);

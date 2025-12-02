@@ -1,3 +1,4 @@
+
 package ho.artisan.tgears.common.block.entity;
 
 import com.simibubi.create.AllRecipeTypes;
@@ -22,10 +23,11 @@ public class TinkerSilkyCrushingWheelControllerBlockEntity extends TinkerCrushin
 
     public Optional<ProcessingRecipe<RecipeWrapper>> findRecipe() {
         Optional<ProcessingRecipe<RecipeWrapper>> recipe = TGRecipeTypes.SILKY_CRUSHING.find(getWrapper(), level);
-        if (recipe.isEmpty())
+        if (recipe.isEmpty()) {
             recipe = AllRecipeTypes.CRUSHING.find(getWrapper(), level);
-        else
-            recipe = AllRecipeTypes.MILLING.find(getWrapper(), level);
+            if (recipe.isEmpty())
+                recipe = AllRecipeTypes.MILLING.find(getWrapper(), level);
+        }
         return recipe;
     }
 }

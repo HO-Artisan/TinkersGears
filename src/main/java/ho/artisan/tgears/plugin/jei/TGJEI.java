@@ -56,8 +56,6 @@ public class TGJEI implements IModPlugin {
 
         CreateRecipeCategory<?> crushing = builder(SilkyCrushingRecipe.class)
                 .addTypedRecipes(TGRecipeTypes.SILKY_CRUSHING)
-
-
                 .catalyst(TGBlocks.TINKER_SILKY_CRUSHING_WHEEL::get)
                 .doubleItemIcon(TGBlocks.TINKER_SILKY_CRUSHING_WHEEL.get(), TGItems.CRUSHED_RAW_COBALT.get())
                 .emptyBackground(177, 100)
@@ -99,6 +97,11 @@ public class TGJEI implements IModPlugin {
 
         registration.addRecipeCatalyst(
                 TGBlocks.TINKER_SILKY_CRUSHING_WHEEL.asItem(),
+                RecipeType.create("create", "crushing", AbstractCrushingRecipe.class)
+        );
+
+        registration.addRecipeCatalyst(
+                TGBlocks.TINKER_FORTUNE_CRUSHING_WHEEL.asItem(),
                 RecipeType.create("create", "crushing", AbstractCrushingRecipe.class)
         );
 

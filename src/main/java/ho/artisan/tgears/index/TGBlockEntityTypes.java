@@ -74,6 +74,13 @@ public final class TGBlockEntityTypes {
             .renderer(() -> KineticBlockEntityRenderer::new)
             .register();
 
+    public static final BlockEntityEntry<TinkerCrushingWheelBlockEntity> TINKER_FORTUNE_CRUSHING_WHEEL = REGISTRATE
+            .blockEntity("tinker_fortune_crushing_wheel", TinkerCrushingWheelBlockEntity::new)
+            .visual(() -> SingleAxisRotatingVisual.of(TGPartialModels.FORTUNE_CRUSHING_WHEEL), false)
+            .validBlocks(TGBlocks.TINKER_FORTUNE_CRUSHING_WHEEL)
+            .renderer(() -> KineticBlockEntityRenderer::new)
+            .register();
+
     public static final BlockEntityEntry<TinkerCrushingWheelControllerBlockEntity> TINKER_CRUSHING_WHEEL_CONTROLLER = REGISTRATE
             .blockEntity("tinker_crushing_wheel_controller", TinkerCrushingWheelControllerBlockEntity::new)
             .validBlocks(TGBlocks.TINKER_CRUSHING_WHEEL_CONTROLLER)
@@ -83,6 +90,12 @@ public final class TGBlockEntityTypes {
     public static final BlockEntityEntry<TinkerSilkyCrushingWheelControllerBlockEntity> TINKER_SILKY_CRUSHING_WHEEL_CONTROLLER = REGISTRATE
             .blockEntity("tinker_silky_crushing_wheel_controller", TinkerSilkyCrushingWheelControllerBlockEntity::new)
             .validBlocks(TGBlocks.TINKER_SILKY_CRUSHING_WHEEL_CONTROLLER)
+            // .renderer(() -> renderer)
+            .register();
+
+    public static final BlockEntityEntry<TinkerFortuneCrushingWheelControllerBlockEntity> TINKER_FORTUNE_CRUSHING_WHEEL_CONTROLLER = REGISTRATE
+            .blockEntity("tinker_fortune_crushing_wheel_controller", TinkerFortuneCrushingWheelControllerBlockEntity::new)
+            .validBlocks(TGBlocks.TINKER_FORTUNE_CRUSHING_WHEEL_CONTROLLER)
             // .renderer(() -> renderer)
             .register();
 

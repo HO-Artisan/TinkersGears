@@ -1,0 +1,24 @@
+{
+  "type": "create:filling",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create_enchantment_industry"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "tgears:tinker_crushing_wheel"
+    },
+    {
+      "amount": 80,
+      "fluid": "create_enchantment_industry:experience",
+      "nbt": {}
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:tinker_fortune_crushing_wheel"
+    }
+  ]
+}

@@ -24,6 +24,7 @@ public class TinkersGears {
     public static boolean METALLURGY_LOADED = false;
     public static boolean ALLOYED_LOADED = false;
     public static boolean ADDITION_LOADED = false;
+    public static boolean ENCHANTMENT_LOADED = false;
 
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
@@ -36,6 +37,7 @@ public class TinkersGears {
         METALLURGY_LOADED = ModList.get().isLoaded("createmetallurgy");
         ALLOYED_LOADED = ModList.get().isLoaded("alloyed");
         ADDITION_LOADED = ModList.get().isLoaded("createaddition");
+        ENCHANTMENT_LOADED = ModList.get().isLoaded("create_enchantment_industry");
 
         TGCreativeModeTabs.register(bus);
         REGISTRATE.registerEventListeners(bus);

@@ -20,7 +20,8 @@ public final class TGPartialModels {
             FORTUNE_DRILL_HEAD = block("tinker_fortune_drill/head");
     public static final PartialModel
             CRUSHING_WHEEL = block("tinker_crushing_wheel/block"),
-            SILKY_CRUSHING_WHEEL = block("tinker_silktouch_crushing_wheel/block");
+            SILKY_CRUSHING_WHEEL = block("tinker_silktouch_crushing_wheel/block"),
+            FORTUNE_CRUSHING_WHEEL = block("tinker_fortune_crushing_wheel/block");
     public static final PartialModel
             COBALT_FAN = block("tinker_fan/propeller");
 

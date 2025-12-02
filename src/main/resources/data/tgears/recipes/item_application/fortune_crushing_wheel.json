@@ -1,0 +1,33 @@
+{
+	"type": "create:sequenced_assembly",
+	"ingredient": {
+		"item": "tgears:tinker_crushing_wheel"
+	},
+	"loops": 8,
+	"results": [
+		{
+			"item": "tgears:tinker_fortune_crushing_wheel"
+		}
+	],
+	"sequence": [
+		{
+			"type": "create:deploying",
+			"ingredients": [
+				{
+					"item": "tgears:tinker_crushing_wheel"
+				},
+				{
+					"item": "create:experience_block"
+				}
+			],
+			"results": [
+				{
+					"item": "tgears:tinker_crushing_wheel"
+				}
+			]
+		}
+	],
+	"transitionalItem": {
+		"item": "tgears:tinker_crushing_wheel"
+	}
+}

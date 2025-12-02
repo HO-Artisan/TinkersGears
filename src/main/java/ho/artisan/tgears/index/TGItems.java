@@ -24,6 +24,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
+import static slimeknights.tconstruct.common.TinkerTags.Items.*;
 
 public final class TGItems {
 
@@ -146,7 +147,12 @@ public final class TGItems {
     public static final ItemEntry<TinkerWrenchItem> WRENCH = REGISTRATE.item("wrench", TinkerWrenchItem::new)
             .properties(p -> p.stacksTo(1))
             .model(AssetLookup.itemModelWithPartials())
-            .tag(AllTags.AllItemTags.WRENCH.tag)
+            .tag(
+                    AllTags.AllItemTags.WRENCH.tag,
+                    INTERACTABLE_RIGHT,
+                    AOE,
+                    BONUS_SLOTS
+            )
             .lang("Tinker Wrench")
             .register();
 
