@@ -3,7 +3,7 @@ package ho.artisan.tgears.ponder.scene;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
-import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
+import ho.artisan.tgears.ponder.TGSceneBuilder;
 import net.createmod.catnip.math.Pointing;
 import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.element.ElementLink;
@@ -31,17 +31,17 @@ import slimeknights.tconstruct.smeltery.block.entity.component.TankBlockEntity;
 import slimeknights.tconstruct.smeltery.block.entity.controller.MelterBlockEntity;
 
 public class MelterScene {
-    private MelterScene() {}
+    private MelterScene() {
+    }
 
     public static void basic(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("basic_melter", "Building the basic smeltery");
-        scene.configureBasePlate(0, 0, 5);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+        scene.init5x5(util);
 
-        Selection smeltery = util.select().fromTo(2, 1, 2, 2, 2 , 2);
-        Selection basin = util.select().fromTo(1, 1, 2, 1, 2 , 2);
-        Selection table = util.select().fromTo(3, 1, 2, 3, 2 , 2);
+        Selection smeltery = util.select().fromTo(2, 1, 2, 2, 2, 2);
+        Selection basin = util.select().fromTo(1, 1, 2, 1, 2, 2);
+        Selection table = util.select().fromTo(3, 1, 2, 3, 2, 2);
         BlockPos melter = util.grid().at(2, 2, 2);
 
         scene.idle(5);
@@ -127,10 +127,9 @@ public class MelterScene {
     }
 
     public static void burner(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("basic_melter_burner", "Use the Blaze Burner to heat");
-        scene.configureBasePlate(0, 0, 5);
-        scene.world().showSection(util.select().everywhere(), Direction.UP);
+        scene.init5x5(util);
 
         BlockPos melter = util.grid().at(2, 2, 2);
         Selection selection = util.select().fromTo(melter.below(), melter);
@@ -186,10 +185,9 @@ public class MelterScene {
     }
 
     public static void casting(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("basic_melter_casting", "Melting and Casting");
-        scene.configureBasePlate(0, 0, 5);
-        scene.world().showSection(util.select().everywhere(), Direction.UP);
+        scene.init5x5(util);
 
         BlockPos table = util.grid().at(1, 1, 2);
         BlockPos basin = util.grid().at(3, 1, 2);
@@ -275,13 +273,12 @@ public class MelterScene {
     }
 
     public static void pipe(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("basic_melter_pipe", "Using fluid pipes while casting");
-        scene.configureBasePlate(0, 0, 5);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+        scene.init5x5(util);
 
-        Selection table = util.select().fromTo(1, 1, 1, 3, 1 , 1);
-        Selection smeltery = util.select().fromTo(3, 1, 3, 3, 2 , 3);
+        Selection table = util.select().fromTo(1, 1, 1, 3, 1, 1);
+        Selection smeltery = util.select().fromTo(3, 1, 3, 3, 2, 3);
 
         BlockPos basic = util.grid().at(3, 2, 3);
         BlockPos cog = util.grid().at(2, 3, 3);
@@ -390,15 +387,14 @@ public class MelterScene {
 
 
     public static void spout(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("basic_melter_spout", "Using spout while casting");
-        scene.configureBasePlate(0, 0, 5);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+        scene.init5x5(util);
 
         BlockPos table = util.grid().at(2, 1, 1);
         BlockPos spout = util.grid().at(2, 3, 1);
         BlockPos melter = util.grid().at(2, 2, 3);
-        BlockPos godHand =  util.grid().at(1, 2, 2);
+        BlockPos godHand = util.grid().at(1, 2, 2);
 
         Selection cog = util.select().fromTo(1, 3, 1, 1, 3, 2);
 
@@ -438,7 +434,7 @@ public class MelterScene {
         scene.overlay().showControls(godHand.getCenter(), Pointing.LEFT, 20).rightClick();
         scene.idle(7);
         scene.world().setKineticSpeed(util.select().everywhere(), 32);
-        scene.world().modifyKineticSpeed(util.select().position(spout.south()),f -> f * -1);
+        scene.world().modifyKineticSpeed(util.select().position(spout.south()), f -> f * -1);
         scene.effects().rotationDirectionIndicator(godHand);
         scene.idle(35);
 

@@ -9,7 +9,8 @@ import java.util.List;
 
 public final class BlazeBurnerUtil {
 
-    private BlazeBurnerUtil() {}
+    private BlazeBurnerUtil() {
+    }
 
     public static float getFactor(BlazeBurnerBlock.HeatLevel level) {
         return switch (level) {
@@ -29,8 +30,8 @@ public final class BlazeBurnerUtil {
     }
 
     public static void addToGoggleTooltip(List<Component> tooltip, SolidFuelModule module) {
-        TinkerGogglesUtil.addTemperature(tooltip, module.getTemperature());
+        GogglesUtil.addTemperature(tooltip, module.getTemperature());
 
-        TinkerGogglesUtil.addRate(tooltip, module.getRate() * 10);
+        GogglesUtil.addRate(tooltip, module.getRate() * 10);
     }
 }

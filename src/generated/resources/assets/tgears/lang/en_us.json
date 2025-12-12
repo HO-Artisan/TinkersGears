@@ -165,6 +165,8 @@
   "tgears.ponder.tag.compat.description": "Tinker's Gears from the Create",
   "tgears.ponder.tag.smeltery": "Smeltery",
   "tgears.ponder.tag.smeltery.description": "Tinker's components used to smelting and casting",
+  "tgears.ponder.tinker_crushing.header": "Use Tinker Crushing Wheels to crush items",
+  "tgears.ponder.tinker_crushing.text_1": "Tinker Crushing Wheel is more stress-saving",
   "tgears.ponder.tinker_drill.header": "Use Tinker Drills to break blocks",
   "tgears.ponder.tinker_drill.text_1": "Tinker drills and ordinary drills have the same function, while their stress consumption is only half that of the latter",
   "tgears.ponder.tinker_drill.text_2": "Tinker drills can be upgraded to drill with the Silk Touch",

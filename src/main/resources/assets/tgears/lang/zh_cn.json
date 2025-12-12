@@ -9,6 +9,8 @@
 	"tgears.ponder.tinker_drill.text_2": "工匠动力钻头可以升级为精准采集钻头",
 	"tgears.ponder.tinker_drill.text_1": "工匠动力钻头和普通动力钻头功能功能相同，应力消耗仅为后者一半",
 	"tgears.ponder.tinker_drill.header": "使用工匠动力钻头破坏方块",
+	"tgears.ponder.tinker_crushing.text_1": "工匠粉碎轮消耗的应力更少",
+	"tgears.ponder.tinker_crushing.header": "使用工匠粉碎轮粉碎矿物",
 	"tgears.ponder.tag.smeltery.description": "工匠最爱的冶炼组件",
 	"tgears.ponder.tag.smeltery": "熔炼术",
 	"tgears.ponder.tag.compat.description": "何谓匠械？",

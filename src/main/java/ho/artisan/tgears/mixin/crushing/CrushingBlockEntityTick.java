@@ -2,6 +2,7 @@ package ho.artisan.tgears.mixin.crushing;
 
 import com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlockEntity;
 import com.simibubi.create.content.processing.recipe.ProcessingInventory;
+import com.simibubi.create.content.processing.recipe.ProcessingOutput;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
 import ho.artisan.tgears.common.block.entity.TinkerFortuneCrushingWheelControllerBlockEntity;
 import ho.artisan.tgears.common.block.entity.TinkerSilkyCrushingWheelControllerBlockEntity;
@@ -17,7 +18,6 @@ import java.util.List;
 @Mixin(CrushingWheelControllerBlockEntity.class)
 public class CrushingBlockEntityTick {
     @Redirect(
-            remap = false,
             method = "tick",
             at = @At(
                     value = "INVOKE",
@@ -45,7 +45,7 @@ public class CrushingBlockEntityTick {
         if (!(entity instanceof TinkerFortuneCrushingWheelControllerBlockEntity)) {
             return instance.rollResults();
         } else {
-            return List.copyOf(instance.getRollableResultsAsItemStacks());
+            return instance.getRollableResults().stream().map(ProcessingOutput::getStack).map(ItemStack::copy).toList();
         }
     }
 

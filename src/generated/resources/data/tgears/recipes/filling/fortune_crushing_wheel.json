@@ -11,7 +11,7 @@
       "item": "tgears:tinker_crushing_wheel"
     },
     {
-      "amount": 80,
+      "amount": 432,
       "fluid": "create_enchantment_industry:experience",
       "nbt": {}
     }

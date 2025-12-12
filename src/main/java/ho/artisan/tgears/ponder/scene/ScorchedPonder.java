@@ -1,6 +1,6 @@
 package ho.artisan.tgears.ponder.scene;
 
-import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
+import ho.artisan.tgears.ponder.TGSceneBuilder;
 import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.scene.SceneBuilder;
 import net.createmod.ponder.api.scene.SceneBuildingUtil;
@@ -10,13 +10,10 @@ import net.minecraft.core.Direction;
 
 import java.util.List;
 
-@SuppressWarnings("ALL")
 public class ScorchedPonder {
-    private ScorchedPonder() {
-    }
 
     public static void basic(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         Object o = new Object();
 
         scene.title("new_foundry", "The Foundry");

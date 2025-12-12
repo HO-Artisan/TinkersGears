@@ -4,7 +4,7 @@
     "item": "minecraft:apple"
   },
   "cast_consumed": true,
-  "cooling_time": 57,
+  "cooling_time": 52,
   "fluid": {
     "amount": 250,
     "tag": "forge:honey"

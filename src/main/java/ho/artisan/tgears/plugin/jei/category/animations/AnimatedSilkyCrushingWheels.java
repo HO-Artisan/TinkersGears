@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 public class AnimatedSilkyCrushingWheels extends AnimatedKinetics {
+
     private final BlockState wheel = TGBlocks.TINKER_SILKY_CRUSHING_WHEEL.getDefaultState()
             .setValue(BlockStateProperties.AXIS, Direction.Axis.X);
 

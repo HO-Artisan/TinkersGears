@@ -1,0 +1,31 @@
+package ho.artisan.tgears.datagen.provider.recipe.vanilla;
+
+import ho.artisan.tgears.datagen.provider.recipe.TGRecipeProvider;
+import ho.artisan.tgears.index.TGItems;
+import ho.artisan.tgears.index.TGTagKeys;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.FinishedRecipe;
+import slimeknights.mantle.recipe.cooking.CookingRecipeBuilder;
+
+import java.util.function.Consumer;
+
+public final class TGSmeltingProvider extends TGRecipeProvider {
+    public TGSmeltingProvider(PackOutput generator) {
+        super(generator);
+    }
+
+    @Override
+    public String getType() {
+        return "smelting";
+    }
+
+    @Override
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        CookingRecipeBuilder.builder(TGTagKeys.Items.COBALT_INGOT)
+                .cookingTime(200)
+                .requires(TGItems.CRUSHED_RAW_COBALT)
+                .experience(0.1F)
+                .type(CookingRecipeBuilder.CookingType.SMELTING)
+                .save(consumer, location("cobalt_ingot_from_crushed_raw_cobalt"));
+    }
+}

@@ -1,145 +1,121 @@
 package ho.artisan.tgears.datagen.provider.recipe.tconstruct;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
-import fr.lucreeper74.createmetallurgy.registries.CMItems;
-import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.datagen.provider.recipe.TGBaseRecipeProvider;
+import com.simibubi.create.AllTags;
+import ho.artisan.tgears.datagen.provider.recipe.TGRecipeProvider;
 import ho.artisan.tgears.index.TGBlocks;
+import ho.artisan.tgears.index.TGFluids;
 import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.crafting.ConditionalRecipe;
-import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.function.Consumer;
 
-public final class TGCastingRecipeProvider extends TGBaseRecipeProvider {
+public final class TGCastingRecipeProvider extends TGRecipeProvider {
 
     public TGCastingRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
-    public String getName() {
-        return "TGears Casting Recipes";
+    @Override
+    public String getType() {
+        return "casting";
     }
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        String folder = "casting/";
+        this.casingRecipes(consumer);
+        this.foodRecipes(consumer);
+        this.drillRecipes(consumer);
+        this.metalRecipes(consumer);
+    }
 
-        // Drill
+    private void metalRecipes(Consumer<FinishedRecipe> consumer) {
+        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.COBALT_PLATE)
+                .setFluidAndTime(TinkerFluids.moltenCobalt, FluidValues.INGOT)
+                .setCast(TinkerSmeltery.plateCast.getMultiUseTag(), false)
+                .save(consumer, location("cobalt/plate_gold_cast"));
+
+        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.COBALT_PLATE)
+                .setFluidAndTime(TinkerFluids.moltenCobalt, FluidValues.INGOT)
+                .setCast(TinkerSmeltery.plateCast.getSingleUseTag(), true)
+                .save(consumer, location("cobalt/plate_sand_cast"));
+
+        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.ROSE_GOLD_PLATE)
+                .setFluidAndTime(TinkerFluids.moltenRoseGold, FluidValues.INGOT)
+                .setCast(TinkerSmeltery.plateCast.getMultiUseTag(), false)
+                .save(consumer, location("rose_gold/plate_gold_cast"));
+
+        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.ROSE_GOLD_PLATE)
+                .setFluidAndTime(TinkerFluids.moltenRoseGold, FluidValues.INGOT)
+                .setCast(TinkerSmeltery.plateCast.getSingleUseTag(), true)
+                .save(consumer, location("rose_gold/plate_sand_cast"));
+    }
+
+    private void casingRecipes(Consumer<FinishedRecipe> consumer) {
+        ItemCastingRecipeBuilder.basinRecipe(AllBlocks.BRASS_CASING)
+                .setFluidAndTime(TinkerFluids.moltenBrass, FluidValues.INGOT)
+                .setCast(AllTags.AllItemTags.STRIPPED_LOGS.tag, true)
+                .save(consumer, location("brass_casing"));
+
+        ItemCastingRecipeBuilder.basinRecipe(AllBlocks.COPPER_CASING)
+                .setFluidAndTime(TinkerFluids.moltenCopper, FluidValues.INGOT)
+                .setCast(AllTags.AllItemTags.STRIPPED_LOGS.tag, true)
+                .save(consumer, location("copper_casing"));
+
+        ItemCastingRecipeBuilder.basinRecipe(AllBlocks.RAILWAY_CASING)
+                .setFluidAndTime(TinkerFluids.moltenObsidian, FluidValues.BOTTLE)
+                .setCast(AllBlocks.BRASS_CASING, true)
+                .save(consumer, location("railway_casing"));
+
+        ItemCastingRecipeBuilder.basinRecipe(TGBlocks.COBALT_CASING)
+                .setFluidAndTime(TinkerFluids.moltenCobalt, FluidValues.INGOT)
+                .setCast(TinkerSmeltery.searedStone, true)
+                .save(consumer, location("cobalt_casing"));
+
+        ItemCastingRecipeBuilder.basinRecipe(TGBlocks.TINKER_CASING)
+                .setFluidAndTime(TinkerFluids.moltenBrass, FluidValues.INGOT)
+                .setCast(TinkerSmeltery.scorchedStone, true)
+                .save(consumer, location("tinker_casing"));
+    }
+
+    private void drillRecipes(Consumer<FinishedRecipe> consumer) {
         ItemCastingRecipeBuilder.tableRecipe(TGBlocks.TINKER_SILKTOUCH_DRILL)
-                .setFluid(TinkerFluids.moltenRoseGold.getTag(), FluidValues.INGOT * 4)
+                .setFluidAndTime(TinkerFluids.moltenRoseGold, FluidValues.INGOT * 4)
                 .setCast(TGBlocks.TINKER_DRILL, true)
-                .setCoolingTime(120)
-                .save(consumer, location(folder + "silktouch_drill"));
+                .save(consumer, location("silktouch_drill"));
+    }
 
-        // Food
-        ItemCastingRecipeBuilder.tableRecipe(AllItems.CHOCOLATE_BERRIES)
-                .setFluid(TGTagKeys.Fluids.CHOCOLATE,  FluidValues.BOTTLE)
-                .setCast(Items.SWEET_BERRIES, true)
-                .setCoolingTime(57)
-                .save(consumer, location(folder + "chocolate_berries"));
-
+    private void foodRecipes(Consumer<FinishedRecipe> consumer) {
         ItemCastingRecipeBuilder.tableRecipe(TGItems.BLAZING_CHOCOLATE_BERRIES)
-                .setFluid(TGTagKeys.Fluids.BLAZING_CHOCOLATE,  FluidValues.BOTTLE)
+                .setFluidAndTime(new FluidStack(TGFluids.BLAZING_CHOCOLATE.getSource(), FluidValues.BOTTLE))
                 .setCast(Items.SWEET_BERRIES, true)
-                .setCoolingTime(57)
-                .save(consumer, location(folder + "blazing_chocolate_berries"));
-
-        ItemCastingRecipeBuilder.tableRecipe(AllItems.HONEYED_APPLE)
-                .setFluid(TGTagKeys.Fluids.HONEY,  FluidValues.BOTTLE)
-                .setCast(Items.APPLE, true)
-                .setCoolingTime(57)
-                .save(consumer, location(folder + "honeyed_apple"));
+                .save(consumer, location("blazing_chocolate_berries"));
 
         ItemCastingRecipeBuilder.tableRecipe(AllItems.BLAZE_CAKE)
-                .setFluid(Fluids.LAVA, FluidValues.BRICK)
+                .setFluidAndTime(new FluidStack(Fluids.LAVA, FluidValues.BOTTLE))
                 .setCast(AllItems.BLAZE_CAKE_BASE, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "blaze_cake"));
+                .save(consumer, location("blaze_cake"));
 
-        // Hand
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.HAND_CAST_WITH_BRASS_HAND)
-                .setFluid(TGTagKeys.Fluids.MOLTEN_BRASS, FluidValues.INGOT * 4)
-                .setCast(TGItems.HAND_CAST_WITH_PART, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "hand/brass"));
+        ItemCastingRecipeBuilder.tableRecipe(AllItems.CHOCOLATE_BERRIES)
+                .setFluid(TGTagKeys.Fluids.CHOCOLATE, FluidValues.BOTTLE)
+                .setCast(Items.SWEET_BERRIES, true)
+                .setCoolingTime(52)
+                .save(consumer, location("chocolate_berries"));
 
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.HAND_CAST_WITH_CHOCOLATE_HAND)
-                .setFluid(TGTagKeys.Fluids.CHOCOLATE,  FluidValues.BOTTLE * 2)
-                .setCast(TGItems.HAND_CAST_WITH_PART, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "hand/chocolate"));
-
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.HAND_CAST_WITH_BLAZING_CHOCOLATE_HAND)
-                .setFluid(TGTagKeys.Fluids.BLAZING_CHOCOLATE,  FluidValues.BOTTLE * 2)
-                .setCast(TGItems.HAND_CAST_WITH_PART, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "hand/blazing_chocolate"));
-
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.HAND_CAST_WITH_BRASS_HAND)
-                .setFluid(TinkerFluids.moltenGold.get(), FluidValues.INGOT)
-                .setCast(AllItems.BRASS_HAND, true)
-                .setCoolingTime(57)
-                .save(consumer, location(folder + "hand/cast"));
-
-
-        // Propeller
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.PROPELLER_CAST_WITH_PROPELLER)
-                .setFluid(TinkerFluids.moltenIron.get(), FluidValues.INGOT * 4)
-                .setCast(TGItems.PROPELLER_CAST_WITH_PART, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "propeller/iron"));
-
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.PROPELLER_CAST_WITH_COBALT_PROPELLER)
-                .setFluid(TinkerFluids.moltenCobalt.get(), FluidValues.INGOT * 4)
-                .setCast(TGItems.PROPELLER_CAST_WITH_PART, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "propeller/cobalt"));
-
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.PROPELLER_CAST_WITH_PROPELLER)
-                .setFluid(TinkerFluids.moltenGold.get(), FluidValues.INGOT)
-                .setCast(AllItems.PROPELLER, true)
-                .setCoolingTime(57)
-                .save(consumer, location(folder + "propeller/cast_1"));
-
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.PROPELLER_CAST_WITH_COBALT_PROPELLER)
-                .setFluid(TinkerFluids.moltenGold.get(), FluidValues.INGOT)
-                .setCast(TGItems.COBALT_PROPELLER, true)
-                .setCoolingTime(57)
-                .save(consumer, location(folder + "propeller/cast_2"));
-        // Whisk
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.WHISK_CAST_WITH_WHISK)
-                .setFluid(TinkerFluids.moltenIron.get(), FluidValues.INGOT * 5)
-                .setCast(TGItems.WHISK_CAST_WITH_PART, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "whisk/iron"));
-
-        if (TinkersGears.METALLURGY_LOADED) {
-            Consumer<Consumer<FinishedRecipe>> sturdyWhiskRecipe = c ->
-                    ItemCastingRecipeBuilder.tableRecipe(TGItems.WHISK_CAST_WITH_STURDY_WHISK)
-                            .setFluid(TinkerFluids.moltenGold.get(), FluidValues.INGOT)
-                            .setCast(CMItems.STURDY_WHISK, true)
-                            .setCoolingTime(82)
-                            .save(c);
-
-            ConditionalRecipe.builder()
-                    .addCondition(new ModLoadedCondition("createmetallurgy"))
-                    .addRecipe(sturdyWhiskRecipe)
-                    .build(consumer, location(folder + "whisk/sturdy"));
-        }
-
-        ItemCastingRecipeBuilder.tableRecipe(TGItems.WHISK_CAST_WITH_WHISK)
-                .setFluid(TinkerFluids.moltenGold.get(), FluidValues.INGOT)
-                .setCast(AllItems.WHISK, true)
-                .setCoolingTime(82)
-                .save(consumer, location(folder + "whisk/cast"));
+        ItemCastingRecipeBuilder.tableRecipe(AllItems.HONEYED_APPLE)
+                .setFluid(TGTagKeys.Fluids.HONEY, FluidValues.BOTTLE)
+                .setCast(Items.APPLE, true)
+                .setCoolingTime(52)
+                .save(consumer, location("honeyed_apple"));
     }
 }

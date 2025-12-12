@@ -15,7 +15,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-public class BeltUtil {
+public final class BeltUtil {
+
+    private BeltUtil() {
+    }
+
     public static boolean checkForCrushers(BeltInventory beltInventory, TransportedItemStack currentItem,
                                            float nextOffset, boolean beltMovementPositive, BeltBlockEntity belt) {
         int firstUpcomingSegment = (int) Math.floor(currentItem.beltPosition);

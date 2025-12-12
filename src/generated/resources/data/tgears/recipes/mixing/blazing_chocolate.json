@@ -4,12 +4,12 @@
   "ingredients": [
     {
       "amount": 250,
-      "fluid": "tconstruct:blazing_blood",
-      "nbt": {}
+      "fluidTag": "forge:chocolate"
     },
     {
       "amount": 250,
-      "fluidTag": "forge:chocolate"
+      "fluid": "tconstruct:blazing_blood",
+      "nbt": {}
     }
   ],
   "results": [

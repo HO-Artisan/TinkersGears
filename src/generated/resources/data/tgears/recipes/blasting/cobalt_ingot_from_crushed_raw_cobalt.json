@@ -1,0 +1,13 @@
+{
+  "type": "mantle:blasting",
+  "category": "misc",
+  "cooking_time": 50,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "tgears:crushed_raw_cobalt"
+  },
+  "result": {
+    "count": 1,
+    "tag": "forge:ingots/cobalt"
+  }
+}

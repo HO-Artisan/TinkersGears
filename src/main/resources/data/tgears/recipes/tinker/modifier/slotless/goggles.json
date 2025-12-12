@@ -1,13 +1,13 @@
 {
-  "type": "tconstruct:modifier",
-  "inputs": [
-    {
-      "item": "create:goggles"
-    }
-  ],
-  "level": 1,
-  "result": "tgears:goggles",
-  "tools": {
-    "item": "tconstruct:plate_helmet"
-  }
+	"type": "tconstruct:modifier",
+	"inputs": [
+		{
+			"item": "create:goggles"
+		}
+	],
+	"level": 1,
+	"result": "tgears:goggles",
+	"tools": {
+		"tag": "tconstruct:modifiable/armor/helmets"
+	}
 }

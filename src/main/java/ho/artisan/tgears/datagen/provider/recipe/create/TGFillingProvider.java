@@ -8,8 +8,6 @@ import ho.artisan.tgears.index.TGBlocks;
 import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluid;
@@ -28,14 +26,18 @@ public final class TGFillingProvider extends FillingRecipeGen {
 
     public TGFillingProvider(PackOutput output) {
         super(output, TinkersGears.MOD_ID);
-        createRecipes();
+        cakeRecipes();
+        machineRecipes();
+        foodRecipes();
     }
 
-    private void createRecipes() {
+    private void foodRecipes() {
         create("blazing_chocolate_glazed_berries", b -> b.require(TGTagKeys.Fluids.BLAZING_CHOCOLATE, FluidValues.BOTTLE)
                 .require(Items.SWEET_BERRIES)
                 .output(TGItems.BLAZING_CHOCOLATE_BERRIES));
+    }
 
+    private void machineRecipes() {
         create("silktouch_drill", b -> b.require(TinkerFluids.moltenRoseGold.getTag(), FluidValues.INGOT * 4)
                 .require(TGBlocks.TINKER_DRILL)
                 .output(TGBlocks.TINKER_SILKTOUCH_DRILL));
@@ -43,91 +45,30 @@ public final class TGFillingProvider extends FillingRecipeGen {
         create("silktouch_crushing_wheel", b -> b.require(TinkerFluids.moltenRoseGold.getTag(), FluidValues.INGOT * 8)
                 .require(TGBlocks.TINKER_CRUSHING_WHEEL)
                 .output(TGBlocks.TINKER_SILKY_CRUSHING_WHEEL));
-        
+
         if (ENCHANTMENT_LOADED) {
             create("fortune_drill", b -> b.withCondition(new ModLoadedCondition(EnchantmentIndustry.ID))
-                    .require(CeiFluids.EXPERIENCE.getSource(), 40)
+                    .require(CeiFluids.EXPERIENCE.getSource(), 108)
                     .require(TGBlocks.TINKER_DRILL)
                     .output(TGBlocks.TINKER_FORTUNE_DRILL));
 
             create("fortune_crushing_wheel", b -> b.withCondition(new ModLoadedCondition(EnchantmentIndustry.ID))
-                    .require(CeiFluids.EXPERIENCE.getSource(), 80)
+                    .require(CeiFluids.EXPERIENCE.getSource(), 432)
                     .require(TGBlocks.TINKER_CRUSHING_WHEEL)
                     .output(TGBlocks.TINKER_FORTUNE_CRUSHING_WHEEL));
         }
+    }
 
+    private void cakeRecipes() {
         cakeRecipe("earth", TinkerFluids.slime.get(SlimeType.EARTH), new ItemStack(TinkerGadgets.cake.get(FoliageType.EARTH)));
         cakeRecipe("sky", TinkerFluids.slime.get(SlimeType.SKY), new ItemStack(TinkerGadgets.cake.get(FoliageType.SKY)));
         cakeRecipe("ender", TinkerFluids.slime.get(SlimeType.ENDER), new ItemStack(TinkerGadgets.cake.get(FoliageType.ENDER)));
         cakeRecipe("ichor", TinkerFluids.ichor.get(), new ItemStack(TinkerGadgets.cake.get(FoliageType.ICHOR)));
-
-        handRecipe(
-                "brass",
-                "molten_brass",
-                FluidValues.INGOT * 4,
-                new ItemStack(TGItems.HAND_CAST_WITH_BRASS_HAND)
-        );
-
-        handRecipe(
-                "blazing_chocolate",
-                "blazing_chocolate",
-                FluidValues.BOTTLE * 2,
-                new ItemStack(TGItems.HAND_CAST_WITH_BLAZING_CHOCOLATE_HAND)
-        );
-
-        handRecipe(
-                "chocolate",
-                "chocolate",
-                FluidValues.BOTTLE * 2,
-                new ItemStack(TGItems.HAND_CAST_WITH_CHOCOLATE_HAND)
-        );
-
-        propellerRecipe(
-                "iron",
-                "molten_iron",
-                FluidValues.INGOT * 4,
-                new ItemStack(TGItems.PROPELLER_CAST_WITH_PROPELLER)
-        );
-
-        propellerRecipe(
-                "cobalt",
-                "molten_cobalt",
-                FluidValues.INGOT * 4,
-                new ItemStack(TGItems.PROPELLER_CAST_WITH_COBALT_PROPELLER)
-        );
-
-        whiskRecipe(
-                "iron",
-                "molten_iron",
-                FluidValues.INGOT * 5,
-                new ItemStack(TGItems.WHISK_CAST_WITH_WHISK)
-        );
     }
 
     private void cakeRecipe(String id, Fluid fluid, ItemStack output) {
         create("cake/" + id, b -> b.require(fluid, 1000)
                 .require(CAItems.CAKE_BASE)
                 .output(output).withCondition(new ModLoadedCondition(CreateAddition.MODID)));
-    }
-
-    private void handRecipe(String id, String fluid, int amount, ItemStack output) {
-        create("hand/" + id, b -> b.require(
-                        FluidTags.create(new ResourceLocation("forge", fluid)), amount)
-                .require(TGItems.HAND_CAST_WITH_PART)
-                .output(output));
-    }
-
-    private void propellerRecipe(String id, String fluid, int amount, ItemStack output) {
-        create("propeller/" + id, b -> b.require(
-                        FluidTags.create(new ResourceLocation("forge", fluid)), amount)
-                .require(TGItems.PROPELLER_CAST_WITH_PART)
-                .output(output));
-    }
-
-    private void whiskRecipe(String id, String fluid, int amount, ItemStack output) {
-        create("whisk/" + id, b -> b.require(
-                        FluidTags.create(new ResourceLocation("forge", fluid)), amount)
-                .require(TGItems.WHISK_CAST_WITH_PART)
-                .output(output));
     }
 }

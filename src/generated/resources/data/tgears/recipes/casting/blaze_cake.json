@@ -4,7 +4,7 @@
     "item": "create:blaze_cake_base"
   },
   "cast_consumed": true,
-  "cooling_time": 82,
+  "cooling_time": 111,
   "fluid": {
     "amount": 250,
     "fluid": "minecraft:lava"

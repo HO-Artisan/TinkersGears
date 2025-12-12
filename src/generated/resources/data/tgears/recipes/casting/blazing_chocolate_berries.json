@@ -4,10 +4,10 @@
     "item": "minecraft:sweet_berries"
   },
   "cast_consumed": true,
-  "cooling_time": 57,
+  "cooling_time": 134,
   "fluid": {
     "amount": 250,
-    "tag": "forge:blazing_chocolate"
+    "fluid": "tgears:blazing_chocolate"
   },
   "result": "tgears:blazing_chocolate_glazed_berries"
 }

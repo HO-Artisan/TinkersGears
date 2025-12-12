@@ -36,6 +36,9 @@ public final class TGPonderScenes {
         helper.forComponents(TGBlocks.TINKER_FORTUNE_DRILL.getId())
                 .addStoryBoard("tinker_fortune_drill", TinkerMachineScene::fortuneDrill, TGPonderTags.COMPAT);
 
+        helper.forComponents(TGBlocks.TINKER_CRUSHING_WHEEL.getId())
+                .addStoryBoard("tinker_crushing_wheels", TinkerMachineScene::crushing);
+
         TinkersGears.LOGGER.info("Ponder scenes initialized");
     }
 }

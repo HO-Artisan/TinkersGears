@@ -1,0 +1,36 @@
+package ho.artisan.tgears.ponder;
+
+import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
+import net.createmod.ponder.api.scene.SceneBuilder;
+import net.createmod.ponder.api.scene.SceneBuildingUtil;
+import net.minecraft.core.Direction;
+
+public class TGSceneBuilder extends CreateSceneBuilder {
+    public TGSceneBuilder(SceneBuilder builder) {
+        super(builder);
+    }
+
+    public void init5x5(SceneBuildingUtil util) {
+        this.configureBasePlate(0, 0, 5);
+        this.scaleSceneView(0.9f);
+        this.world().showSection(util.select().layer(0), Direction.UP);
+    }
+
+    public void init7x7(SceneBuildingUtil util) {
+        this.configureBasePlate(0, 0, 7);
+        this.scaleSceneView(0.75f);
+        this.world().showSection(util.select().layer(0), Direction.UP);
+    }
+
+    public void rotateAround(int duration) {
+        int time = duration / 4;
+        this.rotateCameraY(90);
+        this.idle(time);
+        this.rotateCameraY(90);
+        this.idle(time);
+        this.rotateCameraY(90);
+        this.idle(time);
+        this.rotateCameraY(90);
+        this.idle(time);
+    }
+}

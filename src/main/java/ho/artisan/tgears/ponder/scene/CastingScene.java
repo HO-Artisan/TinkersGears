@@ -1,7 +1,7 @@
 package ho.artisan.tgears.ponder.scene;
 
 import com.simibubi.create.content.fluids.spout.SpoutBlockEntity;
-import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
+import ho.artisan.tgears.ponder.TGSceneBuilder;
 import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.scene.SceneBuilder;
 import net.createmod.ponder.api.scene.SceneBuildingUtil;
@@ -14,16 +14,17 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 
 public class CastingScene {
-    private CastingScene() {}
+    private CastingScene() {
+    }
 
     public static void table(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("table_cooling", "Use fans to accelerate cooling");
-        scene.configureBasePlate(0, 0, 5);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+        scene.init5x5(util);
 
         BlockPos table = util.grid().at(2, 1, 2);
         BlockPos spout = util.grid().at(2, 3, 2);
+
         Selection selection0 = util.select().fromTo(table.west(), table.west(2));
         Selection selection1 = util.select().fromTo(table.east(), table.east(2));
         Selection selection2 = util.select().fromTo(table.south(), table.south(2));

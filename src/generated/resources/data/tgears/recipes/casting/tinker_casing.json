@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "tconstruct:scorched_stone"
+  },
+  "cast_consumed": true,
+  "cooling_time": 54,
+  "fluid": {
+    "amount": 90,
+    "tag": "forge:molten_brass"
+  },
+  "result": "tgears:tinker_casing"
+}

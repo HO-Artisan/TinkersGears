@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:material",
   "ingredient": {
-    "tag": "forge:storage_blocks/andesite_alloy"
+    "item": "create:andesite_alloy_block"
   },
   "material": "tgears:andesite_alloy",
   "needed": 1,

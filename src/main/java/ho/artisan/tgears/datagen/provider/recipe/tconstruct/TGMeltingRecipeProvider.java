@@ -3,8 +3,9 @@ package ho.artisan.tgears.datagen.provider.recipe.tconstruct;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.foundation.block.CopperBlockSet;
-import ho.artisan.tgears.datagen.provider.recipe.TGBaseRecipeProvider;
+import ho.artisan.tgears.datagen.provider.recipe.TGRecipeProvider;
 import ho.artisan.tgears.index.TGItems;
+import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -19,27 +20,118 @@ import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 
 import java.util.function.Consumer;
 
-public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implements ISmelteryRecipeHelper {
+public final class TGMeltingRecipeProvider extends TGRecipeProvider implements ISmelteryRecipeHelper {
 
     public TGMeltingRecipeProvider(PackOutput generator) {
         super(generator);
     }
 
     @Override
-    public String getName() {
-        return "TGears Melting Recipes";
+    public String getType() {
+        return "melting";
     }
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         this.crushedOreRecipes(consumer);
-        this.luzziumRecipes(consumer);
         this.copperRecipes(consumer);
         this.ironRecipes(consumer);
+        this.cobaltRecipes(consumer);
+        this.miscRecipes(consumer);
+        this.armorRecipes(consumer);
+    }
+
+    private void armorRecipes(Consumer<FinishedRecipe> consumer) {
+        String folder = "armor/";
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllItems.COPPER_DIVING_BOOTS),
+                TinkerFluids.moltenCopper.get(),
+                360
+        ).save(consumer, location(folder + "copper_diving_boots"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllItems.COPPER_DIVING_HELMET),
+                TinkerFluids.moltenCopper.get(),
+                450
+        ).save(consumer, location(folder + "copper_diving_helmet"));
+    }
+
+    private void miscRecipes(Consumer<FinishedRecipe> consumer) {
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllItems.BRASS_HAND),
+                TinkerFluids.moltenBrass.get(),
+                360
+        ).save(consumer, location("brass_hand"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllBlocks.COPPER_VALVE_HANDLE),
+                TinkerFluids.moltenCopper.get(),
+                270
+        ).save(consumer, location("copper_valve_handle"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllBlocks.BLAZE_BURNER),
+                TinkerFluids.moltenIron.get(),
+                360
+        ).addByproduct(
+                new FluidStack(TinkerFluids.blazingBlood.get(), 100)
+        ).save(consumer, location("blazing_burner"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllItems.EMPTY_BLAZE_BURNER),
+                TinkerFluids.moltenIron.get(),
+                360
+        ).save(consumer, location("empty_burner"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllItems.CRAFTER_SLOT_COVER),
+                TinkerFluids.moltenBrass.get(),
+                30
+        ).save(consumer, location("crafter_slot_cover"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllBlocks.FLUID_PIPE),
+                TinkerFluids.moltenCopper.get(),
+                30
+        ).save(consumer, location("fluid_pipe"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllBlocks.FLUID_TANK),
+                TinkerFluids.moltenCopper.get(),
+                180
+        ).save(consumer, location("fluid_tank"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllBlocks.PECULIAR_BELL),
+                TinkerFluids.moltenBrass.get(),
+                900
+        ).save(consumer, location("peculiar_bell"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllItems.PROPELLER),
+                TinkerFluids.moltenIron.get(),
+                360
+        ).save(consumer, location("propeller"));
+
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(AllItems.WHISK),
+                TinkerFluids.moltenIron.get(),
+                450
+        ).save(consumer, location("whisk"));
+    }
+
+    private void cobaltRecipes(Consumer<FinishedRecipe> consumer) {
+        String folder = "cobalt/";
+        MeltingRecipeBuilder.melting(
+                Ingredient.of(TGTagKeys.Items.COBALT_PLATE),
+                TinkerFluids.moltenCobalt.get(),
+                90
+        ).save(consumer, location(folder + "plate"));
     }
 
     private void ironRecipes(Consumer<FinishedRecipe> consumer) {
-        String folder = "melting/iron/";
+        String folder = "iron/";
         MeltingRecipeBuilder.melting(
                 Ingredient.of(AllBlocks.INDUSTRIAL_IRON_BLOCK),
                 TinkerFluids.moltenIron.get(),
@@ -58,14 +150,21 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
     }
 
     private void copperRecipe(Consumer<FinishedRecipe> consumer, CopperBlockSet set) {
-        String folder = "melting/copper/";
+        String folder = "copper/";
 
         for (WeatheringCopper.WeatherState value : WeatheringCopper.WeatherState.values()) {
             for (CopperBlockSet.Variant<?> variant : CopperBlockSet.DEFAULT_VARIANTS) {
-                boolean[] bl = { true, false };
+                boolean[] bl = {true, false};
                 for (boolean waxed : bl) {
                     String prefix = waxed ? "waxed_" : "";
-                    int amount = variant == CopperBlockSet.DEFAULT_VARIANTS[0] ? 40 : variant == CopperBlockSet.DEFAULT_VARIANTS[1] ? 20 : 30;
+                    int amount;
+                    if (variant == CopperBlockSet.DEFAULT_VARIANTS[0]) {
+                        amount = 40;
+                    } else if (variant == CopperBlockSet.DEFAULT_VARIANTS[1]) {
+                        amount = 20;
+                    } else {
+                        amount = 30;
+                    }
                     MeltingRecipeBuilder.melting(
                             Ingredient.of(set.get(variant, value, waxed)),
                             TinkerFluids.moltenCopper.get(),
@@ -76,33 +175,8 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
         }
     }
 
-    private void luzziumRecipes(Consumer<FinishedRecipe> consumer) {
-        String folder = "melting/luzzium/";
-
-        /*
-        MeltingRecipeBuilder.melting(
-                Ingredient.of(TGBlocks.LUZZIUM_BLOCK.get()),
-                TGFluids.MOLTEN_LUZZIUM.getSource(),
-                FluidValues.METAL_BLOCK
-        ).save(consumer, location(folder + "block"));
-
-        MeltingRecipeBuilder.melting(
-                Ingredient.of(TGItems.LUZZIUM_INGOT.get()),
-                TGFluids.MOLTEN_LUZZIUM.getSource(),
-                FluidValues.INGOT
-        ).save(consumer, location(folder + "ingot"));
-
-        MeltingRecipeBuilder.melting(
-                Ingredient.of(TGItems.LUZZIUM_NUGGET.get()),
-                TGFluids.MOLTEN_LUZZIUM.getSource(),
-                FluidValues.NUGGET
-        ).save(consumer, location(folder + "nugget"));
-
-         */
-    }
-
     private void crushedOreRecipes(Consumer<FinishedRecipe> consumer) {
-        String folder = "melting/crushed_ore/";
+        String folder = "crushed_ore/";
 
         crushedOreRecipeBuilder(
                 TGItems.CRUSHED_RAW_COBALT.get(),
@@ -111,7 +185,7 @@ public final class TGMeltingRecipeProvider extends TGBaseRecipeProvider implemen
                 TinkerFluids.moltenDiamond.get(),
                 25
         ).setOre(IMeltingContainer.OreRateType.METAL, IMeltingContainer.OreRateType.GEM)
-        .save(consumer, location(folder + "cobalt"));
+                .save(consumer, location(folder + "cobalt"));
 
         crushedOreRecipeBuilder(
                 AllItems.CRUSHED_COPPER.get(),

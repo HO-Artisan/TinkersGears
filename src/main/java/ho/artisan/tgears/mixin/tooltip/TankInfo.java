@@ -2,7 +2,7 @@ package ho.artisan.tgears.mixin.tooltip;
 
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import ho.artisan.tgears.TinkersGearsConfig;
-import ho.artisan.tgears.util.TinkerGogglesUtil;
+import ho.artisan.tgears.util.GogglesUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,11 +25,11 @@ public class TankInfo implements IHaveGoggleInformation {
             return false;
         }
 
-        TankBlockEntity blockEntity = (TankBlockEntity)(Object)this;
+        TankBlockEntity blockEntity = (TankBlockEntity) (Object) this;
         FluidTankAnimated tank = blockEntity.getTank();
         if (!tank.isEmpty()) {
-            TinkerGogglesUtil.addStats(tooltip);
-            TinkerGogglesUtil.addFluid(tooltip, tank.getFluid());
+            GogglesUtil.addStats(tooltip);
+            GogglesUtil.addFluid(tooltip, tank.getFluid());
             return true;
         }
         return false;

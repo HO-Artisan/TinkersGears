@@ -16,7 +16,7 @@ import ho.artisan.tgears.common.item.casting.WhiskCastItem;
 import ho.artisan.tgears.common.item.food.BlazingFoodItem;
 import ho.artisan.tgears.common.item.food.BlazingLeftoverFoodItem;
 import ho.artisan.tgears.common.item.food.LeftoverFoodItem;
-import ho.artisan.tgears.util.TinkerGogglesUtil;
+import ho.artisan.tgears.util.GogglesUtil;
 import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -46,12 +46,12 @@ public final class TGItems {
     public static final ItemEntry<Item> COBALT_SHEET =
             REGISTRATE.item("cobalt_sheet", Item::new)
                     .tag(TGTagKeys.Items.PLATES)
-                    .tag(TGTagKeys.Items.COBALT_SHEET)
+                    .tag(TGTagKeys.Items.COBALT_PLATE)
                     .register();
     public static final ItemEntry<Item> ROSE_GOLD_SHEET =
             REGISTRATE.item("rose_gold_sheet", Item::new)
                     .tag(TGTagKeys.Items.PLATES)
-                    .tag(TGTagKeys.Items.ROSE_GOLD_SHEET)
+                    .tag(TGTagKeys.Items.ROSE_GOLD_PLATE)
                     .register();
     public static final ItemEntry<Item> HAND_CAST =
             REGISTRATE.item("hand_cast", Item::new)
@@ -171,7 +171,7 @@ public final class TGItems {
      */
 
     public static void register() {
-        GogglesItem.addIsWearingPredicate(TinkerGogglesUtil::isWearingGoggles);
+        GogglesItem.addIsWearingPredicate(GogglesUtil::isWearingGoggles);
 
         TinkersGears.LOGGER.info("Items initialized");
     }

@@ -13,22 +13,25 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import slimeknights.tconstruct.world.TinkerWorld;
 
-public class TGCrushingProvider extends CrushingRecipeGen {
+public final class TGCrushingProvider extends CrushingRecipeGen {
     public TGCrushingProvider(PackOutput generator) {
         super(generator, TinkersGears.MOD_ID);
-        createRecipes();
+        rawOreRecipes();
+        miscRecipes();
     }
 
-    private void createRecipes() {
-        oreCrushingRecipe("cobalt", TinkerWorld.cobaltOre, TGItems.CRUSHED_RAW_COBALT, Items.NETHERRACK);
-
+    private void miscRecipes() {
         create("scorchia", b -> b.require(AllPaletteStoneTypes.SCORCHIA.baseBlock.get())
                 .duration(100)
                 .output(TGItems.CRUSHED_SCORCHIA)
         );
     }
 
-    protected void oreCrushingRecipe(String id, ItemLike ore, ItemLike crushedOre, ItemLike rock) {
+    private void rawOreRecipes() {
+        oreCrushingRecipe("cobalt", TinkerWorld.cobaltOre, TGItems.CRUSHED_RAW_COBALT, Items.NETHERRACK);
+    }
+
+    private void oreCrushingRecipe(String id, ItemLike ore, ItemLike crushedOre, ItemLike rock) {
         create(id + "/ore", b -> b.require(ore)
                 .duration(250)
                 .output(crushedOre)

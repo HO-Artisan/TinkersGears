@@ -15,10 +15,10 @@ public final class TGCompactingProvider extends CompactingRecipeGen {
 
     public TGCompactingProvider(PackOutput output) {
         super(output, TinkersGears.MOD_ID);
-        createRecipes();
+        miscRecipes();
     }
 
-    private void createRecipes() {
+    private void miscRecipes() {
         create("blazing_chocolate", b -> b.require(Items.SNOWBALL)
                 .require(TGFluids.BLAZING_CHOCOLATE.get(), FluidValues.BRICK)
                 .output(TGItems.BAR_OF_BLAZING_CHOCOLATE, 1));

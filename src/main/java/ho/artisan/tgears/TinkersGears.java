@@ -40,6 +40,7 @@ public class TinkersGears {
         ENCHANTMENT_LOADED = ModList.get().isLoaded("create_enchantment_industry");
 
         TGCreativeModeTabs.register(bus);
+
         REGISTRATE.registerEventListeners(bus);
 
         TGBlocks.register();

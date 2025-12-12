@@ -3,7 +3,7 @@ package ho.artisan.tgears.mixin.tooltip;
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import ho.artisan.tgears.TinkersGearsConfig;
 import ho.artisan.tgears.util.BlazeBurnerUtil;
-import ho.artisan.tgears.util.TinkerGogglesUtil;
+import ho.artisan.tgears.util.GogglesUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -29,9 +29,9 @@ public class AlloyerInfo implements IHaveGoggleInformation {
         }
         boolean flag = false;
 
-        AlloyerBlockEntity alloyer = (AlloyerBlockEntity)(Object)this;
+        AlloyerBlockEntity alloyer = (AlloyerBlockEntity) (Object) this;
 
-        TinkerGogglesUtil.addStats(tooltip);
+        GogglesUtil.addStats(tooltip);
 
         if (alloyer.getBlockState().getValue(ACTIVE)) {
             BlazeBurnerUtil.addToGoggleTooltip(
@@ -43,8 +43,8 @@ public class AlloyerInfo implements IHaveGoggleInformation {
 
         FluidTankAnimated tank = alloyer.getTank();
         if (!tank.isEmpty()) {
-            TinkerGogglesUtil.addStats(tooltip);
-            TinkerGogglesUtil.addFluid(tooltip, tank.getFluid());
+            GogglesUtil.addStats(tooltip);
+            GogglesUtil.addFluid(tooltip, tank.getFluid());
             flag = true;
         }
 

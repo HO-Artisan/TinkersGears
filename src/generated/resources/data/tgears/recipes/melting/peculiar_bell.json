@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "create:peculiar_bell"
+  },
+  "result": {
+    "amount": 900,
+    "fluid": "tconstruct:molten_brass"
+  },
+  "temperature": 605,
+  "time": 170
+}

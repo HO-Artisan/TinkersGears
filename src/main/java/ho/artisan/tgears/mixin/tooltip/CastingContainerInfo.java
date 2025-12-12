@@ -2,7 +2,7 @@ package ho.artisan.tgears.mixin.tooltip;
 
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
 import ho.artisan.tgears.TinkersGearsConfig;
-import ho.artisan.tgears.util.TinkerGogglesUtil;
+import ho.artisan.tgears.util.GogglesUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -28,20 +28,20 @@ public class CastingContainerInfo implements IHaveGoggleInformation {
 
         boolean flag = false;
 
-        CastingBlockEntity container = (CastingBlockEntity)(Object)this;
-        TinkerGogglesUtil.addStats(tooltip);
+        CastingBlockEntity container = (CastingBlockEntity) (Object) this;
+        GogglesUtil.addStats(tooltip);
 
         IFluidHandler fluidHandler = container.getCapability(ForgeCapabilities.FLUID_HANDLER).orElse(null);
 
         if (fluidHandler != null && !fluidHandler.getFluidInTank(0).isEmpty()) {
-            TinkerGogglesUtil.addFluidStats(tooltip);
-            TinkerGogglesUtil.addFluid(tooltip, fluidHandler.getFluidInTank(0));
+            GogglesUtil.addFluidStats(tooltip);
+            GogglesUtil.addFluid(tooltip, fluidHandler.getFluidInTank(0));
             flag = true;
         }
 
         if (container.getCoolingTime() > 0) {
-            TinkerGogglesUtil.addOutput(tooltip, container.getRecipeOutput());
-            TinkerGogglesUtil.addProgress(tooltip, container.getTimer(), container.getCoolingTime());
+            GogglesUtil.addOutput(tooltip, container.getRecipeOutput());
+            GogglesUtil.addProgress(tooltip, container.getTimer(), container.getCoolingTime());
             flag = true;
         }
 

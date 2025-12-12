@@ -1,13 +1,16 @@
 package ho.artisan.tgears.ponder.scene;
 
-import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
+import ho.artisan.tgears.common.block.entity.TinkerCrushingWheelControllerBlockEntity;
 import ho.artisan.tgears.common.block.entity.TinkerSpoutBlockEntity;
+import ho.artisan.tgears.ponder.TGSceneBuilder;
+import net.createmod.catnip.math.Pointing;
 import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.scene.SceneBuilder;
 import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.createmod.ponder.api.scene.Selection;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.phys.Vec3;
@@ -18,11 +21,11 @@ import slimeknights.tconstruct.fluids.TinkerFluids;
 
 public class TinkerMachineScene {
     public static void fan(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
+
         scene.title("tinker_fan", "Use tinker fans to ave stress");
-        scene.configureBasePlate(0, 0, 5);
-        scene.scaleSceneView(0.9f);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+
+        scene.init5x5(util);
 
         BlockPos fan_0 = util.grid().at(1, 1, 3);
         BlockPos fan_1 = util.grid().at(2, 1, 3);
@@ -49,11 +52,9 @@ public class TinkerMachineScene {
     }
 
     public static void spout(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("tinker_spout", "Use tinker spouts with signals");
-        scene.configureBasePlate(0, 0, 5);
-        scene.scaleSceneView(0.9f);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+        scene.init5x5(util);
 
         BlockPos table_0 = util.grid().at(1, 1, 2);
         BlockPos table_1 = util.grid().at(3, 1, 2);
@@ -111,11 +112,9 @@ public class TinkerMachineScene {
     }
 
     public static void drill(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("tinker_drill", "Use Tinker Drills to break blocks");
-        scene.configureBasePlate(0, 0, 5);
-        scene.scaleSceneView(0.9f);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+        scene.init5x5(util);
 
         BlockPos glass_0 = util.grid().at(1, 1, 2);
         BlockPos glass_1 = util.grid().at(3, 1, 2);
@@ -161,11 +160,11 @@ public class TinkerMachineScene {
     }
 
     public static void fortuneDrill(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
+
         scene.title("tinker_fortune_drill", "Use Fortune Tinker Drills to yield more drops");
-        scene.configureBasePlate(0, 0, 5);
-        scene.scaleSceneView(0.9f);
-        scene.world().showSection(util.select().layer(0), Direction.UP);
+
+        scene.init5x5(util);
 
         BlockPos ore = util.grid().at(2, 1, 2);
         BlockPos drill = util.grid().at(2, 1, 3);
@@ -191,9 +190,102 @@ public class TinkerMachineScene {
             scene.world().incrementBlockBreakingProgress(ore);
         }
 
-        scene.world().createItemEntity(ore.getCenter(), Vec3.ZERO, new ItemStack(Items.DIAMOND, 4));
+        for (int i = 0; i < 4; i++) {
+            scene.world().createItemEntity(
+                    ore.getCenter().offsetRandom(RandomSource.create(), 0.5F),
+                    Vec3.ZERO,
+                    new ItemStack(Items.DIAMOND, 1)
+            );
+        }
 
         scene.idle(20);
+        scene.markAsFinished();
+    }
+
+    public static void crushing(SceneBuilder builder, SceneBuildingUtil util) {
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
+
+        scene.title("tinker_crushing", "Use Tinker Crushing Wheels to crush items");
+
+        scene.init5x5(util);
+
+        BlockPos wheel_0 = util.grid().at(1, 2, 2);
+        BlockPos controller = util.grid().at(2, 2, 2);
+        BlockPos wheel_1 = util.grid().at(3, 2, 2);
+        BlockPos center = util.grid().at(2, 3, 2);
+
+        scene.idle(10);
+        scene.world().showSection(util.select().position(wheel_0), Direction.NORTH);
+        scene.idle(5);
+        scene.world().showSection(util.select().position(wheel_1), Direction.NORTH);
+
+        scene.idle(20);
+        scene.overlay().showText(25)
+                .text("Tinker Crushing Wheel is more stress-saving")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.GREEN)
+                .pointAt(util.vector().blockSurface(wheel_0, Direction.UP));
+        scene.idle(35);
+
+        scene.world().showSection(util.select().position(wheel_0.south()), Direction.UP);
+        scene.world().showSection(util.select().position(wheel_1.south()), Direction.UP);
+
+        scene.idle(20);
+
+        scene.world().setKineticSpeed(util.select().position(wheel_0), -32f);
+        scene.world().setKineticSpeed(util.select().position(wheel_1), 32f);
+
+        scene.idle(20);
+
+        scene.world().modifyBlockEntity(controller, TinkerCrushingWheelControllerBlockEntity.class, entity -> {
+            entity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
+                handler.insertItem(0, new ItemStack(Items.WHITE_WOOL), false);
+            });
+        });
+
+        scene.overlay().showControls(util.vector().blockSurface(controller, Direction.UP), Pointing.DOWN, 15)
+                .withItem(new ItemStack(Items.WHITE_WOOL));
+
+        scene.idle(60);
+
+        scene.markAsFinished();
+    }
+
+    public static void fortuneCrushing(SceneBuilder builder, SceneBuildingUtil util) {
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
+
+        scene.title("tinker_fortune_crushing", "Use Tinker Fortune Crushing Wheels to crush items for more product");
+
+        scene.init5x5(util);
+
+        BlockPos wheel_0 = util.grid().at(1, 2, 2);
+        BlockPos wheel_1 = util.grid().at(3, 2, 2);
+        BlockPos center = util.grid().at(2, 3, 2);
+
+        scene.idle(10);
+        scene.world().showSection(util.select().position(wheel_0), Direction.NORTH);
+        scene.idle(5);
+        scene.world().showSection(util.select().position(wheel_1), Direction.NORTH);
+
+        scene.idle(15);
+        scene.overlay().showText(25)
+                .text("Tinker Fortune Crushing Wheel can produce by-products with 100% probability")
+                .placeNearTarget()
+                .attachKeyFrame()
+                .colored(PonderPalette.GREEN)
+                .pointAt(util.vector().blockSurface(wheel_0, Direction.UP));
+
+        scene.idle(30);
+
+        scene.world().showSection(util.select().position(wheel_0.south()), Direction.UP);
+        scene.world().showSection(util.select().position(wheel_1.south()), Direction.UP);
+
+        scene.idle(20);
+
+        scene.world().setKineticSpeed(util.select().position(wheel_0), -32f);
+        scene.world().setKineticSpeed(util.select().position(wheel_1), 32f);
+        scene.idle(60);
         scene.markAsFinished();
     }
 }
