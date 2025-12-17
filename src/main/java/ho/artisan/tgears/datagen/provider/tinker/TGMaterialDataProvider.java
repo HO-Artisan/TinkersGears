@@ -33,8 +33,5 @@ public final class TGMaterialDataProvider extends AbstractMaterialDataProvider {
 
         // tier 3
         addMaterial(TGMaterials.Ids.ROSE_QUARTZ, 3, ORDER_GENERAL, true);
-
-        // tier 4
-        //addMaterial(TGMaterials.Ids.LUZZIUM, 4, ORDER_GENERAL, false);
     }
 }

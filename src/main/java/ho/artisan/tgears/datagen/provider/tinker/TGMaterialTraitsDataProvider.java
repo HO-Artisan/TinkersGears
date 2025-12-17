@@ -32,7 +32,7 @@ public final class TGMaterialTraitsDataProvider extends AbstractMaterialTraitDat
         addTraits(
                 TGMaterials.Ids.ROSE_QUARTZ,
                 MELEE_HARVEST,
-                new ModifierEntry(TGModifiers.Ids.SHARPNESS, 1)
+                new ModifierEntry(TGModifiers.Ids.ROSE_BLADE, 1)
         );
 
         /*

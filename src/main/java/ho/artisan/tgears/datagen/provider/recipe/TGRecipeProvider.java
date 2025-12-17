@@ -12,10 +12,6 @@ public abstract class TGRecipeProvider extends RecipeProvider implements ICondit
         super(output);
     }
 
-    public void log(String message) {
-        LOGGER.info(message);
-    }
-
     @Override
     public ResourceLocation location(String id) {
         return TinkersGears.asResource(getType() + "/" + id);

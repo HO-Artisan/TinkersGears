@@ -14,7 +14,7 @@ import static net.minecraft.tags.BlockTags.BUTTONS;
 
 public final class TGBlockTagGen extends TGTagGen<Block> {
     public TGBlockTagGen(RegistrateTagsProvider.IntrinsicImpl<Block> provIn) {
-        super(provIn, Block::builtInRegistryHolder);
+        super(provIn, block -> block.builtInRegistryHolder().key());
 
         prov.tag(AllTags.AllBlockTags.FAN_TRANSPARENT.tag)
                 .add(

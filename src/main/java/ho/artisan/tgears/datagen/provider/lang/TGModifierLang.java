@@ -33,8 +33,8 @@ public final class TGModifierLang extends TGLang {
         provider.add("modifier.tgears.cardboard.flavor", "Harmless but \"Powerful\"!");
         provider.add("modifier.tgears.cardboard.description", "No damage can be done, but there is a knockback bonus.");
 
-        provider.add("modifier.tgears.sharpness", "Rose Sharpness");
-        provider.add("modifier.tgears.sharpness.flavor", "Very Sharp!");
-        provider.add("modifier.tgears.sharpness.description", "Tool is so much sharper, dealing more damage!");
+        provider.add("modifier.tgears.rose_blade", "Rose Blade");
+        provider.add("modifier.tgears.rose_blade.flavor", "Sharp!");
+        provider.add("modifier.tgears.rose_blade.description", "Tool is so much sharper, dealing more damage!");
     }
 }

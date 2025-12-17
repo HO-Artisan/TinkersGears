@@ -1,11 +1,11 @@
 {
-  "tgears:topnotch": "tconstruct:normal",
-  "tgears:tapering": "tconstruct:normal",
-  "tgears:polished": "tconstruct:normal",
-  "tgears:crushing": "tconstruct:normal",
-  "tgears:goggles": "tconstruct:normal",
-  "tgears:extendo": "tconstruct:normal",
-  "tgears:diving_weights": "tconstruct:normal",
-  "tgears:cardboard": "tconstruct:normal",
-  "tgears:sharpness": "tconstruct:normal"
+	"tgears:topnotch": "tconstruct:normal",
+	"tgears:tapering": "tconstruct:normal",
+	"tgears:polished": "tconstruct:normal",
+	"tgears:crushing": "tconstruct:normal",
+	"tgears:goggles": "tconstruct:normal",
+	"tgears:extendo": "tconstruct:normal",
+	"tgears:diving_weights": "tconstruct:normal",
+	"tgears:cardboard": "tconstruct:normal",
+	"tgears:rose_blade": "tconstruct:normal"
 }

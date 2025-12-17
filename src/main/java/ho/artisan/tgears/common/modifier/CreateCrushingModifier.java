@@ -16,10 +16,14 @@ import slimeknights.tconstruct.common.recipe.RecipeCacheInvalidator;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.behavior.ProcessLootModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.build.ToolStatsModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
+import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -27,8 +31,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
-public class CreateCrushingModifier extends NoLevelsModifier implements ProcessLootModifierHook {
-    private final Cache<Item,Optional<CrushingRecipe>> recipeCache = CacheBuilder
+public class CreateCrushingModifier extends NoLevelsModifier implements ProcessLootModifierHook, ToolStatsModifierHook {
+    private final Cache<Item, Optional<CrushingRecipe>> recipeCache = CacheBuilder
             .newBuilder()
             .maximumSize(64)
             .build();
@@ -45,7 +49,7 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        hookBuilder.addHook(this, ModifierHooks.PROCESS_LOOT);
+        hookBuilder.addHook(this, ModifierHooks.PROCESS_LOOT, ModifierHooks.TOOL_STATS);
     }
 
     private Optional<CrushingRecipe> findRecipe(ItemStack stack, Level world) {
@@ -88,7 +92,7 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
     public void processLoot(IToolStackView tool, ModifierEntry modifier, List<ItemStack> generatedLoot, LootContext context) {
         Level world = context.getLevel();
         if (!generatedLoot.isEmpty()) {
-            ToolDamageUtil.damage(tool, TinkersGearsConfig.CRUSHING_DAMAGE.get() * generatedLoot.size(), null,  null);
+            ToolDamageUtil.damage(tool, TinkersGearsConfig.CRUSHING_DAMAGE.get() * generatedLoot.size(), null, null);
 
             List<ItemStack> crushedLoot = new ArrayList<>();
 
@@ -100,5 +104,11 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
             generatedLoot.clear();
             generatedLoot.addAll(crushedLoot);
         }
+    }
+
+    @Override
+    public void addToolStats(IToolContext context, ModifierEntry modifier, ModifierStatsBuilder builder) {
+        builder.multiplier(ToolStats.MINING_SPEED, 0.75F);
+        builder.multiplier(ToolStats.USE_ITEM_SPEED, 0.75F);
     }
 }

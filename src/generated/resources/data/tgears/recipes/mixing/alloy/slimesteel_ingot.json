@@ -6,12 +6,12 @@
       "tag": "forge:ingots/iron"
     },
     {
+      "item": "tconstruct:sky_slime_ball"
+    },
+    {
       "amount": 250,
       "fluid": "tconstruct:seared_stone",
       "nbt": {}
-    },
-    {
-      "item": "tconstruct:sky_slime_ball"
     }
   ],
   "results": [

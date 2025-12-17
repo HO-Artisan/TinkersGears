@@ -13,7 +13,7 @@ import slimeknights.tconstruct.gadgets.TinkerGadgets;
 
 public final class TGItemTagGen extends TGTagGen<Item> {
     public TGItemTagGen(RegistrateTagsProvider.IntrinsicImpl<Item> provIn) {
-        super(provIn, Item::builtInRegistryHolder);
+        super(provIn, item -> item.builtInRegistryHolder().key());
 
         prov.tag(AllTags.AllItemTags.BLAZE_BURNER_FUEL_SPECIAL.tag)
                 .add(

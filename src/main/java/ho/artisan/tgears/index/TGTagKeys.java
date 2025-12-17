@@ -36,15 +36,15 @@ public final class TGTagKeys {
 
         public static final TagKey<Item> DRILL = tgearsTag("drill");
 
-        private static TagKey<Item> createTag(final String name) {
+        public static TagKey<Item> createTag(final String name) {
             return ItemTags.create(new ResourceLocation("create", name));
         }
 
-        private static TagKey<Item> tgearsTag(final String name) {
+        public static TagKey<Item> tgearsTag(final String name) {
             return ItemTags.create(TinkersGears.asResource(name));
         }
 
-        private static TagKey<Item> forgeTag(final String name) {
+        public static TagKey<Item> forgeTag(final String name) {
             return ItemTags.create(new ResourceLocation("forge", name));
         }
     }
@@ -58,15 +58,15 @@ public final class TGTagKeys {
         private Blocks() {
         }
 
-        private static TagKey<Block> createTag(final String name) {
+        public static TagKey<Block> createTag(final String name) {
             return BlockTags.create(new ResourceLocation("create", name));
         }
 
-        private static TagKey<Block> tgearsTag(final String name) {
+        public static TagKey<Block> tgearsTag(final String name) {
             return BlockTags.create(TinkersGears.asResource(name));
         }
 
-        private static TagKey<Block> tconstructTag(final String name) {
+        public static TagKey<Block> tconstructTag(final String name) {
             return BlockTags.create(new ResourceLocation("tconstruct", name));
         }
     }
@@ -82,7 +82,7 @@ public final class TGTagKeys {
         private Fluids() {
         }
 
-        private static TagKey<Fluid> forgeTag(final String name) {
+        public static TagKey<Fluid> forgeTag(final String name) {
             return FluidTags.create(new ResourceLocation("forge", name));
         }
     }

@@ -7,7 +7,7 @@ import net.minecraft.world.level.material.Fluid;
 
 public class TGFluidTagGen extends TGTagGen<Fluid> {
     public TGFluidTagGen(RegistrateTagsProvider.IntrinsicImpl<Fluid> provIn) {
-        super(provIn, Fluid::builtInRegistryHolder);
+        super(provIn, fluid -> fluid.builtInRegistryHolder().key());
 
         prov.tag(TGTagKeys.Fluids.BLAZING_CHOCOLATE)
                 .add(

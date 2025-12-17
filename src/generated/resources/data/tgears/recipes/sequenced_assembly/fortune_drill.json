@@ -1,12 +1,12 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "tgears:tinker_crushing_wheel"
+    "item": "tgears:tinker_drill"
   },
-  "loops": 8,
+  "loops": 4,
   "results": [
     {
-      "item": "tgears:tinker_fortune_crushing_wheel"
+      "item": "tgears:tinker_fortune_drill"
     }
   ],
   "sequence": [
@@ -14,7 +14,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "tgears:tinker_crushing_wheel"
+          "item": "tgears:tinker_drill"
         },
         {
           "item": "create:experience_block"
@@ -22,12 +22,12 @@
       ],
       "results": [
         {
-          "item": "tgears:tinker_crushing_wheel"
+          "item": "tgears:tinker_drill"
         }
       ]
     }
   ],
   "transitionalItem": {
-    "item": "tgears:tinker_crushing_wheel"
+    "item": "tgears:tinker_drill"
   }
 }

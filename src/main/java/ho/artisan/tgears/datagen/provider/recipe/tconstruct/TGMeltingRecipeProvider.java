@@ -178,7 +178,7 @@ public final class TGMeltingRecipeProvider extends TGRecipeProvider implements I
     private void crushedOreRecipes(Consumer<FinishedRecipe> consumer) {
         String folder = "crushed_ore/";
 
-        crushedOreRecipeBuilder(
+        crushedRecipe(
                 TGItems.CRUSHED_RAW_COBALT.get(),
                 TinkerFluids.moltenCobalt.get(),
                 120,
@@ -187,7 +187,7 @@ public final class TGMeltingRecipeProvider extends TGRecipeProvider implements I
         ).setOre(IMeltingContainer.OreRateType.METAL, IMeltingContainer.OreRateType.GEM)
                 .save(consumer, location(folder + "cobalt"));
 
-        crushedOreRecipeBuilder(
+        crushedRecipe(
                 AllItems.CRUSHED_COPPER.get(),
                 TinkerFluids.moltenCopper.get(),
                 120,
@@ -195,20 +195,20 @@ public final class TGMeltingRecipeProvider extends TGRecipeProvider implements I
                 60
         ).save(consumer, location(folder + "copper"));
 
-        crushedOreRecipeBuilder(
+        crushedRecipe(
                 AllItems.CRUSHED_IRON,
                 TinkerFluids.moltenIron.get(),
                 TinkerFluids.moltenSteel.get()
         ).save(consumer, location(folder + "iron"));
 
-        crushedOreRecipeBuilder(
+        crushedRecipe(
                 AllItems.CRUSHED_GOLD,
                 TinkerFluids.moltenGold.get(),
                 TinkerFluids.moltenCobalt.get()
         ).save(consumer, location(folder + "gold"));
     }
 
-    public MeltingRecipeBuilder crushedOreRecipeBuilder(ItemLike crushedOre, Fluid moltenFluid, int amount) {
+    public MeltingRecipeBuilder crushedRecipe(ItemLike crushedOre, Fluid moltenFluid, int amount) {
         return MeltingRecipeBuilder.melting(
                 Ingredient.of(crushedOre),
                 new FluidStack(moltenFluid, amount),
@@ -216,12 +216,12 @@ public final class TGMeltingRecipeProvider extends TGRecipeProvider implements I
         ).setOre(IMeltingContainer.OreRateType.METAL, IMeltingContainer.OreRateType.METAL);
     }
 
-    public MeltingRecipeBuilder crushedOreRecipeBuilder(ItemLike crushedOre, Fluid moltenFluid, int amount, Fluid byproductFluid, int byproductAmount) {
-        return crushedOreRecipeBuilder(crushedOre, moltenFluid, amount).addByproduct(new FluidStack(byproductFluid, byproductAmount));
+    public MeltingRecipeBuilder crushedRecipe(ItemLike crushedOre, Fluid moltenFluid, int amount, Fluid byproductFluid, int byproductAmount) {
+        return crushedRecipe(crushedOre, moltenFluid, amount).addByproduct(new FluidStack(byproductFluid, byproductAmount));
     }
 
-    public MeltingRecipeBuilder crushedOreRecipeBuilder(ItemLike crushedOre, Fluid moltenFluid, Fluid byproductFluid) {
-        return crushedOreRecipeBuilder(crushedOre, moltenFluid, 120, byproductFluid, 120);
+    public MeltingRecipeBuilder crushedRecipe(ItemLike crushedOre, Fluid moltenFluid, Fluid byproductFluid) {
+        return crushedRecipe(crushedOre, moltenFluid, 120, byproductFluid, 120);
     }
 
 }

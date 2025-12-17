@@ -9,7 +9,8 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 public final class TGModifiers {
 
-    private TGModifiers() {}
+    private TGModifiers() {
+    }
 
     public static final class Ids {
         public static final ModifierId ADRENALINE = id("adrenaline");
@@ -25,7 +26,7 @@ public final class TGModifiers {
         public static final ModifierId DIVING = id("diving_weights");
 
         public static final ModifierId STRESS_DRIVEN = id("stress_driven");
-        public static final ModifierId SHARPNESS = id("sharpness");
+        public static final ModifierId ROSE_BLADE = id("rose_blade");
 
         private static ModifierId id(String id) {
             return ModifierId.tryBuild(TinkersGears.MOD_ID, id);
@@ -35,7 +36,7 @@ public final class TGModifiers {
     private static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(TinkersGears.MOD_ID);
 
     public static final StaticModifier<CreatePolishedModifier> POLISHED = MODIFIERS.register("polished", CreatePolishedModifier::new);
-    public static final StaticModifier<CreateCrushingModifier> CRUSHING =  MODIFIERS.register("crushing", CreateCrushingModifier::new);
+    public static final StaticModifier<CreateCrushingModifier> CRUSHING = MODIFIERS.register("crushing", CreateCrushingModifier::new);
     public static final StaticModifier<CreateExtendoModifier> EXTENDO = MODIFIERS.register("extendo", CreateExtendoModifier::new);
 
     public static final StaticModifier<CreateCardboardModifier> CARDBOARD = MODIFIERS.register("cardboard", CreateCardboardModifier::new);

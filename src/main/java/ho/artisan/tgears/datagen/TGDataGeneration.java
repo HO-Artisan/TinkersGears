@@ -4,20 +4,14 @@ import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.datagen.provider.lang.*;
 import ho.artisan.tgears.datagen.provider.recipe.create.*;
-import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGAlloyingProvider;
-import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGCastingRecipeProvider;
-import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGMaterialRecipeProvider;
-import ho.artisan.tgears.datagen.provider.recipe.tconstruct.TGMeltingRecipeProvider;
+import ho.artisan.tgears.datagen.provider.recipe.tconstruct.*;
 import ho.artisan.tgears.datagen.provider.recipe.vanilla.TGBlastingProvider;
 import ho.artisan.tgears.datagen.provider.recipe.vanilla.TGCraftingProvider;
 import ho.artisan.tgears.datagen.provider.recipe.vanilla.TGSmeltingProvider;
 import ho.artisan.tgears.datagen.provider.tag.TGBlockTagGen;
 import ho.artisan.tgears.datagen.provider.tag.TGFluidTagGen;
 import ho.artisan.tgears.datagen.provider.tag.TGItemTagGen;
-import ho.artisan.tgears.datagen.provider.tinker.TGMaterialDataProvider;
-import ho.artisan.tgears.datagen.provider.tinker.TGMaterialStatsProvider;
-import ho.artisan.tgears.datagen.provider.tinker.TGMaterialTraitsDataProvider;
-import ho.artisan.tgears.datagen.provider.tinker.TGToolDefinitionDataProvider;
+import ho.artisan.tgears.datagen.provider.tinker.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
@@ -68,6 +62,9 @@ public class TGDataGeneration {
     }
 
     private static void ticRecipes(Consumer<Function<PackOutput, ? extends DataProvider>> consumer) {
+        // Modifiers
+        consumer.accept(TGModifierProvider::new);
+
         // Materials
         consumer.accept(TGMaterialDataProvider::new);
         consumer.accept(TGMaterialTraitsDataProvider::new);
@@ -82,6 +79,8 @@ public class TGDataGeneration {
         consumer.accept(TGMeltingRecipeProvider::new);
 
         consumer.accept(TGAlloyingProvider::new);
+        consumer.accept(TGModifierRecipeProvider::new);
+        consumer.accept(TGModifierSalvageProvider::new);
     }
 
     private static void createRecipes(Consumer<Function<PackOutput, ? extends DataProvider>> consumer) {

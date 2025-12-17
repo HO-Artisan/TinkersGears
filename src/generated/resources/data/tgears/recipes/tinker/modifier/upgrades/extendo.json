@@ -1,19 +1,26 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": false,
   "inputs": [
     {
       "item": "create:extendo_grip"
     },
     {
       "item": "create:extendo_grip"
+    },
+    {
+      "item": "create:cogwheel"
+    },
+    {
+      "item": "create:large_cogwheel"
     }
   ],
   "level": 1,
   "result": "tgears:extendo",
   "slots": {
-    "upgrades": 2
+    "upgrades": 1
   },
   "tools": {
-    "item": "tconstruct:plate_chestplate"
+    "tag": "tconstruct:modifiable/armor/chestplate"
   }
 }

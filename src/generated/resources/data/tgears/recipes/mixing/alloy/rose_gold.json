@@ -1,19 +1,5 @@
 {
   "type": "create:mixing",
-  "conditions": [
-    {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:or",
-        "values": [
-          {
-            "type": "forge:mod_loaded",
-            "modid": "createaddition"
-          }
-        ]
-      }
-    }
-  ],
   "heatRequirement": "heated",
   "ingredients": [
     {
