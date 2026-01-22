@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 4,
+  "pattern": "tgears:tool/hand_part",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tgears:hand_part_cast"
+    }
+  ],
+  "result": {
+    "item": "tgears:hand_part"
+  }
+}

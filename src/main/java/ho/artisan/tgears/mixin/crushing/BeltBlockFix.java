@@ -1,7 +1,7 @@
 package ho.artisan.tgears.mixin.crushing;
 
 import com.simibubi.create.content.kinetics.belt.BeltBlock;
-import ho.artisan.tgears.common.block.entity.TinkerCrushingWheelControllerBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerCrushingWheelControllerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelAccessor;
 import org.spongepowered.asm.mixin.Mixin;

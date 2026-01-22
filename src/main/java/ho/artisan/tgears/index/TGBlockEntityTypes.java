@@ -10,7 +10,7 @@ import ho.artisan.tgears.client.renderer.TinkerFanRenderer;
 import ho.artisan.tgears.client.renderer.TinkerSpoutRenderer;
 import ho.artisan.tgears.client.visual.TinkerDrillVisual;
 import ho.artisan.tgears.client.visual.TinkerFanVisual;
-import ho.artisan.tgears.common.block.entity.*;
+import ho.artisan.tgears.old.block.entity.*;
 
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 

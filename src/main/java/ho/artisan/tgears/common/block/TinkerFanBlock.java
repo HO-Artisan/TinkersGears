@@ -3,7 +3,7 @@ package ho.artisan.tgears.common.block;
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.content.logistics.chute.AbstractChuteBlock;
 import com.simibubi.create.foundation.block.IBE;
-import ho.artisan.tgears.common.block.entity.TinkerFanBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerFanBlockEntity;
 import ho.artisan.tgears.index.TGBlockEntityTypes;
 import net.createmod.catnip.levelWrappers.WrappedLevel;
 import net.minecraft.core.BlockPos;
@@ -35,8 +35,7 @@ public class TinkerFanBlock extends DirectionalKineticBlock implements IBE<Tinke
     }
 
     @Override
-    public void neighborChanged(BlockState state, Level worldIn, BlockPos pos, Block blockIn, BlockPos fromPos,
-                                boolean isMoving) {
+    public void neighborChanged(BlockState state, Level worldIn, BlockPos pos, Block blockIn, BlockPos fromPos, boolean isMoving) {
         blockUpdate(state, worldIn, pos);
     }
 

@@ -1,0 +1,55 @@
+package ho.artisan.tgears.data.provider.recipe.create;
+
+import com.simibubi.create.AllItems;
+import com.simibubi.create.api.data.recipe.CrushingRecipeGen;
+import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
+import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.index.TGItems;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
+import slimeknights.tconstruct.world.TinkerWorld;
+
+public final class TGCrushingProvider extends CrushingRecipeGen {
+    public TGCrushingProvider(PackOutput generator) {
+        super(generator, TinkersGears.MOD_ID);
+        rawOreRecipes();
+        miscRecipes();
+    }
+
+    private void miscRecipes() {
+        create("scorchia", b -> b.require(AllPaletteStoneTypes.SCORCHIA.baseBlock.get())
+                .duration(100)
+                .output(TGItems.CRUSHED_SCORCHIA)
+        );
+    }
+
+    private void rawOreRecipes() {
+        oreCrushing("cobalt", TinkerWorld.cobaltOre, TGItems.CRUSHED_RAW_COBALT, Items.NETHERRACK);
+    }
+
+    private void oreCrushing(String id, ItemLike ore, ItemLike crushedOre, ItemLike rock) {
+        create(id + "/ore", b -> b.require(ore)
+                .duration(250)
+                .output(crushedOre)
+                .output(0.75F, crushedOre)
+                .output(0.75F, AllItems.EXP_NUGGET)
+                .output(0.125F, rock)
+        );
+
+        create(id + "/raw_ore", b -> b.require(TagKey.create(Registries.ITEM, ResourceLocation.tryBuild("forge", "raw_materials/" + id)))
+                .duration(400)
+                .output(crushedOre)
+                .output(0.75F, AllItems.EXP_NUGGET)
+        );
+
+        create(id + "/raw_ore_block", b -> b.require(TagKey.create(Registries.ITEM, ResourceLocation.tryBuild("forge", "storage_blocks/raw_" + id)))
+                .duration(400)
+                .output(crushedOre, 9)
+                .output(0.75F, AllItems.EXP_NUGGET, 9)
+        );
+    }
+}

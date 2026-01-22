@@ -1,6 +1,5 @@
 package ho.artisan.tgears.common.modifier;
 
-import ho.artisan.tgears.TinkersGearsConfig;
 import net.minecraft.network.chat.Component;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -33,7 +32,7 @@ public class CreatePolishedModifier extends DurabilityShieldModifier
 
     @Override
     public int getShieldCapacity(IToolStackView tool, ModifierEntry modifier) {
-        return (int) (tool.getStats().getInt(ToolStats.DURABILITY) * TinkersGearsConfig.POLISHING_SHIELD.get());
+        return (int) (tool.getStats().getInt(ToolStats.DURABILITY) * 0.1F);
     }
 
     @Nullable

@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 4,
+  "pattern": "tgears:tool/propeller_part",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tgears:propeller_part_cast"
+    }
+  ],
+  "result": {
+    "item": "tgears:propeller_part"
+  }
+}

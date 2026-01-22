@@ -25,7 +25,8 @@ import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
 public final class TGFluids {
 
-    private TGFluids() {}
+    private TGFluids() {
+    }
 
     public static final FluidEntry<ForgeFlowingFluid.Flowing> BLAZING_CHOCOLATE =
             REGISTRATE.standardFluid("blazing_chocolate",

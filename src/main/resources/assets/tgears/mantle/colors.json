@@ -1,18 +1,19 @@
 {
 	"modifier.tgears": {
 		"topnotch": "#b3c9ba",
-		"tapering": "#e0e0e0",
-		"polished": "#b4bdc1",
 		"crushing": "#bfbeae",
 		"goggles": "#ffeb94",
 		"extendo": "#ffeb94",
 		"diving_weights": "#b3c9ba",
 		"cardboard": "#eaaf56",
-		"rose_blade": "#ff608d"
+		"rose_blade": "#ff608d",
+		"precision": "#f2d16a",
+		"wrench": "#f2d16a"
 	},
 	"material.tgears": {
 		"andesite_alloy": "#b3c9ba",
 		"cardboard": "#eaaf56",
-		"rose_quartz": "#ff608d"
+		"rose_quartz": "#ff608d",
+		"brass": "#f2d16a"
 	}
 }

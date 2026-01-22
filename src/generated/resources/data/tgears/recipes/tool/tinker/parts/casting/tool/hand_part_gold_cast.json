@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "tgears:casts/multi_use/hand_part"
+  },
+  "item_cost": 4,
+  "result": "tgears:hand_part"
+}

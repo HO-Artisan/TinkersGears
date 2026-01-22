@@ -20,6 +20,9 @@
   ],
   "level": 1,
   "result": "tgears:crushing",
+  "slots": {
+    "abilities": 1
+  },
   "tools": {
     "item": "tconstruct:pickaxe"
   }

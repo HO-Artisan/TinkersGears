@@ -3,7 +3,7 @@ package ho.artisan.tgears.common.block;
 import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
-import ho.artisan.tgears.common.block.entity.TinkerSpoutBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerSpoutBlockEntity;
 import ho.artisan.tgears.index.TGBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;

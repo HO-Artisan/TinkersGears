@@ -1,7 +1,6 @@
 package ho.artisan.tgears.common.block.behaviour;
 
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
-import ho.artisan.tgears.TinkersGearsConfig;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantments;
 
@@ -13,7 +12,7 @@ public class TinkerFortuneDrillMovementBehaviour extends TinkerDrillMovementBeha
     @Override
     public ItemStack createTool() {
         ItemStack tool = super.createTool();
-        tool.enchant(Enchantments.BLOCK_FORTUNE, TinkersGearsConfig.FORTUNE_DRILL_LEVEL.get());
+        tool.enchant(Enchantments.BLOCK_FORTUNE, 3);
         return tool;
     }
 }

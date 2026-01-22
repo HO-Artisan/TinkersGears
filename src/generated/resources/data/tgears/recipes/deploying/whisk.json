@@ -1,0 +1,18 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "type": "tconstruct:material",
+      "item": "tgears:whisk_part",
+      "material": "tconstruct:iron"
+    },
+    {
+      "item": "create:andesite_alloy"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:whisk"
+    }
+  ]
+}

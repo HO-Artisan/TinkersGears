@@ -4,7 +4,6 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.simibubi.create.AllRecipeTypes;
 import com.simibubi.create.content.kinetics.crusher.CrushingRecipe;
-import ho.artisan.tgears.TinkersGearsConfig;
 import ho.artisan.tgears.common.block.module.CrushingItemModule;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.item.Item;
@@ -92,7 +91,7 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
     public void processLoot(IToolStackView tool, ModifierEntry modifier, List<ItemStack> generatedLoot, LootContext context) {
         Level world = context.getLevel();
         if (!generatedLoot.isEmpty()) {
-            ToolDamageUtil.damage(tool, TinkersGearsConfig.CRUSHING_DAMAGE.get() * generatedLoot.size(), null, null);
+            ToolDamageUtil.damage(tool, 5 * generatedLoot.size(), null, null);
 
             List<ItemStack> crushedLoot = new ArrayList<>();
 

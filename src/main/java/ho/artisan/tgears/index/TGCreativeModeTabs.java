@@ -4,7 +4,7 @@ import com.simibubi.create.content.processing.sequenced.SequencedAssemblyItem;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.api.item.CompatItem;
+import ho.artisan.tgears.common.item.TabControlled;
 import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
 import it.unimi.dsi.fastutil.objects.ReferenceLinkedOpenHashSet;
 import net.minecraft.core.registries.Registries;
@@ -25,7 +25,8 @@ import java.util.List;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class TGCreativeModeTabs {
 
-    private TGCreativeModeTabs() {}
+    private TGCreativeModeTabs() {
+    }
 
     private static final DeferredRegister<CreativeModeTab> TAB_REGISTER = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TinkersGears.MOD_ID);
 
@@ -71,8 +72,8 @@ public final class TGCreativeModeTabs {
 
         private static void outputAll(CreativeModeTab.Output output, List<Item> items) {
             for (Item item : items) {
-                if (item instanceof CompatItem compatItem)
-                    if (!compatItem.shouldLoad())
+                if (item instanceof TabControlled controlled)
+                    if (!controlled.shouldLoad())
                         continue;
                 if (item instanceof SequencedAssemblyItem)
                     continue;
@@ -87,6 +88,8 @@ public final class TGCreativeModeTabs {
             items.addAll(collectItems());
 
             outputAll(output, items);
+
+            TGTinkerItems.addTabItems(params, output);
         }
     }
 }

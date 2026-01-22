@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fluid": {
+    "amount": 20,
+    "tag": "forge:molten_iron"
+  },
+  "input": "tconstruct:rock#andesite",
+  "output": "tgears:andesite_alloy",
+  "temperature": 800
+}

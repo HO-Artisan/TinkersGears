@@ -1,7 +1,5 @@
 package ho.artisan.tgears.index;
 
-import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
+public final class TGToolDefinitions {
 
-public class TGToolDefinitions {
-    public static final ToolDefinition WRENCH = ToolDefinition.create(TGItems.WRENCH.getId());
 }

@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 5,
+  "pattern": "tgears:tool/whisk_part",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tgears:whisk_part_cast"
+    }
+  ],
+  "result": {
+    "item": "tgears:whisk_part"
+  }
+}

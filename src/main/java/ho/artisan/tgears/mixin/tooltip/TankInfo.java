@@ -21,7 +21,7 @@ public class TankInfo implements IHaveGoggleInformation {
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        if (!TinkersGearsConfig.IS_GOGGLES_ENABLED.get()) {
+        if (!TinkersGearsConfig.client().enableGoggleOverlay.get()) {
             return false;
         }
 

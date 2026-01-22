@@ -1,5 +1,11 @@
 {
   "perStat": {
+    "tconstruct:ammo": [
+      {
+        "level": 1,
+        "name": "tgears:rose_blade"
+      }
+    ],
     "tconstruct:melee_harvest": [
       {
         "level": 1,

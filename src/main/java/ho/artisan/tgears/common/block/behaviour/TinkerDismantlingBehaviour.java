@@ -2,8 +2,8 @@ package ho.artisan.tgears.common.block.behaviour;
 
 import com.simibubi.create.foundation.blockEntity.behaviour.BehaviourType;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
-import ho.artisan.tgears.common.block.TinkerDismantlerBlock;
-import ho.artisan.tgears.common.block.entity.TinkerDismantlerBlockEntity;
+import ho.artisan.tgears.old.block.TinkerDismantlerBlock;
+import ho.artisan.tgears.old.block.entity.TinkerDismantlerBlockEntity;
 import ho.artisan.tgears.common.block.module.TinkerItemModule;
 import ho.artisan.tgears.common.recipe.DismantlingRecipe;
 import ho.artisan.tgears.index.TGRecipeTypes;

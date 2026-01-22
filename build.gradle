@@ -5,6 +5,7 @@ plugins {
     id "me.modmuss50.mod-publish-plugin" version "0.8.4"
 }
 
+
 base {
     archivesName = "tgears"
     group = 'ho.artisan.tgears'
@@ -92,47 +93,53 @@ repositories {
     maven { url = "https://modmaven.dev/" }
     maven { url = "https://api.modrinth.com/maven" }
     maven { url = 'https://dvs1.progwml6.com/files/maven' }
+    maven { url = "https://maven.kessokuteatime.work/releases" }
 }
 
 dependencies {
-    modImplementation("com.simibubi.create:create-${minecraft_version}:${create_version}-${create_version_number}:slim") { transitive = false }
-    modImplementation("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}")
-    modCompileOnly("dev.engine-room.flywheel:flywheel-forge-api-${flywheel_minecraft_version}:${flywheel_version}")
-    modRuntimeOnly("dev.engine-room.flywheel:flywheel-forge-${flywheel_minecraft_version}:${flywheel_version}")
-    modImplementation("com.tterrag.registrate:Registrate:${registrate_version}")
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
-    implementation("io.github.llamalad7:mixinextras-forge:0.4.1")
-
-    modImplementation("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
-    modImplementation("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tinker_version}")
-
-    modCompileOnly("mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}")
-    modCompileOnly("mezz.jei:jei-${jei_minecraft_version}-forge-api:${jei_version}")
-    modImplementation("mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}")
-
-    modImplementation("maven.modrinth:create-metallurgy:${metallurgy_version}")
-
-    modImplementation("maven.modrinth:create-enchantment-industry:${create_enchantment_industry_version}")
-
-    modImplementation("maven.modrinth:createaddition:${createaddition_version}")
-    
-    //modRuntimeOnly("maven.modrinth:create-henry:${create_henry_version}")
-    //modRuntimeOnly("maven.modrinth:create-alloyed:${alloyed_version}")
-    //modRuntimeOnly("mekanism:Mekanism:${mekanism_version}")
-    //modRuntimeOnly("maven.modrinth:moremcmeta-emissive:${mmet_version}")
-
-    compileOnly 'org.projectlombok:lombok:1.18.28'
-    compileOnly 'org.jetbrains:annotations:26.0.2'
-    annotationProcessor 'org.projectlombok:lombok:1.18.28'
-    annotationProcessor 'org.jetbrains:annotations:26.0.2'
+    // Mixin
+    implementation "io.github.llamalad7:mixinextras-forge:0.4.1"
     annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
+
+    jarJar(modImplementation "com.chemiofitor:tgearbox:1.0")
+    // Create
+    modImplementation("com.simibubi.create:create-${minecraft_version}:${create_version}-${create_version_number}:slim") {
+        transitive = false
+    }
+
+    // Create Dependencies
+    modImplementation "com.tterrag.registrate:Registrate:${registrate_version}"
+    modImplementation "net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}"
+    modCompileOnly "dev.engine-room.flywheel:flywheel-forge-api-${flywheel_minecraft_version}:${flywheel_version}"
+    modRuntimeOnly "dev.engine-room.flywheel:flywheel-forge-${flywheel_minecraft_version}:${flywheel_version}"
+    // TiC
+    modImplementation "slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}"
+    modImplementation "slimeknights.tconstruct:TConstruct:${minecraft_version}-${tinker_version}"
+
+    // JEI
+    modImplementation "mezz.jei:jei-${jei_minecraft_version}-forge:${jei_version}"
+    modCompileOnly "mezz.jei:jei-${jei_minecraft_version}-common-api:${jei_version}"
+    modCompileOnly "mezz.jei:jei-${jei_minecraft_version}-forge-api:${jei_version}"
+
+    // Create Addons
+    // modImplementation "maven.modrinth:create-metallurgy:${metallurgy_version}"
+    modImplementation "maven.modrinth:create-enchantment-industry:${create_enchantment_industry_version}"
+    modImplementation "maven.modrinth:createaddition:${createaddition_version}"
+    // modCompileOnly "maven.modrinth:create-henry:${create_henry_version}"
+    // modCompileOnly "maven.modrinth:create-alloyed:${alloyed_version}"
+
+    // Development
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    // Jetbrains Annotations
+    compileOnly 'org.jetbrains:annotations:26.0.2'
+    annotationProcessor 'org.jetbrains:annotations:26.0.2'
 }
 
 sourceSets.main.resources {
     srcDir 'src/generated/resources'
     exclude ".cache"
-    exclude "assets/tgears/lang-gen"
-    exclude "assets/tgears/lang/default"
 }
 
 mixin {
@@ -149,7 +156,7 @@ jar {
         attributes([
                 "Specification-Title"     : "tgears",
                 "Specification-Vendor"    : "chemiofitor",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "chemiofitor",

@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "tgears:casts/multi_use/whisk_part"
+  },
+  "item_cost": 5,
+  "result": "tgears:whisk_part"
+}

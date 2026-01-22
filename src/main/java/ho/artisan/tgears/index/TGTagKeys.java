@@ -1,5 +1,6 @@
 package ho.artisan.tgears.index;
 
+import com.simibubi.create.Create;
 import ho.artisan.tgears.TinkersGears;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -36,8 +37,10 @@ public final class TGTagKeys {
 
         public static final TagKey<Item> DRILL = tgearsTag("drill");
 
+        public static final TagKey<Item> GEARS = tgearsTag("modifiable/gears");
+
         public static TagKey<Item> createTag(final String name) {
-            return ItemTags.create(new ResourceLocation("create", name));
+            return ItemTags.create(ResourceLocation.tryBuild("create", name));
         }
 
         public static TagKey<Item> tgearsTag(final String name) {
@@ -45,7 +48,7 @@ public final class TGTagKeys {
         }
 
         public static TagKey<Item> forgeTag(final String name) {
-            return ItemTags.create(new ResourceLocation("forge", name));
+            return ItemTags.create(ResourceLocation.tryBuild("forge", name));
         }
     }
 
@@ -55,11 +58,13 @@ public final class TGTagKeys {
         public static final TagKey<Block> DRILL = tgearsTag("drill");
         public static final TagKey<Block> TINKER_ASSEMBLY_OPERATOR = tgearsTag("tinker_assembly_operator");
 
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_BLAZING = createTag("fan_processing_catalysts/blazing");
+
         private Blocks() {
         }
 
         public static TagKey<Block> createTag(final String name) {
-            return BlockTags.create(new ResourceLocation("create", name));
+            return BlockTags.create(ResourceLocation.tryBuild("create", name));
         }
 
         public static TagKey<Block> tgearsTag(final String name) {
@@ -67,7 +72,7 @@ public final class TGTagKeys {
         }
 
         public static TagKey<Block> tconstructTag(final String name) {
-            return BlockTags.create(new ResourceLocation("tconstruct", name));
+            return BlockTags.create(ResourceLocation.tryBuild("tconstruct", name));
         }
     }
 
@@ -79,11 +84,21 @@ public final class TGTagKeys {
         public static final TagKey<Fluid> MOLTEN_BRASS = forgeTag("molten_brass");
         public static final TagKey<Fluid> MOLTEN_LUZZIUM = forgeTag("molten_luzzium");
 
+        public static final TagKey<Fluid> FAN_PROCESSING_CATALYSTS_BLAZING = createTag("fan_processing_catalysts/blazing");
+
         private Fluids() {
         }
 
         public static TagKey<Fluid> forgeTag(final String name) {
-            return FluidTags.create(new ResourceLocation("forge", name));
+            return FluidTags.create(ResourceLocation.tryBuild("forge", name));
+        }
+
+        public static TagKey<Fluid> createTag(final String name) {
+            return FluidTags.create(Create.asResource(name));
+        }
+
+        public static TagKey<Fluid> tgearsTag(final String name) {
+            return FluidTags.create(TinkersGears.asResource(name));
         }
     }
 }

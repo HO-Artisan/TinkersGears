@@ -4,8 +4,8 @@ import com.simibubi.create.content.kinetics.crusher.CrushingWheelControllerBlock
 import com.simibubi.create.content.processing.recipe.ProcessingInventory;
 import com.simibubi.create.content.processing.recipe.ProcessingOutput;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
-import ho.artisan.tgears.common.block.entity.TinkerFortuneCrushingWheelControllerBlockEntity;
-import ho.artisan.tgears.common.block.entity.TinkerSilkyCrushingWheelControllerBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerFortuneCrushingWheelControllerBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerSilkyCrushingWheelControllerBlockEntity;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -24,10 +24,10 @@ public class CrushingBlockEntityTick {
                     target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"
             )
     )
-    public boolean tickMixin(Entity instance, DamageSource source, float amount) {
+    public boolean hurtMixin(Entity instance, DamageSource source, float amount) {
         CrushingWheelControllerBlockEntity entity = (CrushingWheelControllerBlockEntity) (Object) this;
         if (!(entity instanceof TinkerSilkyCrushingWheelControllerBlockEntity)) {
-            instance.hurt(source, amount);
+            return instance.hurt(source, amount); //
         }
         return false;
     }
@@ -40,7 +40,7 @@ public class CrushingBlockEntityTick {
                     target = "Lcom/simibubi/create/content/processing/recipe/ProcessingRecipe;rollResults()Ljava/util/List;"
             )
     )
-    public List<ItemStack> applyRecipeMixin(ProcessingRecipe<?> instance) {
+    public List<ItemStack> fortuneMixin(ProcessingRecipe<?> instance) {
         CrushingWheelControllerBlockEntity entity = (CrushingWheelControllerBlockEntity) (Object) this;
         if (!(entity instanceof TinkerFortuneCrushingWheelControllerBlockEntity)) {
             return instance.rollResults();
@@ -58,7 +58,7 @@ public class CrushingBlockEntityTick {
                     ordinal = 1
             )
     )
-    public void clearMixin(ProcessingInventory instance) {
+    public void notDestroyMixin(ProcessingInventory instance) {
         CrushingWheelControllerBlockEntity entity = (CrushingWheelControllerBlockEntity) (Object) this;
         if (!(entity instanceof TinkerSilkyCrushingWheelControllerBlockEntity)) {
             instance.clear();

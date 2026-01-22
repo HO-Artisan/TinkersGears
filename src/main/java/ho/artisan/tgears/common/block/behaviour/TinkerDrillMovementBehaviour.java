@@ -14,7 +14,7 @@ import dev.engine_room.flywheel.api.visualization.VisualizationManager;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import ho.artisan.tgears.client.renderer.TinkerDrillRenderer;
 import ho.artisan.tgears.client.visual.TinkerDrillActorVisual;
-import ho.artisan.tgears.common.block.AbstractTinkerDrillBlock;
+import ho.artisan.tgears.old.block.AbstractTinkerDrillBlock;
 import net.createmod.catnip.math.VecHelper;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.core.BlockPos;

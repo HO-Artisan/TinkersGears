@@ -1,7 +1,7 @@
 package ho.artisan.tgears.index;
 
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.ponder.scene.*;
+import ho.artisan.tgears.client.ponder.scene.*;
 import net.createmod.ponder.api.registration.PonderSceneRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;

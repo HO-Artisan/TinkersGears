@@ -6,8 +6,8 @@ import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 public final class TGPonderTags {
-    public static final ResourceLocation SMELTERY = new ResourceLocation(TinkersGears.MOD_ID, "smeltery");
-    public static final ResourceLocation COMPAT = new ResourceLocation(TinkersGears.MOD_ID, "compat");
+    public static final ResourceLocation SMELTERY = ResourceLocation.tryBuild(TinkersGears.MOD_ID, "smeltery");
+    public static final ResourceLocation COMPAT = ResourceLocation.tryBuild(TinkersGears.MOD_ID, "compat");
 
     public static void register(PonderTagRegistrationHelper<ResourceLocation> helper) {
         helper.registerTag(SMELTERY)

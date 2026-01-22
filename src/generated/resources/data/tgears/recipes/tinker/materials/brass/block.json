@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "create:brass_block"
+  },
+  "material": "tgears:brass",
+  "needed": 1,
+  "value": 9
+}

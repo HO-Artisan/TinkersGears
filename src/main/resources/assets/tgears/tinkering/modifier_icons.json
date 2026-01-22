@@ -1,11 +1,11 @@
 {
 	"tgears:topnotch": "create:item/andesite_alloy",
-	"tgears:tapering": "minecraft:item/iron_sword",
-	"tgears:polished": "create:item/sand_paper",
+	"tgears:cardboard": "create:item/cardboard",
+	"tgears:rose_blade": "create:item/rose_quartz",
+	"tgears:precision": "create:item/brass_ingot",
 	"tgears:crushing": "create:item/crushed_raw_iron",
 	"tgears:goggles": "create:item/goggles",
 	"tgears:extendo": "create:item/brass_hand",
 	"tgears:diving_weights": "create:item/copper_diving_boots",
-	"tgears:cardboard": "create:item/cardboard",
-	"tgears:rose_blade": "create:item/rose_quartz"
+	"tgears:wrench": "create:item/wrench"
 }

@@ -30,6 +30,7 @@ public class BeltInventoryFix {
     )
     public boolean checkForCrushers(BeltInventory crusherBE, TransportedItemStack currentItem, float world) {
         BeltInventory beltInventory = (BeltInventory) (Object) this;
-        return BeltCrusherInteractionHandler.checkForCrushers(beltInventory, currentItem, world) || BeltUtil.checkForCrushers(beltInventory, currentItem, world, beltMovementPositive, belt);
+        boolean flag = BeltUtil.checkForCrushers(beltInventory, currentItem, world, beltMovementPositive, belt);
+        return BeltCrusherInteractionHandler.checkForCrushers(beltInventory, currentItem, world) || flag;
     }
 }

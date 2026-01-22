@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:item_part_builder",
+  "pattern": "tgears:whisk_part",
+  "pattern_item": {
+    "tag": "tconstruct:casts/sand"
+  },
+  "result": "tgears:whisk_part_sand_cast"
+}

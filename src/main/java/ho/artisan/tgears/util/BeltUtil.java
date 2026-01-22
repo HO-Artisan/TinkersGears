@@ -4,8 +4,8 @@ import com.simibubi.create.content.kinetics.belt.BeltBlockEntity;
 import com.simibubi.create.content.kinetics.belt.BeltHelper;
 import com.simibubi.create.content.kinetics.belt.transport.BeltInventory;
 import com.simibubi.create.content.kinetics.belt.transport.TransportedItemStack;
-import ho.artisan.tgears.common.block.AbstractTinkerCrushingWheelControllerBlock;
-import ho.artisan.tgears.common.block.entity.TinkerCrushingWheelControllerBlockEntity;
+import ho.artisan.tgears.old.block.AbstractTinkerCrushingWheelControllerBlock;
+import ho.artisan.tgears.old.block.entity.TinkerCrushingWheelControllerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
@@ -32,9 +32,9 @@ public final class BeltUtil {
                     .above();
             Level world = belt.getLevel();
             BlockState crusherState = world.getBlockState(crusherPos);
-            if (!(crusherState.getBlock() instanceof AbstractTinkerCrushingWheelControllerBlock))
+            if (!(crusherState.getBlock() instanceof AbstractTinkerCrushingWheelControllerBlock)) //
                 continue;
-            Direction crusherFacing = crusherState.getValue(AbstractTinkerCrushingWheelControllerBlock.FACING);
+            Direction crusherFacing = crusherState.getValue(AbstractTinkerCrushingWheelControllerBlock.FACING); //
             Direction movementFacing = belt.getMovementFacing();
             if (crusherFacing != movementFacing)
                 continue;
@@ -50,7 +50,7 @@ public final class BeltUtil {
             currentItem.beltPosition = crusherEntry;
 
             BlockEntity be = world.getBlockEntity(crusherPos);
-            if (!(be instanceof TinkerCrushingWheelControllerBlockEntity crusherBE))
+            if (!(be instanceof TinkerCrushingWheelControllerBlockEntity crusherBE)) //
                 return true;
 
             ItemStack toInsert = currentItem.stack.copy();

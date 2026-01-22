@@ -13,20 +13,16 @@ public final class TGModifiers {
     }
 
     public static final class Ids {
-        public static final ModifierId ADRENALINE = id("adrenaline");
         public static final ModifierId TOPNOTCH = id("topnotch");
-        public static final ModifierId LIGHTWEIGHT = id("lightweight");
         public static final ModifierId CARDBOARD = id("cardboard");
-
-        public static final ModifierId POLISHED = id("polished");
+        public static final ModifierId ROSE_BLADE = id("rose_blade");
+        public static final ModifierId PRECISION = id("precision");
 
         public static final ModifierId GOGGLES = id("goggles");
+        public static final ModifierId WRENCH = id("wrench");
         public static final ModifierId CRUSHING = id("crushing");
         public static final ModifierId EXTENDO = id("extendo");
         public static final ModifierId DIVING = id("diving_weights");
-
-        public static final ModifierId STRESS_DRIVEN = id("stress_driven");
-        public static final ModifierId ROSE_BLADE = id("rose_blade");
 
         private static ModifierId id(String id) {
             return ModifierId.tryBuild(TinkersGears.MOD_ID, id);

@@ -29,6 +29,11 @@ public enum TGRecipeTypes implements IRecipeTypeInfo {
     SILKY_CRUSHING(SilkyCrushingRecipe::new),
     ;
 
+    private static class Registers {
+        private static final DeferredRegister<RecipeSerializer<?>> SERIALIZER_REGISTER = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, TinkersGears.MOD_ID);
+        private static final DeferredRegister<RecipeType<?>> TYPE_REGISTER = DeferredRegister.create(Registries.RECIPE_TYPE, TinkersGears.MOD_ID);
+    }
+
     private final ResourceLocation id;
     private final RegistryObject<RecipeSerializer<?>> serializerObject;
     @Nullable
@@ -85,10 +90,5 @@ public enum TGRecipeTypes implements IRecipeTypeInfo {
     public <C extends Container, T extends Recipe<C>> Optional<T> find(C inv, Level world) {
         return world.getRecipeManager()
                 .getRecipeFor(getType(), inv, world);
-    }
-
-    private static class Registers {
-        private static final DeferredRegister<RecipeSerializer<?>> SERIALIZER_REGISTER = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, TinkersGears.MOD_ID);
-        private static final DeferredRegister<RecipeType<?>> TYPE_REGISTER = DeferredRegister.create(Registries.RECIPE_TYPE, TinkersGears.MOD_ID);
     }
 }

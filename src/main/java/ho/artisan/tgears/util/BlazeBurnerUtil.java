@@ -15,9 +15,9 @@ public final class BlazeBurnerUtil {
     public static float getFactor(BlazeBurnerBlock.HeatLevel level) {
         return switch (level) {
             case NONE -> 0F;
-            case SMOULDERING -> TinkersGearsConfig.EXTINGUISHED_FACTOR.get(); // 400
-            case FADING, KINDLED -> TinkersGearsConfig.KINDLED_FACTOR.get(); // 800
-            case SEETHING -> TinkersGearsConfig.SEETHING_FACTOR.get(); // 1600
+            case SMOULDERING -> TinkersGearsConfig.server().extinguishedFactor.getF(); // 400
+            case FADING, KINDLED -> TinkersGearsConfig.server().kindledFactor.getF(); // 800
+            case SEETHING -> TinkersGearsConfig.server().seethingFactor.getF(); // 1600
         };
     }
 

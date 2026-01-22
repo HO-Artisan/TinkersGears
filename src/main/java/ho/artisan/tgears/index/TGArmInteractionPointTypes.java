@@ -5,8 +5,8 @@ import com.simibubi.create.content.kinetics.mechanicalArm.AllArmInteractionPoint
 import com.simibubi.create.content.kinetics.mechanicalArm.ArmInteractionPoint;
 import com.simibubi.create.content.kinetics.mechanicalArm.ArmInteractionPointType;
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.common.block.entity.TinkerCrushingWheelControllerBlockEntity;
-import ho.artisan.tgears.common.block.entity.TinkerDismantlerBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerCrushingWheelControllerBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerDismantlerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.Level;

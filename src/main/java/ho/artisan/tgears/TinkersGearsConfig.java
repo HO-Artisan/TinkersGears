@@ -1,74 +1,74 @@
 package ho.artisan.tgears;
 
+import ho.artisan.tgears.config.TGClient;
+import ho.artisan.tgears.config.TGServer;
+import ho.artisan.tgears.config.data.FanProcessingFactors;
+import ho.artisan.tgears.data.FanProcessingData;
+import net.createmod.catnip.config.ConfigBase;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
+import org.apache.commons.lang3.tuple.Pair;
 
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.function.Supplier;
+
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TinkersGearsConfig {
+    private static final Map<ModConfig.Type, ConfigBase> CONFIGS = new EnumMap<>(ModConfig.Type.class);
 
-    // Blaze Burner
-    public static final ForgeConfigSpec.ConfigValue<Float> EXTINGUISHED_FACTOR;
-    public static final ForgeConfigSpec.ConfigValue<Float> KINDLED_FACTOR;
-    public static final ForgeConfigSpec.ConfigValue<Float> SEETHING_FACTOR;
+    private static TGServer server;
+    private static TGClient client;
 
-    // Polishing
-    public static final ForgeConfigSpec.ConfigValue<Float> POLISHING_DAMAGE;
-    public static final ForgeConfigSpec.ConfigValue<Float> POLISHING_SHIELD;
+    public static TGServer server() {
+        return server;
+    }
 
-    // Crushing
-    public static final ForgeConfigSpec.ConfigValue<Integer> CRUSHING_DAMAGE;
+    public static TGClient client() {
+        return client;
+    }
 
-    //Tinker's Machines
-    public static final ForgeConfigSpec.ConfigValue<Float> FAN_RANGE;
-    public static final ForgeConfigSpec.ConfigValue<Float> DRILL_SPEED;
-    public static final ForgeConfigSpec.ConfigValue<Double> SILK_TOUCH_DRILL_DAMAGE;
-    public static final ForgeConfigSpec.ConfigValue<Integer> FORTUNE_DRILL_LEVEL;
-    // Goggles
-    public static final ForgeConfigSpec.ConfigValue<Boolean> IS_GOGGLES_ENABLED;
+    public static void register(ModLoadingContext context) {
+        server = register(TGServer::new, ModConfig.Type.SERVER);
+        client = register(TGClient::new, ModConfig.Type.CLIENT);
 
-    public static final ForgeConfigSpec CLIENT_SPEC, COMMON_SPEC;
+        for (Map.Entry<ModConfig.Type, ConfigBase> pair : CONFIGS.entrySet())
+            context.registerConfig(pair.getKey(), pair.getValue().specification);
 
-    static {
-        ForgeConfigSpec.Builder client = new ForgeConfigSpec.Builder();
-        ForgeConfigSpec.Builder common = new ForgeConfigSpec.Builder();
+        FanProcessingFactors stress = server().fanProcessingFactors;
+        FanProcessingData.FACTORS.registerProvider(stress::getFactor);
+    }
 
-        // Common
-        common.push("The Blaze Burner Factors(temperature = 800 * factor, rate = 10 * factor)");
-        EXTINGUISHED_FACTOR = common.comment("Factor when the burner is extinguished")
-                .define("extinguished_factor", 0.5F);
-        KINDLED_FACTOR = common.comment("Factor when the burner is kindled")
-                .define("kindled_factor", 1.0F);
-        SEETHING_FACTOR = common.comment("Factor when the burner is seething")
-                .define("seething_factor", 2.0F);
-        common.pop();
+    private static <T extends ConfigBase> T register(Supplier<T> factory, ModConfig.Type side) {
+        Pair<T, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(builder -> {
+            T config = factory.get();
+            config.registerAll(builder);
+            return config;
+        });
 
-        common.push("The Polishing Percentages");
-        POLISHING_DAMAGE = common.comment("The damage to item when polishing")
-                .define("polishing_damage", 0.1F);
-        POLISHING_SHIELD = common.comment("The shield provided when polishing")
-                .define("polishing_shield", 0.1F);
-        common.pop();
+        T config = specPair.getLeft();
+        config.specification = specPair.getRight();
+        CONFIGS.put(side, config);
+        return config;
+    }
 
-        common.push("The Crushing");
-        CRUSHING_DAMAGE =  common.comment("The damage to tool with crushing modifier")
-                .define("crushing_damage", 5);
-        common.pop();
+    @SubscribeEvent
+    public static void onLoad(ModConfigEvent.Loading event) {
+        for (ConfigBase config : CONFIGS.values())
+            if (config.specification == event.getConfig()
+                    .getSpec())
+                config.onLoad();
+    }
 
-        common.push("The Tinker's Machines");
-        FAN_RANGE = common.comment("The ratio of the range to the normal fan")
-                .define("fan_range", 1.5F);
-        DRILL_SPEED = common.comment("The ratio of the speed to the normal drill")
-                .define("drill_speed", 2.0F);
-        SILK_TOUCH_DRILL_DAMAGE = common.comment("The damage to entity from the silk touch drill")
-                .define("silk_touch_drill_damage", 1.0D);
-        FORTUNE_DRILL_LEVEL = common.comment("The fortune level of the fortune drill")
-                .define("fortune_drill_level", 3);
-        common.pop();
-        // Client
-        client.push("The Client Settings");
-        IS_GOGGLES_ENABLED = client.comment("Enable the goggles when looking at TConstruct blocks")
-                .define("is_goggles_enabled", true);
-        client.pop();
-
-        CLIENT_SPEC = client.build();
-        COMMON_SPEC = common.build();
+    @SubscribeEvent
+    public static void onReload(ModConfigEvent.Reloading event) {
+        for (ConfigBase config : CONFIGS.values())
+            if (config.specification == event.getConfig()
+                    .getSpec())
+                config.onReload();
     }
 }

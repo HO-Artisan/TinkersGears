@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.foundation.blockEntity.behaviour.fluid.SmartFluidTankBehaviour;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
-import ho.artisan.tgears.common.block.entity.TinkerSpoutBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerSpoutBlockEntity;
 import ho.artisan.tgears.index.TGPartialModels;
 import net.createmod.catnip.platform.ForgeCatnipServices;
 import net.createmod.catnip.render.CachedBuffers;

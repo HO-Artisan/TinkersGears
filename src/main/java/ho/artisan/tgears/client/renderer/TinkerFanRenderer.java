@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import dev.engine_room.flywheel.api.visualization.VisualizationManager;
-import ho.artisan.tgears.common.block.entity.TinkerFanBlockEntity;
+import ho.artisan.tgears.old.block.entity.TinkerFanBlockEntity;
 import ho.artisan.tgears.index.TGPartialModels;
 import net.createmod.catnip.animation.AnimationTickHolder;
 import net.createmod.catnip.render.CachedBuffers;

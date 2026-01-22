@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "tgears:casts/single_use/propeller_part"
+  },
+  "cast_consumed": true,
+  "item_cost": 4,
+  "result": "tgears:propeller_part"
+}

@@ -7,7 +7,8 @@ import com.simibubi.create.foundation.block.connected.CTType;
 import ho.artisan.tgears.TinkersGears;
 
 public final class TGSpriteShifts {
-    private TGSpriteShifts() {}
+    private TGSpriteShifts() {
+    }
 
     public static final CTSpriteShiftEntry COBALT_CASING = omni("cobalt_casing");
     public static final CTSpriteShiftEntry TINKER_CASING = omni("tinker_casing");

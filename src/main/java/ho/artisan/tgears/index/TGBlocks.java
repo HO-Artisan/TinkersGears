@@ -13,7 +13,8 @@ import ho.artisan.tgears.common.block.behaviour.TinkerDrillMovementBehaviour;
 import ho.artisan.tgears.common.block.behaviour.TinkerFortuneDrillMovementBehaviour;
 import ho.artisan.tgears.common.block.behaviour.TinkerSilkDrillMovementBehaviour;
 import ho.artisan.tgears.common.item.TinkerAssemblyOperatorBlockItem;
-import ho.artisan.tgears.datagen.data.TGBlockStateGen;
+import ho.artisan.tgears.data.util.TGBlockStateGen;
+import ho.artisan.tgears.old.block.*;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -42,7 +43,7 @@ public final class TGBlocks {
             .item(TinkerAssemblyOperatorBlockItem::new)
             .transform(customItemModel())
             .register();
-    
+
     public static final BlockEntry<CasingBlock> COBALT_CASING = REGISTRATE.block("cobalt_casing", CasingBlock::new)
             .initialProperties(SharedProperties::stone)
             .transform(pickaxeOnly())

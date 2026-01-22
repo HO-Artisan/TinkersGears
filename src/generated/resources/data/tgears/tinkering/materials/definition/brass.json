@@ -1,0 +1,15 @@
+{
+  "craftable": false,
+  "hidden": false,
+  "redirect": [
+    {
+      "condition": {
+        "type": "forge:mod_loaded",
+        "modid": "tinkersinnovation"
+      },
+      "id": "tinkersinnovation:brass"
+    }
+  ],
+  "sortOrder": 0,
+  "tier": 2
+}

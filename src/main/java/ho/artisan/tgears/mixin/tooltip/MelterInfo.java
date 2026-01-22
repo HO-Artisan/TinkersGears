@@ -23,11 +23,11 @@ public class MelterInfo implements IHaveGoggleInformation {
 
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        if (!TinkersGearsConfig.IS_GOGGLES_ENABLED.get()) {
+        if (!TinkersGearsConfig.client().enableGoggleOverlay.get()) {
             return false;
         }
 
-        MelterBlockEntity melter = (MelterBlockEntity)(Object)this;
+        MelterBlockEntity melter = (MelterBlockEntity) (Object) this;
         if (melter.getBlockState().getValue(ACTIVE)) {
             BlazeBurnerUtil.addToGoggleTooltip(
                     tooltip,
