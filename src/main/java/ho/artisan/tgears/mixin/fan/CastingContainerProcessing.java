@@ -1,7 +1,7 @@
 package ho.artisan.tgears.mixin.fan;
 
-import com.chemiofitor.tgearbox.api.IFanProcessingTarget;
 import com.simibubi.create.content.kinetics.fan.processing.FanProcessingType;
+import ho.artisan.tgears.api.IFanProcessingTarget;
 import ho.artisan.tgears.data.FanProcessingData;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Unique;
 import slimeknights.tconstruct.library.recipe.casting.ICastingRecipe;
 import slimeknights.tconstruct.smeltery.block.entity.CastingBlockEntity;
 
+@SuppressWarnings("ALL")
 @Mixin(CastingBlockEntity.class)
 public class CastingContainerProcessing implements IFanProcessingTarget {
     @Shadow(remap = false)

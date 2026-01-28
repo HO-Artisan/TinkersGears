@@ -1,0 +1,16 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tgears:nourishing"
+    }
+  ],
+  "perStat": {
+    "tconstruct:melee_harvest": [
+      {
+        "level": 1,
+        "name": "tconstruct:fiery"
+      }
+    ]
+  }
+}

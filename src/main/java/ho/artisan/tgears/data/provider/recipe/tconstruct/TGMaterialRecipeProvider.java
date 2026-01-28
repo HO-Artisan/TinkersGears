@@ -3,6 +3,7 @@ package ho.artisan.tgears.data.provider.recipe.tconstruct;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import ho.artisan.tgears.data.provider.recipe.TGRecipeProvider;
+import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGMaterials;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -33,6 +34,9 @@ public final class TGMaterialRecipeProvider extends TGRecipeProvider implements 
         materialRecipe(consumer, TGMaterials.Ids.ANDESITE_ALLOY, Ingredient.of(AllItems.ANDESITE_ALLOY), 1, 1, "andesite_alloy/ingot");
         materialRecipe(consumer, TGMaterials.Ids.ANDESITE_ALLOY, Ingredient.of(AllBlocks.ANDESITE_ALLOY_BLOCK), 9, 1, "andesite_alloy/block");
         materialComposite(consumer, MaterialIds.andesite, TGMaterials.Ids.ANDESITE_ALLOY, TinkerFluids.moltenIron, 20, "andesite_alloy/andesite_composite");
+
+        materialRecipe(consumer, TGMaterials.Ids.CHOCOLATE, Ingredient.of(AllItems.BAR_OF_CHOCOLATE), 1, 1, "chocolate/ingot");
+        materialRecipe(consumer, TGMaterials.Ids.BLAZING_CHOCOLATE, Ingredient.of(TGItems.BAR_OF_BLAZING_CHOCOLATE), 1, 1, "blazing_chocolate/ingot");
 
         materialRecipe(consumer, TGMaterials.Ids.BRASS, Ingredient.of(AllItems.BRASS_INGOT), 1, 1, "brass/ingot");
         materialRecipe(consumer, TGMaterials.Ids.BRASS, Ingredient.of(AllBlocks.BRASS_BLOCK), 9, 1, "brass/block");

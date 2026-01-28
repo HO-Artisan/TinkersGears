@@ -3,9 +3,10 @@
 	"tgears:cardboard": "create:item/cardboard",
 	"tgears:rose_blade": "create:item/rose_quartz",
 	"tgears:precision": "create:item/brass_ingot",
+	"tgears:nourishing": "create:item/bar_of_chocolate",
 	"tgears:crushing": "create:item/crushed_raw_iron",
 	"tgears:goggles": "create:item/goggles",
 	"tgears:extendo": "create:item/brass_hand",
 	"tgears:diving_weights": "create:item/copper_diving_boots",
-	"tgears:wrench": "create:item/wrench"
+	"tgears:wrench": "create:item/golden_sheet"
 }

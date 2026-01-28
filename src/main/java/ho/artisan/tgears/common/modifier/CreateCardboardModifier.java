@@ -16,6 +16,6 @@ public class CreateCardboardModifier extends NoLevelsModifier implements MeleeDa
 
     @Override
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
-        return damage * 0.01f;
+        return damage * 0.0001f;
     }
 }

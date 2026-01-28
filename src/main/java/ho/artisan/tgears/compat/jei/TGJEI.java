@@ -12,10 +12,10 @@ import com.simibubi.create.foundation.utility.CreateLang;
 import com.simibubi.create.infrastructure.config.CRecipes;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.common.recipe.SilkyCrushingRecipe;
+import ho.artisan.tgears.compat.jei.category.SilkyCrushingCategory;
 import ho.artisan.tgears.index.TGBlocks;
 import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGRecipeTypes;
-import ho.artisan.tgears.compat.jei.category.SilkyCrushingCategory;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -25,7 +25,6 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import mezz.jei.api.runtime.IIngredientManager;
 import net.createmod.catnip.config.ConfigBase;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -49,8 +48,6 @@ import static com.simibubi.create.compat.jei.CreateJEI.*;
 public class TGJEI implements IModPlugin {
     private final List<CreateRecipeCategory<?>> allCategories = new ArrayList<>();
 
-    private IIngredientManager ingredientManager;
-
     private void loadCategories() {
         allCategories.clear();
 
@@ -70,7 +67,6 @@ public class TGJEI implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        ingredientManager = registration.getIngredientManager();
 
         allCategories.forEach(c -> c.registerRecipes(registration));
 

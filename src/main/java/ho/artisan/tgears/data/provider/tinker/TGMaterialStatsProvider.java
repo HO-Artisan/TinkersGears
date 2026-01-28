@@ -33,12 +33,22 @@ public final class TGMaterialStatsProvider extends AbstractMaterialStatsDataProv
                 PartMaterialStats.PROPELLER
         );
 
+        // Tier 2
+        addMaterialStats(TGMaterials.Ids.CHOCOLATE,
+                new HeadMaterialStats(50, 4F, WOOD, 1.0F),
+                new HandleMaterialStats(-0.5F, -0.5F, -0.1F, -0.1F),
+                new GripMaterialStats(-0.5F, -0.1F, 0.5F),
+                StatlessMaterialStats.BINDING,
+                PartMaterialStats.HAND
+        );
+
         addMaterialStats(TGMaterials.Ids.ANDESITE_ALLOY,
                 new HeadMaterialStats(220, 5.5F, IRON, 1.5F),
                 new HandleMaterialStats(0.15F, 0F, 0F, -0.05F),
                 new LimbMaterialStats(220, -0.2F, 0.1F, 0.0F),
                 new GripMaterialStats(0.1F, 0.0F, 1.5F),
-                StatlessMaterialStats.BINDING
+                StatlessMaterialStats.BINDING,
+                StatlessMaterialStats.ARROW_HEAD
         );
 
         addMaterialStats(TGMaterials.Ids.BRASS,
@@ -47,7 +57,8 @@ public final class TGMaterialStatsProvider extends AbstractMaterialStatsDataProv
                 new LimbMaterialStats(800, 0.05F, 0.05F, 0.05F),
                 new GripMaterialStats(0.15F, 0.1F, 1.5F),
                 StatlessMaterialStats.BINDING,
-                PartMaterialStats.HAND
+                PartMaterialStats.HAND,
+                StatlessMaterialStats.ARROW_HEAD
         );
 
         PlatingMaterialStats.Builder platingMaterialStats = PlatingMaterialStats.builder()
@@ -65,9 +76,19 @@ public final class TGMaterialStatsProvider extends AbstractMaterialStatsDataProv
                 StatlessMaterialStats.MAILLE
         );
 
+
+        // Tier 3
         addMaterialStats(TGMaterials.Ids.ROSE_QUARTZ,
                 new HeadMaterialStats(165, 5.5F, IRON, 3.5F),
                 StatlessMaterialStats.ARROW_HEAD
+        );
+
+        addMaterialStats(TGMaterials.Ids.BLAZING_CHOCOLATE,
+                new HeadMaterialStats(50, 4F, GOLD, 1.0F),
+                new HandleMaterialStats(-0.5F, -0.5F, 0.0F, 0.0F),
+                new GripMaterialStats(-0.5F, 0.0F, 0.5F),
+                StatlessMaterialStats.BINDING,
+                PartMaterialStats.HAND
         );
 
         /*

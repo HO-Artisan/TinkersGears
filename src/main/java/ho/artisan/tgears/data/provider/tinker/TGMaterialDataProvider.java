@@ -36,8 +36,11 @@ public final class TGMaterialDataProvider extends AbstractMaterialDataProvider {
         );
 
         addMaterial(TGMaterials.Ids.CARDBOARD, 2, ORDER_GENERAL, true);
+        addMaterial(TGMaterials.Ids.CHOCOLATE, 2, ORDER_GENERAL, true);
+
 
         // tier 3
         addMaterial(TGMaterials.Ids.ROSE_QUARTZ, 3, ORDER_GENERAL, true);
+        addMaterial(TGMaterials.Ids.BLAZING_CHOCOLATE, 3, ORDER_GENERAL, true);
     }
 }

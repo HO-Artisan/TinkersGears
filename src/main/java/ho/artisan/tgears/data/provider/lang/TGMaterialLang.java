@@ -20,5 +20,14 @@ public final class TGMaterialLang extends TGLang {
         provider.add("material.tgears.rose_quartz", "Rose Quartz");
         provider.add("material.tgears.rose_quartz.flavor", "A Unique Hard Crystal");
         provider.add("material.tgears.rose_quartz.encyclopedia", "With 10% multiplying attack damage per level (projectile double), it stands out.");
+
+        provider.add("material.tgears.chocolate", "Chocolate");
+        provider.add("material.tgears.chocolate.flavor", "Sweet & Edible");
+        provider.add("material.tgears.chocolate.encyclopedia", "Can be consumed as a Bar of Chocolate, consuming 1 point of durability per use.");
+
+        provider.add("material.tgears.blazing_chocolate", "Blazing Chocolate");
+        provider.add("material.tgears.blazing_chocolate.flavor", "Fiery Sweetness");
+        provider.add("material.tgears.blazing_chocolate.encyclopedia", "It likes Chocolate Material, while grants self-ignition for 3 seconds per level.");
+
     }
 }

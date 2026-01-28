@@ -4,10 +4,7 @@ import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.AllTags;
 import ho.artisan.tgears.data.provider.recipe.TGRecipeProvider;
-import ho.artisan.tgears.index.TGBlocks;
-import ho.artisan.tgears.index.TGFluids;
-import ho.artisan.tgears.index.TGItems;
-import ho.artisan.tgears.index.TGTagKeys;
+import ho.artisan.tgears.index.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
@@ -16,6 +13,7 @@ import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
+import slimeknights.tconstruct.library.recipe.casting.material.MaterialFluidRecipeBuilder;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 
 import java.util.function.Consumer;
@@ -117,5 +115,16 @@ public final class TGCastingRecipeProvider extends TGRecipeProvider {
                 .setCast(Items.APPLE, true)
                 .setCoolingTime(52)
                 .save(consumer, location("honeyed_apple"));
+
+        MaterialFluidRecipeBuilder.material(TGMaterials.Ids.CHOCOLATE)
+                .setFluid(TGTagKeys.Fluids.CHOCOLATE, FluidValues.BOTTLE)
+                .setTemperature(400)
+                .save(consumer, location("chocolate"));
+
+        MaterialFluidRecipeBuilder.material(TGMaterials.Ids.BLAZING_CHOCOLATE)
+                .setFluid(TGTagKeys.Fluids.BLAZING_CHOCOLATE, FluidValues.BOTTLE)
+                .setTemperature(400)
+                .save(consumer, location("blaze_chocolate"));
+
     }
 }

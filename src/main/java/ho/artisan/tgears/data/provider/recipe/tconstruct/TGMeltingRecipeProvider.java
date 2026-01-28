@@ -1,10 +1,13 @@
 package ho.artisan.tgears.data.provider.recipe.tconstruct;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.foundation.block.CopperBlockSet;
 import ho.artisan.tgears.data.provider.recipe.TGRecipeProvider;
+import ho.artisan.tgears.index.TGFluids;
 import ho.artisan.tgears.index.TGItems;
+import ho.artisan.tgears.index.TGMaterials;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -16,6 +19,7 @@ import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
 import slimeknights.tconstruct.library.recipe.melting.IMeltingContainer;
+import slimeknights.tconstruct.library.recipe.melting.MaterialMeltingRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 
 import java.util.function.Consumer;
@@ -36,9 +40,18 @@ public final class TGMeltingRecipeProvider extends TGRecipeProvider implements I
         this.crushedOreRecipes(consumer);
         this.copperRecipes(consumer);
         this.ironRecipes(consumer);
+        this.chocolateRecipes(consumer);
         this.cobaltRecipes(consumer);
         this.miscRecipes(consumer);
         this.armorRecipes(consumer);
+    }
+
+    private void chocolateRecipes(Consumer<FinishedRecipe> consumer) {
+        MaterialMeltingRecipeBuilder.material(TGMaterials.Ids.CHOCOLATE, 400, new FluidStack(AllFluids.CHOCOLATE.getSource(), 250))
+                .save(consumer, location("chocolate"));
+
+        MaterialMeltingRecipeBuilder.material(TGMaterials.Ids.BLAZING_CHOCOLATE, 400, new FluidStack(TGFluids.BLAZING_CHOCOLATE.getSource(), 250))
+                .save(consumer, location("blazing_chocolate"));
     }
 
     private void armorRecipes(Consumer<FinishedRecipe> consumer) {

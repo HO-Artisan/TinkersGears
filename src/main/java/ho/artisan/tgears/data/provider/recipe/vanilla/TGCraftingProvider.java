@@ -26,13 +26,30 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllItems.BRASS_HAND)
                 .define('A', AllItems.ANDESITE_ALLOY)
                 .define('H', MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BRASS))
                 .pattern(" H")
                 .pattern("A ")
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
-                .save(consumer);
+                .save(consumer, location("brass_hand_from_part"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGItems.CHOCOLATE_HAND)
+                .define('A', AllItems.ANDESITE_ALLOY)
+                .define('H', MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.CHOCOLATE))
+                .pattern(" H")
+                .pattern("A ")
+                .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
+                .save(consumer, location("chocolate_hand_from_part"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGItems.BLAZING_CHOCOLATE_HAND)
+                .define('A', AllItems.ANDESITE_ALLOY)
+                .define('H', MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BLAZING_CHOCOLATE))
+                .pattern(" H")
+                .pattern("A ")
+                .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
+                .save(consumer, location("blazing_chocolate_hand_from_part"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllItems.PROPELLER)
                 .define('A', AllItems.ANDESITE_ALLOY)
@@ -40,7 +57,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
                 .pattern(" H")
                 .pattern("A ")
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
-                .save(consumer);
+                .save(consumer, location("iron_propeller_from_part"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGItems.COBALT_PROPELLER)
                 .define('A', AllItems.ANDESITE_ALLOY)
@@ -48,7 +65,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
                 .pattern(" H")
                 .pattern("A ")
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
-                .save(consumer);
+                .save(consumer, location("cobalt_propeller_from_part"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllItems.WHISK)
                 .define('A', AllItems.ANDESITE_ALLOY)
@@ -56,6 +73,6 @@ public final class TGCraftingProvider extends TGRecipeProvider {
                 .pattern(" H")
                 .pattern("A ")
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
-                .save(consumer);
+                .save(consumer, location("iron_whisk_from_part"));
     }
 }

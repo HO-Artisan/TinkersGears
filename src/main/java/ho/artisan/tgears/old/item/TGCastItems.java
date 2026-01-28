@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 import static ho.artisan.tgears.TinkersGears.asResource;
 
+@SuppressWarnings("ALL")
 @Deprecated
 public final class TGCastItems {
     public static final Map<String, ItemEntry<?>> ITEM_ENTRY_MAP = new HashMap<>();

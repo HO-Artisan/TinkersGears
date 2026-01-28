@@ -1,4 +1,10 @@
 {
+  "default": [
+    {
+      "level": 1,
+      "name": "tconstruct:writable"
+    }
+  ],
   "perStat": {
     "tconstruct:melee_harvest": [
       {

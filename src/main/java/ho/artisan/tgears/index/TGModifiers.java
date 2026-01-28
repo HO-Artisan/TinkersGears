@@ -17,6 +17,7 @@ public final class TGModifiers {
         public static final ModifierId CARDBOARD = id("cardboard");
         public static final ModifierId ROSE_BLADE = id("rose_blade");
         public static final ModifierId PRECISION = id("precision");
+        public static final ModifierId NOURISHING = id("nourishing");
 
         public static final ModifierId GOGGLES = id("goggles");
         public static final ModifierId WRENCH = id("wrench");
@@ -31,13 +32,12 @@ public final class TGModifiers {
 
     private static final ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(TinkersGears.MOD_ID);
 
-    public static final StaticModifier<CreatePolishedModifier> POLISHED = MODIFIERS.register("polished", CreatePolishedModifier::new);
     public static final StaticModifier<CreateCrushingModifier> CRUSHING = MODIFIERS.register("crushing", CreateCrushingModifier::new);
     public static final StaticModifier<CreateExtendoModifier> EXTENDO = MODIFIERS.register("extendo", CreateExtendoModifier::new);
 
-    public static final StaticModifier<CreateCardboardModifier> CARDBOARD = MODIFIERS.register("cardboard", CreateCardboardModifier::new);
+    public static final StaticModifier<NourishingModifier> NOURISHING = MODIFIERS.register("nourishing", NourishingModifier::new);
 
-    //public static final StaticModifier<AdrenalineModifier> ADRENALINE = MODIFIERS.register("adrenaline", AdrenalineModifier::new);
+    public static final StaticModifier<CreateCardboardModifier> CARDBOARD = MODIFIERS.register("cardboard", CreateCardboardModifier::new);
 
     public static void register(IEventBus bus) {
         MODIFIERS.register(bus);

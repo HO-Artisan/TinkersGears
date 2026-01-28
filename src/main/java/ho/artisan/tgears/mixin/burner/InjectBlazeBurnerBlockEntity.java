@@ -1,11 +1,13 @@
 package ho.artisan.tgears.mixin.burner;
 
-import com.chemiofitor.tgearbox.api.ITinkerBlockEntityHeatSource;
+
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlock;
 import com.simibubi.create.content.processing.burner.BlazeBurnerBlockEntity;
+import ho.artisan.tgears.api.ITinkerBlockEntityHeatSource;
 import ho.artisan.tgears.util.BlazeBurnerUtil;
 import org.spongepowered.asm.mixin.Mixin;
 
+@SuppressWarnings("ALL")
 @Mixin(BlazeBurnerBlockEntity.class)
 public class InjectBlazeBurnerBlockEntity implements ITinkerBlockEntityHeatSource {
 

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "H": {
+      "type": "tconstruct:material",
+      "item": "tgears:hand_part",
+      "material": "tgears:blazing_chocolate"
+    }
+  },
+  "pattern": [
+    " H",
+    "A "
+  ],
+  "result": {
+    "item": "tgears:blazing_chocolate_hand"
+  },
+  "show_notification": true
+}

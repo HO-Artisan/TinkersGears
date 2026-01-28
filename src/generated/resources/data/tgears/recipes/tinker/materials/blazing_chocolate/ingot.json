@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "tgears:bar_of_blazing_chocolate"
+  },
+  "material": "tgears:blazing_chocolate",
+  "needed": 1,
+  "value": 1
+}

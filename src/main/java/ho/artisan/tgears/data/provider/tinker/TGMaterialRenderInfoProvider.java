@@ -13,9 +13,10 @@ public final class TGMaterialRenderInfoProvider extends AbstractMaterialRenderIn
     protected void addMaterialRenderInfo() {
         buildRenderInfo(TGMaterials.Ids.ANDESITE_ALLOY).color(0xB3C9BC).fallbacks("metal");
         buildRenderInfo(TGMaterials.Ids.BRASS).color(0xF2D16A).fallbacks("metal");
-
         buildRenderInfo(TGMaterials.Ids.CARDBOARD).color(0xEDC090);
         buildRenderInfo(TGMaterials.Ids.ROSE_QUARTZ).color(0xF97E8A);
+        buildRenderInfo(TGMaterials.Ids.CHOCOLATE).color(0xC5674A);
+        buildRenderInfo(TGMaterials.Ids.BLAZING_CHOCOLATE).color(0xFFE749);
     }
 
     @Override

@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "tgears:chocolate",
+  "result": {
+    "amount": 250,
+    "fluid": "create:chocolate"
+  },
+  "temperature": 400
+}

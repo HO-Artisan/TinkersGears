@@ -8,12 +8,15 @@
 		"cardboard": "#eaaf56",
 		"rose_blade": "#ff608d",
 		"precision": "#f2d16a",
-		"wrench": "#f2d16a"
+		"wrench": "#f2d16a",
+		"nourishing": "#c5674a"
 	},
 	"material.tgears": {
 		"andesite_alloy": "#b3c9ba",
 		"cardboard": "#eaaf56",
 		"rose_quartz": "#ff608d",
-		"brass": "#f2d16a"
+		"brass": "#f2d16a",
+		"chocolate": "#c5674a",
+		"blazing_chocolate": "#ffe749"
 	}
 }

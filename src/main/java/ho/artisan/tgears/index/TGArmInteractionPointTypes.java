@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import slimeknights.tconstruct.smeltery.block.entity.CastingBlockEntity;
 
+@SuppressWarnings("ALL")
 public final class TGArmInteractionPointTypes {
     static {
         register("casting_container", new CastingContainerType());

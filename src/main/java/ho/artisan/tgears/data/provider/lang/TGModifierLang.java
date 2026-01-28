@@ -38,7 +38,11 @@ public final class TGModifierLang extends TGLang {
         provider.add("modifier.tgears.rose_blade.description", "Tool is so much sharper, dealing more damage!");
 
         provider.add("modifier.tgears.precision", "Precision");
-        provider.add("modifier.tgears.precision.flavor", "Steampunk");
+        provider.add("modifier.tgears.precision.flavor", "Punk");
         provider.add("modifier.tgears.precision.description", "Durable and Repair-Friendly");
+
+        provider.add("modifier.tgears.nourishing", "Nourishing");
+        provider.add("modifier.tgears.nourishing.flavor", "Om Nom Nom");
+        provider.add("modifier.tgears.nourishing.description", "Smells so good, you cannot resist taking a few bites of your tool");
     }
 }

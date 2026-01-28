@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.tools.TinkerModifiers;
+import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import static slimeknights.tconstruct.library.materials.MaterialRegistry.*;
 
@@ -24,6 +25,16 @@ public final class TGMaterialTraitsDataProvider extends AbstractMaterialTraitDat
         addDefaultTraits(TGMaterials.Ids.ANDESITE_ALLOY, TGModifiers.Ids.TOPNOTCH);
         addDefaultTraits(TGMaterials.Ids.BRASS, TGModifiers.Ids.PRECISION);
 
+        addDefaultTraits(TGMaterials.Ids.CHOCOLATE, TGModifiers.Ids.NOURISHING);
+        addDefaultTraits(TGMaterials.Ids.BLAZING_CHOCOLATE, TGModifiers.Ids.NOURISHING);
+
+        addTraits(
+                TGMaterials.Ids.BLAZING_CHOCOLATE,
+                MELEE_HARVEST,
+                ModifierIds.fiery
+        );
+
+        addDefaultTraits(TGMaterials.Ids.CARDBOARD, ModifierIds.writable);
         addTraits(
                 TGMaterials.Ids.CARDBOARD,
                 MELEE_HARVEST,
@@ -35,7 +46,6 @@ public final class TGMaterialTraitsDataProvider extends AbstractMaterialTraitDat
                 MELEE_HARVEST,
                 new ModifierEntry(TGModifiers.Ids.ROSE_BLADE, 1)
         );
-
         addTraits(
                 TGMaterials.Ids.ROSE_QUARTZ,
                 AMMO,

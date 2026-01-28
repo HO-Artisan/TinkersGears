@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "create:propeller"
+        "recipe": "tgears:crafting/brass_hand_from_part"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "create:propeller"
+      "tgears:crafting/brass_hand_from_part"
     ]
   },
   "sends_telemetry_event": false

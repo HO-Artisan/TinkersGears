@@ -32,5 +32,5 @@ side = "BOTH"
 modId = "tconstruct"
 mandatory = true
 versionRange = "[3.10.1.0,)"
-ordering = "NONE"
+ordering = "AFTER"
 side = "BOTH"
