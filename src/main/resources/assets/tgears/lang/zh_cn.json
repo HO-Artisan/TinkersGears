@@ -172,5 +172,20 @@
 	"tgears.ponder.tinker_fortune_drill.text_1": "时运钻头可开采方块，并有概率获得更多掉落物，其作用与“时运附魔”类似",
 	"tgears.ponder.tinker_spout.header": "使用红石信号控制工匠注液器",
 	"tgears.ponder.tinker_spout.text_1": "工匠注液器受红石信号控制",
-	"tgears.ponder.tinker_spout.text_2": "当激活时，它会停止工作"
+	"tgears.ponder.tinker_spout.text_2": "当激活时，它会停止工作",
+	"tgears.ponder.casting.header": "铸造",
+	"tgears.ponder.casting.text_1": "通过铸造将流体转化为物品和方块",
+	"tgears.ponder.casting.text_2": "我们需要一个铸造盆或铸件台进行铸造",
+	"tgears.ponder.use_casts.header": "使用铸模",
+	"tgears.ponder.use_casts.text_1": "有些物品需要铸模才能铸造",
+	"tgears.ponder.use_casts.text_2": "使用形状相似的物品在铸件台上压制一次性沙模",
+	"tgears.ponder.use_casts.text_3": "或者使用可重复利用的金质铸模",
+	"tgears.ponder.auto_casting.header": "借助红石自动铸造",
+	"tgears.ponder.auto_casting.text_1": "使用红石设备，我们可以自动铸造",
+	"tgears.ponder.auto_casting.text_2": "使用漏斗以自动输入输出",
+	"tgears.ponder.auto_casting.text_3": "使用红石信号控制浇筑口排液",
+	"tgears.ponder.more_filling_methods.header": "更多填充方法",
+	"tgears.ponder.more_filling_methods.text_1": "除了使用浇筑口…",
+	"tgears.ponder.more_filling_methods.text_2": "…我们也可以使用动力泵填充铸件台与铸造盆…",
+	"tgears.ponder.more_filling_methods.text_3": "…或者直接使用流体容器与其交互"
 }

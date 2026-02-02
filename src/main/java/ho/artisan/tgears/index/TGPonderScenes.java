@@ -31,7 +31,12 @@ public final class TGPonderScenes {
         
         helper.forComponents(TinkerSmeltery.searedTable.getId(), TinkerSmeltery.scorchedTable.getId(),
             TinkerSmeltery.searedBasin.getId(), TinkerSmeltery.scorchedBasin.getId())
+            .addStoryBoard("casting/basic", CastingScene::basic, TGPonderTags.SMELTERY)
+            .addStoryBoard("casting/use_casts", CastingScene::use_casts, TGPonderTags.SMELTERY)
+            .addStoryBoard("casting/auto_casting", CastingScene::auto_casting, TGPonderTags.SMELTERY)
+            .addStoryBoard("casting/more_filling_methods", CastingScene::more_filling_methods, TGPonderTags.SMELTERY)
             .addStoryBoard("table_cooling", CastingScene::table, TGPonderTags.SMELTERY);
+
 
 
         helper.forComponents(TGBlocks.TINKER_FAN.getId())
