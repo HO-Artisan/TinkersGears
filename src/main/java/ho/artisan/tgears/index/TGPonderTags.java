@@ -3,7 +3,9 @@ package ho.artisan.tgears.index;
 import ho.artisan.tgears.TinkersGears;
 import net.createmod.ponder.api.registration.PonderTagRegistrationHelper;
 import net.minecraft.resources.ResourceLocation;
+import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
+import slimeknights.tconstruct.smeltery.block.controller.HeaterBlock;
 
 public final class TGPonderTags {
     public static final ResourceLocation SMELTERY = ResourceLocation.tryBuild(TinkersGears.MOD_ID, "smeltery");
@@ -26,8 +28,19 @@ public final class TGPonderTags {
 
         helper.addToTag(SMELTERY)
                 .add(TinkerSmeltery.searedMelter.getId())
+                .add(TinkerSmeltery.scorchedAlloyer.getId())
+                .add(TinkerSmeltery.searedHeater.getId())
                 .add(TinkerSmeltery.smelteryController.getId())
-                .add(TinkerSmeltery.searedTable.getId());
+                .add(TinkerSmeltery.foundryController.getId())
+                .add(TinkerSmeltery.searedTable.getId())
+                .add(TinkerSmeltery.scorchedTable.getId())
+                .add(TinkerSmeltery.searedBasin.getId())
+                .add(TinkerSmeltery.scorchedBasin.getId())
+                .add(TinkerSmeltery.copperCan.getId())
+                .add(TinkerSmeltery.searedBricks.getId())
+                .add(TinkerSmeltery.scorchedBricks.getId())
+                .add(TinkerSmeltery.searedGlass.getId())
+                .add(TinkerSmeltery.scorchedGlass.getId());
 
 
         helper.addToTag(COMPAT)
