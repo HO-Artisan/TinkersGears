@@ -57,8 +57,8 @@ public final class TGMaterialStatsProvider extends AbstractMaterialStatsDataProv
                 new LimbMaterialStats(800, 0.05F, 0.05F, 0.05F),
                 new GripMaterialStats(0.15F, 0.1F, 1.5F),
                 StatlessMaterialStats.BINDING,
-                PartMaterialStats.HAND,
-                StatlessMaterialStats.ARROW_HEAD
+                StatlessMaterialStats.ARROW_HEAD,
+                PartMaterialStats.HAND
         );
 
         PlatingMaterialStats.Builder platingMaterialStats = PlatingMaterialStats.builder()
@@ -73,7 +73,10 @@ public final class TGMaterialStatsProvider extends AbstractMaterialStatsDataProv
                 platingMaterialStats.build(ArmorItem.Type.BOOTS),
                 platingMaterialStats.buildShield(),
                 StatlessMaterialStats.BINDING,
-                StatlessMaterialStats.MAILLE
+                StatlessMaterialStats.MAILLE,
+                StatlessMaterialStats.SHIELD_CORE,
+                StatlessMaterialStats.ARROW_SHAFT,
+                StatlessMaterialStats.ARROW_HEAD
         );
 
 

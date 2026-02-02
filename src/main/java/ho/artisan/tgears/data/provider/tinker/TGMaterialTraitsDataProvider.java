@@ -51,15 +51,5 @@ public final class TGMaterialTraitsDataProvider extends AbstractMaterialTraitDat
                 AMMO,
                 new ModifierEntry(TGModifiers.Ids.ROSE_BLADE, 1)
         );
-
-        /*
-        addDefaultTraits(TGMaterials.Ids.LUZZIUM, TGModifiers.Ids.LIGHTWEIGHT);
-
-        addTraits(
-                TGMaterials.Ids.LUZZIUM,
-                ARMOR,
-                TGModifiers.Ids.ADRENALINE
-        );
-         */
     }
 }

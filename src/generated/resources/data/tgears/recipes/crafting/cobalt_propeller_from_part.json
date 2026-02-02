@@ -1,22 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "A": {
+  "ingredients": [
+    {
       "item": "create:andesite_alloy"
     },
-    "H": {
+    {
       "type": "tconstruct:material",
       "item": "tgears:propeller_part",
       "material": "tconstruct:cobalt"
     }
-  },
-  "pattern": [
-    " H",
-    "A "
   ],
   "result": {
     "item": "tgears:cobalt_propeller"
-  },
-  "show_notification": true
+  }
 }

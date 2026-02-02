@@ -16,7 +16,7 @@ public final class TGMaterialRenderInfoProvider extends AbstractMaterialRenderIn
         buildRenderInfo(TGMaterials.Ids.CARDBOARD).color(0xEDC090);
         buildRenderInfo(TGMaterials.Ids.ROSE_QUARTZ).color(0xF97E8A);
         buildRenderInfo(TGMaterials.Ids.CHOCOLATE).color(0xC5674A);
-        buildRenderInfo(TGMaterials.Ids.BLAZING_CHOCOLATE).color(0xFFE749);
+        buildRenderInfo(TGMaterials.Ids.BLAZING_CHOCOLATE).color(0xFFA011);
     }
 
     @Override

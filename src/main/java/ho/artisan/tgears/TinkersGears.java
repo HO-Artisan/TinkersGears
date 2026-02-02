@@ -1,14 +1,10 @@
 package ho.artisan.tgears;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.simibubi.create.foundation.item.ItemDescription;
-import com.simibubi.create.foundation.item.KineticStats;
-import com.simibubi.create.foundation.item.TooltipModifier;
 import ho.artisan.tgears.client.TinkersGearsClient;
 import ho.artisan.tgears.compat.TinkersGearsCompat;
 import ho.artisan.tgears.index.*;
 import ho.artisan.tgears.tools.PartMaterialStats;
-import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -25,10 +21,7 @@ public class TinkersGears {
     public static final String NAME = "Tinkers' Gears";
     public static final Logger LOGGER = LogManager.getLogger(NAME);
 
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID).setTooltipModifierFactory(item ->
-            new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
-                    .andThen(TooltipModifier.mapNull(KineticStats.create(item)))
-    );
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
     public TinkersGears() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

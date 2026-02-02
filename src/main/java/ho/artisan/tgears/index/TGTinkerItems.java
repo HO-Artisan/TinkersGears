@@ -20,9 +20,9 @@ public class TGTinkerItems {
 
     public static final Item.Properties ITEM_PROPS = new Item.Properties();
 
-    public static final ItemObject<PartMaterialItem> HAND_PART = ITEMS.register("hand_part", () -> new PartMaterialItem(ITEM_PROPS, HAND));
-    public static final ItemObject<PartMaterialItem> PROPELLER_PART = ITEMS.register("propeller_part", () -> new PartMaterialItem(ITEM_PROPS, PROPELLER));
-    public static final ItemObject<PartMaterialItem> WHISK_PART = ITEMS.register("whisk_part", () -> new PartMaterialItem(ITEM_PROPS, WHISK));
+    public static final ItemObject<PartMaterialItem> HAND_PART = ITEMS.register("hand_part", () -> new PartMaterialItem(ITEM_PROPS, HAND.getIdentifier()));
+    public static final ItemObject<PartMaterialItem> PROPELLER_PART = ITEMS.register("propeller_part", () -> new PartMaterialItem(ITEM_PROPS, PROPELLER.getIdentifier()));
+    public static final ItemObject<PartMaterialItem> WHISK_PART = ITEMS.register("whisk_part", () -> new PartMaterialItem(ITEM_PROPS, WHISK.getIdentifier()));
 
     public static final CastItemObject HAND_CAST = ITEMS.registerCast(HAND_PART, ITEM_PROPS);
     public static final CastItemObject PROPELLER_CAST = ITEMS.registerCast(PROPELLER_PART, ITEM_PROPS);

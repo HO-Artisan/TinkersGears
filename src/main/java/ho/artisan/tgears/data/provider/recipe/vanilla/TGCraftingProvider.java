@@ -8,7 +8,7 @@ import ho.artisan.tgears.index.TGTinkerItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
 
@@ -27,51 +27,39 @@ public final class TGCraftingProvider extends TGRecipeProvider {
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllItems.BRASS_HAND)
-                .define('A', AllItems.ANDESITE_ALLOY)
-                .define('H', MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BRASS))
-                .pattern(" H")
-                .pattern("A ")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.BRASS_HAND)
+                .requires(AllItems.ANDESITE_ALLOY)
+                .requires(MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BRASS))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("brass_hand_from_part"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGItems.CHOCOLATE_HAND)
-                .define('A', AllItems.ANDESITE_ALLOY)
-                .define('H', MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.CHOCOLATE))
-                .pattern(" H")
-                .pattern("A ")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.CHOCOLATE_HAND)
+                .requires(AllItems.ANDESITE_ALLOY)
+                .requires(MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.CHOCOLATE))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("chocolate_hand_from_part"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGItems.BLAZING_CHOCOLATE_HAND)
-                .define('A', AllItems.ANDESITE_ALLOY)
-                .define('H', MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BLAZING_CHOCOLATE))
-                .pattern(" H")
-                .pattern("A ")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.BLAZING_CHOCOLATE_HAND)
+                .requires(AllItems.ANDESITE_ALLOY)
+                .requires(MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BLAZING_CHOCOLATE))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("blazing_chocolate_hand_from_part"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllItems.PROPELLER)
-                .define('A', AllItems.ANDESITE_ALLOY)
-                .define('H', MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, MaterialIds.iron))
-                .pattern(" H")
-                .pattern("A ")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.PROPELLER)
+                .requires(AllItems.ANDESITE_ALLOY)
+                .requires(MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, MaterialIds.iron))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("iron_propeller_from_part"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGItems.COBALT_PROPELLER)
-                .define('A', AllItems.ANDESITE_ALLOY)
-                .define('H', MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, MaterialIds.cobalt))
-                .pattern(" H")
-                .pattern("A ")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.COBALT_PROPELLER)
+                .requires(AllItems.ANDESITE_ALLOY)
+                .requires(MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, MaterialIds.cobalt))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("cobalt_propeller_from_part"));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, AllItems.WHISK)
-                .define('A', AllItems.ANDESITE_ALLOY)
-                .define('H', MaterialIngredient.of(TGTinkerItems.WHISK_PART, MaterialIds.iron))
-                .pattern(" H")
-                .pattern("A ")
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.WHISK)
+                .requires(AllItems.ANDESITE_ALLOY)
+                .requires(MaterialIngredient.of(TGTinkerItems.WHISK_PART, MaterialIds.iron))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("iron_whisk_from_part"));
     }

@@ -1,24 +1,16 @@
 package ho.artisan.tgears.common.item;
 
-import net.minecraft.world.item.ItemStack;
 import slimeknights.tconstruct.library.materials.MaterialRegistry;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
-import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
-import slimeknights.tconstruct.library.materials.stats.IMaterialStats;
+import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.tools.part.MaterialItem;
 
 public class PartMaterialItem extends MaterialItem {
-    private final IMaterialStats stats;
+    private final MaterialStatsId id;
 
-    public PartMaterialItem(Properties properties, IMaterialStats stats) {
+    public PartMaterialItem(Properties properties, MaterialStatsId id) {
         super(properties);
-        this.stats = stats;
-    }
-
-
-    @Override
-    public ItemStack withMaterial(MaterialVariantId material) {
-        return super.withMaterial(material);
+        this.id = id;
     }
 
     @Override
@@ -26,6 +18,6 @@ public class PartMaterialItem extends MaterialItem {
         return MaterialRegistry.getInstance()
                 .getAllStats(material)
                 .stream()
-                .anyMatch(s -> s == this.stats);
+                .anyMatch(s -> s.getIdentifier().equals(id));
     }
 }

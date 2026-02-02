@@ -1,5 +1,9 @@
 {
   "values": [
-    "create:blaze_burner"
+    "create:blaze_burner",
+    {
+      "id": "createaddition:liquid_blaze_burner",
+      "required": false
+    }
   ]
 }

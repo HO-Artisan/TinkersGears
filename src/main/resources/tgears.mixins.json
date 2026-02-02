@@ -12,11 +12,11 @@
 		"ReplaceAlloyerFuel",
 		"ReplaceMelterFuel",
 		"TinkerCardboardArmorSupport",
-		"TinkerCardboardHelmetOverlaySupport",
 		"TinkerWrenchSupport",
 		"assessor.AccessorCrushingWrapper",
 		"assessor.AccessorSpoutTank",
-		"burner.InjectBlazeBurnerBlockEntity",
+		"burner.InjectBlazeBurnerBlock",
+		"compat.InjectLiquidBlazeBurnerBlock",
 		"crushing.BeltBlockFix",
 		"crushing.BeltInventoryFix",
 		"crushing.CrushingBlockEntityTick",
@@ -27,10 +27,11 @@
 		"tooltip.MelterInfo",
 		"tooltip.TankInfo"
 	],
-	"client": [
-	],
 	"injectors": {
 		"defaultRequire": 1
 	},
-	"minVersion": "0.8"
+	"minVersion": "0.8",
+	"client": [
+		"TinkerCardboardArmorOverlay"
+	]
 }

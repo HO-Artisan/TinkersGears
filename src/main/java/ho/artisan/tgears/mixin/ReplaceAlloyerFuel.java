@@ -1,7 +1,7 @@
 package ho.artisan.tgears.mixin;
 
 import com.simibubi.create.api.equipment.goggles.IHaveGoggleInformation;
-import ho.artisan.tgears.data.ExtendedFuelModule;
+import ho.artisan.tgears.api.ExtendedFuelModule;
 import net.minecraft.core.BlockPos;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

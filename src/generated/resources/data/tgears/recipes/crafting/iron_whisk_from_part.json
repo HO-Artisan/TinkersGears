@@ -1,22 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "A": {
+  "ingredients": [
+    {
       "item": "create:andesite_alloy"
     },
-    "H": {
+    {
       "type": "tconstruct:material",
       "item": "tgears:whisk_part",
       "material": "tconstruct:iron"
     }
-  },
-  "pattern": [
-    " H",
-    "A "
   ],
   "result": {
     "item": "create:whisk"
-  },
-  "show_notification": true
+  }
 }

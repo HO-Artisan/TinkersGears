@@ -1,5 +1,7 @@
 {
   "stats": {
+    "tconstruct:arrow_head": {},
+    "tconstruct:arrow_shaft": {},
     "tconstruct:binding": {},
     "tconstruct:handle": {
       "durability": -0.5,
@@ -32,6 +34,7 @@
     },
     "tconstruct:plating_shield": {
       "durability": 36
-    }
+    },
+    "tconstruct:shield_core": {}
   }
 }

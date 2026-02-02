@@ -1,5 +1,6 @@
 package ho.artisan.tgears.data.provider.tag;
 
+import com.mrh0.createaddition.index.CABlocks;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllTags;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
@@ -35,7 +36,8 @@ public final class TGBlockTagGen extends TGTagGen<Block> {
                 );
 
         prov.tag(TinkerTags.Blocks.FUEL_TANKS)
-                .add(AllBlocks.BLAZE_BURNER.get());
+                .add(AllBlocks.BLAZE_BURNER.get())
+                .addOptional(CABlocks.LIQUID_BLAZE_BURNER.getId());
 
         prov.tag(TGTagKeys.Blocks.SPOUT_ATTACHMENTS)
                 .add(Blocks.LEVER)
