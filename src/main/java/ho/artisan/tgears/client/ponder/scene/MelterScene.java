@@ -134,6 +134,8 @@ public class MelterScene {
         BlockPos melter = util.grid().at(2, 2, 2);
         Selection selection = util.select().fromTo(melter.below(), melter);
 
+        scene.idle(5);
+        scene.world().showSection(selection, Direction.DOWN);
         scene.idle(15);
         scene.overlay().showOutline(PonderPalette.GREEN, selection, selection, 40);
         scene.idle(5);
@@ -192,8 +194,11 @@ public class MelterScene {
         BlockPos table = util.grid().at(1, 1, 2);
         BlockPos basin = util.grid().at(3, 1, 2);
         BlockPos melter = util.grid().at(2, 2, 2);
+        Selection selection = util.select().fromTo(basin, table.above().above());
 
         scene.idle(5);
+        scene.world().showSection(selection, Direction.DOWN);
+        scene.idle(10);
         scene.overlay().showText(20)
                 .text("Melting to get molten material")
                 .attachKeyFrame()

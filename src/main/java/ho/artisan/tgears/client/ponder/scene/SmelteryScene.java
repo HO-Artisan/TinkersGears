@@ -2,7 +2,6 @@ package ho.artisan.tgears.client.ponder.scene;
 
 import com.simibubi.create.AllItems;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
-import com.simibubi.create.foundation.ponder.CreateSceneBuilder;
 import ho.artisan.tgears.client.ponder.TGSceneBuilder;
 import net.createmod.ponder.api.PonderPalette;
 import net.createmod.ponder.api.element.ElementLink;
@@ -29,13 +28,11 @@ public class SmelteryScene {
     }
 
     public static void newBasic(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         Object o = new Object();
 
         scene.title("new_smeltery", "New Smeltery");
-        scene.showBasePlate();
-        scene.idle(20);
-        scene.scaleSceneView(0.7f);
+        scene.init9x9(util);
 
         Selection bottom = util.select().fromTo(5, 1, 3, 3, 1, 5);
         Selection controllers = util.select().fromTo(5, 2, 2, 3, 2, 2);
@@ -152,7 +149,7 @@ public class SmelteryScene {
     }
 
     public static void basic(SceneBuilder builder, SceneBuildingUtil util) {
-        CreateSceneBuilder scene = new CreateSceneBuilder(builder);
+        TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("smeltery", "Building the smeltery");
         scene.configureBasePlate(0, 0, 7);
         scene.scaleSceneView(0.75F);
@@ -206,7 +203,8 @@ public class SmelteryScene {
         TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("smeltery_mini", "Building the mini smeltery");
         scene.init7x7(util);
-
+        scene.world().showSection(util.select().fromTo(2, 1, 2, 4, 2, 4), Direction.DOWN);
+        scene.idle(20);
         scene.rotateAround(120);
 
         BlockPos center = util.grid().at(3, 2, 3);
@@ -228,6 +226,7 @@ public class SmelteryScene {
         TGSceneBuilder scene = new TGSceneBuilder(builder);
         scene.title("smeltery_transfer", "Understanding the smeltery transfer");
         scene.init7x7(util);
+        scene.world().showSection(util.select().fromTo(0, 1, 0, 6, 6, 6), Direction.DOWN);
 
         BlockPos tank = util.grid().at(0, 1, 5);
         BlockPos controller = util.grid().at(4, 2, 2);

@@ -22,6 +22,12 @@ public class TGSceneBuilder extends CreateSceneBuilder {
         this.world().showSection(util.select().layer(0), Direction.UP);
     }
 
+    public void init9x9(SceneBuildingUtil util) {
+        this.configureBasePlate(0, 0, 9);
+        this.scaleSceneView(0.6f);
+        this.world().showSection(util.select().layer(0), Direction.UP);
+    }
+
     public void rotateAround(int duration) {
         int time = duration / 4;
         this.rotateCameraY(90);
