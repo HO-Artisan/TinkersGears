@@ -8,7 +8,9 @@ import com.simibubi.create.foundation.data.BuilderTransformers;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import ho.artisan.tgears.TinkersGears;
-import ho.artisan.tgears.common.block.*;
+import ho.artisan.tgears.common.block.SoulCardboardBlock;
+import ho.artisan.tgears.common.block.TinkerFanBlock;
+import ho.artisan.tgears.common.block.TinkerSpoutBlock;
 import ho.artisan.tgears.common.block.behaviour.TinkerDrillMovementBehaviour;
 import ho.artisan.tgears.common.block.behaviour.TinkerFortuneDrillMovementBehaviour;
 import ho.artisan.tgears.common.block.behaviour.TinkerSilkDrillMovementBehaviour;
@@ -20,6 +22,9 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraftforge.common.Tags;
+import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.shared.TinkerCommons;
 
 import static com.simibubi.create.api.behaviour.movement.MovementBehaviour.movementBehaviour;
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
@@ -35,6 +40,24 @@ public final class TGBlocks {
 
     private TGBlocks() {
     }
+
+    public static final BlockEntry<SoulCardboardBlock> SOUL_CARDBOARD_BLOCK =
+            REGISTRATE.block("soul_cardboard_block", SoulCardboardBlock::new)
+                    .initialProperties(TinkerCommons.soulGlass::get)
+                    .properties(p -> p.mapColor(MapColor.COLOR_BROWN)
+                            .sound(SoundType.CHISELED_BOOKSHELF)
+                    )
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.horizontalAxisBlockProvider(false))
+                    .tag(Tags.Blocks.STORAGE_BLOCKS)
+                    .tag(TGTagKeys.Blocks.SOUL_CARDBOARD_STORAGE_BLOCKS)
+                    .tag(TinkerTags.Blocks.TRANSPARENT_OVERLAY)
+                    .item()
+                    .tag(Tags.Items.STORAGE_BLOCKS)
+                    .tag(TGTagKeys.Items.SOUL_CARDBOARD_STORAGE_BLOCKS)
+                    .build()
+                    .lang("Block of Soul Cardboard")
+                    .register();
 
     public static final BlockEntry<TinkerSpoutBlock> TINKER_SPOUT = REGISTRATE.block("tinker_spout", TinkerSpoutBlock::new)
             .initialProperties(SharedProperties::copperMetal)
@@ -61,7 +84,7 @@ public final class TGBlocks {
     public static final BlockEntry<TinkerDrillBlock> TINKER_DRILL = REGISTRATE.block("tinker_drill", TinkerDrillBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
-            .transform(axeOrPickaxe())
+            .transform(pickaxeOnly())
             .lang("Tinker Mechanical Drill")
             .blockstate(BlockStateGen.directionalBlockProvider(true))
             .tag(TGTagKeys.Blocks.DRILL)
@@ -75,7 +98,7 @@ public final class TGBlocks {
     public static final BlockEntry<TinkerSilkDrillBlock> TINKER_SILKTOUCH_DRILL = REGISTRATE.block("tinker_silktouch_drill", TinkerSilkDrillBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
-            .transform(axeOrPickaxe())
+            .transform(pickaxeOnly())
             .lang("Tinker Mechanical Drill (Silk Touch)")
             .blockstate(BlockStateGen.directionalBlockProvider(true))
             .tag(TGTagKeys.Blocks.DRILL)
@@ -90,7 +113,7 @@ public final class TGBlocks {
     public static final BlockEntry<TinkerFortuneDrillBlock> TINKER_FORTUNE_DRILL = REGISTRATE.block("tinker_fortune_drill", TinkerFortuneDrillBlock::new)
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
-            .transform(axeOrPickaxe())
+            .transform(pickaxeOnly())
             .lang("Tinker Mechanical Drill (Fortune)")
             .blockstate(BlockStateGen.directionalBlockProvider(true))
             .tag(TGTagKeys.Blocks.DRILL)
@@ -106,7 +129,7 @@ public final class TGBlocks {
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.PODZOL))
             .blockstate(BlockStateGen.directionalBlockProvider(true))
-            .transform(axeOrPickaxe())
+            .transform(pickaxeOnly())
             .lang("Tinker Encased Fan")
             .item()
             .transform(customItemModel())

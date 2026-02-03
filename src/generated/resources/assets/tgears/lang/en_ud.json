@@ -1,6 +1,7 @@
 {
   "block.tgears.blazing_chocolate": "ǝʇɐןoɔoɥƆ buızɐןᗺ",
   "block.tgears.cobalt_casing": "buısɐƆ ʇןɐqoƆ",
+  "block.tgears.soul_cardboard_block": "pɹɐoqpɹɐƆ ןnoS ɟo ʞɔoןᗺ",
   "block.tgears.tinker_casing": "buısɐƆ ɹǝʞuı⟘",
   "block.tgears.tinker_crushing_wheel": "ןǝǝɥM buıɥsnɹƆ ɹǝʞuı⟘",
   "block.tgears.tinker_crushing_wheel_controller": "ɹǝןןoɹʇuoƆ ןǝǝɥM buıɥsnɹƆ ɹǝʞuı⟘",
@@ -49,6 +50,7 @@
   "item.tgears.propeller_part_sand_cast": "ʇsɐƆ puɐS ɹǝןןǝdoɹԀ",
   "item.tgears.red_stone_element": "ʇuǝɯǝןƎ ǝuoʇS pǝᴚ",
   "item.tgears.rose_gold_sheet": "ʇǝǝɥS pןo⅁ ǝsoᴚ",
+  "item.tgears.soul_cardboard": "pɹɐoqpɹɐƆ ןnoS",
   "item.tgears.whisk_part": "ʇɹɐԀ ʞsıɥM",
   "item.tgears.whisk_part_cast": "ʇsɐƆ pןo⅁ ʞsıɥM",
   "item.tgears.whisk_part_red_sand_cast": "ʇsɐƆ puɐS pǝᴚ ʞsıɥM",
@@ -64,6 +66,7 @@
   "material.tgears.brass.encyclopedia": "ןǝʌǝן ɹǝd ɹıɐdǝɹ ןooʇ buıʎןdıʇןnɯ %ϛᄅ puɐ  ʎʇıןıqɐɹnp buısɐǝɹɔuı %ϛ sɐɥ ʇI",
   "material.tgears.brass.flavor": "buıɹnʇɔɐɟnuɐW ʞunԀ",
   "material.tgears.cardboard": "pɹɐoqpɹɐƆ",
+  "material.tgears.cardboard.armor": "˙ǝןqɐʇıɹʍ ʇnq ǝןıbɐɹɟ ʎɹǝʌ sı ʇI",
   "material.tgears.cardboard.encyclopedia": "˙ɹǝʍod ʞɔɐqʞɔouʞ puɐ pǝǝds ʞɔɐʇʇɐ pǝɥɔʇɐɯun sɐɥ ʇı ʇnq 'ʇɹɐd pɐǝɥ ɥʇıʍ ǝbɐɯɐᗡ oN sǝʞɐʇ ʇI",
   "material.tgears.cardboard.flavor": "¡ʇɥbıן-ɐɹʇן∩ ʇnq ssǝןɯɹɐH",
   "material.tgears.chocolate": "ǝʇɐןoɔoɥƆ",

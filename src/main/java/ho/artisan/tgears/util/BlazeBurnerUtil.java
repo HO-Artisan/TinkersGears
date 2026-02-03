@@ -12,21 +12,22 @@ public final class BlazeBurnerUtil {
     private BlazeBurnerUtil() {
     }
 
-    public static float getFactor(BlazeBurnerBlock.HeatLevel level) {
+    public static int getTemperature(BlazeBurnerBlock.HeatLevel level) {
         return switch (level) {
-            case NONE -> 0F;
-            case SMOULDERING -> TinkersGearsConfig.server().extinguishedFactor.getF(); // 400
-            case FADING, KINDLED -> TinkersGearsConfig.server().kindledFactor.getF(); // 800
-            case SEETHING -> TinkersGearsConfig.server().seethingFactor.getF(); // 1600
+            case NONE -> 0;
+            case SMOULDERING -> TinkersGearsConfig.server().extinguishedTemperature.get();
+            case FADING, KINDLED -> TinkersGearsConfig.server().kindledTemperature.get();
+            case SEETHING -> TinkersGearsConfig.server().seethingTemperature.get();
         };
     }
 
-    public static int getTemperature(BlazeBurnerBlock.HeatLevel level) {
-        return (int) (getFactor(level) * 800);
-    }
-
     public static int getRate(BlazeBurnerBlock.HeatLevel level) {
-        return (int) (getFactor(level) * 10);
+        return switch (level) {
+            case NONE -> 0;
+            case SMOULDERING -> TinkersGearsConfig.server().extinguishedRate.get();
+            case FADING, KINDLED -> TinkersGearsConfig.server().kindledRate.get();
+            case SEETHING -> TinkersGearsConfig.server().seethingRate.get();
+        };
     }
 
     public static void addToGoggleTooltip(List<Component> tooltip, SolidFuelModule module) {

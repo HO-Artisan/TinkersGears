@@ -17,6 +17,14 @@ public final class TGDeployingProvider extends DeployingRecipeGen {
                 .require(AllItems.ANDESITE_ALLOY)
                 .output(AllItems.BRASS_HAND));
 
+        create("chocolate_hand", b -> b.require(MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.CHOCOLATE))
+                .require(AllItems.ANDESITE_ALLOY)
+                .output(TGItems.CHOCOLATE_HAND));
+
+        create("blazing_chocolate_hand", b -> b.require(MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BLAZING_CHOCOLATE))
+                .require(AllItems.ANDESITE_ALLOY)
+                .output(TGItems.BLAZING_CHOCOLATE_HAND));
+
         create("propeller", b -> b.require(MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, MaterialIds.iron))
                 .require(AllItems.ANDESITE_ALLOY)
                 .output(AllItems.PROPELLER));

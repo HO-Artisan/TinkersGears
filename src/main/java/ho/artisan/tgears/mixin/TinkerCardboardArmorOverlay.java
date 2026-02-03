@@ -35,7 +35,7 @@ public class TinkerCardboardArmorOverlay {
             }
             if (flag) {
                 if (TinkersGearsCompat.GOGGLES_LOADED)
-                    if (CCGConfigSync.IS_CARDBOARD_OVERLAY_REMOVED)
+                    if (CCGConfigSync.isCardboardOverlayRemoved())
                         return;
                 new CardboardArmorStealthOverlay().renderHelmetOverlay(stack, player, width, height, partialTick);
             }

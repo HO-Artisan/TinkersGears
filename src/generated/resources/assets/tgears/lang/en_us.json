@@ -1,6 +1,7 @@
 {
   "block.tgears.blazing_chocolate": "Blazing Chocolate",
   "block.tgears.cobalt_casing": "Cobalt Casing",
+  "block.tgears.soul_cardboard_block": "Block of Soul Cardboard",
   "block.tgears.tinker_casing": "Tinker Casing",
   "block.tgears.tinker_crushing_wheel": "Tinker Crushing Wheel",
   "block.tgears.tinker_crushing_wheel_controller": "Tinker Crushing Wheel Controller",
@@ -49,6 +50,7 @@
   "item.tgears.propeller_part_sand_cast": "Propeller Sand Cast",
   "item.tgears.red_stone_element": "Red Stone Element",
   "item.tgears.rose_gold_sheet": "Rose Gold Sheet",
+  "item.tgears.soul_cardboard": "Soul Cardboard",
   "item.tgears.whisk_part": "Whisk Part",
   "item.tgears.whisk_part_cast": "Whisk Gold Cast",
   "item.tgears.whisk_part_red_sand_cast": "Whisk Red Sand Cast",
@@ -64,6 +66,7 @@
   "material.tgears.brass.encyclopedia": "It has 5% increasing durability  and 25% multiplying tool repair per level",
   "material.tgears.brass.flavor": "Punk Manufacturing",
   "material.tgears.cardboard": "Cardboard",
+  "material.tgears.cardboard.armor": "It is very fragile but writable.",
   "material.tgears.cardboard.encyclopedia": "It takes No Damage with head part, but it has unmatched attack speed and knockback power.",
   "material.tgears.cardboard.flavor": "Harmless but Ultra-light!",
   "material.tgears.chocolate": "Chocolate",

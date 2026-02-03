@@ -26,19 +26,25 @@ public final class TGMaterialTraitsDataProvider extends AbstractMaterialTraitDat
         addDefaultTraits(TGMaterials.Ids.BRASS, TGModifiers.Ids.PRECISION);
 
         addDefaultTraits(TGMaterials.Ids.CHOCOLATE, TGModifiers.Ids.NOURISHING);
-        addDefaultTraits(TGMaterials.Ids.BLAZING_CHOCOLATE, TGModifiers.Ids.NOURISHING);
 
         addTraits(
                 TGMaterials.Ids.BLAZING_CHOCOLATE,
                 MELEE_HARVEST,
-                ModifierIds.fiery
+                ModifierIds.fiery,
+                TGModifiers.Ids.NOURISHING
         );
 
-        addDefaultTraits(TGMaterials.Ids.CARDBOARD, ModifierIds.writable);
         addTraits(
                 TGMaterials.Ids.CARDBOARD,
                 MELEE_HARVEST,
-                TinkerModifiers.knockback.getId()
+                TinkerModifiers.knockback.getId(),
+                ModifierIds.writable
+        );
+
+        addTraits(
+                TGMaterials.Ids.CARDBOARD,
+                ARMOR,
+                ModifierIds.writable
         );
 
         addTraits(

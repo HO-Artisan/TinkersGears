@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/orientable",
+	"textures": {
+		"front": "tgears:block/soul_cardboard_block_front",
+		"side": "tgears:block/soul_cardboard_block_side",
+		"top": "tgears:block/soul_cardboard_block_top",
+		"particle": "tgears:block/soul_cardboard_block_side"
+	},
+	"render_type": "minecraft:translucent"
+}
