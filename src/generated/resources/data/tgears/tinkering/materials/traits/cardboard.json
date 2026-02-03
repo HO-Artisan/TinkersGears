@@ -1,15 +1,19 @@
 {
-  "default": [
-    {
-      "level": 1,
-      "name": "tconstruct:writable"
-    }
-  ],
   "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tconstruct:writable"
+      }
+    ],
     "tconstruct:melee_harvest": [
       {
         "level": 1,
         "name": "tconstruct:knockback"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:writable"
       }
     ]
   }

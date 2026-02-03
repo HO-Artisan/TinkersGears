@@ -12,6 +12,7 @@ public final class TGMaterialLang extends TGLang {
         provider.add("material.tgears.cardboard", "Cardboard");
         provider.add("material.tgears.cardboard.flavor", "Harmless but Ultra-light!");
         provider.add("material.tgears.cardboard.encyclopedia", "It takes No Damage with head part, but it has unmatched attack speed and knockback power.");
+        provider.add("material.tgears.cardboard.armor", "It is very fragile but writable.");
 
         provider.add("material.tgears.brass", "Brass");
         provider.add("material.tgears.brass.flavor", "Punk Manufacturing");

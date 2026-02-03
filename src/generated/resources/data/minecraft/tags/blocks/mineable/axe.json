@@ -1,10 +1,7 @@
 {
   "values": [
+    "tgears:soul_cardboard_block",
     "tgears:cobalt_casing",
-    "tgears:tinker_casing",
-    "tgears:tinker_drill",
-    "tgears:tinker_silktouch_drill",
-    "tgears:tinker_fortune_drill",
-    "tgears:tinker_fan"
+    "tgears:tinker_casing"
   ]
 }

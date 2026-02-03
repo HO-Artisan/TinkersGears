@@ -35,25 +35,30 @@ public final class TGCastingRecipeProvider extends TGRecipeProvider {
         foodRecipes(consumer);
         drillRecipes(consumer);
         metalRecipes(consumer);
+
+        ItemCastingRecipeBuilder.tableRecipe(TGItems.SOUL_CARDBOARD)
+                .setFluidAndTime(TinkerFluids.liquidSoul, FluidValues.BOTTLE)
+                .setCast(AllItems.CARDBOARD, true)
+                .save(consumer, location("soul_cardboard"));
     }
 
     private void metalRecipes(Consumer<FinishedRecipe> consumer) {
-        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.COBALT_PLATE)
+        ItemCastingRecipeBuilder.tableRecipe(TGTagKeys.Items.COBALT_PLATE)
                 .setFluidAndTime(TinkerFluids.moltenCobalt, FluidValues.INGOT)
                 .setCast(TinkerSmeltery.plateCast.getMultiUseTag(), false)
                 .save(consumer, location("cobalt/plate_gold_cast"));
 
-        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.COBALT_PLATE)
+        ItemCastingRecipeBuilder.tableRecipe(TGTagKeys.Items.COBALT_PLATE)
                 .setFluidAndTime(TinkerFluids.moltenCobalt, FluidValues.INGOT)
                 .setCast(TinkerSmeltery.plateCast.getSingleUseTag(), true)
                 .save(consumer, location("cobalt/plate_sand_cast"));
 
-        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.ROSE_GOLD_PLATE)
+        ItemCastingRecipeBuilder.tableRecipe(TGTagKeys.Items.ROSE_GOLD_PLATE)
                 .setFluidAndTime(TinkerFluids.moltenRoseGold, FluidValues.INGOT)
                 .setCast(TinkerSmeltery.plateCast.getMultiUseTag(), false)
                 .save(consumer, location("rose_gold/plate_gold_cast"));
 
-        ItemCastingRecipeBuilder.basinRecipe(TGTagKeys.Items.ROSE_GOLD_PLATE)
+        ItemCastingRecipeBuilder.tableRecipe(TGTagKeys.Items.ROSE_GOLD_PLATE)
                 .setFluidAndTime(TinkerFluids.moltenRoseGold, FluidValues.INGOT)
                 .setCast(TinkerSmeltery.plateCast.getSingleUseTag(), true)
                 .save(consumer, location("rose_gold/plate_sand_cast"));

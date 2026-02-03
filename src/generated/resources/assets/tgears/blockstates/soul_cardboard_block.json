@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tgears:block/soul_cardboard_block",
+      "y": 90
+    },
+    "axis=z": {
+      "model": "tgears:block/soul_cardboard_block"
+    }
+  }
+}

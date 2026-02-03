@@ -1,0 +1,18 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "type": "tconstruct:material",
+      "item": "tgears:hand_part",
+      "material": "tgears:chocolate"
+    },
+    {
+      "item": "create:andesite_alloy"
+    }
+  ],
+  "results": [
+    {
+      "item": "tgears:chocolate_hand"
+    }
+  ]
+}

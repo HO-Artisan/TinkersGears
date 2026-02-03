@@ -2,7 +2,6 @@ package ho.artisan.tgears.compat;
 
 import net.minecraftforge.fml.ModList;
 
-@SuppressWarnings("ALL")
 public final class TinkersGearsCompat {
     public static final String CM = "createmetallurgy";
     public static final String CA = "createaddition";

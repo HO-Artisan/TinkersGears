@@ -80,6 +80,10 @@ public final class TGItems {
             .tag(AllTags.AllItemTags.CRUSHED_RAW_MATERIALS.tag)
             .register();
 
+    public static final ItemEntry<Item> SOUL_CARDBOARD = REGISTRATE.item("soul_cardboard", Item::new)
+            .properties(Item.Properties::fireResistant)
+            .register();
+
     public static final ItemEntry<Item> RED_STONE_ELEMENT = REGISTRATE.item("red_stone_element", Item::new)
             .register();
 

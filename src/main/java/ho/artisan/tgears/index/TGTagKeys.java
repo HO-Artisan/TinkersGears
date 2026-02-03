@@ -39,6 +39,8 @@ public final class TGTagKeys {
 
         public static final TagKey<Item> GEARS = tgearsTag("modifiable/gears");
 
+        public static final TagKey<Item> SOUL_CARDBOARD_STORAGE_BLOCKS = forgeTag("storage_blocks/soul_cardboard_blocks");
+
         public static TagKey<Item> createTag(final String name) {
             return ItemTags.create(ResourceLocation.tryBuild("create", name));
         }
@@ -60,11 +62,17 @@ public final class TGTagKeys {
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_BLAZING = createTag("fan_processing_catalysts/blazing");
 
+        public static final TagKey<Block> SOUL_CARDBOARD_STORAGE_BLOCKS = forgeTag("storage_blocks/soul_cardboard_blocks");
+
         private Blocks() {
         }
 
         public static TagKey<Block> createTag(final String name) {
             return BlockTags.create(ResourceLocation.tryBuild("create", name));
+        }
+
+        public static TagKey<Block> forgeTag(final String name) {
+            return BlockTags.create(ResourceLocation.tryBuild("forge", name));
         }
 
         public static TagKey<Block> tgearsTag(final String name) {
