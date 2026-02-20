@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:goggles",
+  "text": [
+    {
+      "text": "You can see more details about placed machines."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximun of 1 level",
+    "Slotless"
+  ]
+}

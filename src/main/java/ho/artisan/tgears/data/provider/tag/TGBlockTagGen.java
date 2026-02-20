@@ -5,6 +5,7 @@ import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllTags;
 import com.tterrag.registrate.providers.RegistrateTagsProvider;
 import ho.artisan.tgears.index.TGTagKeys;
+import net.dragonegg.moreburners.registry.BlockRegistry;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -35,9 +36,16 @@ public final class TGBlockTagGen extends TGTagGen<Block> {
                         TinkerSmeltery.scorchedTable.get()
                 );
 
+        prov.tag(TGTagKeys.Blocks.BURNER_TARGETS)
+                .add(
+                        TinkerSmeltery.scorchedAlloyer.get(),
+                        TinkerSmeltery.searedMelter.get()
+                );
+
         prov.tag(TinkerTags.Blocks.FUEL_TANKS)
                 .add(AllBlocks.BLAZE_BURNER.get())
-                .addOptional(CABlocks.LIQUID_BLAZE_BURNER.getId());
+                .addOptional(CABlocks.LIQUID_BLAZE_BURNER.getId())
+                .addOptional(BlockRegistry.ELECTRIC_BURNER.getId());
 
         prov.tag(TGTagKeys.Blocks.SPOUT_ATTACHMENTS)
                 .add(Blocks.LEVER)

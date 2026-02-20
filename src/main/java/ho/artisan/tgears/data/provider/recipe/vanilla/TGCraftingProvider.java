@@ -2,12 +2,14 @@ package ho.artisan.tgears.data.provider.recipe.vanilla;
 
 import com.simibubi.create.AllItems;
 import ho.artisan.tgears.data.provider.recipe.TGRecipeProvider;
+import ho.artisan.tgears.index.TGBlocks;
 import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGMaterials;
 import ho.artisan.tgears.index.TGTinkerItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
@@ -26,7 +28,25 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        partRecipes(consumer);
+        cardboardRecipes(consumer);
+    }
 
+    public void cardboardRecipes(Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.SOUL_CARDBOARD, 4)
+                .requires(TGBlocks.SOUL_CARDBOARD_BLOCK)
+                .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
+                .save(consumer, location("soul_cardboard_from_block"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGBlocks.SOUL_CARDBOARD_BLOCK)
+                .pattern("XX")
+                .pattern("XX")
+                .define('X', TGItems.SOUL_CARDBOARD)
+                .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
+                .save(consumer, location("soul_cardboard_block"));
+    }
+
+    public void partRecipes(Consumer<FinishedRecipe> consumer) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.BRASS_HAND)
                 .requires(AllItems.ANDESITE_ALLOY)
                 .requires(MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BRASS))

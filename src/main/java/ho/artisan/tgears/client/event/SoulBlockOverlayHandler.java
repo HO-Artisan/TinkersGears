@@ -1,0 +1,71 @@
+package ho.artisan.tgears.client.event;
+
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
+import ho.artisan.tgears.TinkersGears;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RenderBlockScreenEffectEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import org.joml.Matrix4f;
+import slimeknights.tconstruct.common.TinkerTags;
+
+@Mod.EventBusSubscriber(modid = TinkersGears.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
+public class SoulBlockOverlayHandler {
+    @SubscribeEvent
+    static void renderBlockOverlay(RenderBlockScreenEffectEvent event) {
+        BlockState state = event.getBlockState();
+        if (state.is(TinkerTags.Blocks.TRANSPARENT_OVERLAY)) {
+            Minecraft minecraft = Minecraft.getInstance();
+            assert minecraft.level != null;
+            assert minecraft.player != null;
+            BlockPos pos = event.getBlockPos();
+            float width = minecraft.player.getBbWidth() * 0.8F;
+            // check collision of the block again, for non-full blocks
+            if (Shapes.joinIsNotEmpty(state.getShape(minecraft.level, pos).move(pos.getX(), pos.getY(), pos.getZ()), Shapes.create(AABB.ofSize(minecraft.player.getEyePosition(), width, 1.0E-6D, width)), BooleanOp.AND)) {
+                // this is for the most part a clone of the vanilla logic from ScreenEffectRenderer with some changes mentioned below
+
+                TextureAtlasSprite texture = minecraft.getBlockRenderer().getBlockModelShaper().getTexture(state, minecraft.level, pos);
+                RenderSystem.setShaderTexture(0, texture.atlasLocation());
+                // changed: shader using pos tex
+                RenderSystem.setShader(GameRenderer::getPositionTexShader);
+                BufferBuilder bufferbuilder = Tesselator.getInstance().getBuilder();
+
+                // change: handle brightness based on renderWater, and enable blend
+                Player player = minecraft.player;
+                BlockPos blockpos = BlockPos.containing(player.getX(), player.getEyeY(), player.getZ());
+                float brightness = LightTexture.getBrightness(player.level().dimensionType(), player.level().getMaxLocalRawBrightness(blockpos));
+                RenderSystem.enableBlend();
+                RenderSystem.defaultBlendFunc();
+                RenderSystem.setShaderColor(brightness, brightness, brightness, 1.0f);
+
+                // draw the quad
+                float u0 = texture.getU0();
+                float u1 = texture.getU1();
+                float v0 = texture.getV0();
+                float v1 = texture.getV1();
+                Matrix4f matrix4f = event.getPoseStack().last().pose();
+                bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                // change: dropped color, see above
+                bufferbuilder.vertex(matrix4f, -1, -1, -0.5f).uv(u1, v1).endVertex();
+                bufferbuilder.vertex(matrix4f, 1, -1, -0.5f).uv(u0, v1).endVertex();
+                bufferbuilder.vertex(matrix4f, 1, 1, -0.5f).uv(u0, v0).endVertex();
+                bufferbuilder.vertex(matrix4f, -1, 1, -0.5f).uv(u1, v0).endVertex();
+                BufferUploader.drawWithShader(bufferbuilder.end());
+                // changed: disable blend
+                RenderSystem.disableBlend();
+            }
+            event.setCanceled(true);
+        }
+    }
+}

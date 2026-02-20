@@ -3,7 +3,7 @@ package ho.artisan.tgears.common.modifier;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.simibubi.create.AllRecipeTypes;
-import com.simibubi.create.content.kinetics.crusher.CrushingRecipe;
+import com.simibubi.create.content.kinetics.crusher.AbstractCrushingRecipe;
 import ho.artisan.tgears.common.block.module.CrushingItemModule;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.item.Item;
@@ -31,7 +31,7 @@ import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 public class CreateCrushingModifier extends NoLevelsModifier implements ProcessLootModifierHook, ToolStatsModifierHook {
-    private final Cache<Item, Optional<CrushingRecipe>> recipeCache = CacheBuilder
+    private final Cache<Item, Optional<AbstractCrushingRecipe>> recipeCache = CacheBuilder
             .newBuilder()
             .maximumSize(64)
             .build();
@@ -51,13 +51,17 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
         hookBuilder.addHook(this, ModifierHooks.PROCESS_LOOT, ModifierHooks.TOOL_STATS);
     }
 
-    private Optional<CrushingRecipe> findRecipe(ItemStack stack, Level world) {
+    private Optional<AbstractCrushingRecipe> findRecipe(ItemStack stack, Level world) {
         inventory.setStackInSlot(0, stack);
-        return world.getRecipeManager().getRecipeFor(AllRecipeTypes.CRUSHING.getType(), new RecipeWrapper(inventory), world);
+        Optional<AbstractCrushingRecipe> crushingRecipe =
+                AllRecipeTypes.CRUSHING.find(new RecipeWrapper(inventory), world);
+        if (crushingRecipe.isEmpty())
+            crushingRecipe = AllRecipeTypes.MILLING.find(new RecipeWrapper(inventory), world);
+        return crushingRecipe;
     }
 
     @Nullable
-    private CrushingRecipe findCachedRecipe(ItemStack stack, Level world) {
+    private AbstractCrushingRecipe findCachedRecipe(ItemStack stack, Level world) {
         // don't use the cache if there is a tag, prevent breaking NBT sensitive recipes
         if (stack.hasTag()) {
             return findRecipe(stack, world).orElse(null);
@@ -73,7 +77,7 @@ public class CreateCrushingModifier extends NoLevelsModifier implements ProcessL
         if (stack.is(TGTagKeys.Items.CRUSHING_BLACKLIST)) {
             return List.of(stack);
         }
-        CrushingRecipe recipe = findCachedRecipe(stack, world);
+        AbstractCrushingRecipe recipe = findCachedRecipe(stack, world);
         if (recipe != null) {
             inventory.setStackInSlot(0, stack);
 

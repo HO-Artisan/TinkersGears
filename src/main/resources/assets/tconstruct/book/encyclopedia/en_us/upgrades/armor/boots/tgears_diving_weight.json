@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:diving_weight",
+  "text": [
+    {
+      "text": "Makes boots have same effect like diving boots."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximun of 1 level",
+    "Requires 1 upgrade slot"
+  ]
+}

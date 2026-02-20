@@ -35,7 +35,7 @@ public final class TGTagKeys {
         public static final TagKey<Item> COBALT_PLATE = forgeTag("plates/cobalt");
         public static final TagKey<Item> ROSE_GOLD_PLATE = forgeTag("plates/rose_gold");
 
-        public static final TagKey<Item> DRILL = tgearsTag("drill");
+        public static final TagKey<Item> DRILLS = tgearsTag("drills");
 
         public static final TagKey<Item> GEARS = tgearsTag("modifiable/gears");
 
@@ -57,11 +57,11 @@ public final class TGTagKeys {
     public static final class Blocks {
 
         public static final TagKey<Block> SPOUT_ATTACHMENTS = tgearsTag("spout_attachments");
-        public static final TagKey<Block> DRILL = tgearsTag("drill");
+        public static final TagKey<Block> DRILLS = tgearsTag("drills");
         public static final TagKey<Block> TINKER_ASSEMBLY_OPERATOR = tgearsTag("tinker_assembly_operator");
+        public static final TagKey<Block> BURNER_TARGETS = tgearsTag("burner_targets");
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_BLAZING = createTag("fan_processing_catalysts/blazing");
-
         public static final TagKey<Block> SOUL_CARDBOARD_STORAGE_BLOCKS = forgeTag("storage_blocks/soul_cardboard_blocks");
 
         private Blocks() {

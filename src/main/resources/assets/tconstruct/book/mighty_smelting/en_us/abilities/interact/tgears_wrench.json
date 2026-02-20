@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:wrench",
+  "text": [
+    {
+      "text": "Configure the world with the wrench in your hand!"
+    }
+  ],
+  "effects": [
+    "Allows you to configure components with your tools",
+    "Single Level",
+    "Requires 1 ability slot"
+  ]
+}

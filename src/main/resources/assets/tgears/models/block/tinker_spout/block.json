@@ -7,6 +7,7 @@
 		"3": "tgears:block/encased_pipe",
 		"particle": "tgears:block/tinker_underside"
 	},
+	"render_type": "minecraft:cutout",
 	"elements": [
 		{
 			"from": [

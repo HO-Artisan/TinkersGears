@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:crushing",
+  "text": [
+    {
+      "text": "Causes mined blocks to drop their crushed products."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximun of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

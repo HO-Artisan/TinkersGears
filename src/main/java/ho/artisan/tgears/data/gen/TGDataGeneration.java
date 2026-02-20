@@ -36,19 +36,11 @@ public class TGDataGeneration {
             generator.addProvider(event.includeServer(), func.apply(output));
         };
 
-        // Lang
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGCommonLang::new);
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGMaterialLang::new);
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGModifierLang::new);
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGPonderLang::new);
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGRecipeLang::new);
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGTooltipLang::new);
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGPartLang::new);
-
         // Recipes
-        vanillaRecipes(add);
         ticRecipes(add);
         createRecipes(add);
+        vanillaRecipes(add);
+
 
         // Assets
         add.accept(TGMaterialRenderInfoProvider::new);
@@ -57,6 +49,15 @@ public class TGDataGeneration {
         REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, TGBlockTagGen::new);
         REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TGItemTagGen::new);
         REGISTRATE.addDataGenerator(ProviderType.FLUID_TAGS, TGFluidTagGen::new);
+
+        // Lang
+        REGISTRATE.addDataGenerator(ProviderType.LANG, TGCommonLang::new);
+        REGISTRATE.addDataGenerator(ProviderType.LANG, TGMaterialLang::new);
+        REGISTRATE.addDataGenerator(ProviderType.LANG, TGModifierLang::new);
+        REGISTRATE.addDataGenerator(ProviderType.LANG, TGPonderLang::new);
+        REGISTRATE.addDataGenerator(ProviderType.LANG, TGRecipeLang::new);
+        REGISTRATE.addDataGenerator(ProviderType.LANG, TGTooltipLang::new);
+        REGISTRATE.addDataGenerator(ProviderType.LANG, TGPartLang::new);
     }
 
     private static void vanillaRecipes(Consumer<Function<PackOutput, ? extends DataProvider>> consumer) {

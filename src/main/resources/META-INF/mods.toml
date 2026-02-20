@@ -26,7 +26,7 @@ side = "BOTH"
 modId = "create"
 mandatory = true
 versionRange = "[6.0.6,)"
-ordering = "AFTER"
+ordering = "NONE"
 side = "BOTH"
 [[dependencies.tgears]]
 modId = "tconstruct"

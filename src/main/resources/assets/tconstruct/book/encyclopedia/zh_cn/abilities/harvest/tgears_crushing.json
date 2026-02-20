@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:crushing",
+  "text": [
+    {
+      "text": "工具所挖掘的方块将掉落其粉碎后的产物。"
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "最高1级",
+    "需要1个能力槽"
+  ]
+}

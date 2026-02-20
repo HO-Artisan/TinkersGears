@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:wrench",
+  "text": [
+    {
+      "text": "Allows you to configure components with your tools."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximun of 1 level",
+    "Requires 1 ability slot"
+  ]
+}

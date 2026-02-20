@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:extendo",
+  "text": [
+    {
+      "text": "R——E——A——C——H——"
+    }
+  ],
+  "effects": [
+    "Significantly increases reach distance",
+    "Single Level",
+    "Requires 1 upgrade slot"
+  ]
+}

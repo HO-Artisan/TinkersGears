@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:extendo",
+  "text": [
+    {
+      "text": "Increases 3 block reach and 3 entity reachs."
+    }
+  ],
+  "more_text_space": true,
+  "effects": [
+    "Maximun of 1 level",
+    "Requires 1 upgrade slot"
+  ]
+}

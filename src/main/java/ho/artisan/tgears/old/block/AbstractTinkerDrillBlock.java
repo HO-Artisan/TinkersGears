@@ -154,12 +154,12 @@ public abstract class AbstractTinkerDrillBlock<T extends TinkerDrillBlockEntity>
 
         @Override
         public Predicate<ItemStack> getItemPredicate() {
-            return (itemstack) -> itemstack.is(TGTagKeys.Items.DRILL);
+            return (itemstack) -> itemstack.is(TGTagKeys.Items.DRILLS);
         }
 
         @Override
         public Predicate<BlockState> getStatePredicate() {
-            return state -> state.is(TGTagKeys.Blocks.DRILL);
+            return state -> state.is(TGTagKeys.Blocks.DRILLS);
         }
 
         @Override

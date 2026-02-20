@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:diving_weight",
+  "text": [
+    {
+      "text": "潜水员的好帮手！"
+    }
+  ],
+  "effects": [
+    "让你的靴子变得跟潜水靴一样",
+    "单个等级",
+    "需要1个升级槽"
+  ]
+}

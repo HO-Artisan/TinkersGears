@@ -9,7 +9,7 @@ public final class TGCommonLang extends TGLang {
         provider.add("gui.tgears.integrated_smeltery", "Integrated Smeltery");
 
         provider.add("create.generic.unit.percent", "%");
-        provider.add("create.generic.unit.temperature", "°C");
+        provider.add("create.generic.unit.temperature", "℃");
 
         provider.add("create.tooltip.gears.tinker_stats", "Tinker Stats:");
         provider.add("create.tooltip.gears.tinker_stats.fluid", "Fluid:");

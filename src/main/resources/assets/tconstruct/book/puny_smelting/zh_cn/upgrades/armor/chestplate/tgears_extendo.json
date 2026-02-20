@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:extendo",
+  "text": [
+    {
+      "text": "R——E——A——C——H——"
+    }
+  ],
+  "effects": [
+    "大幅增加触及距离",
+    "单个等级",
+    "需要1个升级槽"
+  ]
+}

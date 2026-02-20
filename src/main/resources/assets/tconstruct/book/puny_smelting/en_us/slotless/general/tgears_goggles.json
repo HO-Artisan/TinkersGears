@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:goggles",
+  "text": [
+    {
+      "text": "Engineers' good partner!"
+    }
+  ],
+  "effects": [
+    "You can see more details about placed machines.",
+    "Single Level",
+    "Soltless"
+  ]
+}

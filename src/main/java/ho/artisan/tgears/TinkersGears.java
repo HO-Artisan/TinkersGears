@@ -7,7 +7,6 @@ import ho.artisan.tgears.index.*;
 import ho.artisan.tgears.tools.PartMaterialStats;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -23,9 +22,8 @@ public class TinkersGears {
 
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
 
-    public TinkersGears() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModLoadingContext context = ModLoadingContext.get();
+    public TinkersGears(FMLJavaModLoadingContext context) {
+        IEventBus bus = context.getModEventBus();
         TinkersGearsCompat.load();
 
         TGCreativeModeTabs.register(bus);

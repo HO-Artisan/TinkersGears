@@ -6,9 +6,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
-import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SoulCardboardBlock extends CardboardBlock {
     public SoulCardboardBlock(Properties pProperties) {
@@ -26,18 +23,8 @@ public class SoulCardboardBlock extends CardboardBlock {
     }
 
     @Override
-    public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pReader, BlockPos pPos) {
-        return Shapes.block();
-    }
-
-    @Override
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         return false;
-    }
-
-    @Override
-    public VoxelShape getVisualShape(BlockState state, BlockGetter reader, BlockPos pos, CollisionContext context) {
-        return Shapes.empty();
     }
 
     @Override

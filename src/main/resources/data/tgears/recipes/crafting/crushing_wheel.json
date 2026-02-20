@@ -9,7 +9,7 @@
 			"tag": "forge:ingots/cobalt"
 		},
 		"S": {
-			"item": "tgears:cobalt_casing"
+			"tag": "tconstruct:seared_blocks"
 		}
 	},
 	"pattern": [

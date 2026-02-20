@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:crushing",
+  "text": [
+    {
+      "text": "Shrink mountains to pebbles!"
+    }
+  ],
+  "effects": [
+    "Crushing when breaking blocks",
+    "Single Level",
+    "Requires 1 ability slot"
+  ]
+}

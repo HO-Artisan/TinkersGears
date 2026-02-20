@@ -1,0 +1,13 @@
+{
+  "modifier_id": "tgears:crushing",
+  "text": [
+    {
+      "text": "破山碎石！"
+    }
+  ],
+  "effects": [
+    "在挖掘时直接粉碎",
+    "单个等级",
+    "需要1个能力槽"
+  ]
+}
