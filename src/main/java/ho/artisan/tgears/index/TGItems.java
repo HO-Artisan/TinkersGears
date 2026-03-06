@@ -3,14 +3,12 @@ package ho.artisan.tgears.index;
 import com.simibubi.create.AllItems;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.equipment.goggles.GogglesItem;
-import com.simibubi.create.foundation.item.ItemDescription;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import ho.artisan.tgears.TinkersGears;
 import ho.artisan.tgears.common.item.food.BlazingFoodItem;
 import ho.artisan.tgears.common.item.food.BlazingLeftoverFoodItem;
 import ho.artisan.tgears.common.item.food.LeftoverFoodItem;
 import ho.artisan.tgears.util.GogglesUtil;
-import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -19,13 +17,6 @@ import net.minecraft.world.item.Item;
 import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
 public final class TGItems {
-
-    static {
-        REGISTRATE.setCreativeTab(TGCreativeModeTabs.MAIN_TAB);
-        REGISTRATE.setTooltipModifierFactory(item ->
-                new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
-        );
-    }
 
     public static final ItemEntry<Item> CRUSHED_RAW_COBALT =
             REGISTRATE.item("crushed_raw_cobalt", Item::new)

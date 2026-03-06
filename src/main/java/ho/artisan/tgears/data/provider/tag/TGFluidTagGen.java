@@ -5,7 +5,7 @@ import ho.artisan.tgears.index.TGFluids;
 import ho.artisan.tgears.index.TGTagKeys;
 import net.minecraft.world.level.material.Fluid;
 
-public class TGFluidTagGen extends TGTagGen<Fluid> {
+public final class TGFluidTagGen extends TGTagGen<Fluid> {
     public TGFluidTagGen(RegistrateTagsProvider.IntrinsicImpl<Fluid> provIn) {
         super(provIn, fluid -> fluid.builtInRegistryHolder().key());
 

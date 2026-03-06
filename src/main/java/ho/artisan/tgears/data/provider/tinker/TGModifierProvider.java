@@ -20,6 +20,7 @@ public final class TGModifierProvider extends AbstractModifierProvider {
 
     @Override
     protected void addModifiers() {
+
         buildModifier(TGModifiers.Ids.DIVING)
                 .levelDisplay(ModifierLevelDisplay.NO_LEVELS)
                 .build();

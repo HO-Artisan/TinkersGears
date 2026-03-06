@@ -1,8 +1,8 @@
 {
-	"modifier_id": "tgears:extendo",
+	"modifier_id": "tgears:diving_weights",
 	"text": [
 		{
-			"text": "Increases 3 Block Reach Range and 3 Entity Reach Range."
+			"text": "Makes boots have same effect like Diving Boots."
 		}
 	],
 	"more_text_space": true,

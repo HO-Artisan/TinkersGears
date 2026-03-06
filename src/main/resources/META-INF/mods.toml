@@ -3,7 +3,7 @@ loaderVersion = "[47,)" #mandatory
 license = "MIT"
 [[mods]] #mandatory
 modId = "tgears" #mandatory
-version = "0.5.0" #mandatory
+version = "0.5.1" #mandatory
 displayName = "Tinkers' Gears" #mandatory
 logoFile = "icon.png"
 authors = "Chemiofitor"
@@ -32,5 +32,11 @@ side = "BOTH"
 modId = "tconstruct"
 mandatory = true
 versionRange = "[3.10.1.0,)"
+ordering = "AFTER"
+side = "BOTH"
+[[dependencies.tgears]]
+modId = "tponder"
+mandatory = false
+versionRange = "[1.0,)"
 ordering = "AFTER"
 side = "BOTH"

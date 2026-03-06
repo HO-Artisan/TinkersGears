@@ -1,10 +1,12 @@
 package ho.artisan.tgears;
 
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.item.ItemDescription;
 import ho.artisan.tgears.client.TinkersGearsClient;
 import ho.artisan.tgears.compat.TinkersGearsCompat;
 import ho.artisan.tgears.index.*;
 import ho.artisan.tgears.tools.PartMaterialStats;
+import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +23,13 @@ public class TinkersGears {
     public static final Logger LOGGER = LogManager.getLogger(NAME);
 
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
+
+    {
+        REGISTRATE.setCreativeTab(TGCreativeModeTabs.MAIN_TAB);
+        REGISTRATE.setTooltipModifierFactory(item ->
+                new ItemDescription.Modifier(item, FontHelper.Palette.STANDARD_CREATE)
+        );
+    }
 
     public TinkersGears(FMLJavaModLoadingContext context) {
         IEventBus bus = context.getModEventBus();

@@ -34,10 +34,6 @@ import static ho.artisan.tgears.TinkersGears.REGISTRATE;
 
 public final class TGBlocks {
 
-    static {
-        REGISTRATE.setCreativeTab(TGCreativeModeTabs.MAIN_TAB);
-    }
-
     private TGBlocks() {
     }
 

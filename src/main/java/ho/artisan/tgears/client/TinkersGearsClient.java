@@ -16,5 +16,4 @@ public class TinkersGearsClient {
             PonderIndex.addPlugin(new TGPonderPlugin());
         });
     }
-
 }

@@ -5,7 +5,6 @@ plugins {
     id "me.modmuss50.mod-publish-plugin" version "0.8.4"
 }
 
-
 base {
     archivesName = "tgears"
     group = 'ho.artisan.tgears'
@@ -100,6 +99,7 @@ repositories {
     maven { url 'https://dvs1.progwml6.com/files/maven' } // TiC, Mantle
     maven { url "https://maven.kessokuteatime.work/releases" }
     maven { url "https://maven.shedaniel.me/" } // Cloth Config
+    maven { url "https://maven.kessokuteatime.work/releases" }
 }
 
 dependencies {
@@ -111,6 +111,10 @@ dependencies {
     modImplementation("com.simibubi.create:create-${minecraft_version}:${create_version}-${create_version_number}:slim") {
         transitive = false
     }
+
+    jarJar(modImplementation("com.chemiofitor:tponder:1.1:slim") {
+        transitive = false
+    })
 
     // Create Dependencies
     modImplementation "com.tterrag.registrate:Registrate:${registrate_version}"

@@ -1,0 +1,13 @@
+{
+	"modifier_id": "tgears:diving_weights",
+	"text": [
+		{
+			"text": "Diver's nice helper!"
+		}
+	],
+	"effects": [
+		"Make your boots like diving boots",
+		"Single Level",
+		"Requires 1 upgrade slot"
+	]
+}

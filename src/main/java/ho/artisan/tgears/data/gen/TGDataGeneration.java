@@ -2,6 +2,7 @@ package ho.artisan.tgears.data.gen;
 
 import com.tterrag.registrate.providers.ProviderType;
 import ho.artisan.tgears.TinkersGears;
+import ho.artisan.tgears.client.ponder.TGPonderPlugin;
 import ho.artisan.tgears.data.provider.lang.*;
 import ho.artisan.tgears.data.provider.recipe.create.*;
 import ho.artisan.tgears.data.provider.recipe.tconstruct.*;
@@ -12,6 +13,7 @@ import ho.artisan.tgears.data.provider.tag.TGBlockTagGen;
 import ho.artisan.tgears.data.provider.tag.TGFluidTagGen;
 import ho.artisan.tgears.data.provider.tag.TGItemTagGen;
 import ho.artisan.tgears.data.provider.tinker.*;
+import net.createmod.ponder.foundation.PonderIndex;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
@@ -29,6 +31,8 @@ public class TGDataGeneration {
 
     @SubscribeEvent
     public static void generate(GatherDataEvent event) {
+        PonderIndex.addPlugin(new TGPonderPlugin());
+
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
 
