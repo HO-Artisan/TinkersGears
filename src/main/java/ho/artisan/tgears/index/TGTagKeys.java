@@ -39,7 +39,7 @@ public final class TGTagKeys {
 
         public static final TagKey<Item> GEARS = tgearsTag("modifiable/gears");
 
-        public static final TagKey<Item> SOUL_CARDBOARD_STORAGE_BLOCKS = forgeTag("storage_blocks/soul_cardboard_blocks");
+        public static final TagKey<Item> SOUL_CARDBOARD_STORAGE_BLOCKS = forgeTag("storage_blocks/soul_cardboard");
 
         public static TagKey<Item> createTag(final String name) {
             return ItemTags.create(ResourceLocation.tryBuild("create", name));
