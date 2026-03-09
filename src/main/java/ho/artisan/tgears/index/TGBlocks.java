@@ -53,6 +53,18 @@ public final class TGBlocks {
                     .lang("Block of Soul Cardboard")
                     .register();
 
+    public static final BlockEntry<SoulCardboardBlock> BOUND_SOUL_CARDBOARD_BLOCK =
+            REGISTRATE.block("bound_soul_cardboard_block", SoulCardboardBlock::new)
+                    .initialProperties(TinkerCommons.soulGlass::get)
+                    .properties(p -> p.sound(SoundType.CHISELED_BOOKSHELF).noCollission().isViewBlocking((state, getter, pos) -> true))
+                    .transform(axeOrPickaxe())
+                    .blockstate(BlockStateGen.horizontalAxisBlockProvider(false))
+                    .tag(TinkerTags.Blocks.TRANSPARENT_OVERLAY)
+                    .item()
+                    .build()
+                    .lang("Bound Block of Soul Cardboard")
+                    .register();
+
     public static final BlockEntry<TinkerSpoutBlock> TINKER_SPOUT = REGISTRATE.block("tinker_spout", TinkerSpoutBlock::new)
             .initialProperties(SharedProperties::copperMetal)
             .transform(pickaxeOnly())
