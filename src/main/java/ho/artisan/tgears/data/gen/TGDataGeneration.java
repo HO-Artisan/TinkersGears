@@ -45,7 +45,6 @@ public class TGDataGeneration {
         createRecipes(add);
         vanillaRecipes(add);
 
-
         // Assets
         add.accept(TGMaterialRenderInfoProvider::new);
 

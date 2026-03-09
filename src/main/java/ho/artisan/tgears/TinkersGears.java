@@ -9,6 +9,7 @@ import ho.artisan.tgears.tools.PartMaterialStats;
 import net.createmod.catnip.lang.FontHelper;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -31,8 +32,10 @@ public class TinkersGears {
         );
     }
 
-    public TinkersGears(FMLJavaModLoadingContext context) {
-        IEventBus bus = context.getModEventBus();
+    public TinkersGears() {
+        FMLJavaModLoadingContext fmlJavaModLoadingContext = FMLJavaModLoadingContext.get();
+        ModLoadingContext modLoadingContext = ModLoadingContext.get();
+        IEventBus bus = fmlJavaModLoadingContext.getModEventBus();
         TinkersGearsCompat.load();
 
         TGCreativeModeTabs.register(bus);
@@ -50,9 +53,7 @@ public class TinkersGears {
 
         TGModifiers.register(bus);
 
-        TinkersGearsConfig.register(context);
-
-        PartMaterialStats.register();
+        TinkersGearsConfig.register(modLoadingContext);
 
         bus.addListener(TinkersGearsClient::clientInit);
         bus.addListener(TinkersGears::init);
@@ -63,11 +64,12 @@ public class TinkersGears {
     }
 
     public static ResourceLocation asResource(String path) {
-        return ResourceLocation.tryBuild(TinkersGears.MOD_ID, path);
+        return new ResourceLocation(TinkersGears.MOD_ID, path);
     }
 
     public static void onRegister(final RegisterEvent event) {
         TGArmInteractionPointTypes.init();
+        PartMaterialStats.register();
     }
 
     public static void init(final FMLCommonSetupEvent event) {

@@ -16,12 +16,16 @@ public enum PartMaterialStats implements IMaterialStats {
     PROPELLER("propeller_part"),
     WHISK("whisk_part"),
     ;
+    private static boolean loaded = false;
     private static final List<Component> LOCALIZED = List.of(IMaterialStats.makeTooltip(TConstruct.getResource("extra.no_stats")));
     private static final List<Component> DESCRIPTION = List.of(Component.empty());
 
     public static void register() {
-        for (PartMaterialStats value : PartMaterialStats.values()) {
-            MaterialRegistry.getInstance().registerStatType(value.getType());
+        if (!loaded) {
+            for (PartMaterialStats value : PartMaterialStats.values()) {
+                MaterialRegistry.getInstance().registerStatType(value.getType());
+            }
+            loaded = true;
         }
     }
 

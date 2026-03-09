@@ -112,9 +112,9 @@ dependencies {
         transitive = false
     }
 
-    jarJar(modImplementation("com.chemiofitor:tponder:1.1:slim") {
+    modImplementation("com.chemiofitor:tponder:1.2") {
         transitive = false
-    })
+    }
 
     // Create Dependencies
     modImplementation "com.tterrag.registrate:Registrate:${registrate_version}"

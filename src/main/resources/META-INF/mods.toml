@@ -3,7 +3,7 @@ loaderVersion = "[47,)" #mandatory
 license = "MIT"
 [[mods]] #mandatory
 modId = "tgears" #mandatory
-version = "0.5.1" #mandatory
+version = "0.5.2" #mandatory
 displayName = "Tinkers' Gears" #mandatory
 logoFile = "icon.png"
 authors = "Chemiofitor"
