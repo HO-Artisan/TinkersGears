@@ -62,7 +62,7 @@ public final class TGTagKeys {
         public static final TagKey<Block> BURNER_TARGETS = tgearsTag("burner_targets");
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_BLAZING = createTag("fan_processing_catalysts/blazing");
-        public static final TagKey<Block> SOUL_CARDBOARD_STORAGE_BLOCKS = forgeTag("storage_blocks/soul_cardboard_blocks");
+        public static final TagKey<Block> SOUL_CARDBOARD_STORAGE_BLOCKS = forgeTag("storage_blocks/soul_cardboard");
 
         private Blocks() {
         }
