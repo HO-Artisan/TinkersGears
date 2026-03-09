@@ -14,10 +14,8 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
-import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
-
-import static slimeknights.tconstruct.library.materials.definition.MaterialVariantId.create;
+import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 
 import java.util.function.Consumer;
 
@@ -36,8 +34,6 @@ public final class TGCraftingProvider extends TGRecipeProvider {
         partRecipes(consumer);
         cardboardRecipes(consumer);
     }
-
-    public static final MaterialVariantId DEFAULT_IRON = create(MaterialIds.iron,"default");
 
     public void cardboardRecipes(Consumer<FinishedRecipe> consumer) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.SOUL_CARDBOARD, 4)
@@ -85,7 +81,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.PROPELLER)
                 .requires(AllItems.ANDESITE_ALLOY)
-                .requires(MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, DEFAULT_IRON))
+                .requires(MaterialIngredient.of(Ingredient.of(TGTinkerItems.PROPELLER_PART), MaterialVariantId.create(MaterialIds.iron,"default")))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("iron_propeller_from_part"));
 
@@ -97,7 +93,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.WHISK)
                 .requires(AllItems.ANDESITE_ALLOY)
-                .requires(MaterialIngredient.of(Ingredient.of(TGTinkerItems.WHISK_PART), DEFAULT_IRON))
+                .requires(MaterialIngredient.of(Ingredient.of(TGTinkerItems.WHISK_PART), MaterialVariantId.create(MaterialIds.iron,"default")))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("iron_whisk_from_part"));
     }

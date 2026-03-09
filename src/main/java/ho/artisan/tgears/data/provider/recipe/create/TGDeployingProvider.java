@@ -7,8 +7,10 @@ import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGMaterials;
 import ho.artisan.tgears.index.TGTinkerItems;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
+import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 
 public final class TGDeployingProvider extends DeployingRecipeGen {
     public TGDeployingProvider(PackOutput output) {
@@ -25,7 +27,7 @@ public final class TGDeployingProvider extends DeployingRecipeGen {
                 .require(AllItems.ANDESITE_ALLOY)
                 .output(TGItems.BLAZING_CHOCOLATE_HAND));
 
-        create("propeller", b -> b.require(MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, MaterialIds.iron))
+        create("propeller", b -> b.require(MaterialIngredient.of(Ingredient.of(TGTinkerItems.PROPELLER_PART), MaterialVariantId.create(MaterialIds.iron,"default")))
                 .require(AllItems.ANDESITE_ALLOY)
                 .output(AllItems.PROPELLER));
 
