@@ -1,19 +1,21 @@
 package ho.artisan.tgears.data.provider.recipe.vanilla;
 
-import net.minecraft.world.item.Items;
 import com.simibubi.create.AllItems;
 import ho.artisan.tgears.data.provider.recipe.TGRecipeProvider;
 import ho.artisan.tgears.index.TGBlocks;
 import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGMaterials;
 import ho.artisan.tgears.index.TGTinkerItems;
+import net.minecraft.world.item.Items;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
+import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
+import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
+import static slimeknights.tconstruct.library.materials.definition.MaterialVariantId.create;
 
 import java.util.function.Consumer;
 
@@ -33,6 +35,8 @@ public final class TGCraftingProvider extends TGRecipeProvider {
         cardboardRecipes(consumer);
     }
 
+    public static final MaterialVariantId DEFAULT_IRON = create(MaterialIds.iron,"default");
+
     public void cardboardRecipes(Consumer<FinishedRecipe> consumer) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.SOUL_CARDBOARD, 4)
                 .requires(TGBlocks.SOUL_CARDBOARD_BLOCK)
@@ -51,7 +55,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
                 .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
                 .save(consumer, location("soul_cardboard_block"));
         
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.BOUND_SOUL_CARDBOARD_BLOCK, 1)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGBlocks.BOUND_SOUL_CARDBOARD_BLOCK, 1)
                 .requires(TGBlocks.SOUL_CARDBOARD_BLOCK)
                 .requires(Items.STRING)
                 .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
@@ -79,7 +83,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.PROPELLER)
                 .requires(AllItems.ANDESITE_ALLOY)
-                .requires(MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, MaterialIds.iron))
+                .requires(MaterialIngredient.of(TGTinkerItems.PROPELLER_PART, DEFAULT_IRON))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("iron_propeller_from_part"));
 
@@ -91,7 +95,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.WHISK)
                 .requires(AllItems.ANDESITE_ALLOY)
-                .requires(MaterialIngredient.of(TGTinkerItems.WHISK_PART, MaterialIds.iron))
+                .requires(MaterialIngredient.of(TGTinkerItems.WHISK_PART, DEFAULT_IRON))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("iron_whisk_from_part"));
     }
