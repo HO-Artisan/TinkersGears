@@ -7,14 +7,16 @@ import ho.artisan.tgears.index.TGItems;
 import ho.artisan.tgears.index.TGMaterials;
 import ho.artisan.tgears.index.TGTinkerItems;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import slimeknights.tconstruct.tools.data.material.MaterialIds;
-import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
+import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
+
 import static slimeknights.tconstruct.library.materials.definition.MaterialVariantId.create;
 
 import java.util.function.Consumer;
@@ -77,7 +79,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.BLAZING_CHOCOLATE_HAND)
                 .requires(AllItems.ANDESITE_ALLOY)
-                .requires(MaterialIngredient.of(TGTinkerItems.HAND_PART, TGMaterials.Ids.BLAZING_CHOCOLATE))
+                .requires(MaterialIngredient.of(Ingredient.of(TGTinkerItems.HAND_PART), TGMaterials.Ids.BLAZING_CHOCOLATE))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("blazing_chocolate_hand_from_part"));
 
@@ -95,7 +97,7 @@ public final class TGCraftingProvider extends TGRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, AllItems.WHISK)
                 .requires(AllItems.ANDESITE_ALLOY)
-                .requires(MaterialIngredient.of(TGTinkerItems.WHISK_PART, DEFAULT_IRON))
+                .requires(MaterialIngredient.of(Ingredient.of(TGTinkerItems.WHISK_PART), DEFAULT_IRON))
                 .unlockedBy("has_item", has(AllItems.ANDESITE_ALLOY))
                 .save(consumer, location("iron_whisk_from_part"));
     }
