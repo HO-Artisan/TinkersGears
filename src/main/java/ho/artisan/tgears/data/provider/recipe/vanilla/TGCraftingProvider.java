@@ -1,5 +1,6 @@
 package ho.artisan.tgears.data.provider.recipe.vanilla;
 
+import net.minecraft.world.item.Items;
 import com.simibubi.create.AllItems;
 import ho.artisan.tgears.data.provider.recipe.TGRecipeProvider;
 import ho.artisan.tgears.index.TGBlocks;
@@ -37,6 +38,11 @@ public final class TGCraftingProvider extends TGRecipeProvider {
                 .requires(TGBlocks.SOUL_CARDBOARD_BLOCK)
                 .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
                 .save(consumer, location("soul_cardboard_from_block"));
+        
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.SOUL_CARDBOARD, 4)
+                .requires(TGBlocks.BOUND_SOUL_CARDBOARD_BLOCK)
+                .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
+                .save(consumer, location("soul_cardboard_from_block_bound"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGBlocks.SOUL_CARDBOARD_BLOCK)
                 .pattern("XX")
@@ -44,6 +50,12 @@ public final class TGCraftingProvider extends TGRecipeProvider {
                 .define('X', TGItems.SOUL_CARDBOARD)
                 .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
                 .save(consumer, location("soul_cardboard_block"));
+        
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGItems.BOUND_SOUL_CARDBOARD_BLOCK, 1)
+                .requires(TGBlocks.SOUL_CARDBOARD_BLOCK)
+                .requires(Items.STRING)
+                .unlockedBy("has_item", has(TGItems.SOUL_CARDBOARD))
+                .save(consumer, location("bound_soul_cardboard"));
     }
 
     public void partRecipes(Consumer<FinishedRecipe> consumer) {
