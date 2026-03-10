@@ -8,7 +8,7 @@
     {
       "type": "tconstruct:material",
       "item": "tgears:propeller_part",
-      "material": "tconstruct:iron"
+      "material": "tconstruct:iron#default"
     }
   ],
   "result": {

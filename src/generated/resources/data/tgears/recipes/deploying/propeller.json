@@ -4,7 +4,7 @@
     {
       "type": "tconstruct:material",
       "item": "tgears:propeller_part",
-      "material": "tconstruct:iron"
+      "material": "tconstruct:iron#default"
     },
     {
       "item": "create:andesite_alloy"

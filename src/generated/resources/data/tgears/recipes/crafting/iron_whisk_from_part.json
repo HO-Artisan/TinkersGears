@@ -8,7 +8,7 @@
     {
       "type": "tconstruct:material",
       "item": "tgears:whisk_part",
-      "material": "tconstruct:iron"
+      "material": "tconstruct:iron#default"
     }
   ],
   "result": {
