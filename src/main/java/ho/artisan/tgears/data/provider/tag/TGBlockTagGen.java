@@ -45,7 +45,8 @@ public final class TGBlockTagGen extends TGTagGen<Block> {
         prov.tag(TinkerTags.Blocks.FUEL_TANKS)
                 .add(AllBlocks.BLAZE_BURNER.get())
                 .addOptional(CABlocks.LIQUID_BLAZE_BURNER.getId())
-                .addOptional(BlockRegistry.ELECTRIC_BURNER.getId());
+                .addOptional(BlockRegistry.ELECTRIC_BURNER.getId())
+                .addOptional(zeh.createlowheated.AllBlocks.BASIC_BURNER.getId());
 
         prov.tag(TGTagKeys.Blocks.SPOUT_ATTACHMENTS)
                 .add(Blocks.LEVER)

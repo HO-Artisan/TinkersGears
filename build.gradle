@@ -139,6 +139,7 @@ dependencies {
     // modCompileOnly "maven.modrinth:create-alloyed:${alloyed_version}"
     modCompileOnly "maven.modrinth:create-cyber-goggles:${goggles_version}"
     modRuntimeOnly "maven.modrinth:create-cyber-goggles:${goggles_version}"
+    modImplementation "maven.modrinth:create-low-heated:${create_low_heated_version}"
 
     modCompileOnly "curse.maven:more-create-burners-1111030:${burners_version}"
     modRuntimeOnly "curse.maven:more-create-burners-1111030:${burners_version}"

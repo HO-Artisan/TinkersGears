@@ -8,6 +8,10 @@
     {
       "id": "moreburners:electric_burner",
       "required": false
+    },
+    {
+      "id": "createlowheated:basic_burner",
+      "required": false
     }
   ]
 }

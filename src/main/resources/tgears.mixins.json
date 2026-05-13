@@ -1,39 +1,42 @@
 {
-	"required": true,
-	"priority": 1100,
-	"package": "ho.artisan.tgears.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"refmap": "tgears.refmap.json",
-	"mixins": [
-		"assessor.AccessorCrushingWrapper",
-		"assessor.AccessorSpoutTank",
-		"burner.AlloyerFuelExtension",
-		"burner.BaseBurnerHeatSource",
-		"burner.BlazeBurnerActive",
-		"burner.BlazeBurnerHeatSource",
-		"burner.LiquidBlazeBurnerActive",
-		"burner.LiquidBlazeBurnerHeatSource",
-		"burner.MelterFuelExtension",
-		"crushing.BeltInventoryCheckFix",
-		"crushing.CoveringBeltFix",
-		"crushing.CrushingBlockEntityTick",
-		"fan.AirCurrentExpansion",
-		"fan.CastingContainerProcessing",
-		"interact.CastingBlockInteractFix",
-		"modifier.DivingBootsModification",
-		"modifier.TinkerCardboardArmorSupport",
-		"modifier.TinkerWrenchSupport",
-		"spout.SpoutBlockEntityTick",
-		"tooltip.AlloyerInfo",
-		"tooltip.CastingContainerInfo",
-		"tooltip.MelterInfo",
-		"tooltip.TankInfo"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"minVersion": "0.8",
-	"client": [
-		"modifier.TinkerCardboardArmorOverlay"
+  "required": true,
+  "priority": 1100,
+  "package": "ho.artisan.tgears.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "tgears.refmap.json",
+  "mixins": [
+    "assessor.AccessorCrushingWrapper",
+    "assessor.AccessorSpoutTank",
+    "burner.AlloyerFuelExtension",
+    "burner.BaseBurnerHeatSource",
+    "burner.BasicBurnerActive",
+    "burner.BasicBurnerHeatSource",
+    "burner.BasicBurnerItemHandler",
+    "burner.BlazeBurnerActive",
+    "burner.BlazeBurnerHeatSource",
+    "burner.LiquidBlazeBurnerActive",
+    "burner.LiquidBlazeBurnerHeatSource",
+    "burner.MelterFuelExtension",
+    "crushing.BeltInventoryCheckFix",
+    "crushing.CoveringBeltFix",
+    "crushing.CrushingBlockEntityTick",
+    "fan.AirCurrentExpansion",
+    "fan.CastingContainerProcessing",
+    "interact.CastingBlockInteractFix",
+    "modifier.DivingBootsModification",
+    "modifier.TinkerCardboardArmorSupport",
+    "modifier.TinkerWrenchSupport",
+    "spout.SpoutBlockEntityTick",
+    "tooltip.AlloyerInfo",
+    "tooltip.CastingContainerInfo",
+    "tooltip.MelterInfo",
+    "tooltip.TankInfo"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8",
+  "client": [
+    "modifier.TinkerCardboardArmorOverlay"
 	]
 }
